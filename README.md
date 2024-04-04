@@ -1,5 +1,5 @@
 ### Hi there 👋
-
+Jak się nauczyć na github?
 <!--
 **plabiak81/plabiak81** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
