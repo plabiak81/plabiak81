@@ -53,7 +53,7 @@
     <ul>
         <li>📞 Telefon: <strong>+48 667 466 431</strong></li>
         <li>📍 Adres: Milicka 29, 56-300 Sułów, Polska</li>
-        <li>✉️ E-mail: <em>(tu wstaw swój adres e-mail)</em></li>
+        <li>✉️ E-mail: <em>slawek_21@op.pl </em></li>
     </ul>
 </section>
 
