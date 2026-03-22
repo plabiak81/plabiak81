@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pl">
+
+
 <head>
     <meta charset="UTF-8">
     <title>Instal-tig | Konstrukcje i instalacje rurowe ze stali nierdzewnej</title>
