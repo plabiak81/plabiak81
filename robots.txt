@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://plabiak81.github.io/plabiak81/sitemap.xml
