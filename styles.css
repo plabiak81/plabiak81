@@ -299,3 +299,32 @@ a { color: inherit; }
     html { scroll-behavior: auto; }
     .contact-card { transition: none; }
 }
+
+/* Stopka: dane firmy */
+.footer-nap { font-style: normal; margin-bottom: 8px; }
+.footer-nap a { color: #fff; }
+
+/* FAQ */
+.faq { display: grid; gap: 12px; max-width: 80ch; }
+.faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0 20px;
+}
+.faq-item summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 16px 0;
+    list-style-position: inside;
+}
+.faq-item p { color: var(--muted); }
+.faq-item a, .faq-more a, .article a:not(.btn):not(.back-link) { color: var(--accent); }
+.faq-more { margin-top: 24px; }
+
+/* Breadcrumbs i powiązane artykuły */
+.breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0 0 16px; font-size: 0.9rem; color: var(--muted); }
+.breadcrumbs li + li::before { content: "›"; margin-right: 6px; }
+.breadcrumbs a { color: var(--accent); text-decoration: none; }
+.related { margin-top: 2.5em; }
+.related ul { padding-left: 1.2em; }

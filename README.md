@@ -38,3 +38,5 @@ Kompleksowo realizujemy projekty: od projektu, przez prefabrykację, po montaż 
 | `favicon.svg` | Ikona strony w karcie przeglądarki |
 | `img/` | Logo firmy (wersja ciemna i biała) |
 | `blog/` | Blog Ekspercki: lista artykułów i artykuły |
+| `sitemap.xml`, `robots.txt` | Mapa strony i reguły dla wyszukiwarek |
+| `404.html` | Strona błędu „nie znaleziono” |
