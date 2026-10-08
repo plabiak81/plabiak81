@@ -37,6 +37,7 @@ Kompleksowo realizujemy projekty: od projektu, przez prefabrykację, po montaż 
 | `styles.css` | Wygląd strony (responsywny, z trybem ciemnym) |
 | `favicon.svg` | Ikona strony w karcie przeglądarki |
 | `img/` | Logo firmy (wersja ciemna i biała) |
+| `img/realizacje/` | Zdjęcia realizacji z logo (pełne i miniatury, WebP) |
 | `blog/` | Blog Ekspercki: lista artykułów i artykuły |
 | `sitemap.xml`, `robots.txt` | Mapa strony i reguły dla wyszukiwarek |
 | `404.html` | Strona błędu „nie znaleziono” |
