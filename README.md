@@ -6,8 +6,8 @@
 
 Kompleksowo realizujemy projekty: od projektu, przez prefabrykację, po montaż i serwis.
 
-🌐 **Strona internetowa:** https://plabiak81.github.io/plabiak81/  
-📚 **Blog Ekspercki:** https://plabiak81.github.io/plabiak81/blog/
+🌐 **Strona internetowa:** https://plabiak81.github.io/Instal-Tig/  
+📚 **Blog Ekspercki:** https://plabiak81.github.io/Instal-Tig/blog/
 
 ## Oferta
 
@@ -27,17 +27,4 @@ Kompleksowo realizujemy projekty: od projektu, przez prefabrykację, po montaż 
 - ✉️ E-mail: slawek_21@op.pl
 - 📍 Adres: Milicka 29, 56-300 Sułów
 
----
-
-### Struktura repozytorium
-
-| Plik | Opis |
-|------|------|
-| `index.html` | Strona firmowa |
-| `styles.css` | Wygląd strony (responsywny, z trybem ciemnym) |
-| `favicon.svg` | Ikona strony w karcie przeglądarki |
-| `img/` | Logo firmy (wersja ciemna i biała) |
-| `img/realizacje/` | Zdjęcia realizacji z logo (pełne i miniatury, WebP) |
-| `blog/` | Blog Ekspercki: lista artykułów i artykuły |
-| `sitemap.xml`, `robots.txt` | Mapa strony i reguły dla wyszukiwarek |
-| `404.html` | Strona błędu „nie znaleziono” |
+Kod strony: https://github.com/plabiak81/Instal-Tig
