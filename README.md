@@ -1,10 +1,13 @@
+<img src="img/logo.png" alt="Instal-tig" width="360">
+
 # Instal-tig
 
 **Budowa konstrukcji i instalacji rurowych ze stali nierdzewnej dla przemysłu.**
 
 Kompleksowo realizujemy projekty: od projektu, przez prefabrykację, po montaż i serwis.
 
-🌐 **Strona internetowa:** https://plabiak81.github.io/plabiak81/
+🌐 **Strona internetowa:** https://plabiak81.github.io/plabiak81/  
+📚 **Blog Ekspercki:** https://plabiak81.github.io/plabiak81/blog/
 
 ## Oferta
 
@@ -33,3 +36,5 @@ Kompleksowo realizujemy projekty: od projektu, przez prefabrykację, po montaż 
 | `index.html` | Strona firmowa |
 | `styles.css` | Wygląd strony (responsywny, z trybem ciemnym) |
 | `favicon.svg` | Ikona strony w karcie przeglądarki |
+| `img/` | Logo firmy (wersja ciemna i biała) |
+| `blog/` | Blog Ekspercki: lista artykułów i artykuły |
