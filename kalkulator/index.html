@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kalkulator wyceny — Instal-tig</title>
+    <meta name="description" content="Bezpłatna, szacunkowa wycena instalacji rurowych i konstrukcji ze stali nierdzewnej w 60 sekund. Instal-tig — projekt, prefabrykacja, montaż.">
+    <link rel="canonical" href="https://plabiak81.github.io/plabiak81/kalkulator/">
+    <style>
+        :root {
+            --bg: #f4f6f8;
+            --card: #ffffff;
+            --text: #1c2430;
+            --muted: #5b6776;
+            --line: #d9dfe6;
+            --accent: #0b6fb8;
+            --accent-dark: #08578f;
+            --ok: #1d7a46;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #12171d;
+                --card: #1b222b;
+                --text: #e6ebf0;
+                --muted: #9aa6b4;
+                --line: #2e3844;
+                --accent: #4ea3e6;
+                --accent-dark: #7bbbee;
+                --ok: #4cc283;
+            }
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+        header, main, footer { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+        header { padding-top: 24px; text-align: center; }
+        header img { max-width: 260px; width: 70%; height: auto; }
+        h1 { font-size: 1.6rem; margin: 12px 0 4px; }
+        .lead { color: var(--muted); margin: 0 0 24px; }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .step-label { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); font-weight: 600; }
+        h2 { font-size: 1.15rem; margin: 4px 0 14px; }
+        .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+        .options label {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 12px;
+            cursor: pointer;
+            display: block;
+        }
+        .options input { position: absolute; opacity: 0; }
+        .options label:has(input:checked) { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
+        .options label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .options strong { display: block; }
+        .options small { color: var(--muted); }
+        .field { margin-bottom: 14px; }
+        .field label { display: block; font-weight: 600; margin-bottom: 4px; }
+        .field small { color: var(--muted); }
+        input[type=number], input[type=text], input[type=email], input[type=tel], select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--card);
+            color: var(--text);
+            font: inherit;
+        }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 520px) { .row { grid-template-columns: 1fr; } }
+        .result { text-align: center; }
+        .price { font-size: 2rem; font-weight: 700; color: var(--accent); margin: 6px 0; }
+        .breakdown { text-align: left; width: 100%; border-collapse: collapse; margin-top: 12px; font-size: .95rem; }
+        .breakdown td { padding: 6px 0; border-bottom: 1px solid var(--line); }
+        .breakdown td:last-child { text-align: right; white-space: nowrap; }
+        .note { font-size: .85rem; color: var(--muted); }
+        button, .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        button:hover, .btn:hover { background: var(--accent-dark); }
+        .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+        .btn-outline:hover { background: transparent; color: var(--accent-dark); }
+        .actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 12px; }
+        .hidden { display: none; }
+        .success { color: var(--ok); font-weight: 600; }
+        footer { color: var(--muted); font-size: .85rem; text-align: center; padding-bottom: 32px; }
+        footer a { color: var(--accent); }
+    </style>
+</head>
+<body>
+<header>
+    <a href="https://plabiak81.github.io/Instal-Tig/"><img src="../img/logo.png" alt="Instal-tig"></a>
+    <h1>Ile będzie kosztować Twoja instalacja ze stali nierdzewnej?</h1>
+    <p class="lead">Odpowiedz na 4 pytania i otrzymaj szacunkową wycenę w 60 sekund. Bezpłatnie i bez zobowiązań.</p>
+</header>
+
+<main>
+    <form id="calc" novalidate>
+        <section class="card">
+            <div class="step-label">Krok 1</div>
+            <h2>Co chcesz zrealizować?</h2>
+            <div class="options" id="type-options"></div>
+        </section>
+
+        <section class="card">
+            <div class="step-label">Krok 2</div>
+            <h2>Zakres prac</h2>
+            <div class="field">
+                <label for="qty" id="qty-label">Długość rurociągu</label>
+                <input type="number" id="qty" min="1" step="1" value="50" inputmode="numeric">
+                <small id="qty-hint"></small>
+            </div>
+            <div class="field" id="dn-field">
+                <label for="dn">Średnica rurociągu</label>
+                <select id="dn"></select>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="step-label">Krok 3</div>
+            <h2>Materiał i wykończenie</h2>
+            <div class="row">
+                <div class="field">
+                    <label for="steel">Gatunek stali</label>
+                    <select id="steel"></select>
+                </div>
+                <div class="field">
+                    <label for="finish">Wykończenie powierzchni</label>
+                    <select id="finish"></select>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="step-label">Krok 4</div>
+            <h2>Realizacja</h2>
+            <div class="row">
+                <div class="field">
+                    <label for="distance">Odległość od Sułowa (km)</label>
+                    <input type="number" id="distance" min="0" step="10" value="100" inputmode="numeric">
+                </div>
+                <div class="field">
+                    <label for="deadline">Termin</label>
+                    <select id="deadline"></select>
+                </div>
+            </div>
+            <div class="field">
+                <label><input type="checkbox" id="design"> Potrzebuję również projektu / dokumentacji</label>
+            </div>
+        </section>
+
+        <section class="card result" aria-live="polite">
+            <div class="step-label">Szacunkowa wycena netto</div>
+            <div class="price" id="price">—</div>
+            <table class="breakdown" id="breakdown"></table>
+            <p class="note">Wycena orientacyjna. Ostateczna cena zależy od wizji lokalnej, dokumentacji i aktualnych cen stali.</p>
+            <div class="actions">
+                <button type="button" id="show-lead">Chcę dokładną ofertę</button>
+                <a class="btn btn-outline" href="tel:+48667466431">Zadzwoń: 667 466 431</a>
+            </div>
+        </section>
+
+        <section class="card hidden" id="lead">
+            <div class="step-label">Ostatni krok</div>
+            <h2>Gdzie wysłać dokładną ofertę?</h2>
+            <div class="row">
+                <div class="field">
+                    <label for="name">Imię i nazwisko *</label>
+                    <input type="text" id="name" autocomplete="name" required>
+                </div>
+                <div class="field">
+                    <label for="company">Firma</label>
+                    <input type="text" id="company" autocomplete="organization">
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="phone">Telefon *</label>
+                    <input type="tel" id="phone" autocomplete="tel" required>
+                </div>
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" autocomplete="email">
+                </div>
+            </div>
+            <div class="field">
+                <label for="message">Dodatkowe informacje</label>
+                <textarea id="message" rows="3" placeholder="Np. medium, ciśnienie, lokalizacja zakładu"></textarea>
+            </div>
+            <p class="note" id="lead-error" role="alert"></p>
+            <div class="actions">
+                <button type="submit">Wyślij zapytanie</button>
+            </div>
+            <p class="success hidden" id="lead-ok">Dziękujemy! Otworzyliśmy Twój program pocztowy z gotową wiadomością — wystarczy kliknąć „Wyślij”. Oddzwonimy w ciągu 24 godzin.</p>
+        </section>
+    </form>
+</main>
+
+<footer>
+    <p><a href="https://plabiak81.github.io/Instal-Tig/">Instal-tig</a> · Milicka 29, 56-300 Sułów · <a href="tel:+48667466431">+48 667 466 431</a> · <a href="mailto:slawek_21@op.pl">slawek_21@op.pl</a></p>
+</footer>
+
+<script>
+// ===================== CENNIK =====================
+// Stawki przykładowe (zł netto). Zastąp je własnymi stawkami firmy —
+// cały kalkulator przelicza się na ich podstawie.
+const CENNIK = {
+    contactEmail: "slawek_21@op.pl",
+    types: {
+        pipe:     { label: "Rurociąg technologiczny", hint: "rurociągi procesowe", unit: "mb", qtyLabel: "Długość rurociągu", qtyHint: "Łączna długość w metrach bieżących.", base: 0, usesDn: true },
+        frame:    { label: "Konstrukcja wsporcza",   hint: "ramy, stelaże",       unit: "kg", qtyLabel: "Szacowana masa konstrukcji", qtyHint: "Nie wiesz? Przyjmij ok. 40 kg na metr bieżący ramy.", base: 38 },
+        platform: { label: "Pomost / platforma",     hint: "z barierkami",        unit: "m²", qtyLabel: "Powierzchnia pomostu", qtyHint: "Powierzchnia robocza w m².", base: 2400 },
+        cover:    { label: "Obudowa / osłona maszyny", hint: "panele, drzwiczki", unit: "m²", qtyLabel: "Powierzchnia obudowy", qtyHint: "Suma powierzchni ścian obudowy w m².", base: 1300 }
+    },
+    // cena za mb rurociągu (materiał + prefabrykacja + montaż) wg średnicy
+    dn: { "DN25": 260, "DN40": 330, "DN50": 390, "DN65": 470, "DN80": 560, "DN100": 690, "DN150": 980 },
+    steel: { "AISI 304": 1.0, "AISI 316L": 1.25 },
+    finish: {
+        "Standardowe (po spawaniu, oczyszczone)": 1.0,
+        "Trawienie i pasywacja": 1.08,
+        "Szlifowanie (szczotkowane)": 1.15,
+        "Elektropolerowanie (higieniczne)": 1.3
+    },
+    deadline: { "Standardowy (6–8 tyg.)": 1.0, "Przyspieszony (3–4 tyg.)": 1.15, "Ekspres (do 2 tyg.)": 1.35 },
+    designPct: 0.08,      // projekt jako % wartości robót
+    travelPerKm: 4.5,     // dojazd ekipy: zł za km (w obie strony liczone razem)
+    mobilization: 1500,   // stały koszt mobilizacji ekipy
+    minOrder: 5000,
+    spread: 0.15          // widełki ceny ±15%
+};
+// ==================================================
+
+const $ = id => document.getElementById(id);
+const fmt = n => Math.round(n / 100) * 100;
+const pln = n => fmt(n).toLocaleString("pl-PL") + " zł";
+
+function fillSelect(el, obj) {
+    el.innerHTML = Object.keys(obj).map(k => `<option>${k}</option>`).join("");
+}
+
+$("type-options").innerHTML = Object.entries(CENNIK.types).map(([key, t], i) =>
+    `<label><input type="radio" name="type" value="${key}"${i === 0 ? " checked" : ""}><strong>${t.label}</strong><small>${t.hint}</small></label>`
+).join("");
+fillSelect($("dn"), CENNIK.dn);
+fillSelect($("steel"), CENNIK.steel);
+fillSelect($("finish"), CENNIK.finish);
+fillSelect($("deadline"), CENNIK.deadline);
+$("dn").value = "DN50";
+
+function currentType() {
+    return CENNIK.types[document.querySelector("input[name=type]:checked").value];
+}
+
+function calculate() {
+    const t = currentType();
+    const qty = Math.max(0, Number($("qty").value) || 0);
+    const unitPrice = t.usesDn ? CENNIK.dn[$("dn").value] : t.base;
+    const works = qty * unitPrice * CENNIK.steel[$("steel").value] * CENNIK.finish[$("finish").value];
+    const rush = works * (CENNIK.deadline[$("deadline").value] - 1);
+    const design = $("design").checked ? (works + rush) * CENNIK.designPct : 0;
+    const travel = CENNIK.mobilization + Math.max(0, Number($("distance").value) || 0) * CENNIK.travelPerKm;
+    const total = Math.max(CENNIK.minOrder, works + rush + design + travel);
+    return { t, qty, works, rush, design, travel, total };
+}
+
+function render() {
+    const t = currentType();
+    $("qty-label").textContent = `${t.qtyLabel} (${t.unit})`;
+    $("qty-hint").textContent = t.qtyHint;
+    $("dn-field").classList.toggle("hidden", !t.usesDn);
+
+    const r = calculate();
+    if (!r.qty) {
+        $("price").textContent = "—";
+        $("breakdown").innerHTML = "";
+        return;
+    }
+    $("price").textContent = `${pln(r.total * (1 - CENNIK.spread))} – ${pln(r.total * (1 + CENNIK.spread))}`;
+    const rows = [
+        ["Materiał, prefabrykacja i montaż", r.works],
+        ["Dopłata za termin", r.rush],
+        ["Projekt i dokumentacja", r.design],
+        ["Dojazd i mobilizacja ekipy", r.travel]
+    ].filter(([, v]) => v > 0);
+    $("breakdown").innerHTML = rows.map(([k, v]) => `<tr><td>${k}</td><td>${pln(v)}</td></tr>`).join("");
+}
+
+function summary() {
+    const r = calculate();
+    const lines = [
+        `Rodzaj: ${r.t.label}`,
+        `Zakres: ${r.qty} ${r.t.unit}${r.t.usesDn ? ", " + $("dn").value : ""}`,
+        `Stal: ${$("steel").value}`,
+        `Wykończenie: ${$("finish").value}`,
+        `Termin: ${$("deadline").value}`,
+        `Odległość: ${$("distance").value} km`,
+        `Projekt: ${$("design").checked ? "tak" : "nie"}`,
+        `Wycena z kalkulatora: ${$("price").textContent} netto`
+    ];
+    return lines.join("\n");
+}
+
+$("calc").addEventListener("input", render);
+$("calc").addEventListener("change", render);
+
+$("show-lead").addEventListener("click", () => {
+    $("lead").classList.remove("hidden");
+    $("name").focus();
+});
+
+$("calc").addEventListener("submit", e => {
+    e.preventDefault();
+    const name = $("name").value.trim();
+    const phone = $("phone").value.trim();
+    if (!name || phone.replace(/\D/g, "").length < 9) {
+        $("lead-error").textContent = "Podaj imię i poprawny numer telefonu, abyśmy mogli oddzwonić.";
+        return;
+    }
+    $("lead-error").textContent = "";
+    const body = [
+        "Dzień dobry,",
+        "proszę o przygotowanie oferty na podstawie kalkulatora:",
+        "",
+        summary(),
+        "",
+        `Imię i nazwisko: ${name}`,
+        `Firma: ${$("company").value.trim() || "-"}`,
+        `Telefon: ${phone}`,
+        `E-mail: ${$("email").value.trim() || "-"}`,
+        "",
+        $("message").value.trim()
+    ].join("\n");
+    const subject = `Zapytanie ofertowe: ${calculate().t.label} — ${$("company").value.trim() || name}`;
+    location.href = `mailto:${CENNIK.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    $("lead-ok").classList.remove("hidden");
+});
+
+render();
+</script>
+</body>
+</html>
