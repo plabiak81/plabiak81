@@ -3,14 +3,15 @@
 Agent Claude, który pracuje nad stroną Instal-tig, kiedy śpisz.
 
 - **Kiedy:** codziennie o 2:47 w nocy (czas polski), jako zaplanowane zadanie
-  w Claude Code (każda noc to nowa, czysta sesja).
+  w Claude Code. Pracuje zawsze w tej samej sesji „Nocny agent Instal-tig”
+  w claude.ai/code, która ma podpięte repozytorium Instal-Tig.
 - **Co robi:** pisze jeden nowy artykuł na Blog Ekspercki, sprawdza stronę
   pod kątem zepsutych linków i błędów SEO, i otwiera pull request
   w `plabiak81/Instal-Tig` z raportem porannym.
 - **Czego nie robi:** nie publikuje sam. Strona zmienia się dopiero, kiedy
   przejrzysz i scalisz PR. Gdy czekają 3 nieprzejrzane PR, przestaje pisać
   nowe artykuły, żeby Cię nie zasypać.
-- **Rano:** dostajesz powiadomienie z krótkim podsumowaniem i linkiem do PR.
+- **Rano:** podsumowanie z linkiem do PR jest na końcu sesji „Nocny agent Instal-tig”, a sam PR w Instal-Tig.
 
 ## Jak nim sterować
 

@@ -15,9 +15,11 @@ sam: strona zmienia się dopiero, gdy właściciel scali PR.
 
 ## Przebieg nocnej zmiany
 
-1. **Dostęp.** Dodaj repozytorium `plabiak81/Instal-Tig` do sesji
-   (narzędzie `add_repo`, dostęp `push`) i sklonuj je. Jeśli dostęp zostanie
-   odmówiony, przejdź do sekcji „Plan B”.
+1. **Start.** Sesja agenta ma już sklonowane `plabiak81/Instal-Tig`
+   z prawem zapisu. Zacznij od świeżej gałęzi domyślnej:
+   `git fetch origin` i `git checkout -B nocny-agent/RRRR-MM-DD origin/<gałąź domyślna>`
+   (zmiany z poprzednich nocy są w PR, nie na gałęzi domyślnej). Jeśli push
+   się nie uda, przejdź do sekcji „Plan B”.
 2. **Rozpoznanie.** Przeczytaj `blog/index.html`, wszystkie artykuły
    w `blog/`, `sitemap.xml` i listę otwartych PR w `plabiak81/Instal-Tig`.
    - Jeśli otwartych PR z gałęzi `nocny-agent/*` jest **3 lub więcej**, nie
@@ -81,15 +83,14 @@ sam: strona zmienia się dopiero, gdy właściciel scali PR.
 - **Nie dodawaj** zewnętrznych skryptów, śledzenia ani nowych bibliotek.
 - **Nie scalaj** PR, nie pushuj na gałąź domyślną, nie usuwaj gałęzi, nie
   zamykaj PR właściciela.
-- Repozytorium `plabiak81/plabiak81` zostawiasz w spokoju (poza Planem B).
+- Repozytorium `plabiak81/plabiak81` tylko czytasz (ta instrukcja), nie zmieniasz go.
 
 ## Plan B (brak dostępu do Instal-Tig)
 
-Nie trać pracy: napisz artykuł mimo to (strukturę podejrzyj w publicznym
-repozytorium przez `git clone https://github.com/plabiak81/Instal-Tig.git`),
-zapisz go w tym repozytorium jako `agent/szkice/RRRR-MM-DD-<slug>.html`
-na gałęzi `nocny-agent/RRRR-MM-DD` i wypchnij tę gałąź. W podsumowaniu napisz
-wyraźnie, że zabrakło dostępu do Instal-Tig i że szkic czeka na tej gałęzi.
+Jeśli nie da się wypchnąć gałęzi ani otworzyć PR, nie próbuj obchodzić
+blokady. Zostaw commit lokalnie (sesja jest stała, więc przetrwa do rana)
+i w podsumowaniu napisz wyraźnie, na czym utknąłeś i co właściciel ma
+zrobić. Następnej nocy spróbuj wypchnąć zaległą gałąź przed nową pracą.
 
 ## Tematy (od góry; nie trzeba wykreślać, agent sam sprawdza, co już jest)
 
