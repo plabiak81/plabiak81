@@ -14,7 +14,7 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 - 2026-10-29: studio kreatywne niedostępne w tej sesji (brak narzędzia do uruchomienia subagenta) → minimum oferty zrobione przez AI (`04-oferta/README.md`), zlecenie dla `/studio` przygotowane.
 - 2026-10-29: na start przedsprzedaż: zamówienie e-mailem + przelew; bramka płatności później.
 
-- 2026-10-29: etap 7 - reklama **R0 (0 zł)**; kanały: właściciel napisał „Szukaj też” → **interpretacja do potwierdzenia:** K-min (grupy FB + wiadomości do 5-15 warsztatów + SEO) + dodatkowe darmowe kanały z `07-plan-klienci.md` sekcja 1a (artykuł w magazynie STAL/dlaProdukcji.pl, ośrodki szkolenia spawaczy, hurtownie z QR, SEO z wymagań przetargów; później Shorts i targi Kielce 03.2027).
+- 2026-10-29: etap 7 - reklama **R0 (0 zł)**; kanały: właściciel napisał „Szukaj też” → **potwierdzone przez właściciela („OK”, 2026-10-29):** K-min (grupy FB + wiadomości do 5-15 warsztatów + SEO) + dodatkowe darmowe kanały z `07-plan-klienci.md` sekcja 1a (artykuł w magazynie STAL/dlaProdukcji.pl, ośrodki szkolenia spawaczy, hurtownie z QR, SEO z wymagań przetargów; później Shorts i targi Kielce 03.2027).
 - 2026-10-29: studio kreatywne równolegle robi grafiki i poprawki tekstów w `05-strona/*.html` - AI nie edytuje tych plików w tej turze.
 - 2026-10-29: powstały pełne wersje robocze produktów (`produkty/gotowe/`): poradnik 17 s. + 6 ściąg (PDF), 8 szablonów w wersji pustej i przykładowej (DOCX/XLSX) + instrukcja PDF + 3 paczki ZIP.
 
@@ -27,7 +27,6 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 ## Czeka na właściciela
 - Sprawdzenie merytoryki produktów (wszystkie `[[DO SPRAWDZENIA]]`), zdjęcia `[[ZDJĘCIE]]`.
 - **Decyzja: gdzie trzymać pliki produktów** - repo `plabiak81/plabiak81` publikuje się na GitHub Pages; `produkty/` (PDF, DOCX, XLSX, ZIP, źródła HTML) jest już w commicie `e45e491` na gałęzi roboczej - nie scalać z główną przed przeniesieniem do prywatnego repo.
-- Potwierdzenie interpretacji kanałów („Szukaj też”).
 
 ## Kluczowe liczby (03-model.py, VAT = 0, cennik B)
 - Średnie zamówienie 104,00 zł, marża po prowizji 101,34 zł.
