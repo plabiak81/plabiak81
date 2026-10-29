@@ -1,8 +1,14 @@
 # 03 - Model biznesowy i liczby: Nierdzewka w warsztacie
 
-**Data:** 2026-10-29 · **Etap:** 3 [DECYZJA: cennik i budżet startowy] · Liczby policzone przez `03-model.py` (wynik wklejony niżej). Parametry oznaczone (S) to szacunki - poprawiamy je po teście.
+**Data:** 2026-10-29 · **Etap:** 3 - zamknięty (decyzja: cennik B) · Liczby policzone przez `03-model.py` (wynik wklejony niżej). Parametry oznaczone (S) to szacunki - poprawiamy je po teście.
 
-> Ceny i koszty w PLN. Konsument widzi ceny **brutto**, firma **netto + 23% VAT**. Model liczy VAT 23% dla wszystkiego (ostrożnie). Poradnik PDF może podlegać 5% VAT jako publikacja elektroniczna - źródła są niezgodne co do wymogu ISBN ([Podatnik.info](https://www.podatnik.info/publikacje/opodatkowanie-e-bookow-i-audiobookow,659181), [Solidna Księgowa](https://solidnaksiegowa.com/jaka-stawka-vat-przy-sprzedazy-e-booka/)) - do potwierdzenia z księgową na etapie 6. Przy 5% VAT z poradnika za 69 zł brutto zostaje 65,71 zł netto zamiast 56,10 zł.
+## 0. Decyzje i VAT
+
+- **Cennik (decyzja właściciela 2026-10-29): wariant B** - poradnik **49 zł**, szablony **179 zł**, komplet **199 zł**.
+- **Budżet startowy:** właściciel „bez preferencji” → przyjęty **Bazowy 560 zł jako założenie do potwierdzenia**. Każdy wydatek wymaga osobnej zgody.
+- **VAT:** Instal-tig to JDG **zwolniona podmiotowo z VAT** (art. 113 ust. 1). Dopóki trwa zwolnienie, **ceny są kwotami końcowymi**: klient płaci 49/179/199 zł, przychód = cena, brak VAT do odprowadzenia. Kwestia 5% / 23% dla PDF odpada. Koszty (domena, reklama) są dla nas kosztami brutto - bez odliczenia VAT.
+- **Limit zwolnienia od 1.01.2026 r.: 240 000 zł** sprzedaży rocznie (wcześniej 200 000 zł; ustawa z 24.06.2025 r.) - [poradnikprzedsiebiorcy.pl](https://poradnikprzedsiebiorcy.pl/-limit-zwolnienia-podmiotowego-w-vat), [podatki.biz](https://www.podatki.biz/artykuly/zmiany-2026-nowy-limit-zwolnienia-z-vat-i-kasowego-pit_4_60826.htm), [akademialtca.pl](https://akademialtca.pl/blog/prezydent-podpisal-ustawe-zmieniajaca-limit-zwolnienia-podmiotowego-w-vat). **Limit obejmuje całą sprzedaż JDG**, razem z usługami montażowymi Instal-tig - sekcja 6 wyniku pokazuje, ile zapasu potrzeba. Obrót Instal-tig jest nieznany → pytanie do księgowej (`06-formalnosci.md`).
+- Ryzyka utraty zwolnienia i sprzedaż do UE (OSS) - opisane w `06-formalnosci.md`, sekcja 2.
 
 ## 1. Lean Canvas
 
@@ -14,122 +20,109 @@
 | **Rozwiązanie** | Pakiet edytowalnych szablonów (Word/Excel) z przykładami wypełnienia + poradnik PDF ze ściągami do wydruku. |
 | **Kanały** | Grupy FB (1-2 obecne + 6-8 nowych), elektroda.pl, LinkedIn, SEO (wzory dokumentów), wiadomości do 5-15 znajomych warsztatów, opcjonalnie mała reklama Meta na darmową ściągę. |
 | **Przychody** | Sprzedaż jednorazowa: poradnik, szablony, komplet. Później: aktualizacje szablonów, kurs wideo TIG, ewentualnie aplikacja wyceny. |
-| **Koszty** | Domena, prowizje płatności, opcjonalnie reklama i sprawdzenie regulaminu. Czas właściciela: ok. 6-8 h na start (sprawdzenie merytoryki, zdjęcia), potem ok. 1 h/tydz. |
-| **Kluczowe metryki** | Odwiedziny, zapisy po darmową ściągę, konwersja zapis → zakup, liczba zamówień i udział szablonów w sprzedaży. |
+| **Koszty** | Domena, prowizje płatności, opcjonalnie reklama i sprawdzenie regulaminu. Czas właściciela: ok. 6-8 h na start, potem ok. 1 h/tydz. |
+| **Kluczowe metryki** | Odwiedziny, zapisy po darmową ściągę, konwersja zapis → zakup, liczba zamówień, udział szablonów w sprzedaży. |
 | **Przewaga** | Praktyka z przemysłem spożywczym (316L, higiena, odbiory), istniejący blog i materiały studia, brak polskiego płatnego konkurenta dla szablonów. |
 
-## 2. Cennik - 3 pakiety (wariant A, rekomendowany)
+## 2. Cennik (wariant B - wybrany)
 
-| Pakiet | Co zawiera | Cena | Dla kogo |
+| Pakiet | Co zawiera | Cena końcowa | Dla kogo |
 |---|---|---|---|
-| **Poradnik** | PDF „Nierdzewka bez przebarwień” (ok. 40-60 s.) + 4-6 ściąg A4 (parametry TIG wg grubości, wolfram, gaz i formowanie grani, kolory nalotu, 304 vs 316L, czyszczenie i pasywacja) | **69 zł brutto** (56,10 zł netto) | spawacz, hobbysta |
-| **Szablony warsztatu** | 7 edytowalnych dokumentów: wzór WPS (TIG 141, własny układ), dziennik spawania, protokół VT, protokół próby szczelności/ciśnieniowej, protokół odbioru i przekazania, rejestr atestów 3.1, checklista instalacji higienicznej + instrukcja i przykłady wypełnione | **249 zł netto** (306,27 zł brutto) | warsztat, podwykonawca |
-| **Komplet** | Szablony + poradnik + aktualizacje plików przez 12 mies. | **279 zł netto** (343,17 zł brutto) | warsztat, który szkoli ludzi |
+| **Poradnik** | PDF „Nierdzewka bez przebarwień” (ok. 40-60 s.) + 6 ściąg A4 | **49 zł** | spawacz, hobbysta |
+| **Szablony warsztatu** | 8 edytowalnych dokumentów (WPS TIG 141, dziennik spawania, protokół VT, próba szczelności/ciśnieniowa, protokół odbioru, rejestr atestów, checklista instalacji higienicznej, plan spawania i badań) + instrukcja i przykłady wypełnione | **179 zł** | warsztat, podwykonawca |
+| **Komplet** | Szablony + poradnik + aktualizacje plików przez 12 mies. | **199 zł** | warsztat, który szkoli ludzi |
 
-Darmowy magnes na e-mail: ściąga „Kolory nalotu na spoinie - co znaczą” i jeden szablon (protokół próby szczelności).
-
-Uczciwie: bez sztucznych „przekreślonych cen” i liczników czasu. Promocje tylko zgodnie z Omnibusem (najniższa cena z 30 dni) - etap 6.
+Na stronie: „Cena końcowa. Sprzedawca zwolniony z VAT (art. 113 ust. 1 ustawy o VAT)”. Darmowy magnes na e-mail: ściąga „Kolory nalotu na spoinie”. Bez sztucznych przekreślonych cen; promocje zgodnie z Omnibusem.
 
 ## 3. Koszty
 
 | Koszt | Typ | Kwota | Uwagi |
 |---|---|---|---|
-| Domena .pl | jednorazowo / rok | ok. 60 zł pierwszy rok, ok. 100 zł/rok później (S) | opcjonalnie - można zacząć na `plabiak81.github.io` za 0 zł |
+| Domena .pl | rok | ok. 60 zł pierwszy rok, ok. 120 zł/rok później (S) | opcjonalnie - start na `plabiak81.github.io` za 0 zł |
 | Hosting | stały | 0 zł | GitHub Pages |
-| E-mail marketing | stały | 0 zł (S: darmowy plan do ok. 1 000 adresów) | narzędzie do wyboru na etapie 5 |
-| Fakturowanie | stały | 0 zł (założenie: w ramach Instal-tig) | do potwierdzenia |
-| Bramka płatności | zmienny | ok. 1,5% + 1,10 zł za transakcję (S) | Stripe: karty 1,4% + 0,25 EUR, BLIK ok. 1,4%; Przelewy24: karty od 1,4% + 0,30 zł, BLIK 0,79% przy abonamencie 50 zł/mies. - dane z porównań, nie z cennika operatora ([freenance.io](https://freenance.io/przedsiebiorczosc/bramki-platnosci-2026-ranking-stripe-payu-przelewy24-tpay-bluemedia-porownanie/)) **[RĘCZNIE: sprawdzić stripe.com/pl/pricing]** |
-| Alternatywa: Lemon Squeezy (pośrednik sprzedaży, rozlicza VAT UE) | zmienny | 5% + 0,50 USD (wg recenzji) | droższe, za to bez obsługi VAT OSS; minus: słaby BLIK ([wearefounders.uk](https://www.wearefounders.uk/best-platforms-for-selling-digital-products-in-2026/)) |
-| Reklama Meta (opcjonalnie) | stały | 0 / 150 / 300 zł/mies. | tylko na darmową ściągę |
-| Sprawdzenie regulaminu przez prawnika | jednorazowo | ok. 500 zł (S) | opcjonalne w wariancie „Pełny” |
+| E-mail marketing | stały | 0 zł (S: darmowy plan do ok. 1 000 adresów) | wybór narzędzia - zadanie właściciela |
+| Fakturowanie | stały | 0 zł (założenie) | do potwierdzenia z księgową |
+| Bramka płatności | zmienny | ok. 1,5% + 1,10 zł (S) | Stripe: karty 1,4% + 0,25 EUR, BLIK ok. 1,4%; Przelewy24: karty od 1,4% + 0,30 zł - z porównań ([freenance.io](https://freenance.io/przedsiebiorczosc/bramki-platnosci-2026-ranking-stripe-payu-przelewy24-tpay-bluemedia-porownanie/)) **[RĘCZNIE: cennik operatora]** |
+| Reklama Meta (opcjonalnie) | stały | 0 / 150 / 300 zł/mies. | decyzja w etapie 7 |
+| Sprawdzenie regulaminu | jednorazowo | ok. 500 zł (S) | w wariancie „Pełny” |
 
-## 4. Wyniki z `03-model.py` (uruchomiony 2026-10-29)
+## 4. Wyniki z `03-model.py` (uruchomiony 2026-10-29, VAT = 0)
 
 ```
 ======================================================================
-1. EKONOMIA JEDNOSTKOWA (wariant A)
+1. EKONOMIA JEDNOSTKOWA (wariant B, zwolnienie z VAT (cena = przychód))
 ======================================================================
-          Produkt |  Netto | Brutto | Prowizja | Marża netto | Udział (S) 
-------------------+--------+--------+----------+-------------+------------
-     Poradnik PDF |  56.10 |  69.00 |     2.14 |       53.96 |        60% 
- Pakiet szablonów | 249.00 | 306.27 |     5.69 |      243.31 |        25% 
-          Komplet | 279.00 | 343.17 |     6.25 |      272.75 |        15% 
+          Produkt |   Cena | Przychód | Prowizja |  Marża | Udział (S) 
+------------------+--------+----------+----------+--------+------------
+     Poradnik PDF |  49.00 |    49.00 |     1.83 |  47.16 |        60% 
+ Pakiet szablonów | 179.00 |   179.00 |     3.79 | 175.22 |        25% 
+          Komplet | 199.00 |   199.00 |     4.08 | 194.91 |        15% 
 
-Średnie zamówienie: 137.76 zł netto, marża po prowizji: 134.12 zł
+Średnie zamówienie: 104.00 zł przychodu, marża po prowizji: 101.34 zł
 
 ======================================================================
 2. PRÓG RENTOWNOŚCI
 ======================================================================
  Reklama/mies. | Koszty stałe/mies. | Zamówień/mies. do zera 
 ---------------+--------------------+------------------------
-          0 zł |               8 zł |                    0.1 
-        150 zł |             158 zł |                    1.2 
-        300 zł |             308 zł |                    2.3 
+          0 zł |              10 zł |                    0.1 
+        150 zł |             160 zł |                    1.6 
+        300 zł |             310 zł |                    3.1 
 
-Zwrot budżetu startowego 'Minimum' (160 zł): 1 zamówień łącznie
-Zwrot budżetu startowego 'Bazowy' (560 zł): 4 zamówień łącznie
-Zwrot budżetu startowego 'Pełny' (1460 zł): 11 zamówień łącznie
+Zwrot budżetu startowego 'Minimum' (160 zł): 2 zamówień łącznie
+Zwrot budżetu startowego 'Bazowy' (560 zł): 6 zamówień łącznie
+Zwrot budżetu startowego 'Pełny' (1460 zł): 14 zamówień łącznie
 
-Cel 3 000 zł/mies. netto (bez reklam) = 22 zamówień/mies.
-Przy konwersji 1,5% to ok. 1 495 odwiedzin/mies.
+Cel 3 000 zł/mies. (bez reklam) = 30 zamówień/mies.
+Przy konwersji 1,8% to ok. 1 650 odwiedzin/mies.
 
 ======================================================================
-3. KOSZT POZYSKANIA KLIENTA Z REKLAMY (lejek: reklama -> ściąga -> e-mail -> zakup)
+3. KOSZT POZYSKANIA KLIENTA Z REKLAMY (reklama -> ściąga -> e-mail -> zakup)
 ======================================================================
 Koszt zapisu: 4.80 zł, koszt klienta (CAC): 120.00 zł
-Marża średniego zamówienia: 134.12 zł -> marża/CAC = 1.12
-Wniosek: reklama opłaca się tylko, gdy marża/CAC > 1 (lub doliczymy kolejne zakupy).
+Marża średniego zamówienia: 101.34 zł -> marża/CAC = 0.84
+Reklama na sprzedaż się nie spina, gdy marża/CAC < 1. Wtedy tylko test lub ruch darmowy.
 
 ======================================================================
 4. WARIANTY CENNIKA - średnia marża i zamówienia potrzebne do celu
 ======================================================================
-    Wariant |     Poradnik |     Szablony |      Komplet | Śr. marża | Zam./mies. do celu 
-------------+--------------+--------------+--------------+-----------+--------------------
-  B - niski | 49 zł brutto | 179 zł netto | 199 zł netto |     95.59 |                 31 
- A - bazowy | 69 zł brutto | 249 zł netto | 279 zł netto |    134.12 |                 22 
- C - wysoki | 89 zł brutto | 349 zł netto | 389 zł netto |    184.43 |                 16 
+     Wariant | Poradnik | Szablony | Komplet | Śr. marża | Zam./mies. do celu | Marża/CAC 
+-------------+----------+----------+---------+-----------+--------------------+-----------
+ B - wybrany |    49 zł |   179 zł |  199 zł |    101.34 |                 30 |      0.84 
+  A - bazowy |    69 zł |   249 zł |  279 zł |    142.22 |                 21 |      1.19 
+  C - wysoki |    89 zł |   349 zł |  389 zł |    194.92 |                 15 |      1.62 
 
 ======================================================================
-5. SCENARIUSZE NA 12 MIESIĘCY (wariant A, budżet startowy 'Bazowy')
+5. SCENARIUSZE NA 12 MIESIĘCY (wariant B, budżet startowy 'Bazowy')
 ======================================================================
  Scenariusz | Ruch m12 | Zam. m12 | Przych. m12 | Zysk m12 | Zam. 12m | Przych. 12m | Wynik 12m | Zwrot (mies.) 
 ------------+----------+----------+-------------+----------+----------+-------------+-----------+---------------
-   ostrożny |      400 |      3.5 |         482 |      461 |       28 |       3 802 |     3 046 |             4 
-     bazowy |     1000 |     15.7 |       2 163 |    1 948 |      116 |      16 035 |    13 155 |             2 
-      dobry |     2000 |     41.2 |       5 676 |    5 218 |      302 |      41 659 |    36 301 |             1 
+   ostrożny |      400 |      4.3 |         447 |      426 |       34 |       3 494 |     2 725 |             4 
+     bazowy |     1000 |     18.7 |       1 945 |    1 735 |      138 |      14 352 |    11 505 |             2 
+      dobry |     2000 |     49.2 |       5 117 |    4 676 |      360 |      37 440 |    32 202 |             1 
 
 Budżet startowy 'Bazowy': 560 zł. Cel właściciela: 3 000 zł/mies.
+
+======================================================================
+6. LIMIT ZWOLNIENIA Z VAT (240 000 zł/rok - cała sprzedaż JDG)
+======================================================================
+ ostrożny: nowy projekt dokłada 3 494 zł/rok -> zapas Instal-tig musi być co najmniej taki (obrót Instal-tig max 236 506 zł)
+   bazowy: nowy projekt dokłada 14 352 zł/rok -> zapas Instal-tig musi być co najmniej taki (obrót Instal-tig max 225 648 zł)
+    dobry: nowy projekt dokłada 37 440 zł/rok -> zapas Instal-tig musi być co najmniej taki (obrót Instal-tig max 202 560 zł)
+
+Uzupełnij OBROT_INSTALTIG, żeby sprawdzić zapas do limitu.
 ```
 
 ## 5. Co z tego wynika
 
-1. **Próg rentowności jest bardzo niski** - koszty stałe to ok. 8 zł/mies. Bez reklam zarabia już pierwsze zamówienie. Z reklamą 150 zł/mies. trzeba ok. 1-2 zamówień miesięcznie, żeby wyjść na zero. Budżet startowy „Bazowy” (560 zł) zwraca się po ok. 4 zamówieniach.
-2. **Problemem nie są koszty, tylko ruch.** Cel 3 000 zł/mies. netto to ok. 22 zamówienia miesięcznie, czyli ok. 1 500 odwiedzin z grupy docelowej przy konwersji 1,5% (S).
-3. **Reklama ledwo się spina:** koszt klienta ok. 120 zł przy średniej marży ok. 134 zł (marża/CAC 1,12). Reklama ma sens tylko jako test lub gdy zwiększymy udział szablonów (droższy produkt) albo dołożymy kolejne produkty dla tych samych ludzi.
-4. **Scenariusze 12 mies.** (wariant A, start 560 zł):
-   - ostrożny: ok. 28 zamówień w roku, ok. 3,8 tys. zł przychodu, w 12. mies. ok. 480 zł/mies.,
-   - bazowy: ok. 116 zamówień, ok. 16 tys. zł przychodu, w 12. mies. ok. 2,2 tys. zł/mies.,
-   - dobry: ok. 302 zamówienia, ok. 41,7 tys. zł przychodu, w 12. mies. ok. 5,7 tys. zł/mies.
-   Cel 3-5 tys. zł/mies. osiąga dopiero scenariusz dobry - albo bazowy plus drugi produkt (kurs wideo) w drugim półroczu.
-5. **Cena:** wariant C (wyższy) wymaga tylko 16 zamówień/mies. do celu zamiast 22, ale przy nieznanej marce i braku opinii może obniżyć konwersję. Wariant B (niższy) wymaga 31 zamówień - w małej niszy to zła droga.
-6. **Czas właściciela:** ok. 6-8 h jednorazowo (sprawdzenie poradnika i szablonów, 15-20 zdjęć spoin, decyzje), potem ok. 1 h/tydz. (odpowiedzi w grupach, wiadomości). Mieści się w 2-5 h/tydz.
-
-## 6. Decyzja właściciela
-
-### Cennik
-| Wariant | Poradnik | Szablony | Komplet | Zamówień/mies. do 3 000 zł |
-|---|---|---|---|---|
-| B - niski | 49 zł brutto | 179 zł netto | 199 zł netto | 31 |
-| **A - bazowy (rekomendacja)** | **69 zł brutto** | **249 zł netto** | **279 zł netto** | **22** |
-| C - wysoki | 89 zł brutto | 349 zł netto | 389 zł netto | 16 |
-
-Rekomendacja A: cena szablonów to równowartość 2-3 godzin pracy właściciela warsztatu przy dokumentach, a poradnik pozostaje zakupem impulsowym. Po 20-30 sprzedażach można przetestować C dla szablonów (zmiana ceny bez sztucznych promocji).
-
-### Budżet startowy
-| Wariant | Co | Kwota |
-|---|---|---|
-| Minimum | domena 60 zł + zapas 100 zł, bez reklam, regulamin z wzoru | 160 zł |
-| **Bazowy (rekomendacja)** | domena + 1 miesiąc testu reklam 300 zł + zapas 200 zł | **560 zł** |
-| Pełny | domena + 2 mies. reklam 600 zł + sprawdzenie regulaminu przez prawnika ok. 500 zł + zapas 300 zł | 1 460 zł |
-
-Miesięcznie potem: 0-150 zł (reklama tylko, jeśli test pokaże koszt zapisu ≤ 5 zł). Wszystkie warianty mieszczą się w budżecie z `PROFIL.md` (1-3 tys. zł + do 300 zł/mies.).
+1. **Próg rentowności jest bardzo niski:** koszty stałe ok. 10 zł/mies. Bez reklam zarabia pierwsze zamówienie. Przy reklamie 150 zł/mies. trzeba ok. 1,6 zamówienia miesięcznie. Budżet „Bazowy” 560 zł zwraca się po ok. 6 zamówieniach.
+2. **Cel 3 000 zł/mies. = ok. 30 zamówień miesięcznie** (przy wariancie A byłoby 21) = ok. 1 650 odwiedzin z grupy docelowej przy konwersji 1,8% (S).
+3. **Przy cenach B reklama na sprzedaż się nie spina:** koszt klienta ok. 120 zł, średnia marża ok. 101 zł (marża/CAC 0,84). Reklama ma sens tylko jako krótki test magnesu (koszt zapisu) albo gdy klienci kupią coś jeszcze (kurs, aktualizacje). Główny kanał musi być darmowy: grupy, forum, SEO, wiadomości B2B.
+4. **Scenariusze 12 mies. (wariant B, start 560 zł):**
+   - ostrożny: ok. 34 zamówienia, ok. 3,5 tys. zł przychodu w roku, w 12. mies. ok. 450 zł/mies.,
+   - bazowy: ok. 138 zamówień, ok. 14,4 tys. zł, w 12. mies. ok. 1,9 tys. zł/mies.,
+   - dobry: ok. 360 zamówień, ok. 37,4 tys. zł, w 12. mies. ok. 5,1 tys. zł/mies.
+   Cel 3-5 tys. zł/mies. osiąga tylko scenariusz dobry. Uczciwie: przy tej niszy i tych cenach potrzebny będzie drugi produkt (kurs wideo) w drugim półroczu.
+5. **Zaleta wariantu B:** niższy próg zakupu, łatwiej o pierwsze sprzedaże i opinie od prawdziwych klientów. Po 20-30 sprzedażach warto przetestować wyższą cenę szablonów (np. 249 zł) - bez sztucznych promocji, z poszanowaniem Omnibusa.
+6. **Limit zwolnienia:** nowy projekt dokłada 3,5-37 tys. zł/rok. Jeśli Instal-tig ma już ponad ok. 200 tys. zł sprzedaży rocznie, scenariusz dobry może przekroczyć 240 tys. zł → VAT 23% i ceny trzeba będzie przeliczyć (ustaw `VAT = 0.23` w skrypcie). Pytanie nr 1 do księgowej.
+7. **Czas właściciela:** ok. 6-8 h jednorazowo (sprawdzenie treści, 15-20 zdjęć spoin), potem ok. 1 h/tydz.
