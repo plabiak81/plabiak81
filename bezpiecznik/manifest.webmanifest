@@ -1,0 +1,24 @@
+{
+    "name": "Bezpiecznik — sprawdź, czy to oszustwo",
+    "short_name": "Bezpiecznik",
+    "description": "Wklej SMS, e-mail lub link i sprawdź, czy to oszustwo. Działa bez internetu i nic nie wysyła.",
+    "id": "./",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "lang": "pl",
+    "background_color": "#f3f6f4",
+    "theme_color": "#0f5c3a",
+    "categories": ["security", "utilities", "finance"],
+    "icons": [
+        { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+        { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+        { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    ],
+    "share_target": {
+        "action": "./",
+        "method": "GET",
+        "params": { "title": "title", "text": "text", "url": "url" }
+    }
+}
