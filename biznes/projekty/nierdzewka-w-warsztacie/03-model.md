@@ -28,7 +28,7 @@
 
 | Pakiet | Co zawiera | Cena końcowa | Dla kogo |
 |---|---|---|---|
-| **Poradnik** | PDF „Nierdzewka bez przebarwień” (ok. 40-60 s.) + 6 ściąg A4 | **49 zł** | spawacz, hobbysta |
+| **Poradnik** | PDF „Nierdzewka bez przebarwień” (17 s. w wersji roboczej, po zdjęciach ok. 20-25 s.) + 6 ściąg A4 | **49 zł** | spawacz, hobbysta |
 | **Szablony warsztatu** | 8 edytowalnych dokumentów (WPS TIG 141, dziennik spawania, protokół VT, próba szczelności/ciśnieniowa, protokół odbioru, rejestr atestów, checklista instalacji higienicznej, plan spawania i badań) + instrukcja i przykłady wypełnione | **179 zł** | warsztat, podwykonawca |
 | **Komplet** | Szablony + poradnik + aktualizacje plików przez 12 mies. | **199 zł** | warsztat, który szkoli ludzi |
 

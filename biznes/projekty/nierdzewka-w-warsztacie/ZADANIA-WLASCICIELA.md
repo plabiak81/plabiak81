@@ -1,19 +1,24 @@
 # Zadania dla właściciela - Nierdzewka w warsztacie
 
 ## Teraz (blokuje dalszą pracę)
-- [ ] **Decyzja etapu 7: kanały i budżet reklamowy** - ~10 min - 0 zł
-  Kroki: 1. Przeczytaj `07-plan-klienci.md`, sekcja 2. 2. Odpisz np. „K-min + R0”.
-  - Kanały: **K-min** (grupy FB + znajomi + SEO, ok. 2 h/tydz. - rekomendacja) / **K-szeroki** (+ elektroda.pl + LinkedIn, 3-4 h/tydz.) / **K-reklama** (grupy + SEO + reklama, bez pisania do znajomych)
-  - Reklama: **R0** 0 zł przez 30 dni (rekomendacja) / **R1** test 300 zł w 2. miesiącu / **R2** 150 zł/mies.
-- [ ] **Wyślij księgowej 10 pytań** z `06-formalnosci.md` (sekcja „Pytania do księgowej”) - najważniejsze: zapas do limitu 240 000 zł, czy sprzedaż plików mieści się w zwolnieniu, kasa fiskalna, VAT od reklam Meta - ~10 min - 0 zł (+ ewentualnie koszt konsultacji wg umowy z księgową)
-  Kroki: skopiuj listę pytań do e-maila, dopisz roczną sprzedaż Instal-tig, wyślij. Odpowiedzi wklej mi w rozmowie.
-- [ ] **Dołącz do 6-8 kolejnych grup na Facebooku i załóż konto na elektroda.pl** - główny darmowy kanał - ~30 min - 0 zł
-  Kroki: 1. Facebook → wyszukaj → zakładka „Grupy”: „spawacze”, „spawanie TIG”, „spawalnictwo”, „stal nierdzewna”, „ślusarstwo”, „konstrukcje stalowe”, „utrzymanie ruchu”, „spawacze za granicą”. 2. Wybieraj grupy z ponad 1 000 członków i postami z ostatnich dni. 3. Sprawdź regulamin (czy wolno wrzucać linki/materiały). 4. Wpisz tu nazwy i liczbę członków: [[lista grup]]. Nic jeszcze nie publikuj.
+- [ ] **Zdecyduj, gdzie trzymać pliki produktów** - repo `plabiak81/plabiak81` publikuje się na GitHub Pages, a pliki z `produkty/` (poradnik, szablony, ZIP, źródła HTML) i `podglad/produkty/` są już w commicie `e45e491` na gałęzi `ccr-019c4cb5-r5hhab`. Po scaleniu z gałęzią główną każdy pobierze je za darmo; jeśli repo jest publiczne, są widoczne już teraz na tej gałęzi - ~10 min - 0 zł
+  Rekomendacja: prywatne repozytorium tylko na produkty.
+  Kroki: 1. github.com → „New repository” → nazwa np. `nierdzewka-produkty` → **Private** → Create. 2. Napisz mi nazwę - przeniosę tam `produkty/zrodla/` i `produkty/gotowe/` oraz `podglad/produkty/`, a tu zostawię tylko opisy (`poradnik-spis-tresci.md`, `szablony-uklad-pol.md`). 3. **Nie scalaj tej gałęzi z gałęzią główną**, dopóki pliki nie zostaną przeniesione. 4. Jeśli repo jest publiczne: usunięcie plików w nowym commicie nie usuwa ich z historii - na tym etapie to wersje robocze, więc to akceptowalne, ale finalne wersje trzymaj już tylko w prywatnym repo.
+
+- [ ] **Sprawdź merytorykę produktów** - bez tego nie wolno sprzedawać - ~2,5-3 h łącznie (można w 3 podejściach)
+  Kroki:
+  1. Poradnik: `produkty/gotowe/poradnik/Nierdzewka-bez-przebarwien-poradnik.pdf` (17 s.) - przejdź wszystkie żółte `[[DO SPRAWDZENIA]]`: tabela parametrów (rozdz. 5.1), wolfram (2.2), przepływy i wypływ po spawaniu (2.3), spoiwa dla złączy różnoimiennych (2.4), przedmuch (4.4-4.5), mieszanki formujące z wodorem (4.2), temperatura międzyściegowa (5.2), ppm i strefy kolorów (rozdz. 6), pasywacja (7). Zapisz poprawki na wydruku albo w wiadomości do mnie - ~1,5 h.
+  2. 6 ściąg w `produkty/gotowe/poradnik/sciagi/` - te same wartości co w poradniku - ~20 min.
+  3. Szablony: otwórz przykłady w `produkty/gotowe/szablony/przyklady/` i instrukcję `00-Instrukcja-szablony-warsztatu.pdf` - czy pola są takie, jakich chcą Twoi klienci; czego brakuje - ~45 min.
+- [ ] **Potwierdź interpretację kanałów** - napisałeś „Szukaj też”; przyjąłem: grupy FB + znajomi + SEO + dodatkowe darmowe kanały z `07-plan-klienci.md` sekcja 1a (artykuł w magazynie STAL, ośrodki szkolenia spawaczy, hurtownie z kodem QR; później Shorts, targi 03.2027). Odpisz „OK” albo co wykreślić - ~5 min
+- [ ] **Wyślij księgowej 10 pytań** z `06-formalnosci.md` (sekcja „Pytania do księgowej”) - ~10 min - 0 zł (+ ewentualnie koszt konsultacji)
+- [ ] **Dołącz do 6-8 kolejnych grup na Facebooku i załóż konto na elektroda.pl** - ~30 min - 0 zł
+  Kroki: frazy: „spawacze”, „spawanie TIG”, „spawalnictwo”, „stal nierdzewna”, „ślusarstwo”, „konstrukcje stalowe”, „utrzymanie ruchu”, „spawacze za granicą”; grupy z ponad 1 000 członków i świeżymi postami; sprawdź regulamin; wpisz tu nazwy: [[lista grup]]. Nic jeszcze nie publikuj.
 
 ## W tym tygodniu
-- [ ] **Sprawdź ściągę „Kolory nalotu”** (`05-strona/sciaga-kolory-nalotu.html` albo zrzut `podglad/sciaga-kolory-nalotu/desktop.png`): opisy, wartości ppm, strefy „zwykle OK / zależy od klienta / do poprawy” - ~15 min - 0 zł. Napisz, co zmienić.
+- [ ] **Zrób 15-20 zdjęć spoin** (same ręce i spoiny) - wstawię je w miejsca `[[ZDJĘCIE]]` w poradniku (10 miejsc) - lista w `04-oferta/README.md`, sekcja 5 - ~30 min - 0 zł
+- [ ] **Sprawdź ściągę „Kolory nalotu” na stronie** (`05-strona/sciaga-kolory-nalotu.html` albo zrzut `podglad/sciaga-kolory-nalotu/desktop.png`): opisy, wartości ppm, strefy „zwykle OK / zależy od klienta / do poprawy” - ~15 min - 0 zł. Napisz, co zmienić.
 - [ ] **Uzupełnij dane do regulaminu i polityki prywatności:** imię i nazwisko, pełna nazwa z CEIDG, NIP, REGON, potwierdzenie e-maila do zamówień (slawek_21@op.pl?) - ~5 min - 0 zł. Prześlij mi, wpiszę w `05-strona/`.
-- [ ] **Przejrzyj układ pól szablonów** (`produkty/szablony-uklad-pol.md`) - czy czegoś brakuje względem tego, o co pytają Twoi klienci - ~20 min - 0 zł
 - [ ] Zbierz 5-10 prawdziwych pytań o nierdzewkę / dokumenty z grup, w których jesteś (szukaj: „nierdzewka”, „przebarwienia”, „grań”, „WPS”, „dziennik spawania”) - wklej z linkami - ~15 min - 0 zł
 - [ ] (opcjonalnie) Sprawdź w przeglądarce ceny kursów naukaspawania.com i jakspawacodlewy.pl (zablokowane w mojej sieci) - ~5 min
 
@@ -22,11 +27,9 @@
 - [ ] Bramka płatności (BLIK + karta, np. Stripe Payment Links / Przelewy24) - po pierwszych zamówieniach przelewem - ~30 min - 0 zł abonamentu, prowizja ok. 1,5% + ok. 1 zł/transakcję (szacunek)
 - [ ] Domena (opcjonalnie) - ok. 60 zł pierwszy rok (szacunek) - zgoda przed zakupem
 - [ ] Zgoda na publikację strony (GitHub Pages) - dopiero po uzupełnieniu danych w regulaminie i sprawdzeniu przez prawnika/Ciebie
-- [ ] 15-20 zdjęć spoin (same ręce i spoiny) - lista w `04-oferta/README.md`, sekcja 5 - ~30 min
 
 ## Decyzje do podjęcia
-- [ ] Kanały (moja rekomendacja: K-min)
-- [ ] Budżet reklamowy (moja rekomendacja: R0 przez 30 dni, potem decyzja o R1 na podstawie liczb)
+- [ ] Gdzie trzymać pliki produktów (rekomendacja: prywatne repo - patrz „Teraz”)
 - [ ] Budżet startowy - przyjąłem „Bazowy” 560 zł jako założenie (potwierdź albo zmień na Minimum 160 zł / Pełny 1 460 zł)
 - [ ] Czy publikujemy gotowy landing „Rurociągi 316L dla mleczarni” ze studia jako osobne źródło zapytań dla Instal-tig (rekomendacja: tak)
 
@@ -34,3 +37,4 @@
 - [x] 2026-10-29: wybór pomysłu - wariant A (poradnik + szablony)
 - [x] 2026-10-29: odpowiedzi na 3 pytania (1-2 grupy, 5-15 warsztatów, brak własnych wzorów)
 - [x] 2026-10-29: cennik B (49 / 179 / 199 zł), forma: JDG zwolniona z VAT, jest księgowa
+- [x] 2026-10-29: etap 7 - reklama R0 (0 zł), kanały „Szukaj też” (interpretacja do potwierdzenia)

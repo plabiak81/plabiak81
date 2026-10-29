@@ -1,6 +1,6 @@
 # Pakiet „Szablony warsztatu” - lista dokumentów i układ pól
 
-**Status:** układ pól (2026-10-29). Pełne pliki .docx/.xlsx powstaną po akceptacji układu przez właściciela.
+**Status:** pliki gotowe (2026-10-29): `gotowe/szablony/puste/`, `gotowe/szablony/przyklady/`, instrukcja `gotowe/szablony/00-Instrukcja-szablony-warsztatu.pdf`. Generator: `zrodla/build_szablony.py`.
 **Cena:** 179 zł (8 dokumentów) · **Format:** Word (.docx) + Excel (.xlsx) + PDF instrukcji · **Każdy dokument:** wersja pusta + przykład wypełniony (fikcyjne dane, wyraźnie oznaczone „PRZYKŁAD”).
 
 **Zasady (widoczne też na stronie oferty):**

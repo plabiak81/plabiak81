@@ -1,7 +1,7 @@
 # Poradnik „Nierdzewka bez przebarwień” - spis treści i plan
 
-**Status:** plan (2026-10-29). Pełny tekst pisze AI po zatwierdzeniu planu; właściciel sprawdza merytorykę i dostarcza zdjęcia. Każda liczba techniczna w tekście ma być oznaczona do sprawdzenia przez właściciela `[[SPRAWDŹ]]`, dopóki jej nie potwierdzi.
-**Objętość:** 40-60 stron A4 PDF + 6 ściąg A4 · **Cena:** 49 zł · **Źródła merytoryczne:** artykuły z bloga Instal-tig („Stal 304 czy 316L?”, „Spawanie TIG - formowanie grani”, „Higieniczne instalacje w przemyśle spożywczym”), praktyka właściciela, literatura (Euro Inox „Spawanie stali nierdzewnych”, Przegląd Spawalnictwa) - bez kopiowania treści norm.
+**Status:** pełna wersja robocza gotowa (2026-10-29): `gotowe/poradnik/Nierdzewka-bez-przebarwien-poradnik.pdf` (17 stron A4) + 6 ściąg w `gotowe/poradnik/sciagi/`. Źródło: `zrodla/poradnik.html`, `zrodla/sciagi/*.html`. Do sprawdzenia przez właściciela: wszystkie `[[DO SPRAWDZENIA]]` i `[[ZDJĘCIE]]`.
+**Objętość:** 17 stron A4 PDF w wersji roboczej (plan zakładał 40-60 - po dodaniu zdjęć ok. 20-25 stron) + 6 ściąg A4 · **Cena:** 49 zł · **Źródła merytoryczne:** artykuły z bloga Instal-tig („Stal 304 czy 316L?”, „Spawanie TIG - formowanie grani”, „Higieniczne instalacje w przemyśle spożywczym”), praktyka właściciela, literatura (Euro Inox „Spawanie stali nierdzewnych”, Przegląd Spawalnictwa) - bez kopiowania treści norm.
 
 ## Spis treści
 
