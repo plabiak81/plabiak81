@@ -6,30 +6,34 @@
 ## Kim jestem i co mam
 
 - **Firma:** Instal-tig - konstrukcje i instalacje rurowe ze stali nierdzewnej dla przemysłu (spożywczy, chemiczny, zakłady, logistyka). Sułów, dolnośląskie.
-- **Umiejętności:** spawanie TIG, prefabrykacja, montaż i serwis instalacji 304/316L, wycena projektów [[dopisz inne - np. sprzedaż, nagrywanie, uczenie innych]]
+- **Umiejętności:** spawanie TIG, prefabrykacja, montaż i serwis instalacji 304/316L, wycena projektów, praktyczna wiedza o normach higienicznych i doborze stali (założenie: umiem to wytłumaczyć innym) [[dopisz inne]]
 - **Aktywa online, które już są:** strona firmowa, blog ekspercki, kalkulator wyceny (`kalkulator/`), aplikacja antyoszustwowa Bezpiecznik (`bezpiecznik/`), studio kreatywne AI (`studio/`), konto Canva z Brand Kitem
-- **Kontakty / sieć:** [[np. klienci z mleczarni i zakładów spożywczych, dostawcy stali, inni spawacze]]
-- **Zasoby fizyczne:** [[np. warsztat, maszyny, auto, magazyn]]
+- **Kontakty / sieć:** klienci przemysłowi Instal-tig (spożywczy, chemiczny), dostawcy stali, inni spawacze (założenie) [[popraw]]
+- **Zasoby fizyczne:** warsztat i sprzęt do spawania TIG (założenie) [[popraw]]
 
 ## Ile mogę włożyć
 
-- **Czas tygodniowo:** [[np. 5 h]]
-- **Budżet na start (PLN):** [[np. 2000]]
-- **Budżet miesięczny na narzędzia/reklamy (PLN):** [[np. 300]]
-- **Ile mogę poczekać na pierwszy przychód:** [[np. 3 miesiące]]
+- **Czas tygodniowo:** 2-5 h - biznes poboczny, prawie wszystko ma robić AI; zadania dla mnie krótkie i konkretne
+- **Budżet na start (PLN):** 1 000-3 000 (domena, narzędzia, mały test reklam)
+- **Budżet miesięczny na narzędzia/reklamy (PLN):** do 300
+- **Ile mogę poczekać na pierwszy przychód:** ok. 3 miesiące (założenie - przy 2-5 h/tydz. realny pierwszy przychód to 1-3 miesiące) [[popraw]]
 
 ## Czego chcę
 
-- **Cel:** [[np. dodatkowe 5 000 zł/mies. w 12 miesięcy / nowe zlecenia dla Instal-tig / biznes niezależny od mojej pracy fizycznej]]
-- **Biznes związany z moją branżą czy dowolny:** [[branża / dowolny / bez znaczenia]]
-- **Czy mogę pokazywać twarz (wideo, YouTube):** [[tak / nie]]
-- **Klienci:** [[firmy B2B / osoby prywatne / obojętnie]]
+- **Cel:** dodatkowy dochód niezależny od mojej pracy fizycznej (orientacyjnie 3-5 tys. zł/mies. w 12 miesięcy)
+- **Biznes związany z moją branżą czy dowolny:** związany z branżą (stal nierdzewna, spawanie, instalacje)
+- **Czy mogę pokazywać twarz (wideo, YouTube):** nie - wideo najwyżej z rękami/spawem w kadrze, bez twarzy; preferowane produkty bez występów (narzędzia online, e-booki, szablony, sklep)
+- **Klienci:** obojętnie - B2B (firmy, warsztaty, spawacze) lub osoby prywatne, byle bez czasochłonnej obsługi
 
 ## Czego nie chcę
 
-- [[np. obsługi klienta wieczorami, magazynu, dużych kredytów, MLM]]
+- występowania z twarzą w wideo
+- obsługi klienta, która zjada więcej niż 2-5 h tygodniowo (preferowana sprzedaż automatyczna)
+- magazynu i własnych wysyłek (założenie)
+- kredytów i inwestycji powyżej budżetu 3 000 zł
+- MLM, „szybkiego zarobku”, zmyślonych opinii
 
 ## Forma prawna i płatności
 
-- **Obecna działalność:** [[JDG / spółka / inna]] · **VAT:** [[czynny / zwolniony]]
-- **Konta, które już mam:** [[np. Stripe, PayU, Przelewy24, Allegro, Google, Meta Business]]
+- **Obecna działalność:** Instal-tig - [[JDG / spółka / inna]] · **VAT:** [[czynny / zwolniony]] (agent sprawdzi, czy nowy biznes da się prowadzić w ramach tej firmy)
+- **Konta, które już mam:** GitHub (strony na GitHub Pages), Canva z Brand Kitem; konta płatności [[np. Stripe, PayU, Przelewy24 - jeśli brak, agent przygotuje instrukcję założenia]]
