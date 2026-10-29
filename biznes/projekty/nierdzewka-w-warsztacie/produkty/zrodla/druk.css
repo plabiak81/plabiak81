@@ -1,0 +1,32 @@
+/* Wspólny styl druku A4 - poradnik, ściągi, instrukcja */
+@page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+:root { --accent: #0b6fb8; --text: #1c2430; --muted: #5b6776; --line: #cfd6de; --soft: #eef3f8; --warn: #9a5b00; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: "DejaVu Sans", system-ui, sans-serif; color: var(--text); font-size: 10.5pt; line-height: 1.5; }
+h1 { font-size: 22pt; line-height: 1.15; margin: 0 0 8pt; }
+h2 { font-size: 15pt; color: var(--accent); margin: 18pt 0 6pt; break-after: avoid; }
+h3 { font-size: 11.5pt; margin: 12pt 0 4pt; break-after: avoid; }
+p { margin: 0 0 7pt; orphans: 3; widows: 3; }
+ul, ol { margin: 0 0 8pt; padding-left: 16pt; }
+li { margin-bottom: 3pt; }
+table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 9.5pt; break-inside: avoid; }
+th, td { border: 0.6pt solid var(--line); padding: 4pt 6pt; text-align: left; vertical-align: top; }
+th { background: var(--soft); }
+.chapter { break-before: page; }
+.box { border-left: 3pt solid var(--accent); background: var(--soft); padding: 7pt 10pt; margin: 8pt 0 10pt; break-inside: avoid; }
+.warn { border-left-color: var(--warn); background: #fff6e5; }
+.todo { background: #fff3cd; color: #5c4400; padding: 0 3pt; border-radius: 2pt; font-size: 9pt; }
+.photo { border: 1pt dashed var(--muted); color: var(--muted); padding: 14pt 10pt; text-align: center; font-size: 9pt; margin: 6pt 0 10pt; break-inside: avoid; }
+.small { font-size: 9pt; color: var(--muted); }
+.cover { height: 255mm; display: flex; flex-direction: column; justify-content: space-between; }
+.cover .t { margin-top: 40mm; }
+.cover h1 { font-size: 34pt; }
+.cover .sub { font-size: 14pt; color: var(--muted); }
+.cover .bar { height: 6mm; background: linear-gradient(90deg, #e9edf1, #f0e3b6, #d9ad4a, #b9793a, #5e3a7a, #2a4382, #4b5664); border-radius: 2mm; }
+.toc { list-style: none; padding: 0; }
+.toc li { display: flex; justify-content: space-between; border-bottom: 0.5pt dotted var(--line); padding: 3pt 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
+.sheet h1 { font-size: 18pt; }
+.sheet .eyebrow { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); font-weight: 700; }
+.foot { margin-top: 8pt; font-size: 8pt; color: var(--muted); border-top: 0.5pt solid var(--line); padding-top: 4pt; }

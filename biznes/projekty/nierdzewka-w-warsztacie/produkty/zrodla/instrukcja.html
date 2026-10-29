@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Szablony warsztatu - instrukcja</title>
+<link rel="stylesheet" href="druk.css">
+</head>
+<body>
+<h1>Szablony warsztatu - instrukcja</h1>
+<p class="small">8 dokumentów dokumentacji spawalniczej dla małego warsztatu · wersja 1.0 · Instal-tig / Nierdzewka w warsztacie</p>
+<div class="box warn"><strong>Najpierw przeczytaj.</strong> Szablony porządkują dokumentację i pokazują, co wpisać. <strong>Nie zastępują</strong>: kwalifikowania technologii (WPQR), uprawnień spawaczy, badań wykonywanych przez uprawnione osoby i jednostki, certyfikacji (np. ISO 3834, EN 1090) ani wymagań Twojego zamawiającego. Szablony zawierają odwołania do numerów norm, ale nie ich treść - normy kupisz w Polskim Komitecie Normalizacyjnym. <span class="todo">[[DO SPRAWDZENIA przez autora przed sprzedażą]]</span></div>
+
+<h2>Co jest w paczce</h2>
+<table>
+  <tr><th>Plik</th><th>Format</th><th>Do czego</th></tr>
+  <tr><td>01-WPS-TIG-141</td><td>Word</td><td>instrukcja technologiczna spawania TIG 141 - parametry dla spawacza</td></tr>
+  <tr><td>02-Dziennik-spawania</td><td>Excel</td><td>ewidencja złączy: kto, kiedy, jakim WPS, z jakiego materiału, z jakim wynikiem; zakładka spawaczy z kontrolą ważności uprawnień</td></tr>
+  <tr><td>03-Protokol-VT</td><td>Word</td><td>badania wizualne złączy</td></tr>
+  <tr><td>04-Protokol-proby-szczelnosci</td><td>Word</td><td>próba szczelności / ciśnieniowa odcinka instalacji</td></tr>
+  <tr><td>05-Protokol-odbioru</td><td>Word</td><td>odbiór i przekazanie instalacji z listą dokumentacji</td></tr>
+  <tr><td>06-Rejestr-atestow</td><td>Excel</td><td>świadectwa materiałowe powiązane z miejscem użycia</td></tr>
+  <tr><td>07-Checklista-instalacji-higienicznej</td><td>Word</td><td>kontrola instalacji dla przemysłu spożywczego przed odbiorem</td></tr>
+  <tr><td>08-Plan-spawania-i-badan</td><td>Excel</td><td>plan przed rozpoczęciem prac: grupy złączy, WPS, badania, kryteria</td></tr>
+</table>
+<p>Każdy plik jest w dwóch wersjach: <strong>pusty</strong> (folder <em>puste</em>) i <strong>przykład wypełniony</strong> (folder <em>przyklady</em>) - z danymi fikcyjnymi, oznaczonymi „PRZYKŁAD”.</p>
+
+<h2>Zacznij od tego (15 minut)</h2>
+<ol>
+  <li>Otwórz każdy pusty plik i wpisz w nagłówku logo i dane swojej firmy (w Wordzie: dwuklik w nagłówek; w Excelu: komórka A2). Zapisz jako własny wzór.</li>
+  <li>Przeczytaj wymagania zamawiającego dla zlecenia: jakie dokumenty, jakie normy i poziom jakości, jakie badania, jaki kolor grani dopuszcza.</li>
+  <li>Wypełnij <strong>plan spawania i badań</strong> (08) - to porządkuje resztę.</li>
+  <li>Przygotuj <strong>WPS</strong> (01) dla każdej technologii - z podstawą kwalifikacji.</li>
+  <li>W trakcie prac prowadź <strong>dziennik</strong> (02) i <strong>rejestr atestów</strong> (06) na bieżąco - nie na koniec.</li>
+  <li>Po spawaniu: <strong>protokoły VT</strong> (03), próby (04), <strong>checklista</strong> (07), na końcu <strong>protokół odbioru</strong> (05).</li>
+</ol>
+
+<h2>Dokument po dokumencie</h2>
+<h3>01 - WPS (TIG 141)</h3>
+<ul>
+  <li><strong>Podstawa kwalifikacji</strong> - wpisz nr WPQR z jednostki lub inną podstawę, którą akceptuje zamawiający. Bez tego WPS jest tylko instrukcją wewnętrzną, nie kwalifikowaną technologią.</li>
+  <li><strong>Zakresy</strong> (grubości, średnice, pozycje, materiał) - przepisz z WPQR. Nie rozszerzaj ich „na oko”.</li>
+  <li><strong>Parametry</strong> - wpisz zakresy, w których faktycznie spawasz (z próbki / WPQR). Energię liniową wylicz wg metody wskazanej przez WPQR / zamawiającego.</li>
+  <li><strong>Gaz formujący i tlen resztkowy</strong> - jeśli zamawiający wymaga poziomu tlenu, wpisz go i mierz.</li>
+  <li>Podpisuje osoba sporządzająca i koordynator spawania (jeśli firma go ma).</li>
+</ul>
+<h3>02 - Dziennik spawania</h3>
+<ul>
+  <li>Jeden wiersz = jedno złącze. Nr złącza zgodny z rysunkiem / izometrią.</li>
+  <li>Złącze naprawiane wpisz jako nowe (np. S-02A) z uwagą „naprawa S-02”.</li>
+  <li>Kolumny „Formowanie” i „VT wynik” mają listy wyboru. Filtr w nagłówku pozwala pokazać np. wszystkie złącza danego spawacza.</li>
+  <li>Zakładka <strong>Spawacze</strong>: wpisz datę ważności uprawnień - komórka zmieni kolor na żółty (mniej niż 60 dni) lub czerwony (po terminie).</li>
+</ul>
+<h3>03 - Protokół VT</h3>
+<ul>
+  <li>Wpisz normę kryteriów i poziom jakości wymagany przez zamawiającego (np. odwołanie do PN-EN ISO 5817 i poziomu B, C lub D).</li>
+  <li>Wymagania dodatkowe (np. kolor grani) zapisz osobno - często są ostrzejsze niż norma.</li>
+  <li>Badanie wykonuje i podpisuje osoba z odpowiednimi kwalifikacjami, jeśli zamawiający tego wymaga.</li>
+</ul>
+<h3>04 - Próba szczelności / ciśnieniowa</h3>
+<ul>
+  <li>Ciśnienie i czas próby - z wymagań zamawiającego / projektu, nie „z głowy”.</li>
+  <li>Manometr z aktualnym wzorcowaniem - wpisz nr i datę.</li>
+  <li>Próby powietrzem lub azotem - wyłącznie z procedurą BHP; gaz ściśliwy gromadzi energię.</li>
+</ul>
+<h3>05 - Protokół odbioru</h3>
+<ul>
+  <li>Lista dokumentacji: wpisz TAK / NIE / ND (nie dotyczy) i liczbę stron.</li>
+  <li>Usterki z terminem i osobą odpowiedzialną - bez tego „odbiór z uwagami” ciągnie się miesiącami.</li>
+</ul>
+<h3>06 - Rejestr atestów</h3>
+<ul>
+  <li>Każda partia materiału i spoiwa: nr wytopu i nr świadectwa. Typy świadectw (2.2 / 3.1 / 3.2) - odwołanie do PN-EN 10204.</li>
+  <li>Kolumna „Gdzie użyto” łączy materiał ze złączami z dziennika - zamawiający często o to pyta.</li>
+  <li>Skany świadectw trzymaj w jednym folderze i wpisuj ścieżkę.</li>
+</ul>
+<h3>07 - Checklista instalacji higienicznej</h3>
+<ul>
+  <li>Przejdź listę przed zgłoszeniem do odbioru. Każde „Nie” - opis i termin poprawy.</li>
+  <li>Punkty mają charakter ogólny; specyfikacja zamawiającego (np. długość odgałęzień, chropowatość) jest ważniejsza.</li>
+</ul>
+<h3>08 - Plan spawania i badań</h3>
+<ul>
+  <li>Grupy złączy (odcinki, średnice), WPS, wymagane kwalifikacje spawaczy i zakres badań (np. VT 100%, PT x%, RT x%) - wg wymagań zamawiającego.</li>
+  <li>Jeśli zamawiający tego wymaga, przekaż plan przed rozpoczęciem prac.</li>
+</ul>
+
+<h2>Licencja i aktualizacje</h2>
+<ul>
+  <li>Możesz wypełniać, zmieniać, drukować i dodawać logo - na potrzeby swojej firmy.</li>
+  <li>Nie możesz odsprzedawać ani udostępniać publicznie pustych szablonów.</li>
+  <li>Kupujący pakiet „Komplet” dostają aktualizacje plików przez 12 miesięcy e-mailem.</li>
+</ul>
+<p class="small">Pytania i uwagi: slawek_21@op.pl <span class="todo">[[POTWIERDŹ ADRES]]</span></p>
+</body>
+</html>

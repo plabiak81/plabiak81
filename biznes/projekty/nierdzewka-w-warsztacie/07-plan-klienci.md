@@ -1,6 +1,8 @@
 # 07 - Plan pozyskania klientów: Nierdzewka w warsztacie
 
-**Data:** 2026-10-29 · **Etap:** 7 [DECYZJA: kanały i budżet reklamowy]
+**Data:** 2026-10-29 · **Etap:** 7 - zamknięty
+
+**Decyzja właściciela (2026-10-29):** reklama **R0 (0 zł)**. Kanały: właściciel odpowiedział „Szukaj też” - przyjęta interpretacja **K-min (grupy FB + wiadomości do 5-15 warsztatów + SEO) + dodatkowe darmowe kanały z sekcji 1a** (do potwierdzenia przez właściciela).
 
 Punkt wyjścia:
 - **Zasięg właściciela:** jest w 1-2 grupach spawaczy na Facebooku i może napisać do 5-15 warsztatów. To mało, więc plan zaczyna się od dołączenia do kolejnych grup i forum.
@@ -19,7 +21,28 @@ Punkt wyjścia:
 | K5. LinkedIn (profil Instal-tig) | kierownicy UR i właściciele firm - segment B | B | 0 zł | ok. 15 min/tydz. |
 | K6. Reklama Meta na darmową ściągę | szybki test zapisów; na sprzedaż się nie spina | A | 150-300 zł + ewentualnie VAT od importu usług | ok. 30 min konfiguracji |
 
-## 2. Warianty do decyzji
+
+## 1a. Dodatkowe darmowe kanały (wyszukane 2026-10-29)
+
+Ocena: zasięg 1-5 (5 = duży, szacunek), koszt w zł, czas właściciela. **Priorytet:** ✔ = robimy w 90 dniach, ○ = później / jeśli czas pozwoli, ✖ = nie teraz.
+
+| Kanał | Co konkretnie | Zasięg | Koszt | Czas właściciela | Priorytet | Źródło |
+|---|---|---|---|---|---|---|
+| Artykuł ekspercki w prasie branżowej | magazyn STAL / portal dlaProdukcji.pl (wyd. Elamed, Katowice, kontakt redakcji stal@elamed.pl) - numer 9-10/2024 miał temat „Spawanie stali metodą TIG a odporność na korozję”, więc temat pasuje; propozycja artykułu „Dokumentacja spawalnicza w małym warsztacie” lub „Formowanie grani w instalacjach spożywczych” z podpisem Instal-tig | 4 | 0 zł (artykuł niesponsorowany - do ustalenia z redakcją) | ok. 30 min (akceptacja tekstu, wysłanie maila do redakcji) | ✔ | [STAL 9-10/2024 (PDF)](https://konferencje.ptwp.pl/download/catalogue/22/8913) |
+| Przegląd Spawalnictwa (SIMP) | czasopismo naukowo-techniczne, redakcja redakcjaps@simp.pl - raczej artykuły techniczne/naukowe; szansa na krótki tekst praktyczny | 2 | 0 zł | ok. 1 h | ○ | [ISSN Przegląd Spawalnictwa](https://portal.issn.org/resource/ISSN/0033-2364), [pspaw.pl](https://pspaw.pl/pspaw/search/search) |
+| Targi i konferencje (jako zwiedzający, z ulotką/wizytówką z QR do ściągi) | ExpoWELDING (Łukasiewicz-GIT, 13-15.10.2026 - już minęły), SPAWALNICTWO Kielce (kolejna edycja: marzec 2027), Weld Tech Expo Warszawa (wrzesień 2026 - minęło) | 3 | koszt dojazdu + ulotki ok. 50-100 zł (wydatek tylko za zgodą) | 1 dzień | ○ (marzec 2027) | [Targi Kielce Industrial Spring 2026](https://www.targikielce.pl/en/industrial-spring-2026/welding), [M.P. 2026 poz. 243](https://api.sejm.gov.pl/eli/acts/MP/2026/243/text.pdf), [Łukasiewicz-GIT program MKS 2026](https://git.lukasiewicz.gov.pl/wp-content/uploads/sites/16/2026/02/26_01_15_MKS_2026_prog_ram_WHITE_1.pdf), [Fronius - ExpoWELDING](https://www.fronius.com/pl-pl/poland/spawalnictwo/centrum-informacyjne/wydarzenia/2025-10-16-14-expowelding), [TÜV Rheinland - Weld Tech Expo 2026](https://www.tuv.com/nacisnij/pl/aktualnosci/tuv-rheinland-polska-na-weld-tech-expo2026.html) |
+| YouTube Shorts / krótkie wideo „ręce + spaw” | 15-30 s: kolor nalotu na żywo, formowanie grani, przed/po trawieniu - z linkiem do ściągi; 1-2 filmy tygodniowo z telefonu | 3 | 0 zł | ok. 20 min/tydz. (nagranie telefonem przy pracy) | ○ (od 2. miesiąca) | ogólne poradniki formatu bez twarzy: [gofaceless.ai](https://www.gofaceless.ai/pl/blog/youtube-shorts-faceless-video-content) - brak danych dla branży spawalniczej |
+| Ośrodki szkolenia spawaczy i szkoły branżowe | propozycja dla instruktorów: poradnik/ściągi dla kursantów (zniżka grupowa) lub darmowa ściąga do rozdania; ośrodki z rejestru BUR PARP | 3 | 0 zł | ok. 30 min (5 maili - teksty przygotuje AI) | ✔ | [Baza Usług Rozwojowych PARP](https://uslugirozwojowe.parp.gov.pl), [zpe.gov.pl - zawód spawacza](https://zpe.gov.pl/a/perspektywy-zatrudnienia/D42no4gve) |
+| Lokalne hurtownie spawalnicze i dostawcy stali (znajomi właściciela) | prośba o wywieszenie ściągi z kodem QR przy ladzie / przekazanie klientom; bez prowizji na start | 2 | ok. 20 zł wydruki (za zgodą) | ok. 30 min przy okazji zakupów | ✔ | - (kontakty właściciela) |
+| Portale przetargowe (Baza Konkurencyjności, platformazakupowa.pl) | **nie jako miejsce reklamy** - jako źródło fraz i treści: artykuł „Jakie dokumenty spawalnicze wymagają przetargi” na podstawie publicznych SWZ | 3 (przez SEO) | 0 zł | 0 h | ✔ (SEO) | [Baza Konkurencyjności](https://bazakonkurencyjnosci.funduszeeuropejskie.gov.pl), [Enea - wymagania](https://www.enea.pl/zamowienia/2200005890___zalacznik%20nr%201.%20wymagania%20jakosciowe%20i%20zabezpieczenia%20antykorozyjne.pdf) |
+| Katalogi firm (Oferteo, Panorama Firm, pkt.pl) | to katalogi wykonawców usług - klienci szukają tam spawaczy, nie dokumentów; profil Instal-tig może pomóc firmie, nie temu produktowi | 1 | 0 zł (wpis podstawowy - do sprawdzenia) | ok. 30 min | ✖ | [Oferteo - ślusarze](https://www.oferteo.pl/slusarz) |
+| Stowarzyszenia (SIMP Sekcja Spawalnicza) | organizacja głównie naukowo-techniczna (konferencje z Łukasiewicz-GIT); członkostwo płatne - nie teraz | 1 | składka (nie teraz) | - | ✖ | [relacja 60. Konferencji Spawalniczej](https://git.lukasiewicz.gov.pl/wp-content/uploads/sites/16/2026/02/60_Konferencja_spawalnicza-relacja.pdf) |
+| Newslettery branżowe | nie znaleziono polskiego newslettera dla warsztatów spawalniczych przyjmującego treści zewnętrzne; newslettery producentów (Fronius, ESAB, Kemppi) są firmowe | - | - | - | ✖ | wyszukiwanie 2026-10-29 bez wyników |
+| Reddit, Pinterest | brak śladów polskiej społeczności spawalniczej w wynikach | 1 | 0 zł | - | ✖ | wyszukiwanie 2026-10-29 bez wyników |
+
+**Zmiana planu 30/60/90 po dodaniu kanałów:** w tygodniu 2 dochodzi mail do redakcji STAL (tekst przygotuje AI) i 5 maili do ośrodków szkolenia; od miesiąca 2 opcjonalnie Shorts (1/tydz.). Czas właściciela rośnie o ok. 1 h jednorazowo i ok. 20 min/tydz. przy Shorts - nadal w 2-5 h/tydz.
+
+## 2. Warianty do decyzji (rozstrzygnięte: K-min + kanały z 1a, R0)
 
 ### Kanały
 | Wariant | Kanały | Czas właściciela | Dla kogo |
