@@ -14,8 +14,8 @@
 ## Ile mogę włożyć
 
 - **Czas tygodniowo:** 2-5 h - biznes poboczny, prawie wszystko ma robić AI; zadania dla mnie krótkie i konkretne
-- **Budżet na start (PLN):** 1 000-3 000 (domena, narzędzia, mały test reklam)
-- **Budżet miesięczny na narzędzia/reklamy (PLN):** do 300
+- **Budżet na start (PLN):** **0 zł - nic nie kupujemy** (decyzja właściciela 2026-10-29): bez domeny, płatnych narzędzi i reklam. Tylko darmowe narzędzia i darmowe plany.
+- **Budżet miesięczny na narzędzia/reklamy (PLN):** 0 zł (prowizje bramki płatności od sprzedaży dopuszczalne dopiero za zgodą)
 - **Ile mogę poczekać na pierwszy przychód:** ok. 3 miesiące (założenie - przy 2-5 h/tydz. realny pierwszy przychód to 1-3 miesiące) [[popraw]]
 
 ## Czego chcę
@@ -30,7 +30,7 @@
 - występowania z twarzą w wideo
 - obsługi klienta, która zjada więcej niż 2-5 h tygodniowo (preferowana sprzedaż automatyczna)
 - magazynu i własnych wysyłek (założenie)
-- kredytów i inwestycji powyżej budżetu 3 000 zł
+- jakichkolwiek zakupów (domena, plany, reklamy, płatne narzędzia) - decyzja 2026-10-29
 - MLM, „szybkiego zarobku”, zmyślonych opinii
 
 ## Forma prawna i płatności

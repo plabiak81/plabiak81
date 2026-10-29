@@ -18,19 +18,18 @@
 ## W tym tygodniu
 - [ ] **Zrób 15-20 zdjęć spoin** (same ręce i spoiny) - wstawię je w miejsca `[[ZDJĘCIE]]` w poradniku (10 miejsc) - lista w `04-oferta/README.md`, sekcja 5 - ~30 min - 0 zł
 - [ ] **Sprawdź ściągę „Kolory nalotu” na stronie** (`05-strona/sciaga-kolory-nalotu.html` albo zrzut `podglad/sciaga-kolory-nalotu/desktop.png`): opisy, wartości ppm, strefy „zwykle OK / zależy od klienta / do poprawy” - ~15 min - 0 zł. Napisz, co zmienić.
-- [ ] **Uzupełnij dane do regulaminu i polityki prywatności:** imię i nazwisko, pełna nazwa z CEIDG, NIP, REGON, **nowy adres e-mail do zamówień** (slawek_21@op.pl odpada - najlepiej osobny, np. w domenie sklepu albo nowa skrzynka) - ~5 min - 0 zł. Prześlij mi, wpiszę w `05-strona/`.
+- [ ] **Uzupełnij dane do regulaminu i polityki prywatności:** imię i nazwisko, pełna nazwa z CEIDG, NIP, REGON, **nowy adres e-mail do zamówień** (slawek_21@op.pl odpada - najlepiej nowa darmowa skrzynka tylko dla sklepu, np. Gmail) - ~5 min - 0 zł. Prześlij mi, wpiszę w `05-strona/`.
 - [ ] Zbierz 5-10 prawdziwych pytań o nierdzewkę / dokumenty z grup, w których jesteś (szukaj: „nierdzewka”, „przebarwienia”, „grań”, „WPS”, „dziennik spawania”) - wklej z linkami - ~15 min - 0 zł
 - [ ] (opcjonalnie) Sprawdź w przeglądarce ceny kursów naukaspawania.com i jakspawacodlewy.pl (zablokowane w mojej sieci) - ~5 min
 
 ## Później (po decyzjach, każdy wydatek tylko za Twoją osobną zgodą)
 - [ ] Narzędzie do zapisów e-mail (formularz + newsletter, darmowy plan) - wybór i konto; adres formularza wpisuję w `05-strona/app.js` (`KONFIG.formularz`) - ~20 min - 0 zł
 - [ ] Bramka płatności (BLIK + karta, np. Stripe Payment Links / Przelewy24) - po pierwszych zamówieniach przelewem - ~30 min - 0 zł abonamentu, prowizja ok. 1,5% + ok. 1 zł/transakcję (szacunek)
-- [ ] Domena (opcjonalnie) - ok. 60 zł pierwszy rok (szacunek) - zgoda przed zakupem
 - [ ] Zgoda na publikację strony (GitHub Pages) - dopiero po uzupełnieniu danych w regulaminie i sprawdzeniu przez prawnika/Ciebie
 
 ## Decyzje do podjęcia
 - [ ] Gdzie trzymać pliki produktów (rekomendacja: prywatne repo - patrz „Teraz”)
-- [ ] Budżet startowy - przyjąłem „Bazowy” 560 zł jako założenie (potwierdź albo zmień na Minimum 160 zł / Pełny 1 460 zł)
+- [x] Budżet startowy: 0 zł - nic nie kupujemy (decyzja 2026-10-29)
 - [ ] Czy publikujemy gotowy landing „Rurociągi 316L dla mleczarni” ze studia jako osobne źródło zapytań dla Instal-tig (rekomendacja: tak)
 
 ## Zrobione

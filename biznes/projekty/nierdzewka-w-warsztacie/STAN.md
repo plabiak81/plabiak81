@@ -30,7 +30,7 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 
 ## Kluczowe liczby (03-model.py, VAT = 0, cennik B)
 - Średnie zamówienie 104,00 zł, marża po prowizji 101,34 zł.
-- Koszty stałe ok. 10 zł/mies.; z reklamą 150 zł/mies. próg = ok. 1,6 zamówienia/mies.; budżet „Bazowy” 560 zł zwraca się po ok. 6 zamówieniach.
+- Koszty stałe ok. 10 zł/mies.; z reklamą 150 zł/mies. próg = ok. 1,6 zamówienia/mies.; budżet 0 zł - każde zamówienie to zysk (minus ewentualna prowizja płatności).
 - Cel 3 000 zł/mies. = ok. 30 zamówień/mies. = ok. 1 650 odwiedzin przy konwersji 1,8%.
 - 12 mies.: ostrożny ok. 3,5 tys. zł, bazowy ok. 14,4 tys. zł, dobry ok. 37,4 tys. zł przychodu.
 - Marża/CAC z reklamy 0,84 → reklama tylko jako test magnesu.
@@ -44,7 +44,7 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 - `07-plan-klienci.md` - kanały, warianty, plan 30/60/90, kalendarz, SEO, wiadomości B2B, cele.
 
 ## Założenia (do potwierdzenia)
-- **Budżet startowy „Bazowy” 560 zł** - właściciel „bez preferencji”; każdy wydatek tylko za osobną zgodą.
+- **Budżet: 0 zł - nic nie kupujemy** (decyzja właściciela 2026-10-29). Bez domeny (strona na darmowym adresie GitHub Pages), bez płatnych narzędzi, bez reklam. Nie proponować zakupów; szukać darmowych zamienników.
 - Zapas do limitu zwolnienia z VAT (240 000 zł, cała JDG) wystarcza - obrót Instal-tig nieznany (pytanie 1 do księgowej).
 - Sprzedaż PDF/szablonów nie jest wyłączona ze zwolnienia (art. 113 ust. 13); konsultacji/doradztwa NIE sprzedajemy.
 - Zwolnienie z kasy fiskalnej dla treści cyfrowych płatnych przelewem/bramką (§ 2 rozporządzenia) - do potwierdzenia.

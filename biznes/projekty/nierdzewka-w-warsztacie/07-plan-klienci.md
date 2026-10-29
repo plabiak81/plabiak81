@@ -55,8 +55,8 @@ Ocena: zasięg 1-5 (5 = duży, szacunek), koszt w zł, czas właściciela. **Pri
 | Wariant | Co | Koszt | Kiedy ma sens |
 |---|---|---|---|
 | **R0 (rekomendacja na pierwsze 30 dni)** | bez reklam | 0 zł | zanim księgowa odpowie w sprawie VAT od reklam Meta i zanim zobaczymy konwersję z ruchu darmowego |
-| R1 | jednorazowy test magnesu w 2. miesiącu: 300 zł na 14 dni, cel: koszt zapisu ≤ 5 zł | 300 zł (+ ewentualny VAT) | po odpowiedzi księgowej; mieści się w budżecie „Bazowy” 560 zł |
-| R2 | stała reklama | 150 zł/mies. | tylko jeśli R1 da koszt zapisu ≤ 3 zł i konwersja zapis → zakup ≥ 5% |
+| R1 | jednorazowy test magnesu w 2. miesiącu: 300 zł na 14 dni, cel: koszt zapisu ≤ 5 zł | 300 zł (+ ewentualny VAT) | **odrzucone - budżet 0 zł (decyzja 2026-10-29)** |
+| R2 | stała reklama | 150 zł/mies. | **odrzucone - budżet 0 zł (decyzja 2026-10-29)** |
 
 **Moja rekomendacja: K-min + R0, a po 30 dniach decyzja o R1 na podstawie liczb.** Dlaczego:
 1. Pierwsze sprzedaże najszybciej przyjdą od znajomych warsztatów (K2), bo to segment, który płaci najwięcej (179-199 zł).
