@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Bezpiecznik — sprawdź, czy to oszustwo</title>
+    <meta name="description" content="Wklej SMS, e-mail lub link i sprawdź, czy to oszustwo. Działa bez internetu, nic nie wysyła.">
+    <meta name="theme-color" content="#0f5c3a">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <style>
+        :root {
+            --bg: #f3f6f4;
+            --card: #ffffff;
+            --text: #17201b;
+            --muted: #5a6760;
+            --line: #d7e0db;
+            --brand: #0f5c3a;
+            --brand-ink: #ffffff;
+            --high: #b42318;
+            --high-bg: #fde8e6;
+            --medium: #9a5b00;
+            --medium-bg: #fff3d6;
+            --low: #1d5fa8;
+            --low-bg: #e6f0fb;
+            --none: #1d7a46;
+            --none-bg: #e3f5ea;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f1412;
+                --card: #18201c;
+                --text: #e4ece7;
+                --muted: #9aaba2;
+                --line: #2b3731;
+                --brand: #3fae7a;
+                --brand-ink: #0b1510;
+                --high: #ff8a7f;
+                --high-bg: #3a1714;
+                --medium: #f2b84b;
+                --medium-bg: #3a2b0d;
+                --low: #7db5f0;
+                --low-bg: #15263a;
+                --none: #5fd294;
+                --none-bg: #123222;
+            }
+        }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            font-size: 17px;
+            padding-bottom: calc(72px + env(safe-area-inset-bottom));
+        }
+        header {
+            background: var(--brand);
+            color: var(--brand-ink);
+            padding: calc(14px + env(safe-area-inset-top)) 16px 14px;
+        }
+        header h1 { margin: 0; font-size: 1.25rem; }
+        header p { margin: 2px 0 0; opacity: .85; font-size: .9rem; }
+        main { max-width: 640px; margin: 0 auto; padding: 16px; }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 14px;
+        }
+        h2 { font-size: 1.1rem; margin: 0 0 10px; }
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--bg);
+            color: var(--text);
+            font: inherit;
+            resize: vertical;
+        }
+        .buttons { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+        button, .btn {
+            flex: 1;
+            min-height: 48px;
+            border: 0;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .primary { background: var(--brand); color: var(--brand-ink); }
+        .secondary { background: transparent; color: var(--brand); border: 1px solid var(--brand); }
+        .verdict { border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+        .verdict h2 { margin: 0 0 4px; font-size: 1.3rem; }
+        .verdict p { margin: 0; }
+        .verdict.high { background: var(--high-bg); color: var(--high); }
+        .verdict.medium { background: var(--medium-bg); color: var(--medium); }
+        .verdict.low { background: var(--low-bg); color: var(--low); }
+        .verdict.none { background: var(--none-bg); color: var(--none); }
+        .meter { height: 8px; border-radius: 4px; background: var(--line); margin-top: 10px; overflow: hidden; }
+        .meter span { display: block; height: 100%; background: currentColor; }
+        .finding { border-top: 1px solid var(--line); padding: 10px 0; }
+        .finding:first-of-type { border-top: 0; padding-top: 0; }
+        .finding strong { display: block; }
+        .finding p { margin: 2px 0 0; color: var(--muted); font-size: .95rem; }
+        ol, ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 8px; }
+        a { color: var(--brand); }
+        .muted { color: var(--muted); font-size: .9rem; }
+        .hidden { display: none !important; }
+        details { border-top: 1px solid var(--line); padding: 10px 0; }
+        details:first-of-type { border-top: 0; }
+        summary { font-weight: 600; cursor: pointer; }
+        details p { margin: 6px 0 0; color: var(--muted); }
+        nav {
+            position: fixed;
+            left: 0; right: 0; bottom: 0;
+            display: flex;
+            background: var(--card);
+            border-top: 1px solid var(--line);
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        nav button {
+            flex: 1;
+            background: none;
+            color: var(--muted);
+            border-radius: 0;
+            flex-direction: column;
+            font-size: .8rem;
+            font-weight: 600;
+            min-height: 60px;
+            gap: 2px;
+        }
+        nav button span { font-size: 1.3rem; line-height: 1; }
+        nav button[aria-current="page"] { color: var(--brand); }
+        .phone { font-size: 1.1rem; font-weight: 700; white-space: nowrap; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>🛡️ Bezpiecznik</h1>
+    <p>Sprawdź SMS, e-mail lub link, zanim klikniesz</p>
+</header>
+
+<main>
+    <!-- ===== SPRAWDŹ ===== -->
+    <section id="tab-check">
+        <div class="card">
+            <h2>Wklej podejrzaną wiadomość lub link</h2>
+            <label for="input" class="muted">Treść nie jest nigdzie wysyłana — sprawdzenie odbywa się na Twoim telefonie.</label>
+            <textarea id="input" placeholder="Np. „InPost: Twoja paczka została wstrzymana. Dopłać 1,99 zł: inpost-dopłata.xyz”"></textarea>
+            <div class="buttons">
+                <button class="secondary" id="paste" type="button">📋 Wklej</button>
+                <button class="primary" id="check" type="button">Sprawdź</button>
+            </div>
+        </div>
+
+        <div id="result" class="hidden" aria-live="polite">
+            <div class="verdict" id="verdict">
+                <h2 id="verdict-title"></h2>
+                <p id="verdict-text"></p>
+                <div class="meter"><span id="meter"></span></div>
+            </div>
+            <div class="card" id="findings-card">
+                <h2>Co nas zaniepokoiło</h2>
+                <div id="findings"></div>
+            </div>
+            <div class="card">
+                <h2>Co teraz zrobić?</h2>
+                <ol id="advice"></ol>
+            </div>
+            <div class="buttons">
+                <button class="secondary" id="share" type="button">📤 Ostrzeż bliskich</button>
+                <button class="secondary" id="clear" type="button">Sprawdź inną</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORADY ===== -->
+    <section id="tab-tips" class="hidden">
+        <div class="card">
+            <h2>Najczęstsze oszustwa w Polsce</h2>
+            <details><summary>📦 „Dopłata do paczki”</summary><p>SMS od „InPostu”, „DPD” lub „Poczty” z prośbą o dopłatę kilku złotych. Link prowadzi na fałszywą bramkę płatności, która kradnie dane karty lub dostęp do banku. Status paczki sprawdzaj tylko w oficjalnej aplikacji przewoźnika.</p></details>
+            <details><summary>👩‍👦 „Mamo, to mój nowy numer”</summary><p>Ktoś pisze z nieznanego numeru, podaje się za dziecko lub wnuka i prosi o pilny przelew albo kod BLIK. Zawsze zadzwoń na stary, znany numer tej osoby.</p></details>
+            <details><summary>🛒 „Kurier odbierze — kliknij, aby otrzymać płatność”</summary><p>Sprzedajesz na OLX lub Vinted, a „kupujący” przysyła link do odebrania pieniędzy. To pułapka — strona wyłudza dane karty. Prawdziwe płatności widać tylko w aplikacji serwisu.</p></details>
+            <details><summary>🏦 „Dzwonię z działu bezpieczeństwa banku”</summary><p>Fałszywy konsultant mówi o „podejrzanej transakcji” i każe przelać pieniądze na „bezpieczne konto”, wziąć kredyt lub zainstalować AnyDesk. Rozłącz się i zadzwoń na numer z odwrotu swojej karty.</p></details>
+            <details><summary>⚡ „Odłączymy prąd dziś o 21:00”</summary><p>SMS o rzekomej zaległości wobec PGE, Tauronu czy Enei z linkiem do zapłaty. Sprawdź rachunki w oficjalnym serwisie klienta, nie przez link z SMS-a.</p></details>
+            <details><summary>📈 „Zainwestuj 1000 zł w akcje i zarabiaj”</summary><p>Reklamy ze znanymi twarzami i „gwarantowanym zyskiem”. Po wpłacie „opiekun” namawia na kolejne wpłaty, a pieniędzy nie da się wypłacić.</p></details>
+            <details><summary>🎁 „Gratulacje, wygrałeś!”</summary><p>Nagroda, zwrot podatku albo darmowy telefon w zamian za „opłatę za wysyłkę”. Jeśli nie brałeś udziału w konkursie, nic nie wygrałeś.</p></details>
+        </div>
+        <div class="card">
+            <h2>5 zasad, które chronią przed większością oszustw</h2>
+            <ol>
+                <li>Nigdy nikomu nie podawaj kodu BLIK, PIN-u, hasła ani kodu z SMS-a.</li>
+                <li>Nie klikaj w linki z nieoczekiwanych SMS-ów i e-maili — wpisz adres strony samodzielnie.</li>
+                <li>Pośpiech i strach to sygnał alarmowy. Odłóż telefon i zastanów się.</li>
+                <li>Prośbę o pieniądze potwierdź telefonem na znany Ci numer.</li>
+                <li>Nie instaluj aplikacji na prośbę osoby, która do Ciebie zadzwoniła.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ===== POMOC ===== -->
+    <section id="tab-help" class="hidden">
+        <div class="card">
+            <h2>Kliknąłem / podałem dane — co robić?</h2>
+            <ol>
+                <li><strong>Natychmiast zadzwoń do swojego banku</strong> (numer z odwrotu karty lub z aplikacji banku) i zablokuj kartę oraz dostęp do konta.</li>
+                <li><strong>Zastrzeż kartę</strong> w ogólnopolskim systemie: <a class="phone" href="tel:+48828828828">828 828 828</a></li>
+                <li><strong>Zastrzeż PESEL</strong> w aplikacji mObywatel lub na <a href="https://www.gov.pl/web/gov/zastrzez-swoj-numer-pesel" target="_blank" rel="noopener">gov.pl</a> — nikt nie weźmie kredytu na Twoje dane.</li>
+                <li><strong>Zmień hasła</strong> do poczty i bankowości, jeśli je podałeś.</li>
+                <li><strong>Zgłoś sprawę na policję</strong>: <a class="phone" href="tel:112">112</a> lub na najbliższym komisariacie.</li>
+            </ol>
+        </div>
+        <div class="card">
+            <h2>Zgłoś oszustwo i chroń innych</h2>
+            <ul>
+                <li><strong>Fałszywy SMS:</strong> przekaż go bezpłatnie na numer <a class="phone" href="sms:8080">8080</a> (CERT Polska blokuje takie strony).</li>
+                <li><strong>Fałszywa strona lub e-mail:</strong> zgłoś na <a href="https://incydent.cert.pl" target="_blank" rel="noopener">incydent.cert.pl</a></li>
+            </ul>
+        </div>
+        <p class="muted">Bezpiecznik ocenia wiadomości na podstawie typowych sygnałów oszustwa. Wynik „nie wykryto” nie daje gwarancji bezpieczeństwa — w razie wątpliwości zawsze skontaktuj się z firmą lub osobą innym kanałem.</p>
+    </section>
+</main>
+
+<nav>
+    <button type="button" data-tab="check" aria-current="page"><span>🔍</span>Sprawdź</button>
+    <button type="button" data-tab="tips"><span>💡</span>Porady</button>
+    <button type="button" data-tab="help"><span>🆘</span>Pomoc</button>
+</nav>
+
+<script src="analyzer.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+
+const VERDICTS = {
+    high:   { title: "🚨 To najpewniej oszustwo", text: "Nie klikaj w link, nie płać i nie podawaj żadnych danych." },
+    medium: { title: "⚠️ Bardzo podejrzane", text: "Wiadomość ma kilka cech typowych dla oszustw. Zachowaj ostrożność." },
+    low:    { title: "🔎 Zachowaj czujność", text: "Wykryliśmy pojedyncze sygnały ostrzegawcze." },
+    none:   { title: "✅ Nie wykryto typowych sygnałów oszustwa", text: "To nie jest gwarancja. Jeśli wiadomość jest nieoczekiwana, sprawdź ją u nadawcy innym kanałem." }
+};
+
+const ADVICE = {
+    high: [
+        "Nie klikaj w link i nie odpisuj.",
+        "Przekaż SMS na numer 8080 — CERT Polska zablokuje fałszywą stronę.",
+        "Usuń wiadomość i zablokuj numer nadawcy.",
+        "Jeśli już podałeś dane — przejdź do zakładki „Pomoc”."
+    ],
+    medium: [
+        "Nie klikaj w link — wejdź na stronę firmy, wpisując adres samodzielnie.",
+        "Jeśli pisze „bliska osoba”, zadzwoń na jej stary, znany numer.",
+        "W razie wątpliwości przekaż SMS na 8080."
+    ],
+    low: [
+        "Sprawdź informację w oficjalnej aplikacji lub na stronie firmy.",
+        "Nie podawaj kodów ani haseł, nawet jeśli wiadomość wygląda wiarygodnie."
+    ],
+    none: [
+        "Mimo to nie podawaj nikomu kodu BLIK, PIN-u ani haseł.",
+        "Jeśli wiadomość jest nieoczekiwana, potwierdź ją u nadawcy innym kanałem."
+    ]
+};
+
+const esc = s => s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+function showResult() {
+    const text = $("input").value;
+    const r = Bezpiecznik.analyze(text);
+    if (r.level === "empty") {
+        $("input").focus();
+        return;
+    }
+    const v = VERDICTS[r.level];
+    $("verdict").className = "verdict " + r.level;
+    $("verdict-title").textContent = v.title;
+    $("verdict-text").textContent = v.text;
+    $("meter").style.width = Math.max(4, r.score) + "%";
+
+    const items = [
+        ...r.linkFindings.map(f => `<div class="finding"><strong>🔗 Podejrzany link</strong><p>${esc(f.text)}</p></div>`),
+        ...r.findings.map(f => `<div class="finding"><strong>${esc(f.title)}</strong><p>${esc(f.why)}</p></div>`)
+    ];
+    $("findings").innerHTML = items.join("");
+    $("findings-card").classList.toggle("hidden", items.length === 0);
+    $("advice").innerHTML = ADVICE[r.level].map(a => `<li>${esc(a)}</li>`).join("");
+    $("result").classList.remove("hidden");
+    $("result").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+$("check").addEventListener("click", showResult);
+
+$("paste").addEventListener("click", async () => {
+    try {
+        $("input").value = await navigator.clipboard.readText();
+        showResult();
+    } catch {
+        $("input").focus();
+    }
+});
+
+$("clear").addEventListener("click", () => {
+    $("input").value = "";
+    $("result").classList.add("hidden");
+    $("input").focus();
+});
+
+$("share").addEventListener("click", async () => {
+    const msg = "Uwaga na oszustów! Zanim klikniesz w link z SMS-a, sprawdź go w aplikacji Bezpiecznik: " + location.origin + location.pathname;
+    if (navigator.share) {
+        try { await navigator.share({ title: "Bezpiecznik", text: msg }); } catch { /* anulowano */ }
+    } else {
+        location.href = "sms:?body=" + encodeURIComponent(msg);
+    }
+});
+
+document.querySelectorAll("nav button").forEach(btn => btn.addEventListener("click", () => {
+    document.querySelectorAll("nav button").forEach(b => b.removeAttribute("aria-current"));
+    btn.setAttribute("aria-current", "page");
+    ["check", "tips", "help"].forEach(t => $("tab-" + t).classList.toggle("hidden", t !== btn.dataset.tab));
+    window.scrollTo(0, 0);
+}));
+
+// Udostępnianie do aplikacji (Android: „Udostępnij” → Bezpiecznik) oraz ?text= w adresie.
+const params = new URLSearchParams(location.search);
+const shared = [params.get("title"), params.get("text"), params.get("url")].filter(Boolean).join("\n");
+if (shared) {
+    $("input").value = shared;
+    showResult();
+}
+
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js").catch(() => {});
+}
+</script>
+</body>
+</html>
