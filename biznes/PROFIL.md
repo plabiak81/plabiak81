@@ -37,3 +37,7 @@
 
 - **Obecna działalność:** Instal-tig - **JDG** · **VAT:** **zwolniony podmiotowo** (art. 113 ustawy o VAT; limit od 2026 r.: 240 000 zł sprzedaży rocznie - liczy się cała sprzedaż firmy, razem z usługami montażowymi) · **Księgowość:** ma księgową (potwierdzone 2026-10-29) · Obrót Instal-tig za 2025 r. i prognoza 2026: [[kwota - potrzebna do sprawdzenia zapasu do limitu]]
 - **Konta, które już mam:** GitHub (strony na GitHub Pages), Canva z Brand Kitem; konta płatności [[np. Stripe, PayU, Przelewy24 - jeśli brak, agent przygotuje instrukcję założenia]]
+
+## Kontakt w biznesie online
+
+- **E-mail do zamówień i kontaktu ze sklepem:** [[nowy adres]] - **nigdy nie używać `slawek_21@op.pl`** w materiałach biznesu online (decyzja właściciela 2026-10-29).

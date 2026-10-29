@@ -5,7 +5,7 @@
  * Dopóki adres formularza jest pusty, zapis po ściągę otwiera e-mail, a ściąga jest dostępna od razu.
  */
 var KONFIG = {
-  email: 'slawek_21@op.pl',          // [[POTWIERDŹ ADRES E-MAIL DO ZAMÓWIEŃ]]
+  email: '[[E-MAIL DO ZAMÓWIEŃ]]',   // [[WPISZ ADRES E-MAIL DO ZAMÓWIEŃ]]
   formularz: '',                      // [[ADRES FORMULARZA - np. endpoint usługi newslettera]]
   platnosci: {                        // [[LINK PŁATNOŚCI - np. Stripe Payment Link / Przelewy24]]
     poradnik: '',

@@ -49,7 +49,7 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 - Sprzedaż PDF/szablonów nie jest wyłączona ze zwolnienia (art. 113 ust. 13); konsultacji/doradztwa NIE sprzedajemy.
 - Zwolnienie z kasy fiskalnej dla treści cyfrowych płatnych przelewem/bramką (§ 2 rozporządzenia) - do potwierdzenia.
 - Reklama Meta = import usług - możliwy VAT 23% mimo zwolnienia (pytanie 9).
-- Adres e-mail do zamówień: slawek_21@op.pl (z README/STYL.md) - do potwierdzenia.
+- Adres e-mail do zamówień: **NIE slawek_21@op.pl** (decyzja właściciela 2026-10-29). Nowy adres - do podania przez właściciela; w plikach `[[E-MAIL DO ZAMÓWIEŃ]]`.
 - Liczba stron poradnika: na stronie (index/oferta) jest „ok. 40-60 stron”, a wersja robocza ma 17 s. (po zdjęciach ok. 20-25) - do poprawy w HTML po pracy studia.
 - Wartości ppm i strefy akceptacji na ściądze (wg literatury do AWS D18.2) - do sprawdzenia przez właściciela.
 - Udział zamówień 60/25/15%, konwersje 1,0/1,8/2,4%, CPC 1,20 zł, prowizja ok. 1,5% + 1,10 zł - szacunki.
