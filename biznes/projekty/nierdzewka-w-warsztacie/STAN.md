@@ -1,43 +1,56 @@
 # Nierdzewka w warsztacie
 
-**Etap:** 3 - Model biznesowy i liczby [DECYZJA] · **Ostatnia aktualizacja:** 2026-10-29
+**Etap:** 7 - Plan pozyskania klientów [DECYZJA] (etapy 4-6 zrobione) · **Ostatnia aktualizacja:** 2026-10-29
 
 ## W jednym zdaniu
-Pakiet edytowalnych szablonów dokumentacji spawalniczej dla małych warsztatów (główny produkt) i poradnik PDF ze ściągami TIG do stali nierdzewnej (produkt wejściowy), sprzedawane automatycznie online, bez twarzy i bez wysyłek.
+Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztatów (179 zł, główny produkt) i poradnik PDF ze ściągami TIG do stali nierdzewnej (49 zł, wejście), komplet 199 zł. Sprzedaż online w ramach JDG Instal-tig, bez twarzy i bez wysyłek.
 
 ## Decyzje
-- 2026-10-29: wybrany wariant A z etapu 1 - poradnik PDF + pakiet szablonów (#2 + #3). Dlaczego: najtańszy i najszybszy test, luka na polskim rynku, wykorzystuje praktykę właściciela z przemysłem, sprzedaż automatyczna.
-- 2026-10-29: folder projektu zmieniony z `stal-online` na `nierdzewka-w-warsztacie`.
-- 2026-10-29: werdykt etapu 2 - IDZIEMY ze zmianą akcentu: szablony = główny produkt (twardy dowód popytu w wymaganiach przetargów, brak polskiego płatnego konkurenta), poradnik = wejście i lista e-mail (silna darmowa konkurencja). Nisza mała - do celu 3-5 tys. zł/mies. trzeba będzie dołożyć drugi produkt (kurs wideo / aktualizacje).
+- 2026-10-29: wybrany wariant A z etapu 1 - poradnik PDF + pakiet szablonów (#2 + #3). Dlaczego: najtańszy test, luka na rynku, praktyka właściciela, sprzedaż automatyczna.
+- 2026-10-29: folder projektu: `biznes/projekty/nierdzewka-w-warsztacie/` (wcześniej `stal-online`).
+- 2026-10-29: werdykt etapu 2 - IDZIEMY: szablony = główny produkt, poradnik = wejście i lista e-mail; nisza mała.
+- 2026-10-29: **cennik wariant B** - poradnik 49 zł, szablony 179 zł, komplet 199 zł (decyzja właściciela; niższy próg zakupu). Konsekwencja: cel 3 000 zł/mies. = ok. 30 zamówień/mies., reklama nie spina się na pierwszym zakupie.
+- 2026-10-29: forma - sprzedaż w ramach **JDG Instal-tig zwolnionej podmiotowo z VAT**, z księgową → ceny są kwotami końcowymi (bez VAT).
+- 2026-10-29: studio kreatywne niedostępne w tej sesji (brak narzędzia do uruchomienia subagenta) → minimum oferty zrobione przez AI (`04-oferta/README.md`), zlecenie dla `/studio` przygotowane.
+- 2026-10-29: na start przedsprzedaż: zamówienie e-mailem + przelew; bramka płatności później.
 
 ## Odpowiedzi właściciela (2026-10-29)
-- Grupy spawaczy na FB/forach: jest w 1-2 → potrzebny plan dołączenia do 6-8 kolejnych grup + elektroda.pl + LinkedIn (02-rynek.md, sekcja 5).
-- Warsztaty/znajomi, do których może napisać: 5-15.
-- Własne wzory WPS/protokołów: nie ma → szablony tworzymy od zera; właściciel sprawdza merytorykę.
+- Grupy spawaczy na FB/forach: 1-2 → plan dołączenia do 6-8 grup + elektroda.pl (07-plan-klienci.md).
+- Warsztaty/znajomi do wiadomości: 5-15.
+- Własne wzory dokumentów: brak → szablony od zera; właściciel sprawdza merytorykę.
+- JDG zwolniona z VAT, ma księgową.
 
-## Czeka na decyzję (etap 3)
-- Cennik: A 69 zł brutto / 249 zł netto / 279 zł netto (rekomendacja), B niższy, C wyższy - `03-model.md` sekcja 6.
-- Budżet startowy: Minimum 160 zł / Bazowy 560 zł (rekomendacja) / Pełny 1 460 zł.
+## Czeka na decyzję (etap 7)
+- Kanały: K-min (grupy + znajomi + SEO, rekomendacja) / K-szeroki / K-reklama.
+- Budżet reklamowy: R0 0 zł na 30 dni (rekomendacja) / R1 test 300 zł / R2 150 zł/mies.
 
-## Kluczowe liczby (03-model.py, 2026-10-29)
-- Średnie zamówienie 137,76 zł netto, marża po prowizji 134,12 zł.
-- Koszty stałe ok. 8 zł/mies.; z reklamą 150 zł/mies. próg to ok. 1,2 zamówienia/mies.; budżet „Bazowy” zwraca się po ok. 4 zamówieniach.
-- Cel 3 000 zł/mies. = ok. 22 zamówienia/mies. = ok. 1 500 odwiedzin przy konwersji 1,5%.
-- 12 mies.: ostrożny ok. 3,8 tys. zł, bazowy ok. 16 tys. zł, dobry ok. 41,7 tys. zł przychodu.
-- CAC z reklamy ok. 120 zł vs marża 134 zł - reklama tylko jako test.
+## Kluczowe liczby (03-model.py, VAT = 0, cennik B)
+- Średnie zamówienie 104,00 zł, marża po prowizji 101,34 zł.
+- Koszty stałe ok. 10 zł/mies.; z reklamą 150 zł/mies. próg = ok. 1,6 zamówienia/mies.; budżet „Bazowy” 560 zł zwraca się po ok. 6 zamówieniach.
+- Cel 3 000 zł/mies. = ok. 30 zamówień/mies. = ok. 1 650 odwiedzin przy konwersji 1,8%.
+- 12 mies.: ostrożny ok. 3,5 tys. zł, bazowy ok. 14,4 tys. zł, dobry ok. 37,4 tys. zł przychodu.
+- Marża/CAC z reklamy 0,84 → reklama tylko jako test magnesu.
+
+## Co powstało
+- `04-oferta/README.md` - obietnica, pakiety, obiekcje, 3 reklamy, lista zdjęć, zlecenie dla studia.
+- `produkty/poradnik-spis-tresci.md`, `produkty/szablony-uklad-pol.md` - plan poradnika i układ pól 8 szablonów.
+- `05-strona/` - landing, oferta z 3 pakietami i zgodami, darmowa ściąga „Kolory nalotu”, regulamin i polityka prywatności (wzory do sprawdzenia przez prawnika), dziękujemy; `app.js` z konfiguracją (e-mail, formularz, linki płatności). Podgląd: `podglad/<strona>/desktop.png|mobile.png`. Linki wewnętrzne sprawdzone, brak poziomego scrolla, test przycisków zamówienia w przeglądarce OK.
+- `06-formalnosci.md` - checklista + 10 pytań do księgowej.
+- `07-plan-klienci.md` - kanały, warianty, plan 30/60/90, kalendarz, SEO, wiadomości B2B, cele.
 
 ## Założenia (do potwierdzenia)
-- Sprzedaż w ramach istniejącej działalności Instal-tig (forma i VAT nieuzupełnione w PROFIL.md - etap 6).
-- VAT 23% w modelu; poradnik PDF może mieć 5% (wymóg ISBN niejasny) - etap 6, księgowa.
-- Udział w zamówieniach: 60% poradnik, 25% szablony, 15% komplet (S).
-- Konwersja wizyta → zakup 0,8% / 1,5% / 2,0% w scenariuszach (S); CPC 1,20 zł, zapis 25%, zapis → zakup 4% (S).
-- Prowizja płatności ok. 1,5% + 1,10 zł (S, dane z porównań, nie z cennika operatora).
-- Liczba spawaczy 60-120 tys. i firm metalowych 25-40 tys. - szacunki bez danych GUS (do sprawdzenia w BDL).
-- Fakturowanie i narzędzie e-mail za 0 zł.
-- Strony zablokowane w sieci sesji (naukaspawania.com, jakspawacodlewy.pl, kb.pl, elektroda.pl) - ceny i cytaty do ręcznego sprawdzenia.
-- Szablony nie kopiują treści norm ISO (chronione) i nie zastępują WPQR ani uprawnień - jasno opisane w ofercie.
+- **Budżet startowy „Bazowy” 560 zł** - właściciel „bez preferencji”; każdy wydatek tylko za osobną zgodą.
+- Zapas do limitu zwolnienia z VAT (240 000 zł, cała JDG) wystarcza - obrót Instal-tig nieznany (pytanie 1 do księgowej).
+- Sprzedaż PDF/szablonów nie jest wyłączona ze zwolnienia (art. 113 ust. 13); konsultacji/doradztwa NIE sprzedajemy.
+- Zwolnienie z kasy fiskalnej dla treści cyfrowych płatnych przelewem/bramką (§ 2 rozporządzenia) - do potwierdzenia.
+- Reklama Meta = import usług - możliwy VAT 23% mimo zwolnienia (pytanie 9).
+- Adres e-mail do zamówień: slawek_21@op.pl (z README/STYL.md) - do potwierdzenia.
+- Wartości ppm i strefy akceptacji na ściądze (wg literatury do AWS D18.2) - do sprawdzenia przez właściciela.
+- Udział zamówień 60/25/15%, konwersje 1,0/1,8/2,4%, CPC 1,20 zł, prowizja ok. 1,5% + 1,10 zł - szacunki.
+- Liczba spawaczy 60-120 tys. i firm metalowych 25-40 tys. - szacunki bez danych GUS.
+- Ceny konkurencji (naukaspawania.com, jakspawacodlewy.pl), cytaty z forów - do ręcznego sprawdzenia.
 
 ## Następne kroki
-- [ ] Właściciel: decyzja - cennik i budżet startowy (ZADANIA-WLASCICIELA.md)
-- [ ] Właściciel: dołączyć do 6-8 grup + zebrać 5-10 prawdziwych pytań (ZADANIA-WLASCICIELA.md)
-- [ ] AI po decyzji: etap 4 - zlecenie dla studia kreatywnego (opakowanie, landing, magnes „Kolory nalotu”), potem etap 5 - strona i treść produktów
+- [ ] Właściciel: decyzja etapu 7 - kanały i budżet reklamowy (ZADANIA-WLASCICIELA.md)
+- [ ] Właściciel: pytania do księgowej (06-formalnosci.md), dane do regulaminu, sprawdzenie ściągi
+- [ ] AI po decyzji: 3 artykuły SEO, posty do grup, pierwsze 3 szablony (.docx/.xlsx), e-mail potwierdzający zamówienie; potem etap 8 (start, `08-start.md`, `metryki.md`)

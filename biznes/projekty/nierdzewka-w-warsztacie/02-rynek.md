@@ -74,7 +74,7 @@ Wyszukiwanie „wzór dziennik spawania protokół kontroli wizualnej do pobrani
 - **Kto płaci:** firma (JDG lub spółka 1-20 osób), faktura VAT, koszt uzyskania przychodu.
 - **Kto decyduje:** właściciel, często sam spawa. Decyzja do 300-400 zł netto bez pytania nikogo.
 - **Sytuacja zakupu:** dostał zapytanie lub zlecenie od zakładu spożywczego, chemicznego, energetyki, albo przetarg, w którym wymagany jest dziennik spawania, WPS, protokół VT, rejestr atestów (por. wymagania Enei wyżej). Ma termin - potrzebuje dokumentów „na wczoraj”.
-- **Ile dziś wydaje:** albo nic (robi w Wordzie sam, godzinami), albo płaci inżynierowi spawalnikowi / doradcy (ceny indywidualne; szkolenie z norm 2 200 zł netto/os.), albo traci zlecenie. (S) Godzina pracy właściciela przy dokumentach to 100-150 zł - pakiet za 249 zł zwraca się, jeśli oszczędzi 2-3 godziny.
+- **Ile dziś wydaje:** albo nic (robi w Wordzie sam, godzinami), albo płaci inżynierowi spawalnikowi / doradcy (ceny indywidualne; szkolenie z norm 2 200 zł netto/os.), albo traci zlecenie. (S) Godzina pracy właściciela przy dokumentach to 100-150 zł - pakiet za 179 zł (cennik B) zwraca się, jeśli oszczędzi 1-2 godziny.
 - **Obiekcje:** „czy to przejdzie u klienta / audytora”, „czy to zgodne z normą”, „mam swoje wzory”. Odpowiedź: przykład wypełniony, jasna informacja, co szablon daje, a czego nie (nie zastępuje WPQR ani uprawnień), prawo do zwrotu tylko jeśli prawo na to pozwala (treści cyfrowe - etap 6).
 
 ### Segment A (wejście, lista e-mail): spawacz, który zaczyna z nierdzewką
@@ -92,7 +92,7 @@ Brak oficjalnej liczby spawaczy w Polsce w wynikach wyszukiwania (GUS/BAEL - do 
 | Segment | Liczba (S) | Metoda szacunku | Cena | Częstotliwość | Wartość rynku (S) | 1% w roku 1 |
 |---|---|---|---|---|---|---|
 | A - spawacze TIG na nierdzewce + hobbyści | 17 000-51 000 osób | 60-120 tys. spawaczy (S, brak danych GUS) × 20-30% pracujących z nierdzewką TIG + 5-15 tys. hobbystów | 69 zł brutto | raz | 1,17-3,52 mln zł brutto | 170-510 zakupów |
-| B - warsztaty pracujące dla przemysłu / w przetargach | 2 500-8 000 firm | 25-40 tys. firm metalowych z JDG (S: ok. 3-5× liczba z Bizraport) × 10-20% robiących zlecenia z wymaganą dokumentacją | 249 zł netto | raz (+ aktualizacje) | 0,62-1,99 mln zł netto | 25-80 zakupów |
+| B - warsztaty pracujące dla przemysłu / w przetargach | 2 500-8 000 firm | 25-40 tys. firm metalowych z JDG (S: ok. 3-5× liczba z Bizraport) × 10-20% robiących zlecenia z wymaganą dokumentacją | 249 zł netto (cennik B: 179 zł) | raz (+ aktualizacje) | 0,62-1,99 mln zł (przy 179 zł: 0,45-1,43 mln zł) | 25-80 zakupów |
 
 Policzone skryptem (2026-10-29). **Wniosek:** to mała nisza. Jednorazowy rynek A+B to rząd 2-5 mln zł, a realnie osiągalne w roku 1 (1%) to ok. 200-600 zamówień, czyli ok. 25-80 tys. zł przychodu w najlepszym razie. Cel 3-5 tys. zł/mies. jest na granicy możliwości tej niszy - trzeba będzie dołożyć drugi produkt (kurs wideo, aktualizacje szablonów w abonamencie, aplikacja wyceny).
 
