@@ -263,7 +263,7 @@ W mleczarni instalacja ma nie tylko przesyłać produkt. Musi się dać codzienn
 >
 > Z poważaniem
 > [[imię i nazwisko]]
-> Instal-Tig Sp. z o.o. · tel. +48 667 466 431 · slawek_21@op.pl
+> Instal-tig · tel. +48 667 466 431 · slawek_21@op.pl
 > https://plabiak81.github.io/Instal-Tig/
 
 ### Follow-up (po 5-7 dniach)

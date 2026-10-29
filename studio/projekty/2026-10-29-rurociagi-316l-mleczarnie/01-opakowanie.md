@@ -104,7 +104,7 @@ Rekomendacja: nazwa główna opisowa (1), a „Metoda czystej grani" jako nazwa 
 
 **Mamy (prawdziwe):**
 - Wiedza ekspercka opublikowana na blogu (3 artykuły: dobór stali, higieniczne instalacje, TIG i formowanie grani).
-- Dane firmy: Instal-Tig Sp. z o.o., Milicka 29, 56-300 Sułów, tel. +48 667 466 431.
+- Dane firmy: Instal-tig, Milicka 29, 56-300 Sułów, tel. +48 667 466 431.
 - Kalkulator wyceny online.
 - Profil z opiniami w Google (istnieje link w stopce strony - treści opinii nie znamy, nie cytujemy).
 
