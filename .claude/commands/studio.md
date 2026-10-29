@@ -9,4 +9,4 @@ $ARGUMENTS
 
 Jeśli zlecenie jest puste, zapytaj krótko: co sprzedajemy, dla kogo i co ma powstać (lub „wszystko").
 
-Po zakończeniu pracy agenta pokaż użytkownikowi: listę powstałych plików, 3 kluczowe decyzje kreatywne i punkty „musisz" z `DO-DOPIECIA.md`. Wyślij mu wyrenderowane PNG i podgląd landing page, jeśli masz do tego narzędzie.
+Po zakończeniu pracy agenta pokaż użytkownikowi: listę powstałych plików, 3 kluczowe decyzje kreatywne i punkty „musisz" z `DO-DOPIECIA.md`. Podaj linki do projektów w Canvie (z `03-grafiki/CANVA.md`), a PNG i podgląd landing page wyślij, jeśli masz do tego narzędzie.

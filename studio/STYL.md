@@ -31,6 +31,13 @@
 - Logo: `img/logo.png`
 - Charakter grafik: zdjęcia stali i spawów z bliska, czyste tło, dużo powietrza, mocny kontrast nagłówka. Bez stockowych uśmiechniętych ludzi w kaskach.
 
+## Canva
+
+- **Brand Kit (brand_kit_id):** `kAHP7xeBpvQ` - jedyny Brand Kit na koncie, wybrany na stałe. Agent używa go bez pytania. Żeby użyć innego, podmień ID.
+- **Folder nadrzędny na projekty (folder_id):** `root` [[opcjonalnie podaj ID folderu, np. „Marketing”]]
+- **Brand Templates do użycia (jeśli masz):** [[np. BTM... - miniatura YT, post realizacyjny]]
+- Uzupełnij Brand Kit w Canvie (logo `img/logo.png`, kolory z sekcji „Wygląd”, fonty) - im pełniejszy, tym mniej poprawek.
+
 ## Dane kontaktowe (do CTA)
 
 - Telefon: +48 667 466 431
