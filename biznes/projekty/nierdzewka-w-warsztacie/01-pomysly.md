@@ -1,6 +1,8 @@
 # 01 - Pomysły: biznes online w branży stali nierdzewnej
 
-**Data:** 2026-10-29 · **Etap:** 1 (pomysły) · **Status:** czeka na decyzję właściciela
+> 2026-10-29: właściciel wybrał wariant A (#2 + #3). Projekt przeniesiony do `biznes/projekty/nierdzewka-w-warsztacie/`.
+
+**Data:** 2026-10-29 · **Etap:** 1 (pomysły) · **Status:** decyzja podjęta - wariant A
 
 Punkt wyjścia (`biznes/PROFIL.md`): 2-5 h/tydz., 1 000-3 000 zł na start + do 300 zł/mies., cel 3-5 tys. zł/mies. w 12 miesięcy, dochód niezależny od pracy fizycznej, branża stal nierdzewna / TIG, bez pokazywania twarzy, bez magazynu i bez czasochłonnej obsługi klienta.
 
