@@ -1,4 +1,4 @@
-# 04 - Oferta i materiały: Nierdzewka w warsztacie
+# 04 - Oferta i materiały: Mega Spaw
 
 **Data:** 2026-10-29
 
@@ -46,4 +46,4 @@
 15-20 zdjęć: spoina TIG na rurze 304/316L - lico i grań (dobra / przegrzana / bez formowania), kolory nalotu na próbkach, korek do formowania, wolfram zaostrzony, czyszczenie spoiny pastą. Telefon wystarczy, dobre światło dzienne.
 
 ## 6. Zlecenie dla studia (gdy będzie dostępne)
-> /studio Opakowanie i materiały dla produktu „Nierdzewka w warsztacie” (projekt: `biznes/projekty/nierdzewka-w-warsztacie/`). Produkty: poradnik PDF + 6 ściąg (49 zł), pakiet 8 szablonów dokumentacji spawalniczej dla małego warsztatu (179 zł), komplet (199 zł); ceny końcowe, sprzedawca zwolniony z VAT. Klienci: właściciele warsztatów 1-20 osób pracujących dla przemysłu spożywczego/chemicznego i w przetargach (główny), spawacze TIG zaczynający z nierdzewką (wejście). Dowody: wymagania przetargów (dziennik spawania z WPS, VT wg ISO 17637/5817) - `02-rynek.md`; bez zmyślonych opinii i liczb. Kanały: grupy FB spawaczy, elektroda.pl, LinkedIn, SEO. Potrzebne: 3 grafiki do postów (1080×1080) w Brand Kicie, okładka PDF, mockup ściągi, 5 wariantów reklam. Landing już jest w `05-strona/` - studio poprawia teksty i grafiki, nie buduje od zera.
+> /studio Opakowanie i materiały dla produktu „Mega Spaw” (projekt: `biznes/projekty/nierdzewka-w-warsztacie/`). Produkty: poradnik PDF + 6 ściąg (49 zł), pakiet 8 szablonów dokumentacji spawalniczej dla małego warsztatu (179 zł), komplet (199 zł); ceny końcowe, sprzedawca zwolniony z VAT. Klienci: właściciele warsztatów 1-20 osób pracujących dla przemysłu spożywczego/chemicznego i w przetargach (główny), spawacze TIG zaczynający z nierdzewką (wejście). Dowody: wymagania przetargów (dziennik spawania z WPS, VT wg ISO 17637/5817) - `02-rynek.md`; bez zmyślonych opinii i liczb. Kanały: grupy FB spawaczy, elektroda.pl, LinkedIn, SEO. Potrzebne: 3 grafiki do postów (1080×1080) w Brand Kicie, okładka PDF, mockup ściągi, 5 wariantów reklam. Landing już jest w `05-strona/` - studio poprawia teksty i grafiki, nie buduje od zera.

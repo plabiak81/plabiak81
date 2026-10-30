@@ -35,6 +35,7 @@
 
 ## Forma prawna i płatności
 
+- **Nazwa firmy (CEIDG) i nazwa sklepu online:** Mega Spaw
 - **Obecna działalność:** Instal-tig - **JDG** · **VAT:** **zwolniony podmiotowo** (art. 113 ustawy o VAT; limit od 2026 r.: 240 000 zł sprzedaży rocznie - liczy się cała sprzedaż firmy, razem z usługami montażowymi) · **Księgowość:** ma księgową (potwierdzone 2026-10-29) · Obrót Instal-tig za 2025 r. i prognoza 2026: [[kwota - potrzebna do sprawdzenia zapasu do limitu]]
 - **Konta, które już mam:** GitHub (strony na GitHub Pages), Canva z Brand Kitem; konta płatności [[np. Stripe, PayU, Przelewy24 - jeśli brak, agent przygotuje instrukcję założenia]]
 

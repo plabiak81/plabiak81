@@ -1,4 +1,4 @@
-/* Nierdzewka w warsztacie - minimum JS.
+/* Mega Spaw - minimum JS.
  * KONFIGURACJA: uzupełnia właściciel (szczegóły w ZADANIA-WLASCICIELA.md).
  * Dopóki linki płatności są puste, przycisk „Kupuję” otwiera e-mail z zamówieniem
  * (przedsprzedaż: płatność przelewem po potwierdzeniu, faktura bez VAT).
