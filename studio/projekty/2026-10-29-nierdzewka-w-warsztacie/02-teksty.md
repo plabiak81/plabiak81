@@ -1,4 +1,4 @@
-# 02 - Teksty: Mega Spaw
+# 02 - Teksty: MEGA-SPAW
 
 Gotowe do kopiuj-wklej. Źródło: `01-opakowanie.md`. Budżet reklamowy 0 zł → **bez reklam Meta i Google Ads** (zgodnie ze zleceniem); zamiast nich 5 postów do grup FB. Opisy YouTube pominięte (wideo poza zakresem).
 

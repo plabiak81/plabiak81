@@ -1,4 +1,4 @@
-# 01 - Opakowanie: Mega Spaw
+# 01 - Opakowanie: MEGA-SPAW
 
 Dokument źródłowy dla tekstów i grafik. Bazuje na `biznes/projekty/nierdzewka-w-warsztacie/02-rynek.md`, `03-model.md`, `04-oferta/README.md` i `produkty/*.md`. Forma: „Ty” w postach i na stronie, „Państwo” w wiadomościach B2B do obcych firm.
 
@@ -38,7 +38,7 @@ Dla segmentu B (wejście): **„Nierdzewka bez przebarwień. Poradnik i 6 ścią
 3. **Uczciwe granice** - jasno napisane, czego szablon nie zastępuje (WPQR, uprawnienia, decyzja inspektora). To odróżnia nas od „wzorów z internetu” i buduje zaufanie.
 
 ## 5. Nazwa oferty
-Marka produktu zostaje: **„Mega Spaw”** (od Instal-tig). Nazwy pakietów - propozycje, obecne pogrubione:
+Marka produktu zostaje: **„MEGA-SPAW”** (od Instal-tig). Nazwy pakietów - propozycje, obecne pogrubione:
 1. **Szablony warsztatu** (obecna - dobra, zostawić)
 2. Teczka warsztatu
 3. Papiery do odbioru

@@ -45,7 +45,7 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 
 ## Założenia (do potwierdzenia)
 - **Budżet: 0 zł - nic nie kupujemy** (decyzja właściciela 2026-10-29). Bez domeny (strona na darmowym adresie GitHub Pages), bez płatnych narzędzi, bez reklam. Nie proponować zakupów; szukać darmowych zamienników.
-- 2026-10-30: **nazwa: Mega Spaw** - to pełna nazwa firmy z CEIDG i jednocześnie nazwa sklepu (decyzja właściciela). Zmieniona na stronie, w produktach i grafikach; logo Instal-tig zdjęte z okładki poradnika. Założenie do potwierdzenia: Mega Spaw to ta sama JDG zwolniona z VAT, adres Milicka 29, 56-300 Sułów.
+- 2026-10-30: **nazwa: MEGA-SPAW** - to pełna nazwa firmy z CEIDG i jednocześnie nazwa sklepu (decyzja właściciela). Zmieniona na stronie, w produktach i grafikach; logo Instal-tig zdjęte z okładki poradnika. Założenie do potwierdzenia: MEGA-SPAW to ta sama JDG zwolniona z VAT, adres Milicka 29, 56-300 Sułów.
 - 2026-10-30: **strona na GitHub Pages** (darmowy adres `plabiak81.github.io/...`) - potwierdzone przez właściciela („Tak GitHub”).
 - Zapas do limitu zwolnienia z VAT (240 000 zł, cała JDG) wystarcza - obrót Instal-tig nieznany (pytanie 1 do księgowej).
 - Sprzedaż PDF/szablonów nie jest wyłączona ze zwolnienia (art. 113 ust. 13); konsultacji/doradztwa NIE sprzedajemy.

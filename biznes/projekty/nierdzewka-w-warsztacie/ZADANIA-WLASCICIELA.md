@@ -18,7 +18,7 @@
 ## W tym tygodniu
 - [ ] **Zrób 15-20 zdjęć spoin** (same ręce i spoiny) - wstawię je w miejsca `[[ZDJĘCIE]]` w poradniku (10 miejsc) - lista w `04-oferta/README.md`, sekcja 5 - ~30 min - 0 zł
 - [ ] **Sprawdź ściągę „Kolory nalotu” na stronie** (`05-strona/sciaga-kolory-nalotu.html` albo zrzut `podglad/sciaga-kolory-nalotu/desktop.png`): opisy, wartości ppm, strefy „zwykle OK / zależy od klienta / do poprawy” - ~15 min - 0 zł. Napisz, co zmienić.
-- [ ] **Uzupełnij dane do regulaminu i polityki prywatności:** imię i nazwisko, pełna nazwa z CEIDG ✅ Mega Spaw, NIP, REGON, e-mail do zamówień ✅ mojeacount@gmail.com (wpisany 2026-10-30) - ~5 min - 0 zł. Prześlij mi, wpiszę w `05-strona/`.
+- [ ] **Uzupełnij dane do regulaminu i polityki prywatności:** imię i nazwisko, pełna nazwa z CEIDG ✅ MEGA-SPAW, NIP, REGON, e-mail do zamówień ✅ mojeacount@gmail.com (wpisany 2026-10-30) - ~5 min - 0 zł. Prześlij mi, wpiszę w `05-strona/`.
 - [ ] Zbierz 5-10 prawdziwych pytań o nierdzewkę / dokumenty z grup, w których jesteś (szukaj: „nierdzewka”, „przebarwienia”, „grań”, „WPS”, „dziennik spawania”) - wklej z linkami - ~15 min - 0 zł
 - [ ] (opcjonalnie) Sprawdź w przeglądarce ceny kursów naukaspawania.com i jakspawacodlewy.pl (zablokowane w mojej sieci) - ~5 min
 
