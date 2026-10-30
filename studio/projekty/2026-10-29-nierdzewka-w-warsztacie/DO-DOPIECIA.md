@@ -2,7 +2,7 @@
 
 ## 5 minut (musisz)
 - [ ] **Canva:** generowanie z Brand Kitem znowu zablokowane („Design generation is not enabled in your team”). Grafiki są w PNG (plan B). Włącz Magic Design / AI dla zespołu w ustawieniach Canvy, jeśli chcesz następne grafiki edytować w Canvie. Folder: https://www.canva.com/folder/FAHZbCuwoAk (pusty).
-- [ ] **Usuń „Najczęściej potrzebne”** w `biznes/projekty/nierdzewka-w-warsztacie/05-strona/oferta.html` (tag na karcie „Szablony warsztatu”), zamień na „Dla warsztatu”. Bez danych o sprzedaży to twierdzenie bez dowodu. Szczegóły: `05-poprawki-strony.md`, P1.
+- [ ] **Usuń „Najczęściej potrzebne”** w `mega-spaw/oferta.html` (tag na karcie „Szablony warsztatu”), zamień na „Dla warsztatu”. Bez danych o sprzedaży to twierdzenie bez dowodu. Szczegóły: `05-poprawki-strony.md`, P1.
 - [ ] **Sprawdź liczby ppm i strefy** („zwykle OK / zależy od klienta / do poprawy / wada”). Są w `03-grafiki/png/mockup-sciaga-kolory-nalotu.png`, `og-sciaga-1200x630.png` i w poście 1 (`02-teksty.md`). To te same wartości co na `sciaga-kolory-nalotu.html`, więc sprawdzasz raz. Jeśli zmienisz coś na ściądze, zmień też w `03-grafiki/grafiki.html` i przerenderuj (komenda w `CANVA.md`).
 - [ ] **Post 5 (`02-teksty.md`):** zdanie „kilka pól dopisałem właśnie przez Was” zostaw tylko wtedy, gdy pod postem 4 naprawdę były odpowiedzi. Jeśli nie było, usuń je (`[[POPRAW]]`).
 - [ ] **Przejrzyj obrazki og:** sprawdź, czy na stronie po publikacji działa podgląd linku. Wklej adres strony na https://developers.facebook.com/tools/debug/ (podgląd FB/Messenger).
@@ -20,7 +20,7 @@
 - Forma „Ty” w postach do grup, „Państwo” w e-mailu do zimnego leada i w poście eksperckim na LinkedIn (pytanie końcowe).
 - Posty piszę w 1. osobie („widzę najczęściej”, „przygotowuję”) jako właściciel. Bez twarzy, bez imienia na grafikach.
 - Reklamy Meta i Google pominięte (budżet 0 zł), opisy YouTube pominięte (bez wideo).
-- og:image ma adres bezwzględny pod `https://plabiak81.github.io/plabiak81/biznes/projekty/nierdzewka-w-warsztacie/05-strona/`, taki sam jak `canonical`. Jeśli strona trafi pod inny adres (np. własna domena), podmień adresy w 3 plikach.
+- og:image ma adres bezwzględny pod `https://plabiak81.github.io/plabiak81/mega-spaw/`, taki sam jak `canonical`. Jeśli strona trafi pod inny adres (np. własna domena), podmień adresy w 3 plikach.
 - Ceny na grafice OG (179 zł / 49 zł) są cenami z briefu. Jeśli je zmienisz, przerenderuj OG.
 
 ## Do zebrania / nagrania

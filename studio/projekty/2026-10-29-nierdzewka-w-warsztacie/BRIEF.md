@@ -11,7 +11,7 @@
 - **Dla kogo:** (główny) właściciele warsztatów 1-20 osób, którzy pracują dla przemysłu spożywczego/chemicznego i startują w przetargach; (wejście) spawacze TIG zaczynający z nierdzewką.
 - **Cel kampanii:** zapisy po darmową ściągę i pierwsze sprzedaże szablonów.
 - **Kanały:** grupy FB spawaczy, wiadomości do warsztatów, SEO. Budżet reklamowy 0 zł - **bez reklam płatnych**; zamiast wariantów reklam 5 wariantów nie-spamowych postów do grup FB.
-- **Co ma powstać:** 01 opakowanie, 02 teksty, 03 grafiki (3 posty 1080×1080, okładka poradnika PDF, mockup ściągi „Kolory nalotu”, OG 1200×630), propozycje poprawek tekstów istniejącego landingu + podpięcie og:image w `05-strona/`. **Bez** modułu 05 w studiu i bez wideo.
-- **Materiały:** logo `img/logo.png`, istniejący landing i ściąga w `05-strona/`. Brak zdjęć realizacji.
+- **Co ma powstać:** 01 opakowanie, 02 teksty, 03 grafiki (3 posty 1080×1080, okładka poradnika PDF, mockup ściągi „Kolory nalotu”, OG 1200×630), propozycje poprawek tekstów istniejącego landingu + podpięcie og:image w `mega-spaw/`. **Bez** modułu 05 w studiu i bez wideo.
+- **Materiały:** logo `img/logo.png`, istniejący landing i ściąga w `mega-spaw/`. Brak zdjęć realizacji.
 - **Dowody:** wymagania przetargów (dziennik spawania z WPS, VT wg PN-EN ISO 17637 z kryteriami PN-EN ISO 5817, plan spawania i badań) - `02-rynek.md`. Bez opinii, bez liczb klientów, bez lat na rynku.
 - **Czego unikać:** twarzy właściciela, zmyślonych opinii i liczb, spamu w grupach, zakazanych zwrotów ze `STYL.md`, obietnic „zgodne z normą / przejdzie audyt”.

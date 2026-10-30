@@ -107,7 +107,7 @@ Zasada grup: na jedną wzmiankę o produkcie 3-4 przydatne posty lub odpowiedzi.
 | 9 | jak usunąć nalot po spawaniu nierdzewki (trawienie, pasywacja) | problem | poradnik |
 | 10 | 304 czy 316L (artykuł już jest na blogu Instal-tig - podlinkować) | decyzja | poradnik |
 
-Artykuły 1-3 napiszę po decyzji (wzór: blog Instal-tig). Opublikujemy je jako podstrony `05-strona/`. Publikacja tylko po Twojej zgodzie.
+Artykuły 1-3 napiszę po decyzji (wzór: blog Instal-tig). Opublikujemy je jako podstrony `mega-spaw/`. Publikacja tylko po Twojej zgodzie.
 
 ## 6. B2B - profil i wiadomości
 

@@ -3,9 +3,9 @@
 Gotowe do kopiuj-wklej. Źródło: `01-opakowanie.md`. Budżet reklamowy 0 zł → **bez reklam Meta i Google Ads** (zgodnie ze zleceniem); zamiast nich 5 postów do grup FB. Opisy YouTube pominięte (wideo poza zakresem).
 
 Linki (strona startuje na GitHub Pages):
-- strona: `https://plabiak81.github.io/plabiak81/biznes/projekty/nierdzewka-w-warsztacie/05-strona/`
-- ściąga: `.../05-strona/sciaga-kolory-nalotu.html`, zapis po PDF: `.../05-strona/#sciaga`
-- oferta: `.../05-strona/oferta.html`
+- strona: `https://plabiak81.github.io/plabiak81/mega-spaw/`
+- ściąga: `https://plabiak81.github.io/plabiak81/mega-spaw/sciaga-kolory-nalotu.html`, zapis po PDF: `https://plabiak81.github.io/plabiak81/mega-spaw/#sciaga`
+- oferta: `https://plabiak81.github.io/plabiak81/mega-spaw/oferta.html`
 
 Liczby techniczne w postach są takie same jak na ściądze na stronie - właściciel sprawdza je raz, przy ściądze `[[SPRAWDŹ]]`.
 
@@ -55,7 +55,7 @@ Grafika: `post-1-kolory-nalotu.png`
 > Jaki kolor grani u Was przechodzi na odbiorach? Spożywka zwykle chce srebrny albo bardzo jasną słomkę, ale słyszałem różne historie.
 
 Pierwszy komentarz:
-> Ściąga do wydruku: https://plabiak81.github.io/plabiak81/biznes/projekty/nierdzewka-w-warsztacie/05-strona/sciaga-kolory-nalotu.html
+> Ściąga do wydruku: https://plabiak81.github.io/plabiak81/mega-spaw/sciaga-kolory-nalotu.html
 
 ### Post 2 - Czarna szczotka (czysta wartość, bez linku)
 Grafika: `post-3-zelazo.png`
@@ -116,7 +116,7 @@ Grafika: `post-2-papiery.png`
 > 179 zł, cena końcowa, faktura bez VAT. Pełna lista pól przed zakupem - link w komentarzu. Jeśli admin uzna, że to za dużo reklamy - usunę bez dyskusji.
 
 Pierwszy komentarz:
-> Lista dokumentów i pól: https://plabiak81.github.io/plabiak81/biznes/projekty/nierdzewka-w-warsztacie/05-strona/oferta.html
+> Lista dokumentów i pól: https://plabiak81.github.io/plabiak81/mega-spaw/oferta.html
 
 ---
 

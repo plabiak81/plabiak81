@@ -35,7 +35,7 @@
 
 ## 5. Sprzedaż konsumentom (e-commerce)
 
-- [x] **Regulamin** - wzór: `05-strona/regulamin.html` `[[DO SPRAWDZENIA PRZEZ PRAWNIKA]]`: dane sprzedawcy, zamówienie, płatność, dostarczenie, licencja, reklamacje, odstąpienie, usługi elektroniczne, spory.
+- [x] **Regulamin** - wzór: `mega-spaw/regulamin.html` `[[DO SPRAWDZENIA PRZEZ PRAWNIKA]]`: dane sprzedawcy, zamówienie, płatność, dostarczenie, licencja, reklamacje, odstąpienie, usługi elektroniczne, spory.
 - [x] **Odstąpienie od umowy (14 dni) i wyjątek dla treści cyfrowych** - art. 38 ust. 1 pkt 13 ustawy o prawach konsumenta: prawo wygasa, gdy dostarczanie zaczęło się za wyraźną zgodą konsumenta, po poinformowaniu o utracie prawa, i sprzedawca przekazał potwierdzenie ([ifirma.pl](https://www.ifirma.pl/blog/aktualnosci/umowa-o-dostarczeniu-tresci-cyfrowych-jako-element-regulaminu-sprzedazy-produktow-cyfrowych/), [lexlege.pl - art. 38](https://www.lexlege.pl/ustawa-o-prawach-konsumenta/art-38/)). Na stronie oferty są **dwa pola do zaznaczenia** (regulamin + zgoda), sprawdzone w przeglądarce. **Do zrobienia:** w e-mailu potwierdzającym zamówienie powtórzyć tę zgodę (potwierdzenie na trwałym nośniku) - wzór e-maila w `08-start.md` (etap 8).
 - [ ] **Zgodność treści cyfrowej z umową / reklamacje** - rozdział 5b ustawy o prawach konsumenta (od 2023 r., [UOKiK - przewodnik](https://prawakonsumenta.uokik.gov.pl/pliki/rewolucja-konsumencka-2023-przewodnik-po-zmianach-w-prawie-konsumenckim.pdf)). Odpowiedź na reklamację w 14 dni.
 - [ ] **Przedsiębiorca na prawach konsumenta** (art. 38a) - JDG kupująca szablony może mieć ochronę konsumencką. Uwzględnione w regulaminie.
@@ -44,7 +44,7 @@
 
 ## 6. RODO, e-mail marketing, cookies
 
-- [x] **Polityka prywatności** - wzór: `05-strona/polityka-prywatnosci.html` `[[DO SPRAWDZENIA PRZEZ PRAWNIKA]]`.
+- [x] **Polityka prywatności** - wzór: `mega-spaw/polityka-prywatnosci.html` `[[DO SPRAWDZENIA PRZEZ PRAWNIKA]]`.
 - [ ] **Newsletter:** zgoda zaznaczana aktywnie (pole niezaznaczone domyślnie) - jest w formularzu. Informacja handlowa e-mailem wymaga zgody (od 10.11.2024 r. Prawo komunikacji elektronicznej `[[PRAWNIK: potwierdzić podstawę]]`). Rezygnacja jednym kliknięciem.
 - [ ] **Umowy powierzenia:** z dostawcą narzędzia do newslettera, operatorem płatności, księgową - zwykle w regulaminach usług (zaakceptować przy zakładaniu kont).
 - [x] **Cookies:** strona nie używa cookies ani analityki - baner niepotrzebny. Jeśli dodamy licznik lub piksel Meta → aktualizacja polityki i (dla piksela) baner zgody.
@@ -54,13 +54,13 @@
 
 - [ ] **Normy PN-EN ISO są chronione** - w produktach tylko numery norm i własne pola, bez przepisywania treści, tabel i rysunków z norm.
 - [ ] **Zdjęcia** - tylko własne (właściciela) lub z licencją.
-- [ ] **Zastrzeżenia** na stronie i w plikach: szablony nie zastępują WPQR, uprawnień, certyfikacji i wymagań klienta (są w `05-strona/` i `produkty/szablony-uklad-pol.md`).
+- [ ] **Zastrzeżenia** na stronie i w plikach: szablony nie zastępują WPQR, uprawnień, certyfikacji i wymagań klienta (są w `mega-spaw/` i `produkty/szablony-uklad-pol.md`).
 - [ ] Rozważyć z księgową/agentem ubezpieczenie OC działalności - czy obejmuje treści/wzory (pytanie).
 
 ## 8. Płatności i księgowość
 
 - [ ] **Na start:** przelew na konto firmowe po zamówieniu e-mailem (już działa na stronie - bez kosztów).
-- [ ] **Potem (po pierwszych zamówieniach):** bramka płatności z BLIK i kartą (np. Stripe Payment Links lub Przelewy24) - założenie konta to zadanie właściciela; linki wpisuje się w `05-strona/app.js` (`KONFIG.platnosci`).
+- [ ] **Potem (po pierwszych zamówieniach):** bramka płatności z BLIK i kartą (np. Stripe Payment Links lub Przelewy24) - założenie konta to zadanie właściciela; linki wpisuje się w `mega-spaw/app.js` (`KONFIG.platnosci`).
 - [ ] Konto firmowe - właściciel już ma (założenie - potwierdzić).
 
 ---

@@ -15,7 +15,7 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 - 2026-10-29: na start przedsprzedaż: zamówienie e-mailem + przelew; bramka płatności później.
 
 - 2026-10-29: etap 7 - reklama **R0 (0 zł)**; kanały: właściciel napisał „Szukaj też” → **potwierdzone przez właściciela („OK”, 2026-10-29):** K-min (grupy FB + wiadomości do 5-15 warsztatów + SEO) + dodatkowe darmowe kanały z `07-plan-klienci.md` sekcja 1a (artykuł w magazynie STAL/dlaProdukcji.pl, ośrodki szkolenia spawaczy, hurtownie z QR, SEO z wymagań przetargów; później Shorts i targi Kielce 03.2027).
-- 2026-10-29: studio kreatywne równolegle robi grafiki i poprawki tekstów w `05-strona/*.html` - AI nie edytuje tych plików w tej turze.
+- 2026-10-29: studio kreatywne równolegle robi grafiki i poprawki tekstów w `mega-spaw/*.html` - AI nie edytuje tych plików w tej turze.
 - 2026-10-29: powstały pełne wersje robocze produktów (`produkty/gotowe/`): poradnik 17 s. + 6 ściąg (PDF), 8 szablonów w wersji pustej i przykładowej (DOCX/XLSX) + instrukcja PDF + 3 paczki ZIP.
 
 ## Odpowiedzi właściciela (2026-10-29)
@@ -38,7 +38,7 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 ## Co powstało
 - `04-oferta/README.md` - obietnica, pakiety, obiekcje, 3 reklamy, lista zdjęć, zlecenie dla studia.
 - `produkty/poradnik-spis-tresci.md`, `produkty/szablony-uklad-pol.md` - plan poradnika i układ pól 8 szablonów.
-- `05-strona/` - landing, oferta z 3 pakietami i zgodami, darmowa ściąga „Kolory nalotu”, regulamin i polityka prywatności (wzory do sprawdzenia przez prawnika), dziękujemy; `app.js` z konfiguracją (e-mail, formularz, linki płatności). Podgląd: `podglad/<strona>/desktop.png|mobile.png`. Linki wewnętrzne sprawdzone, brak poziomego scrolla, test przycisków zamówienia w przeglądarce OK.
+- `mega-spaw/` - landing, oferta z 3 pakietami i zgodami, darmowa ściąga „Kolory nalotu”, regulamin i polityka prywatności (wzory do sprawdzenia przez prawnika), dziękujemy; `app.js` z konfiguracją (e-mail, formularz, linki płatności). Podgląd: `podglad/<strona>/desktop.png|mobile.png`. Linki wewnętrzne sprawdzone, brak poziomego scrolla, test przycisków zamówienia w przeglądarce OK.
 - `06-formalnosci.md` - checklista + 10 pytań do księgowej.
 - `produkty/gotowe/` - poradnik PDF (17 s.), 6 ściąg PDF, 8 szablonów puste + przykłady (DOCX/XLSX), instrukcja PDF, paczki `PAKIET-Poradnik.zip`, `PAKIET-Szablony-warsztatu.zip`, `PAKIET-Komplet.zip`; źródła i generatory w `produkty/zrodla/` (`poradnik.html`, `sciagi/`, `instrukcja.html`, `build_szablony.py`, `pdf.cjs`). Podgląd stron: `podglad/produkty/`.
 - `07-plan-klienci.md` - kanały, warianty, plan 30/60/90, kalendarz, SEO, wiadomości B2B, cele.
@@ -46,6 +46,7 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 ## Założenia (do potwierdzenia)
 - **Budżet: 0 zł - nic nie kupujemy** (decyzja właściciela 2026-10-29). Bez domeny (strona na darmowym adresie GitHub Pages), bez płatnych narzędzi, bez reklam. Nie proponować zakupów; szukać darmowych zamienników.
 - 2026-10-30: **nazwa: MEGA-SPAW** - to pełna nazwa firmy z CEIDG i jednocześnie nazwa sklepu (decyzja właściciela). Zmieniona na stronie, w produktach i grafikach; logo Instal-tig zdjęte z okładki poradnika. Założenie do potwierdzenia: MEGA-SPAW to ta sama JDG zwolniona z VAT, adres Milicka 29, 56-300 Sułów.
+- 2026-10-30: **krótki adres strony:** folder `mega-spaw/` w katalogu głównym repo → `https://plabiak81.github.io/plabiak81/mega-spaw/` (przeniesione z `05-strona/`).
 - 2026-10-30: **strona na GitHub Pages** (darmowy adres `plabiak81.github.io/...`) - potwierdzone przez właściciela („Tak GitHub”).
 - Zapas do limitu zwolnienia z VAT (240 000 zł, cała JDG) wystarcza - obrót Instal-tig nieznany (pytanie 1 do księgowej).
 - Sprzedaż PDF/szablonów nie jest wyłączona ze zwolnienia (art. 113 ust. 13); konsultacji/doradztwa NIE sprzedajemy.

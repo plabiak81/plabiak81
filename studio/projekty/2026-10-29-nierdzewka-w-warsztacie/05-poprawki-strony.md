@@ -1,4 +1,4 @@
-# Propozycje poprawek strony - `biznes/projekty/nierdzewka-w-warsztacie/05-strona/`
+# Propozycje poprawek strony - `mega-spaw/`
 
 Zgodnie ze zleceniem landingu nie budowałem od nowa. **Zrobiłem tylko og:image.** Teksty poniżej to propozycje do wklejenia. Każda ma: plik, miejsce, obecny tekst, nowy tekst i powód. Kolejność według wpływu na sprzedaż.
 
@@ -6,8 +6,8 @@ Zgodnie ze zleceniem landingu nie budowałem od nowa. **Zrobiłem tylko og:image
 
 - `index.html`, `oferta.html` → `og:image` = `img/og-1200x630.png` (+ width/height/alt, `twitter:card`).
 - `sciaga-kolory-nalotu.html` → `og:image` = `img/og-sciaga-1200x630.png` (+ dopisane brakujące `og:url`).
-- Do `05-strona/img/` skopiowane też `okladka-poradnika-a4.jpg` (620 px) i `mockup-sciaga-kolory-nalotu.jpg` (800 px). Są pod propozycje P3 i P4. Dopóki ich nie wkleisz, nic nie robią.
-- Adresy og:image są bezwzględne (`https://plabiak81.github.io/plabiak81/.../05-strona/img/...`). Zadziałają, kiedy strona będzie opublikowana na GitHub Pages pod adresem z `canonical`.
+- Do `mega-spaw/img/` skopiowane też `okladka-poradnika-a4.jpg` (620 px) i `mockup-sciaga-kolory-nalotu.jpg` (800 px). Są pod propozycje P3 i P4. Dopóki ich nie wkleisz, nic nie robią.
+- Adresy og:image są bezwzględne (`https://plabiak81.github.io/plabiak81/https://plabiak81.github.io/plabiak81/mega-spaw/img/...`). Zadziałają, kiedy strona będzie opublikowana na GitHub Pages pod adresem z `canonical`.
 
 ---
 

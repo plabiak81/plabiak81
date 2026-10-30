@@ -33,7 +33,7 @@ Na grafikach nie ma zdjęć ani obrazów z AI. Spoina na okładce i dokumenty na
 | `png/og-1200x630.png` | 1200×630 | - | - | „MEGA-SPAW · od Instal-tig” / „Papiery do spawania nierdzewki, o które pyta klient z przemysłu.” / „8 szablonów w Wordzie i Excelu · 179 zł” / „+ poradnik TIG do stali 304 / 316L · 49 zł” | og:image `index.html`, `oferta.html` |
 | `png/og-sciaga-1200x630.png` | 1200×630 | - | - | „Kolory nalotu na spoinie: co znaczą i co poprawić.” / skala 10 kolorów / „Darmowa ściąga A4 dla spawacza TIG” / „10 odcieni · przyczyny · co poprawić” | og:image `sciaga-kolory-nalotu.html` |
 
-Kopie na stronie: `biznes/projekty/nierdzewka-w-warsztacie/05-strona/img/` (`og-1200x630.png`, `og-sciaga-1200x630.png`, `okladka-poradnika-a4.jpg` 620 px, `mockup-sciaga-kolory-nalotu.jpg` 800 px).
+Kopie na stronie: `mega-spaw/img/` (`og-1200x630.png`, `og-sciaga-1200x630.png`, `okladka-poradnika-a4.jpg` 620 px, `mockup-sciaga-kolory-nalotu.jpg` 800 px).
 
 ## Jak przenieść do Canvy
 

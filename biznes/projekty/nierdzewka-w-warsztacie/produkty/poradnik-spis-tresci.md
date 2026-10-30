@@ -59,7 +59,7 @@
 
 ## Ściągi A4 (osobne pliki PDF do wydruku)
 1. Parametry startowe TIG dla stali austenitycznej wg grubości ścianki
-2. Kolory nalotu na spoinie - co znaczą i co poprawić (**darmowa wersja = magnes**, `05-strona/sciaga-kolory-nalotu.html`)
+2. Kolory nalotu na spoinie - co znaczą i co poprawić (**darmowa wersja = magnes**, `mega-spaw/sciaga-kolory-nalotu.html`)
 3. Wolfram: rodzaj, średnica, ostrzenie
 4. Formowanie grani - czas przedmuchu i przepływ, checklista przed spawaniem
 5. 304 czy 316L - drzewko decyzji
