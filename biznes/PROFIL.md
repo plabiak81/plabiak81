@@ -40,4 +40,4 @@
 
 ## Kontakt w biznesie online
 
-- **E-mail do zamówień i kontaktu ze sklepem:** [[nowy adres]] - **nigdy nie używać `slawek_21@op.pl`** w materiałach biznesu online (decyzja właściciela 2026-10-29).
+- **E-mail do zamówień i kontaktu ze sklepem:** mojeacount@gmail.com - **nigdy nie używać `slawek_21@op.pl`** w materiałach biznesu online (decyzja właściciela 2026-10-29).

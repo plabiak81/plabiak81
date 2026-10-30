@@ -218,7 +218,7 @@ Dostajesz zapytanie z zakładu spożywczego albo przetarg. W specyfikacji: dzien
 >
 > Pozdrawiam
 > [[imię i nazwisko]]
-> Instal-tig · tel. +48 667 466 431 · [[E-MAIL DO ZAMÓWIEŃ]]
+> Instal-tig · tel. +48 667 466 431 · mojeacount@gmail.com
 
 ### Follow-up (po 5-7 dniach, tylko raz)
 **Temat:** Re: Wzory dokumentów spawalniczych dla [[nazwa firmy]]
