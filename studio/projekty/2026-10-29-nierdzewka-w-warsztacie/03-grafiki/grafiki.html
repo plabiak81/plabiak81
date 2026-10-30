@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Grafiki - MEGA-SPAW</title>
+<!--
+  Plan B (Canva: "Design generation is not enabled in your team").
+  Każdy element z data-kadr="nazwa" renderuje się do png/nazwa.png:
+    node studio/narzedzia/render.cjs studio/projekty/2026-10-29-nierdzewka-w-warsztacie/03-grafiki/grafiki.html studio/projekty/2026-10-29-nierdzewka-w-warsztacie/03-grafiki/png
+  Kolory ze studio/STYL.md. Ilustracje spoiny i dokumentów to rysunki (SVG/CSS), nie zdjęcia realizacji.
+-->
+<style>
+  :root {
+    --akcent: #0b6fb8;
+    --akcent-ciemny: #08578f;
+    --jasny: #f4f6f8;
+    --karta: #ffffff;
+    --tekst: #1c2430;
+    --tekst2: #5b6776;
+    --stal: #8a96a3;
+    --linia: #d9dfe6;
+    --ciemny: #121a23;
+    --rdza: #a4481b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #777; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding: 40px; display: grid; gap: 40px; justify-items: start; }
+  [data-kadr] { position: relative; overflow: hidden; color: var(--tekst); background: var(--jasny); }
+
+  /* znak produktu */
+  .znak { font-weight: 800; letter-spacing: -0.01em; color: var(--tekst); white-space: nowrap; }
+  .znak span { color: var(--akcent); }
+  .znak small { display: block; font-weight: 600; color: var(--tekst2); letter-spacing: 0; }
+  .ciemne .znak { color: #fff; }
+  .ciemne .znak span { color: #6fb6ee; }
+  .ciemne .znak small { color: #b7c2ce; }
+  .logo-chip { background: #fff; border-radius: 10px; display: inline-flex; align-items: center; }
+  .logo-chip img { display: block; height: 100%; width: auto; }
+  .eyebrow { font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--akcent); }
+  .ciemne .eyebrow { color: #6fb6ee; }
+
+  /* paleta nalotu (te same kolory co na ściądze w 05-strona) */
+  .c1 { background: linear-gradient(135deg, #e9edf1, #c9d0d7); }
+  .c2 { background: linear-gradient(135deg, #f3efdc, #e2dcc0); }
+  .c3 { background: linear-gradient(135deg, #f0e3b6, #ddc98a); }
+  .c4 { background: linear-gradient(135deg, #e8cf7d, #d2b257); }
+  .c5 { background: linear-gradient(135deg, #d9ad4a, #b98a2a); }
+  .c6 { background: linear-gradient(135deg, #b9793a, #8e5426); }
+  .c7 { background: linear-gradient(135deg, #8a4a6e, #5e3a7a); }
+  .c8 { background: linear-gradient(135deg, #3d5fa8, #2a4382); }
+  .c9 { background: linear-gradient(135deg, #6f7c8c, #4b5664); }
+  .c10 { background: linear-gradient(135deg, #3b3f44, #1f2226); }
+
+  /* dokument (ilustracja) */
+  .doc { position: absolute; background: #fff; border-radius: 10px; box-shadow: 0 24px 60px rgba(8,16,26,.35), 0 2px 6px rgba(8,16,26,.2); padding: 30px 30px; color: var(--tekst); }
+  .doc .dt { font-weight: 800; font-size: 22px; letter-spacing: .02em; text-transform: uppercase; border-bottom: 3px solid var(--akcent); padding-bottom: 10px; margin-bottom: 16px; }
+  .doc .ln { height: 10px; background: #e3e8ee; border-radius: 5px; margin: 12px 0; }
+  .doc .tab { display: grid; grid-template-columns: .5fr 1fr 1.2fr 1fr .8fr; border-top: 2px solid #c9d2dc; border-left: 2px solid #c9d2dc; margin-top: 14px; }
+  .doc .tab i { display: block; height: 34px; border-right: 2px solid #c9d2dc; border-bottom: 2px solid #c9d2dc; }
+  .doc .tab i.h { background: #e8f1f9; }
+  .doc .stamp { position: absolute; right: 26px; bottom: 26px; border: 3px solid var(--akcent); color: var(--akcent); font-weight: 800; font-size: 18px; padding: 6px 12px; border-radius: 6px; transform: rotate(-8deg); letter-spacing: .06em; }
+
+  /* ===== POST 1: kolory nalotu 1080x1080 ===== */
+  .p1 { width: 1080px; height: 1080px; padding: 80px; display: flex; flex-direction: column; }
+  .p1 .eyebrow { font-size: 26px; }
+  .p1 h1 { font-size: 84px; line-height: 1.0; letter-spacing: -0.035em; font-weight: 900; margin-top: 26px; }
+  .p1 h1 em { font-style: normal; color: var(--akcent); }
+  .p1 .pasek { display: grid; grid-template-columns: repeat(10, 1fr); gap: 10px; margin-top: 64px; }
+  .p1 .pasek div { height: 300px; border-radius: 12px; position: relative; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+  .p1 .pasek b { position: absolute; left: 0; right: 0; bottom: -46px; text-align: center; font-size: 28px; font-weight: 800; color: var(--tekst2); }
+  .p1 .opis { display: flex; justify-content: space-between; margin-top: 66px; font-size: 30px; font-weight: 700; }
+  .p1 .opis .ok { color: #1d6b3f; }
+  .p1 .opis .zle { color: #8f2a1a; }
+  .p1 .stopka { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
+  .p1 .cta { white-space: nowrap; background: var(--akcent); color: #fff; font-size: 32px; font-weight: 800; padding: 24px 34px; border-radius: 14px; }
+  .p1 .znak { font-size: 30px; text-align: right; }
+  .p1 .znak small { font-size: 22px; }
+
+  /* ===== POST 2: papiery 1080x1080 ===== */
+  .p2 { width: 1080px; height: 1080px; background: radial-gradient(120% 90% at 85% 100%, #24435f 0%, #121a23 60%); color: #fff; }
+  .p2 .tresc { position: absolute; left: 80px; top: 80px; right: 80px; }
+  .p2 .eyebrow { font-size: 26px; }
+  .p2 h1 { font-size: 88px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 900; margin-top: 24px; max-width: 900px; }
+  .p2 h1 em { font-style: normal; color: #6fb6ee; }
+  .p2 .stos { position: absolute; left: 80px; top: 420px; width: 920px; height: 440px; }
+  .p2 .d1 { left: 0; top: 60px; width: 440px; height: 340px; transform: rotate(-6deg); }
+  .p2 .d2 { left: 250px; top: 25px; width: 440px; height: 360px; transform: rotate(2deg); }
+  .p2 .d3 { left: 470px; top: 0; width: 450px; height: 400px; transform: rotate(5deg); }
+  .p2 .lista { position: absolute; left: 80px; bottom: 70px; font-size: 30px; font-weight: 700; color: #dfe7ef; }
+  .p2 .znak { position: absolute; right: 80px; bottom: 64px; font-size: 28px; text-align: right; }
+  .p2 .znak small { font-size: 20px; }
+  .p2 .pas { position: absolute; left: 0; right: 0; bottom: 150px; height: 0; }
+
+  /* ===== POST 3: żelazo 1080x1080 ===== */
+  .p3 { width: 1080px; height: 1080px; padding: 80px; display: flex; flex-direction: column; background: var(--jasny); }
+  .p3 .eyebrow { font-size: 26px; }
+  .p3 h1 { font-size: 84px; line-height: 1.0; letter-spacing: -0.035em; font-weight: 900; margin-top: 24px; }
+  .p3 h1 em { font-style: normal; color: var(--rdza); }
+  .p3 .pod { font-size: 34px; color: var(--tekst2); margin-top: 26px; font-weight: 600; }
+  .p3 .lista { margin-top: 40px; display: grid; gap: 20px; }
+  .p3 .poz { background: #fff; border-radius: 16px; display: flex; align-items: center; gap: 30px; padding: 26px 32px; box-shadow: 0 1px 0 var(--linia), 0 0 0 1px var(--linia); }
+  .p3 .poz b { flex: 0 0 76px; height: 76px; border-radius: 12px; background: var(--tekst); color: #fff; font-size: 44px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+  .p3 .poz p { font-size: 38px; font-weight: 800; line-height: 1.15; }
+  .p3 .poz p small { display: block; font-size: 26px; font-weight: 600; color: var(--tekst2); margin-top: 4px; }
+  .p3 .stopka { margin-top: auto; display: flex; align-items: center; justify-content: space-between; border-top: 3px solid var(--akcent); padding-top: 26px; }
+  .p3 .stopka .rada { font-size: 28px; font-weight: 800; color: var(--akcent-ciemny); }
+  .p3 .znak { font-size: 28px; text-align: right; }
+  .p3 .znak small { font-size: 20px; }
+
+  /* ===== OKŁADKA PORADNIKA A4 1240x1754 ===== */
+  .okl { width: 1240px; height: 1754px; background: linear-gradient(170deg, #1d2834 0%, #121a23 55%, #0d1319 100%); color: #fff; }
+  .okl .gora { position: absolute; left: 110px; right: 110px; top: 110px; display: flex; justify-content: space-between; align-items: flex-start; }
+  .okl .gora .znak { font-size: 40px; }
+  .okl .gora .znak small { font-size: 26px; }
+  .okl .gora .typ { font-size: 26px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; border: 3px solid #6fb6ee; color: #6fb6ee; padding: 12px 20px; border-radius: 8px; }
+  .okl h1 { position: absolute; left: 110px; right: 110px; top: 300px; font-size: 156px; line-height: .98; letter-spacing: -0.045em; font-weight: 900; }
+  .okl h1 em { font-style: normal; display: inline-block; padding-bottom: 14px; background: linear-gradient(90deg, #e9edf1 0%, #e8cf7d 30%, #b9793a 52%, #8a4a6e 68%, #3d5fa8 84%, #6f7c8c 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .okl .pod { position: absolute; left: 110px; right: 160px; top: 800px; font-size: 44px; line-height: 1.3; color: #d3dbe4; font-weight: 500; }
+  .okl .spoina { position: absolute; left: 0; right: 0; top: 1030px; height: 440px; }
+  .okl .dol { position: absolute; left: 110px; right: 110px; bottom: 110px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .okl .zawartosc { font-size: 32px; line-height: 1.6; color: #e6ebf0; font-weight: 600; }
+  .okl .zawartosc b { color: #6fb6ee; }
+  .okl .logo-chip { height: 96px; padding: 14px 20px; }
+
+  /* ===== MOCKUP ŚCIĄGI 1080x1080 ===== */
+  .mk { width: 1080px; height: 1080px; background: radial-gradient(90% 80% at 30% 20%, #3a4653 0%, #1a222b 70%); }
+  .arkusz { position: absolute; background: #fff; box-shadow: 0 40px 80px rgba(0,0,0,.55), 0 4px 10px rgba(0,0,0,.3); padding: 40px 44px; color: var(--tekst); }
+  .arkusz .e { font-size: 14px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--akcent); }
+  .arkusz h2 { font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 900; margin: 10px 0 18px; }
+  .arkusz .w { display: grid; grid-template-columns: 34px 92px 1fr; gap: 14px; align-items: center; border: 1.5px solid #e1e6ec; border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; }
+  .arkusz .w .n { font-weight: 800; font-size: 20px; text-align: center; }
+  .arkusz .w .s { height: 32px; border-radius: 5px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+  .arkusz .w p { font-size: 16px; font-weight: 700; line-height: 1.2; }
+  .arkusz .w p i { font-style: normal; font-weight: 500; color: var(--tekst2); display: block; font-size: 13px; }
+  .arkusz .st { display: inline-block; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 10px; margin-left: 6px; vertical-align: 2px; }
+  .arkusz .ok { background: #dcf1e4; color: #1d6b3f; }
+  .arkusz .mid { background: #fbefc9; color: #7a5400; }
+  .arkusz .bad { background: #f8dcd6; color: #8f2a1a; }
+  .arkusz .fx { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 14px; }
+  .arkusz .fx div { border: 1.5px solid #e1e6ec; border-radius: 8px; padding: 10px; font-size: 14px; font-weight: 800; }
+  .arkusz .fx div i { display: block; height: 7px; background: #e3e8ee; border-radius: 4px; margin-top: 8px; }
+  .mk .arkusz { left: 300px; top: 70px; width: 640px; height: 905px; transform: rotate(4deg); }
+  .mk .tekst { position: absolute; left: 70px; top: 90px; width: 300px; color: #fff; z-index: 2; }
+  .mk .tekst .badge { display: inline-block; background: #ffd23f; color: var(--tekst); font-weight: 900; font-size: 28px; padding: 10px 18px; border-radius: 8px; transform: rotate(-4deg); }
+  .mk .dolny { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(10,15,20,.9); color: #fff; padding: 30px 70px; display: flex; justify-content: space-between; align-items: center; z-index: 3; }
+  .mk .dolny h3 { font-size: 40px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+  .mk .dolny p { font-size: 24px; color: #c9d3dd; margin-top: 6px; font-weight: 600; }
+  .mk .dolny .znak { font-size: 26px; text-align: right; }
+  .mk .dolny .znak small { font-size: 18px; }
+
+  /* ===== OG 1200x630 ===== */
+  .og { width: 1200px; height: 630px; background: var(--jasny); }
+  .og .lewa { position: absolute; left: 64px; top: 56px; width: 640px; bottom: 56px; display: flex; flex-direction: column; }
+  .og .znak { font-size: 30px; }
+  .og .znak small { font-size: 20px; }
+  .og h1 { font-size: 58px; line-height: 1.04; letter-spacing: -0.035em; font-weight: 900; margin-top: 40px; }
+  .og h1 em { font-style: normal; color: var(--akcent); }
+  .og .pod { margin-top: auto; font-size: 26px; font-weight: 700; color: var(--tekst2); line-height: 1.4; }
+  .og .pod b { color: var(--tekst); }
+  .og .prawa { position: absolute; left: 740px; top: 0; right: 0; bottom: 0; background: radial-gradient(120% 100% at 80% 100%, #24435f 0%, #121a23 70%); }
+  .og .d1 { left: 40px; top: 130px; width: 300px; height: 380px; transform: rotate(-7deg); padding: 22px; }
+  .og .d2 { left: 150px; top: 90px; width: 300px; height: 400px; transform: rotate(4deg); padding: 22px; }
+  .og .doc .dt { font-size: 16px; }
+  .og .doc .ln { height: 8px; margin: 9px 0; }
+  .og .doc .tab i { height: 24px; }
+  .og .doc .stamp { font-size: 13px; right: 18px; bottom: 18px; }
+  .og .pasek { position: absolute; left: 0; bottom: 0; width: 740px; height: 14px; background: var(--akcent); }
+
+  .og2 .prawa { background: radial-gradient(90% 80% at 30% 20%, #3a4653 0%, #1a222b 70%); }
+  .og2 .arkusz { left: 50px; top: 40px; width: 380px; height: 566px; transform: rotate(5deg) scale(1); padding: 26px 28px; }
+  .og2 .arkusz h2 { font-size: 22px; margin: 6px 0 12px; }
+  .og2 .arkusz .e { font-size: 10px; }
+  .og2 .arkusz .w { grid-template-columns: 22px 60px 1fr; gap: 9px; padding: 5px 8px; margin-bottom: 5px; border-radius: 6px; }
+  .og2 .arkusz .w .n { font-size: 13px; }
+  .og2 .arkusz .w .s { height: 22px; }
+  .og2 .arkusz .w p { font-size: 11px; }
+  .og2 .arkusz .w p i { font-size: 9px; }
+  .og2 .arkusz .st { font-size: 8px; padding: 1px 5px; }
+  .og2 .swatche { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top: 30px; }
+  .og2 .swatche div { height: 46px; border-radius: 6px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+</style>
+</head>
+<body>
+
+<!-- ===================== POST 1 ===================== -->
+<section data-kadr="post-1-kolory-nalotu" class="p1">
+  <div class="eyebrow">TIG 141 · stal 304 / 316L</div>
+  <h1>Kolor spoiny mówi,<br>ile <em>tlenu</em> było w gazie.</h1>
+  <div class="pasek">
+    <div class="c1"><b>1</b></div><div class="c2"><b>2</b></div><div class="c3"><b>3</b></div><div class="c4"><b>4</b></div><div class="c5"><b>5</b></div>
+    <div class="c6"><b>6</b></div><div class="c7"><b>7</b></div><div class="c8"><b>8</b></div><div class="c9"><b>9</b></div><div class="c10"><b>10</b></div>
+  </div>
+  <div class="opis"><span class="ok">← srebrny: formowanie działa</span><span class="zle">szary: wycinasz →</span></div>
+  <div class="stopka">
+    <div class="cta">Darmowa ściąga A4 →</div>
+    <div class="znak">MEGA-<span>SPAW</span></div>
+  </div>
+</section>
+
+<!-- ===================== POST 2 ===================== -->
+<section data-kadr="post-2-papiery" class="p2 ciemne">
+  <div class="tresc">
+    <div class="eyebrow">Dla warsztatów pracujących dla przemysłu</div>
+    <h1>Klient prosi o <em>WPS</em><br>i dziennik spawania?</h1>
+  </div>
+  <div class="stos">
+    <div class="doc d1">
+      <div class="dt">WPS · TIG 141</div>
+      <div class="ln" style="width:70%"></div><div class="ln"></div><div class="ln" style="width:85%"></div>
+      <div class="tab" style="grid-template-columns:1fr 1fr 1fr"><i class="h"></i><i class="h"></i><i class="h"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ln" style="width:60%"></div>
+    </div>
+    <div class="doc d2">
+      <div class="dt">Protokół VT</div>
+      <div class="ln" style="width:80%"></div><div class="ln" style="width:55%"></div>
+      <div class="tab"><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ln" style="width:40%"></div>
+    </div>
+    <div class="doc d3">
+      <div class="dt">Dziennik spawania</div>
+      <div class="ln" style="width:65%"></div>
+      <div class="tab"><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="stamp">PRZYKŁAD</div>
+    </div>
+  </div>
+  <div class="lista">8 dokumentów · Word i Excel<br>z przykładami wypełnienia</div>
+  <div class="znak">MEGA-<span>SPAW</span></div>
+</section>
+
+<!-- ===================== POST 3 ===================== -->
+<section data-kadr="post-3-zelazo" class="p3">
+  <div class="eyebrow">Stal 304 / 316L w warsztacie</div>
+  <h1>Nierdzewka <em>rdzewieje</em><br>od czarnej stali.</h1>
+  <p class="pod">3 źródła żelaza, które widzę najczęściej:</p>
+  <div class="lista">
+    <div class="poz"><b>1</b><p>Szczotka ze stali węglowej<small>jedna „do wszystkiego” wystarczy</small></p></div>
+    <div class="poz"><b>2</b><p>Tarcza po czarnej stali<small>to samo z pilnikiem i szlifierką</small></p></div>
+    <div class="poz"><b>3</b><p>Stół, stojak, widły, zawiesie<small>plus opiłki z cięcia czarnej obok</small></p></div>
+  </div>
+  <div class="stopka">
+    <div class="rada">Osobne narzędzia tylko do nierdzewki.</div>
+    <div class="znak">MEGA-<span>SPAW</span></div>
+  </div>
+</section>
+
+<!-- ===================== OKŁADKA PORADNIKA A4 ===================== -->
+<section data-kadr="okladka-poradnika-a4" class="okl ciemne">
+  <div class="gora">
+    <div class="znak">MEGA-<span>SPAW</span></div>
+    <div class="typ">Poradnik PDF</div>
+  </div>
+  <h1>Nierdzewka<br>bez<br><em>przebarwień</em></h1>
+  <p class="pod">Spawanie TIG stali 304 i 316L: przygotowanie, formowanie grani, kolory nalotu, czyszczenie i pasywacja.</p>
+  <svg class="spoina" viewBox="0 0 1240 440" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="rura" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#3a444f"/>
+        <stop offset=".22" stop-color="#9aa6b2"/>
+        <stop offset=".38" stop-color="#e6ebf0"/>
+        <stop offset=".52" stop-color="#b4bec8"/>
+        <stop offset=".8" stop-color="#5d6a78"/>
+        <stop offset="1" stop-color="#262e37"/>
+      </linearGradient>
+      <linearGradient id="nalot" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#3d5fa8" stop-opacity="0"/>
+        <stop offset=".18" stop-color="#3d5fa8" stop-opacity=".55"/>
+        <stop offset=".28" stop-color="#8a4a6e" stop-opacity=".6"/>
+        <stop offset=".36" stop-color="#b9793a" stop-opacity=".65"/>
+        <stop offset=".43" stop-color="#d9ad4a" stop-opacity=".7"/>
+        <stop offset=".47" stop-color="#f0e3b6" stop-opacity=".6"/>
+        <stop offset=".5" stop-color="#ffffff" stop-opacity="0"/>
+        <stop offset=".53" stop-color="#f0e3b6" stop-opacity=".6"/>
+        <stop offset=".57" stop-color="#d9ad4a" stop-opacity=".7"/>
+        <stop offset=".64" stop-color="#b9793a" stop-opacity=".65"/>
+        <stop offset=".72" stop-color="#8a4a6e" stop-opacity=".6"/>
+        <stop offset=".82" stop-color="#3d5fa8" stop-opacity=".55"/>
+        <stop offset="1" stop-color="#3d5fa8" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="lico" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#7f8a96"/>
+        <stop offset=".5" stop-color="#f4f6f8"/>
+        <stop offset="1" stop-color="#7f8a96"/>
+      </linearGradient>
+      <pattern id="luski" width="70" height="22" patternUnits="userSpaceOnUse" x="585">
+        <path d="M2 4 Q35 24 68 4" fill="none" stroke="#56616d" stroke-width="3" stroke-opacity=".55"/>
+      </pattern>
+      <clipPath id="ksztalt"><rect x="-20" y="60" width="1280" height="320" rx="0"/></clipPath>
+    </defs>
+    <g clip-path="url(#ksztalt)">
+      <rect x="-20" y="60" width="1280" height="320" fill="url(#rura)"/>
+      <rect x="320" y="60" width="600" height="320" fill="url(#nalot)" style="mix-blend-mode:multiply"/>
+      <rect x="320" y="60" width="600" height="320" fill="url(#rura)" opacity=".25"/>
+      <rect x="585" y="60" width="70" height="320" fill="url(#lico)"/>
+      <rect x="585" y="60" width="70" height="320" fill="url(#luski)"/>
+      <rect x="585" y="60" width="70" height="320" fill="url(#rura)" opacity=".35" style="mix-blend-mode:multiply"/>
+    </g>
+    <rect x="-20" y="60" width="1280" height="320" fill="none" stroke="#0d1319" stroke-opacity=".6" stroke-width="2"/>
+  </svg>
+  <div class="dol">
+    <div class="zawartosc"><b>Poradnik + 6 ściąg A4</b> do warsztatu<br>TIG 141 · stal austenityczna 304 / 316L</div>
+  </div>
+</section>
+
+<!-- ===================== MOCKUP ŚCIĄGI ===================== -->
+<section data-kadr="mockup-sciaga-kolory-nalotu" class="mk ciemne">
+  <div class="tekst"><span class="badge">ZA DARMO</span></div>
+  <div class="arkusz">
+    <div class="e">Ściąga A4 · stal 304 / 316L · TIG 141</div>
+    <h2>Kolory nalotu na spoinie - co znaczą i co poprawić</h2>
+    <div class="w"><div class="n">1</div><div class="s c1"></div><p>Srebrny, metaliczny <span class="st ok">zwykle OK</span><i>ok. 10 ppm O₂</i></p></div>
+    <div class="w"><div class="n">2</div><div class="s c2"></div><p>Bardzo jasnosłomkowy <span class="st ok">zwykle OK</span><i>ok. 25 ppm</i></p></div>
+    <div class="w"><div class="n">3</div><div class="s c3"></div><p>Jasnosłomkowy <span class="st mid">zależy od klienta</span><i>ok. 50 ppm</i></p></div>
+    <div class="w"><div class="n">4</div><div class="s c4"></div><p>Słomkowy / jasnozłoty <span class="st mid">zależy od klienta</span><i>ok. 100 ppm</i></p></div>
+    <div class="w"><div class="n">5</div><div class="s c5"></div><p>Złoty <span class="st bad">do poprawy</span><i>ok. 200 ppm</i></p></div>
+    <div class="w"><div class="n">6</div><div class="s c6"></div><p>Brązowy <span class="st bad">do poprawy</span><i>ok. 500 ppm</i></p></div>
+    <div class="w"><div class="n">7</div><div class="s c7"></div><p>Fioletowy / purpurowy <span class="st bad">do poprawy</span><i>ok. 1 000 ppm</i></p></div>
+    <div class="w"><div class="n">8</div><div class="s c8"></div><p>Niebieski <span class="st bad">do poprawy</span><i>ok. 5 000 ppm</i></p></div>
+    <div class="w"><div class="n">9</div><div class="s c9"></div><p>Szaroniebieski / szary <span class="st bad">wada</span><i>ok. 12 500 ppm</i></p></div>
+    <div class="w"><div class="n">10</div><div class="s c10"></div><p>Ciemnoszary, „cukrowanie” <span class="st bad">wada</span><i>ok. 25 000 ppm i więcej</i></p></div>
+    <div class="fx"><div>Przedmuch<i></i><i style="width:70%"></i></div><div>Szczelność<i></i><i style="width:60%"></i></div><div>Przepływ i ciepło<i></i><i style="width:75%"></i></div></div>
+  </div>
+  <div class="dolny">
+    <div><h3>Kolory nalotu na spoinie</h3><p>Ściąga A4 do wydruku · 10 odcieni · co poprawić</p></div>
+    <div class="znak">MEGA-<span>SPAW</span></div>
+  </div>
+</section>
+
+<!-- ===================== OG STRONY ===================== -->
+<section data-kadr="og-1200x630" class="og">
+  <div class="lewa">
+    <div class="znak">MEGA-<span>SPAW</span></div>
+    <h1>Papiery do spawania nierdzewki, o które <em>pyta klient z&nbsp;przemysłu</em>.</h1>
+    <p class="pod"><b>8 szablonów</b> w Wordzie i Excelu · 179 zł<br>+ poradnik TIG do stali 304 / 316L · 49 zł</p>
+  </div>
+  <div class="prawa">
+    <div class="doc d1">
+      <div class="dt">WPS · TIG 141</div>
+      <div class="ln" style="width:70%"></div><div class="ln"></div><div class="ln" style="width:85%"></div>
+      <div class="tab" style="grid-template-columns:1fr 1fr 1fr"><i class="h"></i><i class="h"></i><i class="h"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="doc d2">
+      <div class="dt">Dziennik spawania</div>
+      <div class="ln" style="width:65%"></div>
+      <div class="tab"><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="stamp">PRZYKŁAD</div>
+    </div>
+  </div>
+  <div class="pasek"></div>
+</section>
+
+<!-- ===================== OG ŚCIĄGI ===================== -->
+<section data-kadr="og-sciaga-1200x630" class="og og2">
+  <div class="lewa">
+    <div class="znak">MEGA-<span>SPAW</span></div>
+    <h1>Kolory nalotu na spoinie: <em>co znaczą i co poprawić</em>.</h1>
+    <div class="swatche"><div class="c1"></div><div class="c2"></div><div class="c3"></div><div class="c4"></div><div class="c5"></div><div class="c6"></div><div class="c7"></div><div class="c8"></div><div class="c9"></div><div class="c10"></div></div>
+    <p class="pod"><b>Darmowa ściąga A4</b> dla spawacza TIG<br>10 odcieni · przyczyny · co poprawić</p>
+  </div>
+  <div class="prawa">
+    <div class="arkusz">
+      <div class="e">Ściąga A4 · stal 304 / 316L · TIG 141</div>
+      <h2>Kolory nalotu na spoinie</h2>
+      <div class="w"><div class="n">1</div><div class="s c1"></div><p>Srebrny <span class="st ok">zwykle OK</span><i>ok. 10 ppm O₂</i></p></div>
+      <div class="w"><div class="n">2</div><div class="s c2"></div><p>Bardzo jasnosłomkowy <span class="st ok">zwykle OK</span><i>ok. 25 ppm</i></p></div>
+      <div class="w"><div class="n">3</div><div class="s c3"></div><p>Jasnosłomkowy <span class="st mid">zależy</span><i>ok. 50 ppm</i></p></div>
+      <div class="w"><div class="n">4</div><div class="s c4"></div><p>Słomkowy <span class="st mid">zależy</span><i>ok. 100 ppm</i></p></div>
+      <div class="w"><div class="n">5</div><div class="s c5"></div><p>Złoty <span class="st bad">do poprawy</span><i>ok. 200 ppm</i></p></div>
+      <div class="w"><div class="n">6</div><div class="s c6"></div><p>Brązowy <span class="st bad">do poprawy</span><i>ok. 500 ppm</i></p></div>
+      <div class="w"><div class="n">7</div><div class="s c7"></div><p>Fioletowy <span class="st bad">do poprawy</span><i>ok. 1 000 ppm</i></p></div>
+      <div class="w"><div class="n">8</div><div class="s c8"></div><p>Niebieski <span class="st bad">do poprawy</span><i>ok. 5 000 ppm</i></p></div>
+      <div class="w"><div class="n">9</div><div class="s c9"></div><p>Szary <span class="st bad">wada</span><i>ok. 12 500 ppm</i></p></div>
+      <div class="w"><div class="n">10</div><div class="s c10"></div><p>„Cukrowanie” <span class="st bad">wada</span><i>ok. 25 000 ppm+</i></p></div>
+    </div>
+  </div>
+  <div class="pasek"></div>
+</section>
+
+</body>
+</html>
