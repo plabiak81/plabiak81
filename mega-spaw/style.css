@@ -148,3 +148,8 @@ footer a { color: var(--muted); }
   .nav { gap: 12px; font-size: 14px; }
   .btn { width: 100%; }
 }
+
+/* Zdjęcia produktów */
+.produkt-img { display: block; width: 150px; height: auto; border-radius: 6px; margin: 4px 0 14px; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+.mockup-img { display: block; width: 100%; max-width: 360px; height: auto; border-radius: 10px; margin: 0 0 16px; }
+.plan .produkt-img { width: 120px; }

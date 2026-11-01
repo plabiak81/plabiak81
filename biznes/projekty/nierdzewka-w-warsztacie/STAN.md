@@ -1,9 +1,9 @@
 # Nierdzewka w warsztacie
 
-**Etap:** 7 zamknięty → przygotowanie produktów przed etapem 8 (start) · **Ostatnia aktualizacja:** 2026-10-29
+**Etap:** 7 zamknięty → produkty i strona gotowe do sprzedaży (czekają na akceptację właściciela i dane do regulaminu), potem etap 8 (start) · **Ostatnia aktualizacja:** 2026-11-01
 
 ## W jednym zdaniu
-Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztatów (179 zł, główny produkt) i poradnik PDF ze ściągami TIG do stali nierdzewnej (49 zł, wejście), komplet 199 zł. Sprzedaż online w ramach JDG Instal-tig, bez twarzy i bez wysyłek.
+Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztatów (179 zł, główny produkt) i poradnik PDF ze ściągami TIG do stali nierdzewnej (49 zł, wejście), komplet 199 zł. Sprzedaż online pod nazwą MEGA-SPAW (firma z CEIDG), bez twarzy i bez wysyłek.
 
 ## Decyzje
 - 2026-10-29: wybrany wariant A z etapu 1 - poradnik PDF + pakiet szablonów (#2 + #3). Dlaczego: najtańszy test, luka na rynku, praktyka właściciela, sprzedaż automatyczna.
@@ -18,6 +18,10 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 - 2026-10-29: studio kreatywne równolegle robi grafiki i poprawki tekstów w `mega-spaw/*.html` - AI nie edytuje tych plików w tej turze.
 - 2026-10-29: powstały pełne wersje robocze produktów (`produkty/gotowe/`): poradnik 17 s. + 6 ściąg (PDF), 8 szablonów w wersji pustej i przykładowej (DOCX/XLSX) + instrukcja PDF + 3 paczki ZIP.
 
+- 2026-11-01: **termin dostawy w przedsprzedaży:** „pliki e-mailem najpóźniej w ciągu 7 dni od zaksięgowania wpłaty; jeśli nie dotrzymamy terminu - odstąpienie od umowy i zwrot całej wpłaty” (zamiast `[[DATA WYDANIA]]`; bez konkretnej daty). Wpisane w `mega-spaw/index.html` (hero + FAQ + JSON-LD), `oferta.html`, `regulamin.html` § dostawa. Do zmiany po przejściu na sprzedaż automatyczną.
+- 2026-11-01: wdrożone propozycje studia P1-P10 z `studio/projekty/2026-10-29-nierdzewka-w-warsztacie/05-poprawki-strony.md` (wszystkie uczciwe; P10 „atlas wad” zamieniony na „tabelę wad”, bo zdjęć nie ma). Usunięta etykieta „Najczęściej potrzebne” → „Dla warsztatu”.
+- 2026-11-01: **produkty - wydanie 1:** wartości techniczne sprawdzone w źródłach (producenci, TWI, Linde, AWS, ASTM, HSE); w produktach nie ma znaczników `[[DO SPRAWDZENIA]]`; lista do akceptacji właściciela: `DO-AKCEPTACJI.md` w prywatnym repo `nierdzewka-produkty`. Poradnik 19 stron A4 (okładka + 18), sekcja „Źródła”, schematy SVG zamiast zdjęć. Strona podaje „19 stron A4” - **po dodaniu zdjęć zaktualizować liczbę stron na stronie**.
+
 ## Odpowiedzi właściciela (2026-10-29)
 - Grupy spawaczy na FB/forach: 1-2 → plan dołączenia do 6-8 grup + elektroda.pl (07-plan-klienci.md).
 - Warsztaty/znajomi do wiadomości: 5-15.
@@ -25,8 +29,9 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 - JDG zwolniona z VAT, ma księgową.
 
 ## Czeka na właściciela
-- Sprawdzenie merytoryki produktów (wszystkie `[[DO SPRAWDZENIA]]`), zdjęcia `[[ZDJĘCIE]]`.
-- **Decyzja: gdzie trzymać pliki produktów** - repo `plabiak81/plabiak81` publikuje się na GitHub Pages; `produkty/` (PDF, DOCX, XLSX, ZIP, źródła HTML) jest już w commicie `e45e491` na gałęzi roboczej - nie scalać z główną przed przeniesieniem do prywatnego repo.
+- Akceptacja `DO-AKCEPTACJI.md` (repo `nierdzewka-produkty`) - 22 wartości poradnika + ściągi + przykłady szablonów; zdjęcia opcjonalne.
+- Dane do regulaminu/polityki: imię i nazwisko, NIP, REGON, data obowiązywania; decyzja o telefonie w regulaminie (telefon usunięty też z danych strukturalnych strony do czasu decyzji).
+- Sprawdzenie regulaminu i polityki prywatności (prawnik/właściciel) - strona jest już opublikowana z `[[...]]` w tych dwóch dokumentach.
 
 ## Kluczowe liczby (03-model.py, VAT = 0, cennik B)
 - Średnie zamówienie 104,00 zł, marża po prowizji 101,34 zł.
@@ -40,7 +45,7 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 - `produkty/poradnik-spis-tresci.md`, `produkty/szablony-uklad-pol.md` - plan poradnika i układ pól 8 szablonów.
 - `mega-spaw/` - landing, oferta z 3 pakietami i zgodami, darmowa ściąga „Kolory nalotu”, regulamin i polityka prywatności (wzory do sprawdzenia przez prawnika), dziękujemy; `app.js` z konfiguracją (e-mail, formularz, linki płatności). Podgląd: `podglad/<strona>/desktop.png|mobile.png`. Linki wewnętrzne sprawdzone, brak poziomego scrolla, test przycisków zamówienia w przeglądarce OK.
 - `06-formalnosci.md` - checklista + 10 pytań do księgowej.
-- `produkty/gotowe/` - poradnik PDF (17 s.), 6 ściąg PDF, 8 szablonów puste + przykłady (DOCX/XLSX), instrukcja PDF, paczki `PAKIET-Poradnik.zip`, `PAKIET-Szablony-warsztatu.zip`, `PAKIET-Komplet.zip`; źródła i generatory w `produkty/zrodla/` (`poradnik.html`, `sciagi/`, `instrukcja.html`, `build_szablony.py`, `pdf.cjs`). Podgląd stron: `podglad/produkty/`.
+- Produkty: **prywatne repo `/home/user/nierdzewka-produkty/`** (gałąź main) - `gotowe/` (poradnik PDF 19 s., 6 ściąg, 8 szablonów puste + przykłady, instrukcja, 3 paczki ZIP), `zrodla/` (generator wszystkiego: `python3 zrodla/buduj.py`), `podglad/produkty/*.png`, `DO-AKCEPTACJI.md`. Kopie w `biznes/projekty/.../produkty/gotowe|zrodla` są nieaktualne i ignorowane przez git - nie używać.
 - `07-plan-klienci.md` - kanały, warianty, plan 30/60/90, kalendarz, SEO, wiadomości B2B, cele.
 
 ## Założenia (do potwierdzenia)
@@ -53,13 +58,11 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 - Zwolnienie z kasy fiskalnej dla treści cyfrowych płatnych przelewem/bramką (§ 2 rozporządzenia) - do potwierdzenia.
 - Reklama Meta = import usług - możliwy VAT 23% mimo zwolnienia (pytanie 9).
 - Adres e-mail do zamówień: **NIE slawek_21@op.pl** (decyzja właściciela 2026-10-29). Nowy adres: **mojeacount@gmail.com** (podany 2026-10-30), wpisany na stronie, w poradniku i instrukcji.
-- Liczba stron poradnika: na stronie (index/oferta) jest „ok. 40-60 stron”, a wersja robocza ma 17 s. (po zdjęciach ok. 20-25) - do poprawy w HTML po pracy studia.
-- Wartości ppm i strefy akceptacji na ściądze (wg literatury do AWS D18.2) - do sprawdzenia przez właściciela.
+- Wartości ppm na ściądze = próbki AWS D18.2 (potwierdzone źródłami); strefy „zwykle OK / zależy od klienta / do poprawy” to podpowiedź praktyczna - kryterium ustala klient (napisane na ściądze).
 - Udział zamówień 60/25/15%, konwersje 1,0/1,8/2,4%, CPC 1,20 zł, prowizja ok. 1,5% + 1,10 zł - szacunki.
 - Liczba spawaczy 60-120 tys. i firm metalowych 25-40 tys. - szacunki bez danych GUS.
 - Ceny konkurencji (naukaspawania.com, jakspawacodlewy.pl), cytaty z forów - do ręcznego sprawdzenia.
 
 ## Następne kroki
-- [ ] Właściciel: prywatne repo na produkty; nie scalać gałęzi z `produkty/` do gałęzi głównej przed przeniesieniem
-- [ ] Właściciel: sprawdzenie poradnika, ściąg i szablonów; zdjęcia; pytania do księgowej; dane do regulaminu
-- [ ] AI: po uwagach właściciela - poprawki treści i ponowne generowanie (`python3 produkty/zrodla/build_szablony.py`, `node produkty/zrodla/pdf.cjs ...`); 3 artykuły SEO, posty do grup, maile do redakcji STAL i ośrodków szkolenia, e-mail potwierdzający zamówienie; poprawka liczby stron poradnika na stronie (po zakończeniu pracy studia); potem etap 8 (`08-start.md`, `metryki.md`)
+- [ ] Właściciel: akceptacja `DO-AKCEPTACJI.md`; dane do regulaminu (imię i nazwisko, NIP, REGON, data, telefon tak/nie); pytania do księgowej (szczegóły w ZADANIA-WLASCICIELA.md)
+- [ ] AI: po akceptacji - poprawki i `python3 zrodla/buduj.py`; wpisanie danych do regulaminu/polityki; e-mail potwierdzający zamówienie + szablon wysyłki plików; 3 artykuły SEO, posty do grup, maile do redakcji STAL i ośrodków szkolenia; etap 8 (`08-start.md`, `metryki.md`)
