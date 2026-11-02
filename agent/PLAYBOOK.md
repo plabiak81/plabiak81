@@ -41,12 +41,36 @@ sam: strona zmienia się dopiero, gdy właściciel scali PR.
      wewnętrzne: z nowego artykułu do starszych i do `wycena.html`.
    - Zakończ artykuł krótkim wezwaniem do działania: telefon, e-mail,
      „Wycena online”.
+   - **Zdjęcie.** Każdy artykuł dostaje jedno zdjęcie z `img/realizacje/`.
+     Wybierz je po opisach `alt` z galerii w `index.html` tak, żeby pasowało
+     do tematu; jeśli się da, inne niż w 2–3 ostatnich artykułach. Nie
+     dodawaj nowych plików zdjęć i nie zmieniaj istniejących. Wzoruj się na
+     dowolnym artykule, który ma już zdjęcie, i ustaw je w czterech miejscach:
+     - w `<head>`: `og:image` (pełny adres pliku `realizacja-NN.webp`),
+       `og:image:width`, `og:image:height`, `og:image:alt` (tekst `alt`
+       z galerii) oraz `twitter:card` = `summary_large_image`,
+     - w JSON-LD `BlogPosting`: `"image"` = ten sam adres zdjęcia,
+     - pod `<h1>`: blok `<figure class="article-photo">` z `<img>` (`src`
+       pełnej wersji, `srcset` z wersją `-min` i pełną, `sizes`, `width`,
+       `height`, `alt`, `fetchpriority="high"`) i `<figcaption>` w postaci
+       „<alt>. Realizacja Instal-tig.”,
+     - na karcie w `blog/index.html`: na początku `<article class="post-card">`
+       link `<a … class="post-card-photo" tabindex="-1" aria-hidden="true">`
+       z `<img>` wersji `-min` (`width`/`height` wersji `-min`, `alt=""`,
+       `decoding="async"`). Karta, która przestaje być pierwsza na liście,
+       ma mieć `loading="lazy"`; nowa, pierwsza karta — bez niego.
+     Wymiary odczytaj z pliku (pełne zdjęcia mają 1600×1200 albo 1200×1600,
+     wersje `-min` 640×480 albo 480×640). Jeśli w `styles.css` nie ma jeszcze
+     klas `.article-photo` i `.post-card-photo`, dodaj tylko `og:image`
+     i `"image"` w JSON-LD, a w raporcie napisz, że czeka PR ze stylami zdjęć.
 4. **Przegląd techniczny strony** (każdej nocy, szybko):
    - Wszystkie linki wewnętrzne (`href`, `src`) prowadzą do istniejących plików.
    - Każda strona z `sitemap.xml` istnieje i każda publiczna strona jest w sitemapie.
    - JSON-LD w każdym pliku jest poprawnym JSON-em (sprawdź parserem).
    - Każda strona ma `<title>`, `meta description` i `canonical` na adres
      `https://plabiak81.github.io/Instal-Tig/...`.
+   - Każdy artykuł bloga ma zdjęcie (`og:image` inne niż logo, blok
+     `article-photo`), a każda karta w `blog/index.html` ma `post-card-photo`.
    - Proste, pewne poprawki dołóż do tego samego PR. Rzeczy wątpliwe tylko
      opisz w raporcie.
 5. **Pull request.** Gałąź `nocny-agent/RRRR-MM-DD`, jeden commit lub kilka
