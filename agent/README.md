@@ -33,7 +33,7 @@ Drugi agent Claude, który co noc przygotowuje jeden post na LinkedIn.
   w tej samej sesji „Nocny agent Instal-tig”.
 - **Co robi:** bierze najnowszy opublikowany artykuł z Blogu Eksperckiego,
   który nie ma jeszcze posta, pisze na jego podstawie post na LinkedIn
-  (treść, hashtagi, pierwszy komentarz z linkiem, zdjęcie z artykułu)
+  na Twój prywatny profil, w pierwszej osobie (treść, hashtagi, pierwszy komentarz z linkiem, zdjęcie z artykułu)
   i otwiera PR w `plabiak81/Instal-Tig` (gałąź `linkedin/RRRR-MM-DD`,
   plik w folderze `linkedin/`).
 - **Czego nie robi:** nie publikuje na LinkedIn. Rano kopiujesz post z opisu

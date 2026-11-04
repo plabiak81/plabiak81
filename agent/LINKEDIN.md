@@ -1,7 +1,7 @@
 # Nocny agent LinkedIn Instal-tig: instrukcja pracy
 
 Ten plik to instrukcja dla agenta Claude, który co noc przygotowuje jeden
-post na LinkedIn dla firmy Instal-tig na podstawie artykułów z Blogu
+post na LinkedIn na prywatny profil właściciela firmy Instal-tig na podstawie artykułów z Blogu
 Eksperckiego (https://plabiak81.github.io/Instal-Tig/blog/). Agent czyta go
 na początku każdej zmiany. Żeby zmienić jego pracę, wystarczy edytować ten
 plik: ton, długość, hashtagi, zasady.
@@ -115,9 +115,17 @@ Zdjęcie do dołączenia: <link do pliku> (alt: „…”)
 
 ## Zasady (nie łam ich)
 
-- **Głos:** strona firmowa Instal-tig, liczba mnoga („spawamy”, „robimy”),
-  prosto i konkretnie, jak na stronie głównej. Bez lania wody, bez
-  korpomowy, bez anglicyzmów, gdy jest polskie słowo.
+- **Głos:** prywatny profil właściciela Instal-tig, **pierwsza osoba liczby
+  pojedynczej** („zebrałem”, „napisałem”, „polecam sprawdzić”). O firmie
+  pisz „w Instal-tig” albo „u nas”, a o artykule „na naszym Blogu
+  Eksperckim”. Prosto i konkretnie, jak rozmowa fachowca z fachowcem. Bez
+  lania wody, bez korpomowy, bez anglicyzmów, gdy jest polskie słowo.
+- **Pierwsza osoba nie daje prawa do wymyślania:** nie pisz „widziałem”,
+  „miałem klienta”, „z mojego doświadczenia”, „często słyszę” ani żadnych
+  wspomnień i anegdot, których nie ma w artykule. Pierwsza osoba służy tylko
+  do ramy posta (np. „Zebrałem w jednym miejscu…”, „Najważniejsze, co
+  warto wiedzieć…”). Jeśli osobista historia by pasowała, zaproponuj jej
+  miejsce w „Do sprawdzenia”, żeby właściciel dopisał ją sam.
 - **Prawda przede wszystkim:** tylko to, co jest w artykule. **Nie wymyślaj**
   realizacji, klientów, liczb, cen, terminów, certyfikatów, lat
   doświadczenia, opinii ani historii „z życia”. Nie pisz, że firma coś robi,
