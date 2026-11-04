@@ -24,3 +24,21 @@ agent przeczyta je kolejnej nocy i poprawi PR.
 
 Zadanie wyłączysz lub zmienisz godzinę w claude.ai/code, w zakładce
 zaplanowanych zadań, albo prosząc o to Claude.
+
+# Nocny agent LinkedIn
+
+Drugi agent Claude, który co noc przygotowuje jeden post na LinkedIn.
+
+- **Kiedy:** codziennie o 4:47 w nocy (czas polski), po agencie blogowym,
+  w tej samej sesji „Nocny agent Instal-tig”.
+- **Co robi:** bierze najnowszy opublikowany artykuł z Blogu Eksperckiego,
+  który nie ma jeszcze posta, pisze na jego podstawie post na LinkedIn
+  (treść, hashtagi, pierwszy komentarz z linkiem, zdjęcie z artykułu)
+  i otwiera PR w `plabiak81/Instal-Tig` (gałąź `linkedin/RRRR-MM-DD`,
+  plik w folderze `linkedin/`).
+- **Czego nie robi:** nie publikuje na LinkedIn. Rano kopiujesz post z opisu
+  PR, wklejasz na LinkedIn i scalasz PR — scalenie oznacza „opublikowane”.
+  Gdy czekają 3 nieprzejrzane PR z postami, przestaje pisać nowe.
+
+Instrukcja pracy: [`LINKEDIN.md`](LINKEDIN.md). Zmień ją, żeby zmienić ton,
+długość postów albo hashtagi.
