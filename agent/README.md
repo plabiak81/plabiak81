@@ -45,3 +45,24 @@ Drugi agent Claude, który co noc przygotowuje jeden post na LinkedIn.
 
 Instrukcja pracy: [`LINKEDIN.md`](LINKEDIN.md). Zmień ją, żeby zmienić ton,
 długość postów albo hashtagi.
+
+# Nocny agent Facebook
+
+Trzeci agent Claude, który co noc przygotowuje jeden post na firmową stronę
+Instal-tig na Facebooku (https://www.facebook.com/instaltig/).
+
+- **Kiedy:** codziennie o 5:17 w nocy (czas polski), po agentach blogowym
+  i LinkedIn, w tej samej sesji „Nocny agent Instal-tig”.
+- **Co robi:** bierze najnowszy opublikowany artykuł z bloga, który nie ma
+  jeszcze posta na Facebooku, pisze krótszy post w tonie firmowym (liczba
+  mnoga) i otwiera PR w `plabiak81/Instal-Tig` (gałąź `facebook/RRRR-MM-DD`,
+  plik w folderze `facebook/`).
+- **Rano:** otwórz stronę https://claude.ai/artifact/HSyUSf3PN8Y6MjPWktYnr8
+  (prywatna, widzisz ją tylko Ty): post z przyciskami „Kopiuj”, zdjęcie
+  i komentarz z linkiem.
+- **Czego nie robi:** nie publikuje na Facebooku. Kopiujesz post, wklejasz
+  na stronie Instal-tig i scalasz PR — scalenie oznacza „opublikowane”.
+
+Instrukcja pracy: [`FACEBOOK.md`](FACEBOOK.md). Strona z przyciskami
+budowana jest skryptem `linkedin-strona/zbuduj.py` z szablonem
+`facebook-strona/szablon.html`.

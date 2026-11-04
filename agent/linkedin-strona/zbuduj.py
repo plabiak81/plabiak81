@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Buduje stronę „Post na LinkedIn” z plików linkedin/*.md repozytorium Instal-Tig.
+"""Buduje stronę z dzisiejszym postem (LinkedIn albo Facebook) z plików *.md repozytorium Instal-Tig.
 
 Użycie:
-    python3 -I zbuduj.py <ścieżka do Instal-Tig> <link do PR> <plik wyjściowy .html>
+    python3 -I zbuduj.py <ścieżka do Instal-Tig> <link do PR> <plik wyjściowy .html> [folder] [szablon]
 
-Bierze najnowszy plik z linkedin/ (po nazwie) jako post na dziś, pozostałe
+folder: linkedin (domyślnie) albo facebook; szablon: plik szablonu, domyślnie
+szablon.html obok tego skryptu.
+Bierze najnowszy plik z <folder>/ (po nazwie) jako post na dziś, pozostałe
 pokazuje niżej jako wcześniejsze posty. Zdjęcie dzisiejszego posta osadza
 w stronie (artefakt nie może ładować obrazków z innych adresów).
 """
@@ -32,7 +34,7 @@ def pole(tekst, nazwa):
 
 def wczytaj(plik):
     t = plik.read_text(encoding="utf-8")
-    tytul = re.search(r"^# Post LinkedIn: (.+)$", t, re.M).group(1).strip()
+    tytul = re.search(r"^# Post (?:LinkedIn|Facebook): (.+)$", t, re.M).group(1).strip()
     return {
         "plik": plik.name,
         "tytul": tytul,
@@ -54,16 +56,18 @@ def data_pl(iso):
 
 def main():
     repo, pr, wyjscie = pathlib.Path(sys.argv[1]), sys.argv[2], pathlib.Path(sys.argv[3])
-    pliki = sorted((repo / "linkedin").glob("*.md"), reverse=True)
+    folder = sys.argv[4] if len(sys.argv) > 4 else "linkedin"
+    szablon_plik = pathlib.Path(sys.argv[5]) if len(sys.argv) > 5 else pathlib.Path(__file__).parent / "szablon.html"
+    pliki = sorted((repo / folder).glob("*.md"), reverse=True)
     if not pliki:
-        sys.exit("Brak plików w linkedin/")
+        sys.exit(f"Brak plików w {folder}/")
     posty = [wczytaj(p) for p in pliki]
     dzis = posty[0]
 
     obraz = repo / dzis["zdjecie"].replace(SITE, "")
     obraz_uri = "data:image/webp;base64," + base64.b64encode(obraz.read_bytes()).decode()
 
-    szablon = (pathlib.Path(__file__).parent / "szablon.html").read_text(encoding="utf-8")
+    szablon = szablon_plik.read_text(encoding="utf-8")
     dane = {
         "dzis": dzis,
         "pr": pr,
