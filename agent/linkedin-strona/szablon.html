@@ -1,0 +1,209 @@
+<title>Post na LinkedIn</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap">
+<style>
+  /* Układ: jedna kolumna jak lista kroków na telefonie; każdy krok to karta z tekstem i jednym dużym przyciskiem. */
+  :root {
+    --bg: #eef2f5; --surface: #ffffff; --ink: #13222d; --muted: #5a6b77; --line: #d3dce2;
+    --accent: #0f5f7d; --accent-ink: #ffffff; --soft: #e3eef3; --ok: #1d7a4c;
+    --font-display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d161d; --surface: #15222c; --ink: #e3ebf0; --muted: #91a4b1; --line: #263a49;
+      --accent: #5bb8d6; --accent-ink: #0d161d; --soft: #1a2f3c; --ok: #5bd39a; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d161d; --surface: #15222c; --ink: #e3ebf0; --muted: #91a4b1; --line: #263a49;
+    --accent: #5bb8d6; --accent-ink: #0d161d; --soft: #1a2f3c; --ok: #5bd39a; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink); font: 16px/1.5 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 20px 40px;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; display: grid; gap: 16px; }
+  header { display: grid; gap: 6px; padding-block: 4px 8px; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  h1 { font: 700 28px/1.1 var(--font-display); margin: 0; text-wrap: balance; }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; }
+  a { color: var(--accent); }
+  .step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+  .step-head { display: flex; align-items: baseline; gap: 10px; }
+  .num { font: 700 22px/1 var(--font-display); color: var(--accent); min-width: 1.2em; }
+  h2 { font: 700 20px/1.2 var(--font-display); margin: 0; }
+  .hint { margin: 0; color: var(--muted); font-size: 14px; }
+  .text {
+    white-space: pre-wrap; overflow-wrap: anywhere; background: var(--soft); border-radius: 8px;
+    padding: 12px 14px; margin: 0; font: 15px/1.5 var(--font-body); max-height: 46vh; overflow-y: auto;
+  }
+  .text.short { max-height: none; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .btn {
+    appearance: none; border: 0; border-radius: 8px; background: var(--accent); color: var(--accent-ink);
+    font: 600 16px/1 var(--font-body); padding: 14px 18px; cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center; min-height: 48px; flex: 1 1 auto;
+  }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+  .btn.done { background: var(--ok); color: var(--accent-ink); }
+  .btn:focus-visible, .tab:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .meta { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .tabs { display: flex; gap: 4px; background: var(--soft); border-radius: 8px; padding: 4px; }
+  .tab {
+    flex: 1; appearance: none; border: 0; background: transparent; color: var(--muted); border-radius: 6px;
+    font: 600 14px/1.2 var(--font-body); padding: 9px 8px; cursor: pointer;
+  }
+  .tab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgb(0 0 0 / .12); }
+  figure { margin: 0; display: grid; gap: 8px; }
+  figure img { width: 100%; max-width: 360px; height: auto; border-radius: 8px; display: block; }
+  figcaption { font-size: 13px; color: var(--muted); }
+  details.old { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+  details.old summary { cursor: pointer; font-weight: 600; }
+  details.old[open] { display: grid; gap: 10px; }
+  .old-list { display: grid; gap: 8px; }
+  .muted-h { font: 700 18px/1.2 var(--font-display); margin: 8px 0 0; color: var(--muted); }
+  @media (prefers-reduced-motion: no-preference) { .btn { transition: background-color .15s; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Post na LinkedIn · {{DATA}}</span>
+    <h1>{{TYTUL}}</h1>
+    <div class="links">
+      <a href="{{ARTYKUL}}" target="_blank" rel="noopener">Artykuł na blogu</a>
+      <a href="{{PR}}" target="_blank" rel="noopener">Pull request</a>
+      <span class="meta">{{UJECIE}}</span>
+    </div>
+  </header>
+
+  <section class="step" aria-labelledby="h-tresc">
+    <div class="step-head"><span class="num">1</span><h2 id="h-tresc">Skopiuj treść posta</h2></div>
+    <div class="tabs" role="tablist" aria-label="Gdzie link do artykułu">
+      <button class="tab" role="tab" id="tab-komentarz" aria-selected="true">Link w komentarzu</button>
+      <button class="tab" role="tab" id="tab-tresc" aria-selected="false">Link w treści</button>
+    </div>
+    <pre class="text" id="post-text"></pre>
+    <span class="meta" id="post-count"></span>
+    <button class="btn" id="copy-post" data-target="post-text">Kopiuj treść</button>
+  </section>
+
+  <section class="step" aria-labelledby="h-zdjecie">
+    <div class="step-head"><span class="num">2</span><h2 id="h-zdjecie">Zapisz zdjęcie</h2></div>
+    <figure>
+      <img src="{{ZDJECIE_URI}}" alt="{{ALT}}" width="1200" height="1600">
+      <figcaption>{{ALT}}</figcaption>
+    </figure>
+    <p class="hint">Na telefonie przytrzymaj zdjęcie i wybierz „Zapisz”. Możesz też otworzyć plik w nowej karcie i zapisać go stamtąd.</p>
+    <div class="row">
+      <a class="btn secondary" href="{{ZDJECIE_URL}}" target="_blank" rel="noopener">Otwórz zdjęcie</a>
+      <button class="btn secondary" id="copy-alt" data-target="alt-text">Kopiuj opis zdjęcia</button>
+    </div>
+    <pre class="text short" id="alt-text" hidden>{{ALT}}</pre>
+  </section>
+
+  <section class="step" aria-labelledby="h-publikuj">
+    <div class="step-head"><span class="num">3</span><h2 id="h-publikuj">Opublikuj na LinkedIn</h2></div>
+    <p class="hint">„Utwórz post” → wklej treść → dodaj zdjęcie → „Opublikuj”. Opis zdjęcia wkleisz w „Tekst alternatywny” przy zdjęciu.</p>
+    <a class="btn" href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">Otwórz LinkedIn</a>
+  </section>
+
+  <section class="step" aria-labelledby="h-komentarz" id="step-komentarz">
+    <div class="step-head"><span class="num">4</span><h2 id="h-komentarz">Dodaj pierwszy komentarz</h2></div>
+    <pre class="text short" id="comment-text"></pre>
+    <button class="btn" id="copy-comment" data-target="comment-text">Kopiuj komentarz</button>
+  </section>
+
+  <section class="step" aria-labelledby="h-scal">
+    <div class="step-head"><span class="num">5</span><h2 id="h-scal">Scal pull request</h2></div>
+    <p class="hint">Na dole PR: „Merge pull request” → „Confirm merge”. Dzięki temu agent wie, że ten post już poszedł.</p>
+    <a class="btn secondary" href="{{PR}}" target="_blank" rel="noopener">Otwórz pull request</a>
+  </section>
+
+  <h2 class="muted-h" id="h-old" hidden>Wcześniejsze posty</h2>
+  <div class="old-list" id="old-list"></div>
+</div>
+
+<script>
+  const DANE = {{DANE_JSON}};
+  const dzis = DANE.dzis;
+  const postEl = document.getElementById("post-text");
+  const countEl = document.getElementById("post-count");
+  const commentStep = document.getElementById("step-komentarz");
+  document.getElementById("comment-text").textContent = dzis.komentarz;
+
+  function znaki(t) {
+    const bezTagow = t.replace(/\n\n#[^\n]*$/, "");
+    return bezTagow.length + " znaków bez hashtagów";
+  }
+  function pokaz(wersja) {
+    const zLinkiem = wersja === "tresc" && dzis.alternatywa;
+    postEl.textContent = zLinkiem ? dzis.alternatywa : dzis.tresc;
+    countEl.textContent = znaki(postEl.textContent);
+    commentStep.hidden = !!zLinkiem;
+    document.getElementById("tab-komentarz").setAttribute("aria-selected", String(!zLinkiem));
+    document.getElementById("tab-tresc").setAttribute("aria-selected", String(!!zLinkiem));
+  }
+  document.getElementById("tab-komentarz").addEventListener("click", () => pokaz("komentarz"));
+  document.getElementById("tab-tresc").addEventListener("click", () => pokaz("tresc"));
+  pokaz("komentarz");
+
+  function zaznacz(el) {
+    el.hidden = false;
+    const r = document.createRange();
+    r.selectNodeContents(el);
+    const s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  }
+  function kopiuj(btn, el) {
+    const etykieta = btn.dataset.label || btn.textContent;
+    btn.dataset.label = etykieta;
+    const ok = () => {
+      btn.textContent = "Skopiowano";
+      btn.classList.add("done");
+      setTimeout(() => { btn.textContent = etykieta; btn.classList.remove("done"); }, 2200);
+    };
+    const recznie = () => { zaznacz(el); btn.textContent = "Zaznaczono — skopiuj ręcznie"; };
+    try {
+      navigator.clipboard.writeText(el.textContent).then(ok, recznie);
+    } catch (e) {
+      recznie();
+    }
+  }
+  document.querySelectorAll("button[data-target]").forEach((btn) => {
+    btn.addEventListener("click", () => kopiuj(btn, document.getElementById(btn.dataset.target)));
+  });
+
+  const lista = document.getElementById("old-list");
+  DANE.wczesniejsze.forEach((p, i) => {
+    const d = document.createElement("details");
+    d.className = "old";
+    const s = document.createElement("summary");
+    s.textContent = p.data + " · " + p.tytul;
+    const pre = document.createElement("pre");
+    pre.className = "text";
+    pre.id = "old-" + i;
+    pre.textContent = p.tresc;
+    const pre2 = document.createElement("pre");
+    pre2.className = "text short";
+    pre2.id = "old-c-" + i;
+    pre2.textContent = p.komentarz;
+    const row = document.createElement("div");
+    row.className = "row";
+    [["Kopiuj treść", pre], ["Kopiuj komentarz", pre2]].forEach(([label, el]) => {
+      const b = document.createElement("button");
+      b.className = "btn secondary";
+      b.textContent = label;
+      b.addEventListener("click", () => kopiuj(b, el));
+      row.appendChild(b);
+    });
+    d.append(s, pre, pre2, row);
+    lista.appendChild(d);
+  });
+  document.getElementById("h-old").hidden = DANE.wczesniejsze.length === 0;
+</script>

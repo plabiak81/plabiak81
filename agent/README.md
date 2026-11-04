@@ -36,8 +36,11 @@ Drugi agent Claude, który co noc przygotowuje jeden post na LinkedIn.
   na Twój prywatny profil, w pierwszej osobie (treść, hashtagi, pierwszy komentarz z linkiem, zdjęcie z artykułu)
   i otwiera PR w `plabiak81/Instal-Tig` (gałąź `linkedin/RRRR-MM-DD`,
   plik w folderze `linkedin/`).
-- **Czego nie robi:** nie publikuje na LinkedIn. Rano kopiujesz post z opisu
-  PR, wklejasz na LinkedIn i scalasz PR — scalenie oznacza „opublikowane”.
+- **Rano:** otwórz stronę https://claude.ai/artifact/D8x8RE6TWr5Kfw6qthcetJ
+  (prywatna, widzisz ją tylko Ty). Jest tam dzisiejszy post z przyciskami
+  „Kopiuj”, zdjęcie, komentarz z linkiem i wcześniejsze posty.
+- **Czego nie robi:** nie publikuje na LinkedIn. Rano kopiujesz post (ze strony
+  albo z opisu PR), wklejasz na LinkedIn i scalasz PR — scalenie oznacza „opublikowane”.
   Gdy czekają 3 nieprzejrzane PR z postami, przestaje pisać nowe.
 
 Instrukcja pracy: [`LINKEDIN.md`](LINKEDIN.md). Zmień ją, żeby zmienić ton,

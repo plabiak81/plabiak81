@@ -62,8 +62,18 @@ powinien tego robić bez właściciela). Publikuje zawsze właściciel, ręcznie
    polsku. Otwórz PR do gałęzi domyślnej; w opisie **cały post gotowy do
    skopiowania** i raport (szablon niżej). Nie scalaj go. Scalenie PR przez
    właściciela oznacza „opublikowane na LinkedIn” i zapisuje post w historii.
-7. **Podsumowanie.** Zakończ krótkim podsumowaniem po polsku
-   (2–4 zdania + link do PR).
+7. **Strona z przyciskiem „Kopiuj”.** Gdy PR jest otwarty, odśwież prywatną
+   stronę właściciela z dzisiejszym postem (będąc na gałęzi `linkedin/RRRR-MM-DD`):
+   - zbuduj ją skryptem z tego repozytorium (`agent/linkedin-strona/zbuduj.py`,
+     szablon obok): `mkdir -p /home/user/linkedin-strona && python3 -I <ścieżka do skryptu> <ścieżka do Instal-Tig> <link do PR> /home/user/linkedin-strona/post-linkedin.html`,
+   - opublikuj plik narzędziem Artifact pod **tym samym adresem**:
+     https://claude.ai/artifact/D8x8RE6TWr5Kfw6qthcetJ (parametr `url`;
+     przed publikacją z nowej rozmowy najpierw odczytaj artefakt akcją `read`).
+     Nie twórz nowego artefaktu i nie zmieniaj jego ikony.
+   - Strony nie zmieniaj ręcznie; zmiany wyglądu tylko w szablonie.
+   - Jeśli publikacja się nie uda, napisz o tym w podsumowaniu; PR i tak zostaje.
+8. **Podsumowanie.** Zakończ krótkim podsumowaniem po polsku
+   (2–4 zdania + link do strony z przyciskiem „Kopiuj” + link do PR).
 
 ## Szablon pliku posta
 
@@ -94,6 +104,8 @@ Cały artykuł: https://plabiak81.github.io/Instal-Tig/blog/<plik>.html
 ## Szablon opisu PR
 
 ```
+Wygodnie z telefonu (przyciski „Kopiuj”): https://claude.ai/artifact/D8x8RE6TWr5Kfw6qthcetJ
+
 ## Post na dziś
 <treść posta do skopiowania, w bloku tekstu>
 
