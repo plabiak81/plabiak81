@@ -49,6 +49,16 @@ def wczytaj(plik):
     }
 
 
+def wymiary_webp(b):
+    c = b[12:16]
+    if c == b"VP8X":
+        return 1 + int.from_bytes(b[24:27], "little"), 1 + int.from_bytes(b[27:30], "little")
+    if c == b"VP8 ":
+        return int.from_bytes(b[26:28], "little") & 0x3FFF, int.from_bytes(b[28:30], "little") & 0x3FFF
+    bity = int.from_bytes(b[21:25], "little")
+    return (bity & 0x3FFF) + 1, ((bity >> 14) & 0x3FFF) + 1
+
+
 def data_pl(iso):
     r, m, d = iso.split("-")
     return f"{int(d)} {MIESIACE[int(m) - 1]} {r}"
@@ -65,7 +75,9 @@ def main():
     dzis = posty[0]
 
     obraz = repo / dzis["zdjecie"].replace(SITE, "")
-    obraz_uri = "data:image/webp;base64," + base64.b64encode(obraz.read_bytes()).decode()
+    obraz_bajty = obraz.read_bytes()
+    obraz_uri = "data:image/webp;base64," + base64.b64encode(obraz_bajty).decode()
+    obraz_w, obraz_h = wymiary_webp(obraz_bajty)
 
     szablon = szablon_plik.read_text(encoding="utf-8")
     dane = {
@@ -81,6 +93,8 @@ def main():
         "{{PR}}": html.escape(pr),
         "{{ZDJECIE_URL}}": html.escape(dzis["zdjecie"]),
         "{{ZDJECIE_URI}}": obraz_uri,
+        "{{ZDJECIE_W}}": str(obraz_w),
+        "{{ZDJECIE_H}}": str(obraz_h),
         "{{ALT}}": html.escape(dzis["alt"]),
         "{{DANE_JSON}}": json.dumps(dane, ensure_ascii=False).replace("</", "<\\/"),
     }
