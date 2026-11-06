@@ -4,7 +4,7 @@ Koszt: założenie i utrzymanie konta 0 zł, bez abonamentu. Stripe pobiera tylk
 
 ## 1. Konto (~20-30 min, raz)
 1. Wejdź na https://dashboard.stripe.com/register - e-mail: mojeacount@gmail.com, kraj: **Polska**.
-2. Aktywuj konto (Stripe poprowadzi): typ działalności **jednoosobowa działalność gospodarcza**, nazwa **MEGA-SPAW**, NIP, adres Milicka 29, 56-300 Sułów, Twoje dane, numer konta bankowego firmy.
+2. Aktywuj konto (Stripe poprowadzi): typ działalności **jednoosobowa działalność gospodarcza**, nazwa **MEGA-SPAW**, NIP, adres firmy z CEIDG (Stripe go nie pokazuje klientom), Twoje dane, numer konta bankowego firmy.
 3. Branża / opis: „Sprzedaż treści cyfrowych: poradnik PDF i szablony dokumentacji spawalniczej”. Strona: `https://plabiak81.github.io/plabiak81/mega-spaw/`.
 
 ## 2. Metody płatności (~2 min)
