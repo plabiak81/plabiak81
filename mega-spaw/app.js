@@ -81,10 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var s = document.getElementById('dla-sciagi');
     if (s) s.hidden = false;
   }
-  if (param.get('zakup')) {
-    var z = document.getElementById('dla-zakupu');
-    if (z) z.hidden = false;
-  }
 
   // Rok w stopce
   document.querySelectorAll('[data-rok]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
