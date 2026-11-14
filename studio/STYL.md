@@ -46,7 +46,7 @@
 
 Kontakt dobieraj według marki projektu:
 - **Instal-tig** (usługi B2B dla przemysłu) - dane poniżej.
-- **MEGA-SPAW** (sklep i produkty dla spawaczy, `mega-spaw/`) - tylko e-mail: mojeacount@gmail.com i miejscowość „56-300 Sułów”. Bez telefonu i bez adresu ulicy (tak jak na stronach w `mega-spaw/`), chyba że brief mówi inaczej.
+- **MEGA-SPAW** (sklep i produkty dla spawaczy, `mega-spaw/`) - tylko e-mail: megaspaw1@gmail.com i miejscowość „56-300 Sułów”. Bez telefonu i bez adresu ulicy (tak jak na stronach w `mega-spaw/`), chyba że brief mówi inaczej.
 
 - Telefon: +48 667 466 431
 - E-mail: slawek_21@op.pl

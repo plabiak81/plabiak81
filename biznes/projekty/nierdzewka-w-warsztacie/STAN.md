@@ -57,7 +57,7 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 - Sprzedaż PDF/szablonów nie jest wyłączona ze zwolnienia (art. 113 ust. 13); konsultacji/doradztwa NIE sprzedajemy.
 - Zwolnienie z kasy fiskalnej dla treści cyfrowych płatnych przelewem/bramką (§ 2 rozporządzenia) - do potwierdzenia.
 - Reklama Meta = import usług - możliwy VAT 23% mimo zwolnienia (pytanie 9).
-- Adres e-mail do zamówień: **NIE slawek_21@op.pl** (decyzja właściciela 2026-10-29). Nowy adres: **mojeacount@gmail.com** (podany 2026-10-30), wpisany na stronie, w poradniku i instrukcji.
+- Adres e-mail do zamówień: **NIE slawek_21@op.pl** (decyzja właściciela 2026-10-29). Nowy adres: **megaspaw1@gmail.com** (podany 2026-10-30, zmieniony 2026-11-14), wpisany na stronie, w poradniku i instrukcji.
 - Wartości ppm na ściądze = próbki AWS D18.2 (potwierdzone źródłami); strefy „zwykle OK / zależy od klienta / do poprawy” to podpowiedź praktyczna - kryterium ustala klient (napisane na ściądze).
 - Udział zamówień 60/25/15%, konwersje 1,0/1,8/2,4%, CPC 1,20 zł, prowizja ok. 1,5% + 1,10 zł - szacunki.
 - Liczba spawaczy 60-120 tys. i firm metalowych 25-40 tys. - szacunki bez danych GUS.

@@ -5,7 +5,7 @@
 - [ ] **Zaakceptuj wartości techniczne w produktach** - plik `DO-AKCEPTACJI.md` w prywatnym repo `nierdzewka-produkty` - ~30-40 min - 0 zł
   Kroki: 1. Otwórz `DO-AKCEPTACJI.md` (22 pozycje poradnika + ściągi + przykłady szablonów, każda ze źródłem). 2. Przy każdej postaw ✔ albo napisz poprawkę. 3. Zerknij na PDF `gotowe/poradnik/Nierdzewka-bez-przebarwien-poradnik.pdf` (19 s.) i jeden przykład szablonu. 4. Odpisz „akceptuję” albo listę zmian - poprawię i wygeneruję od nowa. Szczególnie sprawdź: pas czyszczenia (pozycja 12 - usunąłem 20-25 mm, brak źródła) i kąt palnika (18 - poprawiłem „ciągnięty” na „pchany”).
 - [ ] **Podaj dane do regulaminu i polityki prywatności** (strona już działa publicznie z `[[...]]` w tych dokumentach) - ~5 min - 0 zł
-  Potrzebne: imię i nazwisko, NIP, REGON, data obowiązywania, decyzja: **telefon w regulaminie - tak (który numer) / nie**. Nazwa ✅ MEGA-SPAW, e-mail ✅ mojeacount@gmail.com.
+  Potrzebne: imię i nazwisko, NIP, REGON, data obowiązywania, decyzja: **telefon w regulaminie - tak (który numer) / nie**. Nazwa ✅ MEGA-SPAW, e-mail ✅ megaspaw1@gmail.com.
 - [ ] **Sprawdzenie regulaminu i polityki prywatności** (Ty z prawnikiem albo sam z listą `[[PRAWNIK: ...]]`) - nowy zapis: przedsprzedaż = pliki do 7 dni od wpłaty, inaczej zwrot - ~30-60 min - 0 zł (+ ew. koszt prawnika - tylko za Twoją zgodą)
 - [ ] **Wyślij księgowej 10 pytań** z `06-formalnosci.md` (sekcja „Pytania do księgowej”) - ~10 min - 0 zł
 
