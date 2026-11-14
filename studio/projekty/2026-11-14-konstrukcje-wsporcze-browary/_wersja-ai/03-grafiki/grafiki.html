@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Grafiki - Tankownia na lata (konstrukcje dla browarów)</title>
+<!--
+  Każdy element z data-kadr="nazwa" renderuje się do png/nazwa.png:
+    node studio/narzedzia/render.cjs studio/projekty/2026-11-14-konstrukcje-wsporcze-browary/03-grafiki/grafiki.html studio/projekty/2026-11-14-konstrukcje-wsporcze-browary/03-grafiki/png
+  Ilustracja tankowni to symbol SVG #tankownia (rysunek, nie zdjęcie). Warianty przez zmienne CSS na elemencie <svg>:
+    --rdza: 1         -> konstrukcja z malowanej czarnej stali z rdzą (stan „przed”)
+    --t4: 0; --duch:1 -> czwarty tank jako przerywany kontur „miejsce na kolejny tank”
+  Zdjęcie zamiast rysunku: wstaw <img src="../../../../img/realizacje/....jpg" alt=""> w .tlo i usuń <svg class="scena">.
+  Kadry „wideo-*” to slajdy animatiku dla 04-wideo/montaz.sh (dolne ~420 px wolne na napisy).
+-->
+<style>
+  :root {
+    --akcent: #0b6fb8;
+    --akcent-ciemny: #08578f;
+    --akcent-jasny: #4ea3e6;
+    --ciemny: #10161d;
+    --jasny: #f4f6f8;
+    --tekst: #1c2430;
+    --tekst-2: #5b6776;
+    --stal: #8a96a3;
+    --zolty: #ffd23f;
+    --czerwony: #c62f26;
+    --zielony: #1d7a46;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #777; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "DejaVu Sans", sans-serif; padding: 40px; display: grid; gap: 40px; justify-items: start; }
+  [data-kadr] { position: relative; overflow: hidden; color: #fff; background: var(--ciemny); }
+
+  .tlo { position: absolute; inset: 0; background:
+      radial-gradient(ellipse at 70% 45%, rgba(78,163,230,.16) 0%, rgba(78,163,230,0) 60%),
+      linear-gradient(160deg, #1b232c 0%, #26303b 45%, #11171d 100%); }
+  .tlo img { width: 100%; height: 100%; object-fit: cover; }
+  .tlo.rdzawe { background:
+      radial-gradient(ellipse at 70% 45%, rgba(190,90,30,.20) 0%, rgba(190,90,30,0) 60%),
+      linear-gradient(160deg, #221c18 0%, #2c2621 45%, #14110f 100%); }
+  .scena { position: absolute; display: block; }
+
+  .naglowek { font-weight: 900; line-height: .95; letter-spacing: -.02em; text-transform: uppercase; }
+  .naglowek em { font-style: normal; color: var(--zolty); }
+  .naglowek .nieb { color: var(--akcent-jasny); }
+  .etykieta { display: inline-block; align-self: flex-start; background: var(--akcent); padding: 10px 22px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+  .etykieta.czerw { background: var(--czerwony); }
+  .logo { position: absolute; background: #fff; padding: 10px 16px; border-radius: 8px; }
+  .logo img { display: block; height: 100%; }
+  .notka { position: absolute; font-size: 18px; color: rgba(255,255,255,.5); }
+  .cien { position: absolute; inset: 0; }
+
+  /* ---------- Miniatury YouTube 1280x720 ---------- */
+  .yt { width: 1280px; height: 720px; }
+  .yt .scena { right: -40px; bottom: 0; width: 860px; height: 540px; }
+  .yt .cien { background: linear-gradient(90deg, rgba(10,14,19,.96) 0%, rgba(10,14,19,.85) 40%, rgba(10,14,19,0) 70%); }
+  .yt .tresc { position: absolute; left: 70px; top: 0; bottom: 0; width: 640px; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+  .yt .naglowek { font-size: 118px; }
+  .yt .etykieta { font-size: 34px; }
+  .yt .logo { top: 34px; right: 34px; height: 64px; }
+  .yt3 .scena { right: 20px; width: 780px; }
+  .yt3 .cien { background: linear-gradient(90deg, rgba(10,14,19,.96) 0%, rgba(10,14,19,.8) 38%, rgba(10,14,19,0) 58%); }
+
+  .yt2 .pol { position: absolute; top: 0; bottom: 140px; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+  .yt2 .lewa { left: 0; background: linear-gradient(135deg, #3c4652, #20272f); }
+  .yt2 .prawa { right: 0; background: linear-gradient(135deg, var(--akcent), var(--akcent-ciemny)); }
+  .yt2 .gatunek { font-size: 230px; font-weight: 900; letter-spacing: -.04em; line-height: 1; }
+  .yt2 .lewa .gatunek { color: #d0d7de; }
+  .yt2 .strefa { font-size: 40px; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; background: rgba(0,0,0,.28); padding: 8px 22px; border-radius: 8px; }
+  .yt2 .vs { position: absolute; left: 50%; top: 290px; transform: translate(-50%,-50%); width: 150px; height: 150px; border-radius: 50%; background: var(--zolty); color: var(--ciemny); font-weight: 900; font-size: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+  .yt2 .pasek-dol { position: absolute; left: 0; right: 0; bottom: 0; height: 140px; background: #0a0e13; display: flex; align-items: center; justify-content: center; font-size: 72px; font-weight: 900; text-transform: uppercase; }
+  .yt2 .pasek-dol em { font-style: normal; color: var(--zolty); margin-left: .3em; }
+
+  /* ---------- Post 1080x1080: 5 detali ---------- */
+  .post { width: 1080px; height: 1080px; }
+  .post .logo { top: 50px; right: 60px; height: 70px; }
+  .post .gora { position: absolute; left: 70px; top: 60px; right: 300px; }
+  .post .naglowek { font-size: 72px; }
+  .post .scena { left: 20px; top: 290px; width: 1040px; height: 480px; }
+  .post .lista { position: absolute; left: 70px; right: 70px; bottom: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 40px; list-style: none; counter-reset: d; }
+  .post .lista li { font-size: 28px; font-weight: 600; line-height: 1.25; padding-left: 58px; position: relative; counter-increment: d; color: #eef2f5; }
+  .post .lista li::before { content: counter(d); position: absolute; left: 0; top: -2px; width: 42px; height: 42px; border-radius: 50%; background: var(--zolty); color: var(--ciemny); font-weight: 900; font-size: 26px; display: flex; align-items: center; justify-content: center; }
+  .pin { position: absolute; width: 52px; height: 52px; border-radius: 50%; background: var(--zolty); color: var(--ciemny); font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 6px rgba(255,210,63,.3), 0 6px 18px rgba(0,0,0,.5); }
+
+  /* ---------- Post 1080x1350: oferta ---------- */
+  .post45 { width: 1080px; height: 1350px; }
+  .post45 .logo { top: 60px; left: 80px; height: 76px; }
+  .post45 .scena { left: 60px; top: 160px; width: 1000px; height: 560px; }
+  .post45 .cien { background: linear-gradient(0deg, rgba(10,14,19,1) 0%, rgba(10,14,19,.95) 42%, rgba(10,14,19,0) 60%); }
+  .post45 .tresc { position: absolute; left: 80px; right: 80px; bottom: 80px; display: flex; flex-direction: column; gap: 26px; }
+  .post45 .naglowek { font-size: 96px; }
+  .post45 ul { list-style: none; display: grid; gap: 12px; }
+  .post45 li { font-size: 32px; line-height: 1.3; padding-left: 50px; position: relative; color: #eef2f5; }
+  .post45 li::before { content: ""; position: absolute; left: 0; top: 9px; width: 24px; height: 24px; border-radius: 50%; background: var(--akcent-jasny); box-shadow: inset 0 0 0 7px var(--ciemny), 0 0 0 3px var(--akcent-jasny); }
+  .post45 .cta { align-self: flex-start; background: var(--zolty); color: var(--ciemny); font-size: 42px; font-weight: 900; padding: 22px 38px; border-radius: 14px; margin-top: 6px; }
+
+  /* ---------- Story / slajdy wideo 1080x1920 ---------- */
+  .story { width: 1080px; height: 1920px; }
+  .story .logo { top: 80px; left: 80px; height: 84px; }
+  .story .gora { position: absolute; left: 80px; right: 80px; top: 230px; display: flex; flex-direction: column; gap: 30px; }
+  .story .naglowek { font-size: 116px; }
+  .story .pod { font-size: 44px; font-weight: 600; line-height: 1.3; color: #dfe5eb; }
+  .story .scena { left: 0; top: 760px; width: 1080px; height: 700px; }
+  .story .cta { position: absolute; left: 80px; right: 80px; bottom: 150px; text-align: center; background: var(--zolty); color: var(--ciemny); font-size: 54px; font-weight: 900; padding: 38px; border-radius: 20px; }
+  .story .krok { position: absolute; right: 80px; top: 96px; font-size: 34px; font-weight: 800; color: rgba(255,255,255,.55); letter-spacing: .08em; }
+
+  /* porównanie stali (slajd 03) */
+  .stale { position: absolute; left: 80px; right: 80px; top: 780px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .stale .k { border-radius: 22px; padding: 44px 36px; display: flex; flex-direction: column; gap: 18px; min-height: 620px; }
+  .stale .k304 { background: linear-gradient(160deg, #46515d, #2a323b); }
+  .stale .k316 { background: linear-gradient(160deg, var(--akcent), var(--akcent-ciemny)); }
+  .stale .g { font-size: 150px; font-weight: 900; line-height: 1; letter-spacing: -.04em; }
+  .stale .n { font-size: 34px; font-weight: 700; opacity: .8; }
+  .stale ul { list-style: none; display: grid; gap: 14px; margin-top: 10px; }
+  .stale li { font-size: 36px; font-weight: 600; line-height: 1.25; padding-left: 34px; position: relative; }
+  .stale li::before { content: "–"; position: absolute; left: 0; }
+
+  /* detale higieniczne (slajd 04) */
+  .detale { position: absolute; left: 80px; right: 80px; top: 560px; display: grid; gap: 26px; }
+  .detale .w { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .detale .p { border-radius: 18px; padding: 22px; display: flex; align-items: center; gap: 22px; background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.12); }
+  .detale .p.zle { border-color: rgba(198,47,38,.8); }
+  .detale .p.dobrze { border-color: rgba(52,168,100,.9); }
+  .detale svg { width: 150px; height: 120px; flex: none; }
+  .detale .opis { font-size: 32px; font-weight: 700; line-height: 1.2; }
+  .detale .opis small { display: block; font-size: 26px; font-weight: 600; opacity: .7; margin-top: 6px; }
+
+  /* warsztat -> browar (slajd 05) */
+  .tor { position: absolute; left: 80px; right: 80px; top: 820px; display: grid; gap: 28px; }
+  .tor .e { display: flex; align-items: center; gap: 30px; background: rgba(255,255,255,.06); border-radius: 20px; padding: 30px 34px; }
+  .tor .num { flex: none; width: 92px; height: 92px; border-radius: 50%; background: var(--akcent); font-size: 46px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+  .tor .e.browar .num { background: var(--zolty); color: var(--ciemny); }
+  .tor .t { font-size: 40px; font-weight: 800; line-height: 1.15; }
+  .tor .t small { display: block; font-size: 30px; font-weight: 600; opacity: .7; margin-top: 6px; }
+
+  /* plansza końcowa */
+  .plansza .kontakt { position: absolute; left: 80px; right: 80px; top: 800px; display: grid; gap: 22px; }
+  .plansza .kontakt div { font-size: 58px; font-weight: 800; }
+  .plansza .kontakt small { display: block; font-size: 30px; font-weight: 600; opacity: .65; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+
+  /* ---------- Baner LinkedIn 1584x396 ---------- */
+  .li { width: 1584px; height: 396px; }
+  .li .scena { right: 30px; bottom: 0; width: 500px; height: 340px; }
+  .li .cien { background: linear-gradient(90deg, rgba(10,14,19,1) 0%, rgba(10,14,19,.95) 45%, rgba(10,14,19,0) 75%); }
+  .li .tresc { position: absolute; left: 420px; top: 0; bottom: 0; width: 600px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+  .li .naglowek { font-size: 52px; }
+  .li .pod { font-size: 23px; color: #c9d2db; font-weight: 600; }
+  .li .logo { left: 60px; top: 50%; transform: translateY(-50%); height: 90px; display: none; }
+
+  /* ---------- OG 1200x630 ---------- */
+  .og { width: 1200px; height: 630px; background: var(--jasny); color: var(--tekst); }
+  .og .scena { right: -90px; bottom: 24px; width: 640px; height: 420px; }
+  .og .tresc { position: absolute; left: 70px; top: 0; bottom: 24px; width: 560px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+  .og .naglowek { font-size: 64px; text-transform: none; letter-spacing: -.03em; }
+  .og .naglowek em { color: var(--akcent); }
+  .og .pod { font-size: 28px; color: var(--tekst-2); font-weight: 600; }
+  .og .logo { right: 50px; top: 40px; height: 70px; padding: 0; background: none; }
+  .og .pasek { position: absolute; left: 0; bottom: 0; width: 100%; height: 24px; background: var(--akcent); }
+</style>
+</head>
+<body>
+
+<!-- ======================= DEFINICJE SVG ======================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-tank" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#6f7a86"/><stop offset=".22" stop-color="#e9eef2"/>
+      <stop offset=".45" stop-color="#a9b3bd"/><stop offset=".7" stop-color="#d6dce2"/>
+      <stop offset="1" stop-color="#5f6a75"/>
+    </linearGradient>
+    <linearGradient id="g-rura" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#7d8894"/><stop offset=".35" stop-color="#eef2f5"/><stop offset="1" stop-color="#6b7682"/>
+    </linearGradient>
+    <linearGradient id="g-profil" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#8d98a4"/><stop offset=".45" stop-color="#e3e8ec"/><stop offset="1" stop-color="#7f8a96"/>
+    </linearGradient>
+    <linearGradient id="g-zaciek" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#b4521c" stop-opacity=".95"/><stop offset="1" stop-color="#b4521c" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="p-krata" width="12" height="16" patternUnits="userSpaceOnUse">
+      <rect width="12" height="16" fill="#9aa5b0"/><rect x="0" width="3" height="16" fill="#5e6873"/>
+    </pattern>
+
+    <!-- jeden tank cylindryczno-stożkowy (CCT), środek w x=0 -->
+    <g id="tank">
+      <rect x="-78" y="400" width="11" height="270" fill="#b8c1ca"/>
+      <rect x="67" y="400" width="11" height="270" fill="#9aa5b0"/>
+      <rect x="-5" y="430" width="10" height="240" fill="#7d8894"/>
+      <rect x="-88" y="664" width="31" height="8" rx="2" fill="#c8d0d7"/>
+      <rect x="57" y="664" width="31" height="8" rx="2" fill="#c8d0d7"/>
+      <path d="M-80 160 Q0 92 80 160 Z" fill="url(#g-tank)"/>
+      <rect x="-80" y="158" width="160" height="292" fill="url(#g-tank)"/>
+      <path d="M-80 449 L80 449 L16 545 L-16 545 Z" fill="url(#g-tank)"/>
+      <rect x="-7" y="544" width="14" height="40" fill="#8d98a4"/>
+      <rect x="-16" y="582" width="32" height="10" rx="3" fill="#c8d0d7"/>
+      <rect x="-80" y="210" width="160" height="5" fill="rgba(0,0,0,.12)"/>
+      <rect x="-80" y="300" width="160" height="5" fill="rgba(0,0,0,.12)"/>
+      <rect x="-80" y="390" width="160" height="5" fill="rgba(0,0,0,.12)"/>
+      <rect x="-20" y="104" width="40" height="16" rx="5" fill="#d6dce2" stroke="#6f7a86" stroke-width="2"/>
+      <rect x="34" y="122" width="10" height="22" fill="#9aa5b0"/>
+      <circle cx="39" cy="118" r="9" fill="#c8d0d7" stroke="#6f7a86" stroke-width="2"/>
+    </g>
+
+    <!-- kontur tanku „miejsce na kolejny” -->
+    <g id="tank-duch" fill="none" stroke-width="5" stroke-dasharray="14 10" stroke-linejoin="round">
+      <path d="M-80 160 Q0 92 80 160 L80 449 L16 545 L-16 545 L-80 449 Z"/>
+      <path d="M-73 449 L-73 668 M73 449 L73 668"/>
+    </g>
+
+    <!-- cała tankownia: viewBox 0 0 1150 720 -->
+    <symbol id="tankownia" viewBox="0 0 1150 720" preserveAspectRatio="xMidYMax meet">
+      <!-- posadzka -->
+      <rect x="0" y="672" width="1150" height="48" fill="rgba(255,255,255,.06)"/>
+      <rect x="0" y="672" width="1150" height="3" fill="rgba(255,255,255,.18)"/>
+      <rect x="560" y="690" width="120" height="10" rx="2" fill="rgba(0,0,0,.35)"/>
+      <!-- tanki -->
+      <use href="#tank" x="450"/>
+      <use href="#tank" x="650"/>
+      <use href="#tank" x="850"/>
+      <use href="#tank" x="1050" style="opacity: var(--t4, 1)"/>
+      <use href="#tank-duch" x="1050" style="opacity: var(--duch, 0); stroke: var(--zolty, #ffd23f)"/>
+
+      <!-- konstrukcja (stal nierdzewna albo malowana) -->
+      <g style="fill: var(--kon, url(#g-profil))">
+        <!-- słupy pomostu -->
+        <rect x="352" y="186" width="16" height="482"/>
+        <rect x="742" y="186" width="16" height="482"/>
+        <rect x="1122" y="186" width="16" height="482" style="opacity: var(--t4, 1)"/>
+        <rect x="344" y="664" width="32" height="8" rx="2"/>
+        <rect x="734" y="664" width="32" height="8" rx="2"/>
+        <rect x="1114" y="664" width="32" height="8" rx="2" style="opacity: var(--t4, 1)"/>
+        <!-- rygle pod pomostem i wsporniki rur -->
+        <rect x="352" y="250" width="790" height="8"/>
+        <rect x="430" y="186" width="6" height="66"/><rect x="630" y="186" width="6" height="66"/>
+        <rect x="830" y="186" width="6" height="66"/><rect x="1030" y="186" width="6" height="66"/>
+        <!-- balustrada -->
+        <rect x="350" y="58" width="792" height="9" rx="4"/>
+        <rect x="350" y="112" width="792" height="6" rx="3"/>
+        <rect x="352" y="58" width="9" height="115"/><rect x="552" y="58" width="9" height="115"/>
+        <rect x="752" y="58" width="9" height="115"/><rect x="952" y="58" width="9" height="115"/>
+        <rect x="1131" y="58" width="9" height="115"/>
+        <rect x="350" y="154" width="792" height="16"/>
+        <!-- schody -->
+        <path d="M368 186 L388 186 L58 672 L30 672 Z"/>
+        <path d="M352 58 L360 58 L42 545 L32 545 Z"/>
+        <rect x="26" y="545" width="8" height="127"/>
+      </g>
+      <!-- pomost: krata -->
+      <rect x="350" y="170" width="792" height="16" fill="url(#p-krata)"/>
+      <!-- stopnie -->
+      <g fill="#9aa5b0">
+        <rect x="330" y="232" width="46" height="7"/><rect x="298" y="280" width="46" height="7"/>
+        <rect x="265" y="328" width="46" height="7"/><rect x="233" y="376" width="46" height="7"/>
+        <rect x="200" y="424" width="46" height="7"/><rect x="168" y="472" width="46" height="7"/>
+        <rect x="135" y="520" width="46" height="7"/><rect x="103" y="568" width="46" height="7"/>
+        <rect x="70" y="616" width="46" height="7"/>
+      </g>
+      <!-- rurociągi na wspornikach -->
+      <rect x="352" y="224" width="790" height="14" rx="7" fill="url(#g-rura)"/>
+      <rect x="352" y="206" width="790" height="10" rx="5" fill="url(#g-rura)"/>
+      <rect x="352" y="260" width="790" height="12" rx="6" fill="url(#g-rura)"/>
+
+      <!-- rdza i łuszcząca się farba (stan „przed”) -->
+      <g style="opacity: var(--rdza, 0)">
+        <rect x="354" y="170" width="12" height="160" fill="url(#g-zaciek)"/>
+        <rect x="744" y="186" width="12" height="220" fill="url(#g-zaciek)"/>
+        <rect x="1124" y="186" width="12" height="130" fill="url(#g-zaciek)"/>
+        <rect x="560" y="170" width="8" height="70" fill="url(#g-zaciek)"/>
+        <rect x="900" y="170" width="8" height="90" fill="url(#g-zaciek)"/>
+        <rect x="352" y="600" width="16" height="68" fill="#8e3f16"/>
+        <rect x="742" y="590" width="16" height="78" fill="#8e3f16"/>
+        <rect x="210" y="400" width="8" height="60" fill="url(#g-zaciek)" transform="rotate(34 214 430)"/>
+        <rect x="120" y="520" width="8" height="70" fill="url(#g-zaciek)" transform="rotate(34 124 555)"/>
+        <g fill="#a7481a">
+          <path d="M380 690 l14 -4 l6 8 l-12 4 z"/><path d="M420 700 l10 -2 l3 6 l-11 3 z"/>
+          <path d="M760 688 l12 -3 l4 7 l-13 3 z"/><path d="M800 702 l9 -3 l5 5 l-10 3 z"/>
+          <path d="M150 694 l12 -2 l3 7 l-12 2 z"/><path d="M520 696 l8 -3 l4 6 l-9 2 z"/>
+          <circle cx="358" cy="120" r="6"/><circle cx="560" cy="62" r="5"/><circle cx="958" cy="140" r="6"/>
+          <circle cx="1136" cy="90" r="5"/><circle cx="700" cy="160" r="5"/>
+        </g>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ======================= MINIATURY YT ======================= -->
+
+<section data-kadr="miniatura-yt-1-farba" data-document-role="page" data-label="miniatura-yt-1-farba" class="yt">
+  <div class="tlo rdzawe"></div>
+  <svg class="scena" style="--rdza:1; --kon:#4c5650" role="img" aria-label="Rysunek: tankownia z pomostem z malowanej stali i zaciekami rdzy"><use href="#tankownia"/></svg>
+  <div class="cien"></div>
+  <div class="tresc">
+    <span class="etykieta czerw">Browar</span>
+    <h1 class="naglowek">Pomost <em>się sypie?</em></h1>
+  </div>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<section data-kadr="miniatura-yt-2-304-czy-316l" data-document-role="page" data-label="miniatura-yt-2-304-czy-316l" class="yt yt2">
+  <div class="pol lewa"><div class="gatunek">304</div><div class="strefa">Sucho</div></div>
+  <div class="pol prawa"><div class="gatunek">316L</div><div class="strefa">Ług i kwas</div></div>
+  <div class="vs">czy</div>
+  <div class="pasek-dol">Stal w <em>tankowni</em></div>
+  <div class="logo" style="top:30px; right:30px; height:58px"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<section data-kadr="miniatura-yt-3-kolejny-tank" data-document-role="page" data-label="miniatura-yt-3-kolejny-tank" class="yt yt3">
+  <div class="tlo"></div>
+  <svg class="scena" style="--t4:0; --duch:1" role="img" aria-label="Rysunek: pomost nad tankami z miejscem na kolejny tank"><use href="#tankownia"/></svg>
+  <div class="cien"></div>
+  <div class="tresc">
+    <span class="etykieta">Rozbudowa</span>
+    <h1 class="naglowek">Miejsce na <em>kolejny tank</em></h1>
+  </div>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<!-- ======================= POSTY ======================= -->
+
+<section data-kadr="post-1080-5-detali" data-document-role="page" data-label="post-1080-5-detali" class="post">
+  <div class="tlo"></div>
+  <div class="gora"><h1 class="naglowek">5 detali <em>dobrego pomostu</em> w browarze</h1></div>
+  <svg class="scena" role="img" aria-label="Rysunek: tankownia z pomostem, schodami i wspornikami rur"><use href="#tankownia"/></svg>
+  <!-- pinezki: scena 1040x480 -> rysunek 767x480 od x=156, skala 0,667 -->
+  <div class="pin" style="left:563px; top:331px">1</div>
+  <div class="pin" style="left:263px; top:551px">2</div>
+  <div class="pin" style="left:490px; top:417px">3</div>
+  <div class="pin" style="left:370px; top:672px">4</div>
+  <div class="pin" style="left:830px; top:464px">5</div>
+  <ol class="lista">
+    <li>Balustrada z listwą przy krawędzi</li>
+    <li>Schody zamiast drabiny</li>
+    <li>Wsporniki rur ze stali nierdzewnej</li>
+    <li>Stopy nad posadzką: da się umyć</li>
+    <li>Pomost z miejscem na kolejne tanki</li>
+  </ol>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<section data-kadr="post-1080x1350-oferta" data-document-role="page" data-label="post-1080x1350-oferta" class="post45">
+  <div class="tlo"></div>
+  <svg class="scena" role="img" aria-label="Rysunek: pomost ze stali nierdzewnej nad tankami"><use href="#tankownia"/></svg>
+  <div class="cien"></div>
+  <div class="tresc">
+    <h1 class="naglowek">Tankownia <em>na lata</em></h1>
+    <ul>
+      <li>Pomosty, schody, ramy pod tanki, wsporniki rur</li>
+      <li>Stal 304 i 316L dobrana do strefy</li>
+      <li>Spawamy w warsztacie, w browarze skręcamy</li>
+      <li>Miejsce na kolejne tanki od pierwszego rysunku</li>
+    </ul>
+    <div class="cta">Umów pomiar: 667 466 431</div>
+  </div>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<!-- ======================= STORY ======================= -->
+
+<section data-kadr="story-1080x1920-pomiar" data-document-role="page" data-label="story-1080x1920-pomiar" class="story">
+  <div class="tlo"></div>
+  <div class="gora">
+    <h1 class="naglowek">Wyślij zdjęcie <em>tankowni</em></h1>
+    <p class="pod">Powiemy, od czego zacząć: co zostawić, co wymienić na nierdzewkę.</p>
+  </div>
+  <svg class="scena" role="img" aria-label="Rysunek: tankownia z pomostem"><use href="#tankownia"/></svg>
+  <div class="cta">Napisz do nas →</div>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<!-- ======================= BANER LINKEDIN / OG ======================= -->
+
+<section data-kadr="baner-linkedin-1584x396" data-document-role="page" data-label="baner-linkedin-1584x396" class="li">
+  <div class="tlo"></div>
+  <svg class="scena" role="img" aria-label="Rysunek: pomost nad tankami"><use href="#tankownia"/></svg>
+  <div class="cien"></div>
+  <!-- lewe ~400 px zasłania zdjęcie profilowe na LinkedIn - zostawione puste -->
+  <div class="tresc">
+    <h1 class="naglowek">Konstrukcje ze stali nierdzewnej <em>dla browarów</em></h1>
+    <p class="pod">Pomosty · schody · ramy pod tanki · wsporniki rur - projekt, warsztat, montaż, serwis</p>
+  </div>
+</section>
+
+<section data-kadr="og-1200x630" data-document-role="page" data-label="og-1200x630" class="og">
+  <svg class="scena" role="img" aria-label="Rysunek: tankownia z pomostem"><use href="#tankownia"/></svg>
+  <div class="tresc">
+    <h1 class="naglowek">Pomosty i konstrukcje pod tanki <em>ze stali nierdzewnej</em></h1>
+    <p class="pod">Dla browarów · projekt · prefabrykacja · montaż · serwis</p>
+  </div>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+  <div class="pasek"></div>
+</section>
+
+<!-- ======================= SLAJDY WIDEO 1080x1920 ======================= -->
+
+<section data-kadr="wideo-01-hak" data-document-role="page" data-label="wideo-01-hak" class="story">
+  <div class="tlo rdzawe"></div>
+  <div class="gora"><h1 class="naglowek" style="font-size:132px">Twój pomost <em>też się sypie?</em></h1></div>
+  <svg class="scena" style="--rdza:1; --kon:#4c5650" role="img" aria-label="Rysunek: pomost z malowanej stali z rdzą"><use href="#tankownia"/></svg>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<section data-kadr="wideo-02-problem" data-document-role="page" data-label="wideo-02-problem" class="story">
+  <div class="tlo rdzawe"></div>
+  <div class="krok">PROBLEM</div>
+  <div class="gora">
+    <h1 class="naglowek">Woda + ług <em>= rdza</em></h1>
+    <p class="pod">Mycie CIP, kondensat z tanków, mokra posadzka. Farba i ocynk tego nie wytrzymują.</p>
+  </div>
+  <svg class="scena" style="--rdza:1; --kon:#4c5650" role="img" aria-label="Rysunek: zacieki rdzy na konstrukcji"><use href="#tankownia"/></svg>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<section data-kadr="wideo-03-stal" data-document-role="page" data-label="wideo-03-stal" class="story">
+  <div class="tlo"></div>
+  <div class="krok">KROK 1</div>
+  <div class="gora"><h1 class="naglowek">Stal dobrana <em>do strefy</em></h1></div>
+  <div class="stale">
+    <div class="k k304"><div class="g">304</div><div class="n">1.4301</div>
+      <ul><li>pomosty</li><li>schody</li><li>ramy w suchej części</li></ul></div>
+    <div class="k k316"><div class="g">316L</div><div class="n">1.4404</div>
+      <ul><li>strefa mycia CIP</li><li>ług, kwas, rozbryzgi</li><li>przy produkcie</li></ul></div>
+  </div>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<section data-kadr="wideo-04-detale" data-document-role="page" data-label="wideo-04-detale" class="story">
+  <div class="tlo"></div>
+  <div class="krok">KROK 2</div>
+  <div class="gora"><h1 class="naglowek">Woda nie ma <em>gdzie stać</em></h1></div>
+  <div class="detale">
+    <div class="w">
+      <div class="p zle">
+        <svg viewBox="0 0 150 120" aria-hidden="true"><path d="M30 20 H120 V36 H48 V84 H120 V100 H30 Z" fill="#8d98a4"/><rect x="50" y="70" width="68" height="14" fill="#4ea3e6"/></svg>
+        <div class="opis">Ceownik<small>woda stoi w środku</small></div>
+      </div>
+      <div class="p dobrze">
+        <svg viewBox="0 0 150 120" aria-hidden="true"><rect x="35" y="20" width="80" height="80" rx="8" fill="#c8d0d7"/><rect x="49" y="34" width="52" height="52" rx="4" fill="#26303b"/></svg>
+        <div class="opis">Profil zamknięty<small>spływa i się myje</small></div>
+      </div>
+    </div>
+    <div class="w">
+      <div class="p zle">
+        <svg viewBox="0 0 150 120" aria-hidden="true"><rect x="10" y="30" width="130" height="28" fill="#8d98a4"/><rect x="10" y="62" width="130" height="28" fill="#8d98a4"/><g fill="#5b6776"><rect x="18" y="56" width="22" height="8"/><rect x="64" y="56" width="22" height="8"/><rect x="110" y="56" width="22" height="8"/></g></svg>
+        <div class="opis">Spoina przerywana<small>szczeliny i brud</small></div>
+      </div>
+      <div class="p dobrze">
+        <svg viewBox="0 0 150 120" aria-hidden="true"><rect x="10" y="30" width="130" height="28" fill="#c8d0d7"/><rect x="10" y="62" width="130" height="28" fill="#c8d0d7"/><rect x="10" y="55" width="130" height="10" rx="4" fill="#e9c27a"/></svg>
+        <div class="opis">Spoina ciągła<small>bez szczelin</small></div>
+      </div>
+    </div>
+    <div class="w">
+      <div class="p zle">
+        <svg viewBox="0 0 150 120" aria-hidden="true"><rect x="62" y="10" width="26" height="90" fill="#8d98a4"/><rect x="40" y="96" width="70" height="8" fill="#8d98a4"/><rect x="0" y="104" width="150" height="16" fill="#4ea3e6" opacity=".7"/></svg>
+        <div class="opis">Stopa w wodzie<small>pod nią nie umyjesz</small></div>
+      </div>
+      <div class="p dobrze">
+        <svg viewBox="0 0 150 120" aria-hidden="true"><rect x="62" y="6" width="26" height="62" fill="#c8d0d7"/><rect x="70" y="66" width="10" height="22" fill="#8d98a4"/><path d="M45 104 Q75 80 105 104 Z" fill="#c8d0d7"/><rect x="0" y="106" width="150" height="14" fill="#4ea3e6" opacity=".5"/></svg>
+        <div class="opis">Stopa z regulacją<small>odstęp od posadzki</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<section data-kadr="wideo-05-warsztat" data-document-role="page" data-label="wideo-05-warsztat" class="story">
+  <div class="tlo"></div>
+  <div class="krok">KROK 3</div>
+  <div class="gora"><h1 class="naglowek">Spawamy <em>u siebie</em></h1>
+    <p class="pod">W browarze tylko skręcamy gotowe moduły.</p></div>
+  <div class="tor">
+    <div class="e"><div class="num">1</div><div class="t">Pomiar w browarze<small>i pytanie o kolejne tanki</small></div></div>
+    <div class="e"><div class="num">2</div><div class="t">Spawanie TIG w warsztacie<small>trawienie i pasywacja spoin</small></div></div>
+    <div class="e browar"><div class="num">3</div><div class="t">Montaż modułów w browarze<small>w terminie pod plan warzenia</small></div></div>
+  </div>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<section data-kadr="wideo-06-rozbudowa" data-document-role="page" data-label="wideo-06-rozbudowa" class="story">
+  <div class="tlo"></div>
+  <div class="krok">KROK 4</div>
+  <div class="gora"><h1 class="naglowek">Miejsce na <em>kolejny tank</em></h1>
+    <p class="pod">Dostawisz tank - dołożymy moduł. Bez przerabiania tego, co stoi.</p></div>
+  <svg class="scena" style="--t4:0; --duch:1; left:10px; width:1020px" role="img" aria-label="Rysunek: pomost z miejscem na kolejny tank"><use href="#tankownia"/></svg>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+<section data-kadr="wideo-07-plansza-koncowa" data-document-role="page" data-label="wideo-07-plansza-koncowa" class="story plansza">
+  <div class="tlo"></div>
+  <div class="gora"><h1 class="naglowek">Umów pomiar <em>w browarze</em></h1>
+    <p class="pod">Pomosty, schody, ramy pod tanki i wsporniki rur ze stali nierdzewnej.</p></div>
+  <div class="kontakt">
+    <div><small>Telefon</small>+48 667 466 431</div>
+    <div><small>E-mail</small>slawek_21@op.pl</div>
+    <div><small>Siedziba</small>56-300 Sułów</div>
+  </div>
+  <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
+</section>
+
+</body>
+</html>
