@@ -25,7 +25,7 @@ Każde zlecenie to folder `studio/projekty/RRRR-MM-DD-<krotka-nazwa>/`:
 BRIEF.md                 # brief (uzupełniony przez Ciebie na bazie polecenia)
 01-opakowanie.md         # strategia i opakowanie oferty
 02-teksty.md             # reklamy, opisy, posty, e-maile, hasła
-03-grafiki/              # CANVA.md (linki do projektów) + png/ (eksporty)
+03-grafiki/              # grafiki.html (źródło) + png/ + ZDJECIA.md / CANVA.md (jeśli dotyczy)
 04-wideo/                # scenariusz, lista ujęć, napisy .srt, skrypt montażu, gotowe .mp4
 05-landing/index.html    # pierwsza wersja landing page / strony sprzedażowej
 DO-DOPIECIA.md           # lista rzeczy dla właściciela (zawsze!)
@@ -74,35 +74,39 @@ Zasady pisania:
 - Żadnych frazesów typu „kompleksowe rozwiązania szyte na miarę", „najwyższa jakość", „wychodzimy naprzeciw" - chyba że `STYL.md` mówi inaczej.
 - Nie wymyślaj faktów: liczb klientów, opinii, certyfikatów, nagród. Wstaw `[[DOWÓD: np. liczba realizacji]]` i dopisz do `DO-DOPIECIA.md`.
 
-## 03 - Grafiki i miniatury (Canva)
+## 03 - Grafiki i miniatury
 
-**Grafiki robisz w Canvie.** Dzięki temu właściciel dopina je tam, gdzie mu najwygodniej: otwiera link, poprawia i eksportuje. Narzędzia to `mcp__Canva__*`; jeśli są odroczone, załaduj je przez ToolSearch (np. `select:mcp__Canva__generate-design,mcp__Canva__create-design-from-candidate,mcp__Canva__export-design,mcp__Canva__resize-design,mcp__Canva__create-folder,mcp__Canva__move-item-to-folder,mcp__Canva__generate-image,mcp__Canva__get-export-formats`).
+Grafiki robisz jako **HTML/CSS i renderujesz do PNG**. To główna droga: działa zawsze, nie zależy od żadnego konta, a polskie znaki są zawsze poprawne. Canva i generatory obrazów to dodatki opisane niżej.
 
-Brand Kit i ustawienia Canvy są w `studio/STYL.md` (sekcja „Canva”). Właściciel wybrał tam swój Brand Kit raz na stałe, więc **nie pytaj o niego ponownie** - używaj go w każdym projekcie.
+1. Skopiuj `studio/szablony/grafiki.html` do `03-grafiki/grafiki.html` i dostosuj. Każdy kadr to `<section data-kadr="nazwa-pliku" data-document-role="page" data-label="nazwa-pliku">` o stałym rozmiarze w pikselach. Kadry nie mogą być zagnieżdżone, a atrybut `data-document-role` jest potrzebny do importu do Canvy.
+2. Wyrenderuj: `node studio/narzedzia/render.cjs studio/projekty/<projekt>/03-grafiki/grafiki.html studio/projekty/<projekt>/03-grafiki/png`
+3. Obejrzyj każdy PNG narzędziem Read (widzisz obrazy) i popraw, jeśli tekst się nie mieści, jest nieczytelny albo kompozycja jest słaba. Minimum jedna runda autokorekty.
 
-Proces:
-
-1. **Folder**: `create-folder` o nazwie projektu (np. `Studio - 2026-11-03 spawanie-316L`) w folderze nadrzędnym z `STYL.md` (albo `root`). Wszystkie projekty przenoś tam przez `move-item-to-folder`.
-2. **Generowanie**: `generate-design` z `brand_kit_id` z `STYL.md` i właściwym `design_type`:
-   - miniatura YouTube → `youtube_thumbnail` (3 warianty, każdy z innym kątem/hasłem = osobne wywołanie),
-   - post → `instagram_post` (1080×1350) i/lub `facebook_post`,
-   - story/rolka → `your_story`,
-   - baner → `facebook_cover` / `youtube_banner`,
-   - ulotka/oferta PDF → `flyer`, prezentacja oferty → patrz zasady narzędzia (outline review).
-   W `query` podaj **dokładny tekst** z modułu 02 (w cudzysłowie, maks. 3-5 słów na miniaturze), opis kompozycji, nastrój, charakter zdjęć ze `STYL.md`, branżę i odbiorcę. Narzędzie nie pamięta poprzednich wywołań - za każdym razem podaj pełen kontekst.
-3. **Wybór kandydata**: obejrzyj miniatury kandydatów i sam wybierz najlepszego według zasad poniżej (czytelność, kontrast, zgodność ze stylem, poprawna polszczyzna - Canva potrafi zgubić ogonki). Zamień go w projekt przez `create-design-from-candidate`. Linki do pozostałych kandydatów zapisz w `03-grafiki/CANVA.md` jako „alternatywy” - właściciel może przełączyć się jednym kliknięciem.
-4. **Inne formaty**: z wybranego projektu rób kolejne rozmiary przez `resize-design` (np. post 1080×1080 → story, grafika OG 1200×630 do landing page, baner LinkedIn 1584×396), zamiast generować wszystko od nowa - zachowasz spójność.
-5. **Eksport**: `get-export-formats`, potem `export-design` do PNG (lub MP4/GIF, jeśli projekt jest animowany). Pobierz plik z linku: `curl -sSL -o studio/projekty/<projekt>/03-grafiki/png/<nazwa>.png "<url>"` (jeśli eksport ma kilka stron, link prowadzi do zipa - rozpakuj go). Te PNG są potrzebne do landing page (OG) i do montażu.
-6. **Kontrola**: obejrzyj PNG narzędziem Read. Jeśli coś jest nie tak (literówka, ucięty tekst, brak polskich znaków, zły kontrast) - wygeneruj ponownie z poprawionym `query`. **Nie zapisuj edycji w projektach Canva przez `edit-design` z `commit`** bez zgody właściciela - drobne poprawki są dla niego i trafiają do `DO-DOPIECIA.md` z linkiem do konkretnego projektu.
-7. **Zapis**: w `03-grafiki/CANVA.md` tabela: nazwa | format | link do edycji w Canvie | design_id | tekst na grafice (dokładny - potrzebny do `/studio-ucz`) | alternatywy.
-
-Zdjęcia:
-- Najpierw prawdziwe zdjęcia właściciela z `img/` i folderu projektu (muszą być publicznie dostępne pod HTTPS, żeby wgrać je przez `upload-asset-from-url` - np. pliki już opublikowane na GitHub Pages; lokalnych plików nie wysyłaj na zewnętrzne hostingi). Wgrane `asset_id` przekazuj do `generate-design` w `asset_ids`.
-- Tła, tekstury i ilustracje (stal, spoiny, rury, hala) możesz wygenerować przez `generate-image`. **Nigdy nie przedstawiaj wygenerowanego obrazu jako zdjęcia prawdziwej realizacji** - w `CANVA.md` oznacz je „AI” i dopisz w `DO-DOPIECIA.md` propozycję podmiany na prawdziwe zdjęcie (opis kadru, kąt, światło - tak, żeby właściciel mógł je zrobić telefonem).
+Standardowe formaty: miniatura YouTube 1280×720, post IG/FB 1080×1080, post pionowy 1080×1350, story/rolka 1080×1920, baner LinkedIn 1584×396, grafika OG strony 1200×630.
 
 Zasady miniatur: maks. 3-5 słów, ogromny kontrast, jeden punkt skupienia, czytelne w rozmiarze znaczka pocztowego (160×90). 3 warianty o różnych kątach.
 
-**Plan B (gdy Canva nie działa** - brak narzędzi, błąd autoryzacji, limit): zrób grafiki w HTML. Skopiuj `studio/szablony/grafiki.html` do `03-grafiki/grafiki.html`, dostosuj (każdy kadr to element z `data-kadr="nazwa-pliku"` i stałym rozmiarem), wyrenderuj `node studio/narzedzia/render.cjs studio/projekty/<projekt>/03-grafiki/grafiki.html studio/projekty/<projekt>/03-grafiki/png` i obejrzyj wynik. W podsumowaniu napisz wprost, że Canva była niedostępna i dlaczego.
+Ilustracje bez zdjęć rysuj w CSS/SVG (przekroje, schematy, ikony, kontrast przed/po). Nie udają zdjęć, a dobrze wyglądają w małym rozmiarze.
+
+### Zdjęcia
+
+Kolejność:
+1. **Prawdziwe zdjęcia właściciela**: `img/` i folder projektu. Zawsze najlepsze w B2B.
+2. **Zdjęcia z generatora AI**: jeśli w sesji działa narzędzie do generowania obrazów (np. Higgsfield `mcp__Higgsfield__*` albo `mcp__Canva__generate-image`; odroczone narzędzia załaduj przez ToolSearch), wygeneruj tło lub ilustrację (stal, spoiny, rury, hala), zapisz plik w `03-grafiki/zdjecia/` i użyj go w HTML. Jeśli narzędzie wymaga autoryzacji albo zwraca błąd, nie próbuj obchodzić - przejdź do punktu 3. **Nigdy nie przedstawiaj obrazu AI jako zdjęcia prawdziwej realizacji.** W `03-grafiki/ZDJECIA.md` oznacz każdy taki plik jako „AI” i zaproponuj podmianę na prawdziwe zdjęcie.
+3. **Brak zdjęcia**: ilustracja CSS/SVG albo estetyczny placeholder `[[ZDJĘCIE: co ma być na zdjęciu]]`.
+
+Każde brakujące zdjęcie dopisz do `DO-DOPIECIA.md` z opisem kadru, kąta i światła, tak żeby właściciel mógł je zrobić telefonem.
+
+### Canva - do ręcznego dopięcia (opcjonalnie)
+
+Generowanie projektów przez AI w Canvie właściciela jest wyłączone przez administratora zespołu, więc **nie używaj `generate-design` ani `create-design`**. Działa za to import: `mcp__Canva__import-design-from-url` zamienia publiczną stronę HTML w edytowalny projekt Canva (każdy `data-document-role="page"` to osobna strona).
+
+Import jest możliwy dopiero, gdy `grafiki.html` jest opublikowany na GitHub Pages, czyli po scaleniu zmian do `main`. Adres: `https://plabiak81.github.io/plabiak81/studio/projekty/<projekt>/03-grafiki/grafiki.html`.
+- Jeśli ten adres już działa (`curl -sI` zwraca 200), zaimportuj grafiki z nazwą „Studio - <projekt>”, a link do edycji zapisz w `03-grafiki/CANVA.md`.
+- Jeśli nie działa, nie importuj. W `DO-DOPIECIA.md` dopisz w sekcji „Warto”: „po publikacji poproś o import grafik do Canvy”.
+- Nigdy nie wysyłaj plików na zewnętrzne hostingi tylko po to, żeby uzyskać publiczny adres.
+
+**Nie zapisuj edycji w projektach Canva** (`edit-design` z `commit`) bez zgody właściciela.
 
 ## 04 - Wideo i montaż
 
@@ -166,7 +170,7 @@ Przejdź tę listę sam, zanim zakończysz:
 - [ ] Wszystko zgodne z `STYL.md` (głos, słowa zakazane, kolory, forma zwracania się do klienta).
 - [ ] Żadnych zmyślonych faktów, opinii, liczb - tylko `[[...]]`.
 - [ ] Limity znaków w reklamach policzone (np. skryptem `python3 -c`).
-- [ ] Grafiki w Canvie w folderze projektu, `CANVA.md` uzupełnione, PNG pobrane i obejrzane, tekst czytelny, polskie znaki poprawne.
+- [ ] PNG obejrzane, tekst czytelny, nic nie ucięte, polskie znaki poprawne; obrazy AI oznaczone w `ZDJECIA.md`.
 - [ ] Landing obejrzany na mobile i desktop.
 - [ ] Skrypty montażu uruchamiają się (przynajmniej animatik).
 - [ ] `_wersja-ai/` zapisane, `DO-DOPIECIA.md` istnieje.
@@ -174,7 +178,7 @@ Przejdź tę listę sam, zanim zakończysz:
 # Odpowiedź końcowa
 
 Krótko, po polsku:
-1. Co powstało - lista plików (ścieżki) oraz link do folderu i projektów w Canvie.
+1. Co powstało - lista plików (ścieżki), a jeśli był import do Canvy - link do projektu.
 2. 3 najważniejsze decyzje kreatywne (np. wybrana obietnica i dlaczego).
 3. Odesłanie do `DO-DOPIECIA.md` + ile tam jest punktów „musisz".
 Bez wklejania całych tekstów do odpowiedzi - one są w plikach.

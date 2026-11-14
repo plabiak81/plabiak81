@@ -33,10 +33,14 @@
 
 ## Canva
 
-- **Brand Kit (brand_kit_id):** `kAHP7xeBpvQ` - jedyny Brand Kit na koncie, wybrany na stałe. Agent używa go bez pytania. Żeby użyć innego, podmień ID.
-- **Folder nadrzędny na projekty (folder_id):** `root` [[opcjonalnie podaj ID folderu, np. „Marketing”]]
-- **Brand Templates do użycia (jeśli masz):** [[np. BTM... - miniatura YT, post realizacyjny]]
-- Uzupełnij Brand Kit w Canvie (logo `img/logo.png`, kolory z sekcji „Wygląd”, fonty) - im pełniejszy, tym mniej poprawek.
+- **Generowanie AI (Magic Design / Canva AI): wyłączone** przez administratora zespołu. Agent go nie używa.
+- **Import z HTML: działa.** Grafiki powstają w HTML, a po publikacji na GitHub Pages polecenie `/studio-canva` importuje je do Canvy do ręcznego dopięcia.
+- Brand Kit (brand_kit_id): `kAHP7xeBpvQ` - przyda się, jeśli generowanie zostanie kiedyś włączone.
+
+## Zdjęcia i generatory obrazów
+
+- Najlepsze są Twoje zdjęcia z realizacji. Wrzucaj je do `img/` (np. `img/realizacje/`), a agent użyje ich w grafikach.
+- Zdjęcia AI: Higgsfield, jeśli konektor jest autoryzowany na claude.ai. Obrazy AI są zawsze oznaczane i nigdy nie udają realizacji.
 
 ## Dane kontaktowe (do CTA)
 
