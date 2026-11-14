@@ -14,7 +14,7 @@
 
 ## Warto (podnosi jakość)
 
-- [ ] **Canva**: generowanie projektów jest wyłączone w zespole (błąd: „Design generation is not enabled in your team"). Włącz je w ustawieniach Canvy - przy następnym zleceniu grafiki powstaną od razu z Brand Kitem. Teraz folder projektu w Canvie jest pusty: https://www.canva.com/folder/FAHZY2aTs_I. Szczegóły: `03-grafiki/CANVA.md`.
+- [ ] Canva: wstaw logo z Brand Kitu na stronach projektu https://www.canva.com/d/JeclcH2v2oFOCbc (import z HTML go pominął). Teksty popraw tam albo w `03-grafiki/grafiki.html`.
 - [ ] Podmień rysunek rury na prawdziwe zdjęcia w grafikach (`03-grafiki/grafiki.html` - odkomentuj `<img>` w `.tlo`) i na landingu, potem przerenderuj (polecenie w `CANVA.md`).
 - [ ] Wybierz 1 z 3 miniatur YT (moja rekomendacja: `miniatura-yt-1-rdza.png` - najmocniejszy ból) i 1 z 3 haków w `04-wideo/scenariusz.md`.
 - [ ] Post realizacyjny na LinkedIn (`02-teksty.md`, sekcja 4) - uzupełnij po pierwszej realizacji w mleczarni, którą możesz pokazać.

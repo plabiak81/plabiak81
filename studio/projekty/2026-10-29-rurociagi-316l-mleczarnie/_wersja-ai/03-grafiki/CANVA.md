@@ -30,6 +30,15 @@ Generowanie AI w Canvie zablokował administrator zespołu, ale **import z HTML 
    https://plabiak81.github.io/plabiak81/studio/projekty/2026-10-29-rurociagi-316l-mleczarnie/03-grafiki/grafiki.html
 2. Wpisz `/studio-canva` - agent zaimportuje grafiki jako edytowalny projekt i dopisze tu link.
 
+## Import do Canvy (2026-11-14)
+
+- Projekt: **Studio - 2026-10-29-rurociagi-316l-mleczarnie** (15 stron, jedna na kadr, rozmiary zgodne z PNG)
+- Edycja: https://www.canva.com/d/JeclcH2v2oFOCbc
+- design_id: `DAHa6_0drIQ`
+- Teksty są edytowalne, polskie znaki poprawne.
+- **Logo się nie zaimportowało** (na miniaturach puste białe pole, na grafice OG brak). Wstaw je w Canvie z Brand Kitu.
+- Font może się różnić od PNG - Canva podstawia własny. Jeśli chcesz, ustaw font z Brand Kitu na wszystkich stronach.
+
 ## Lista kadrów
 
 | Plik | Format | Do czego |
