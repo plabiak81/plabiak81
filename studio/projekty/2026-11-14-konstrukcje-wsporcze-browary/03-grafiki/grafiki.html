@@ -57,6 +57,8 @@
   .yt .naglowek { font-size: 118px; }
   .yt .etykieta { font-size: 34px; }
   .yt .logo { top: 34px; right: 34px; height: 64px; }
+  .yt3 .scena { right: 20px; width: 780px; }
+  .yt3 .cien { background: linear-gradient(90deg, rgba(10,14,19,.96) 0%, rgba(10,14,19,.8) 38%, rgba(10,14,19,0) 58%); }
 
   .yt2 .pol { position: absolute; top: 0; bottom: 140px; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
   .yt2 .lewa { left: 0; background: linear-gradient(135deg, #3c4652, #20272f); }
@@ -205,7 +207,7 @@
     </g>
 
     <!-- cała tankownia: viewBox 0 0 1150 720 -->
-    <symbol id="tankownia" viewBox="0 0 1150 720">
+    <symbol id="tankownia" viewBox="0 0 1150 720" preserveAspectRatio="xMidYMax meet">
       <!-- posadzka -->
       <rect x="0" y="672" width="1150" height="48" fill="rgba(255,255,255,.06)"/>
       <rect x="0" y="672" width="1150" height="3" fill="rgba(255,255,255,.18)"/>
@@ -301,7 +303,7 @@
   <div class="logo" style="top:30px; right:30px; height:58px"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
 </section>
 
-<section data-kadr="miniatura-yt-3-kolejny-tank" data-document-role="page" data-label="miniatura-yt-3-kolejny-tank" class="yt">
+<section data-kadr="miniatura-yt-3-kolejny-tank" data-document-role="page" data-label="miniatura-yt-3-kolejny-tank" class="yt yt3">
   <div class="tlo"></div>
   <svg class="scena" style="--t4:0; --duch:1" role="img" aria-label="Rysunek: pomost nad tankami z miejscem na kolejny tank"><use href="#tankownia"/></svg>
   <div class="cien"></div>
