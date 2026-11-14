@@ -44,6 +44,10 @@
 
 ## Dane kontaktowe (do CTA)
 
+Kontakt dobieraj według marki projektu:
+- **Instal-tig** (usługi B2B dla przemysłu) - dane poniżej.
+- **MEGA-SPAW** (sklep i produkty dla spawaczy, `mega-spaw/`) - tylko e-mail: mojeacount@gmail.com i miejscowość „56-300 Sułów”. Bez telefonu i bez adresu ulicy (tak jak na stronach w `mega-spaw/`), chyba że brief mówi inaczej.
+
 - Telefon: +48 667 466 431
 - E-mail: slawek_21@op.pl
 - Adres: Milicka 29, 56-300 Sułów
@@ -57,3 +61,4 @@
 ## Wnioski z poprawek
 
 <!-- Dopisywane automatycznie przez /studio-ucz. Każdy wpis: data, projekt, co zmieniłeś i reguła na przyszłość. -->
+- 2026-11-14 (2026-10-29-nierdzewka-w-warsztacie): Kontakt według marki - w materiałach MEGA-SPAW e-mail MEGA-SPAW, w materiałach Instal-tig e-mail Instal-tig (szczegóły w sekcji „Dane kontaktowe”).
