@@ -22,6 +22,8 @@ Pakiet 8 edytowalnych szablonów dokumentacji spawalniczej dla małych warsztat�
 - 2026-11-01: wdrożone propozycje studia P1-P10 z `studio/projekty/2026-10-29-nierdzewka-w-warsztacie/05-poprawki-strony.md` (wszystkie uczciwe; P10 „atlas wad” zamieniony na „tabelę wad”, bo zdjęć nie ma). Usunięta etykieta „Najczęściej potrzebne” → „Dla warsztatu”.
 - 2026-11-01: **produkty - wydanie 1:** wartości techniczne sprawdzone w źródłach (producenci, TWI, Linde, AWS, ASTM, HSE); w produktach nie ma znaczników `[[DO SPRAWDZENIA]]`; lista do akceptacji właściciela: `DO-AKCEPTACJI.md` w prywatnym repo `nierdzewka-produkty`. Poradnik 19 stron A4 (okładka + 18), sekcja „Źródła”, schematy SVG zamiast zdjęć. Strona podaje „19 stron A4” - **po dodaniu zdjęć zaktualizować liczbę stron na stronie**.
 
+- 2026-11-14: **płatności: Stripe Payment Links** (BLIK, karta, Przelewy24), **dostawa: natychmiast po płatności** - przekierowanie Stripe na plik ZIP na Dysku Google właściciela (folder „MEGA-SPAW - pliki dla klientów”, pliki „każdy z linkiem”). Linki do plików są TYLKO w Stripe i w prywatnym dokumencie na Dysku („MEGA-SPAW - instrukcja Stripe i linki do plików (PRYWATNE)”) - nigdy w tym publicznym repo. Strona przełącza się sama na sprzedaż online, gdy w `mega-spaw/app.js` są wszystkie 3 linki `buy.stripe.com`; do tego czasu działa zamówienie e-mailem + przelew. Regulamin § 4-5 i polityka prywatności opisują oba sposoby (do sprawdzenia przez prawnika).
+
 ## Odpowiedzi właściciela (2026-10-29)
 - Grupy spawaczy na FB/forach: 1-2 → plan dołączenia do 6-8 grup + elektroda.pl (07-plan-klienci.md).
 - Warsztaty/znajomi do wiadomości: 5-15.

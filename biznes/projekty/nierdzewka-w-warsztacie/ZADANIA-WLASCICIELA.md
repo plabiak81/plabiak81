@@ -2,6 +2,8 @@
 
 ## Teraz (blokuje sprzedaż) - stan 2026-11-01
 
+- [ ] **Załóż konto Stripe i utwórz 3 linki płatności** - instrukcja krok po kroku w prywatnym dokumencie na Twoim Dysku: „MEGA-SPAW - instrukcja Stripe i linki do plików (PRYWATNE)” (folder „MEGA-SPAW - pliki dla klientów”) - ~30-40 min - 0 zł abonamentu, prowizja od transakcji wg cennika Stripe. Potem wklej w czacie 3 linki `buy.stripe.com` - wpiszę je w `mega-spaw/app.js` i strona przełączy się na sprzedaż online.
+
 - [ ] **Zaakceptuj wartości techniczne w produktach** - plik `DO-AKCEPTACJI.md` w prywatnym repo `nierdzewka-produkty` - ~30-40 min - 0 zł
   Kroki: 1. Otwórz `DO-AKCEPTACJI.md` (22 pozycje poradnika + ściągi + przykłady szablonów, każda ze źródłem). 2. Przy każdej postaw ✔ albo napisz poprawkę. 3. Zerknij na PDF `gotowe/poradnik/Nierdzewka-bez-przebarwien-poradnik.pdf` (19 s.) i jeden przykład szablonu. 4. Odpisz „akceptuję” albo listę zmian - poprawię i wygeneruję od nowa. Szczególnie sprawdź: pas czyszczenia (pozycja 12 - usunąłem 20-25 mm, brak źródła) i kąt palnika (18 - poprawiłem „ciągnięty” na „pchany”).
 - [ ] **Podaj dane do regulaminu i polityki prywatności** (strona już działa publicznie z `[[...]]` w tych dokumentach) - ~5 min - 0 zł
