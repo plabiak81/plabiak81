@@ -48,7 +48,8 @@
     <div class="wrap">
       <h1>Oferta i ceny</h1>
       <p class="lead">Trzy pakiety. Ceny końcowe - sprzedawca jest zwolniony z VAT (art. 113 ust. 1 ustawy o VAT), faktura bez VAT. Przed zakupem widzisz każdy dokument i jego pola.</p>
-      <p class="note">Przedsprzedaż. Zamówienie wysyłasz e-mailem, po potwierdzeniu płacisz przelewem, a pliki dostajesz e-mailem <strong>najpóźniej w ciągu 7 dni od zaksięgowania wpłaty</strong>. Jeśli nie dotrzymamy terminu, możesz odstąpić od umowy i dostaniesz zwrot całej wpłaty.</p>
+      <p class="note" data-tryb="online" hidden>Płacisz online: BLIK, karta albo Przelewy24. Link do pobrania plików dostajesz <strong>od razu po płatności</strong>, a dodatkowo e-mailem w ciągu 1 dnia roboczego. Wolisz zwykły przelew? Napisz: <a href="mailto:megaspaw1@gmail.com">megaspaw1@gmail.com</a>.</p>
+      <p class="note" data-tryb="email">Przedsprzedaż. Zamówienie wysyłasz e-mailem, po potwierdzeniu płacisz przelewem, a pliki dostajesz e-mailem <strong>najpóźniej w ciągu 7 dni od zaksięgowania wpłaty</strong>. Jeśli nie dotrzymamy terminu, możesz odstąpić od umowy i dostaniesz zwrot całej wpłaty.</p>
     </div>
   </section>
 
@@ -71,7 +72,7 @@
             <li>6 ściąg A4: parametry TIG, kolory nalotu, wolfram, formowanie grani, 304 czy 316L, pasywacja</li>
             <li>Tabela wad spoin TIG: objaw, przyczyna, co poprawić</li>
           </ul>
-          <a class="btn block" data-kup="poradnik" href="#zamow">Zamawiam poradnik</a>
+          <a class="btn block" data-kup="poradnik" href="#zamow" data-tekst-online="Kupuję poradnik - 49 zł">Zamawiam poradnik</a>
         </div>
         <div class="card plan feature">
           <span class="tag">Dla warsztatu</span>
@@ -83,7 +84,7 @@
             <li>Instrukcja wypełnienia (PDF)</li>
             <li>Miejsce na logo i dane Twojej firmy</li>
           </ul>
-          <a class="btn block" data-kup="szablony" href="#zamow">Zamawiam szablony</a>
+          <a class="btn block" data-kup="szablony" href="#zamow" data-tekst-online="Kupuję szablony - 179 zł">Zamawiam szablony</a>
         </div>
         <div class="card plan">
           <span class="tag">Dla warsztatu z ludźmi</span>
@@ -94,7 +95,7 @@
             <li>Poradnik + 6 ściąg dla pracowników</li>
             <li>Aktualizacje plików przez 12 miesięcy</li>
           </ul>
-          <a class="btn block" data-kup="komplet" href="#zamow">Zamawiam komplet</a>
+          <a class="btn block" data-kup="komplet" href="#zamow" data-tekst-online="Kupuję komplet - 199 zł">Zamawiam komplet</a>
         </div>
       </div>
     </div>
@@ -125,7 +126,13 @@
   <section>
     <div class="wrap narrow">
       <h2>Jak wygląda zamówienie</h2>
-      <ol>
+      <ol data-tryb="online" hidden>
+        <li>Zaznaczasz akceptację regulaminu i zgodę na dostarczenie plików, klikasz przycisk pakietu.</li>
+        <li>Płacisz na bezpiecznej stronie płatności Stripe: BLIK, karta albo Przelewy24.</li>
+        <li>Od razu po płatności przechodzisz do pobrania plików (archiwum ZIP).</li>
+        <li>Potwierdzenie płatności i link do plików dostajesz też e-mailem. Potrzebujesz faktury (bez VAT)? Odpisz na ten e-mail i podaj dane firmy.</li>
+      </ol>
+      <ol data-tryb="email">
         <li>Zaznaczasz akceptację regulaminu i zgodę na dostarczenie plików, klikasz przycisk pakietu.</li>
         <li>Otwiera się e-mail z zamówieniem. Dopisujesz dane do faktury i wysyłasz.</li>
         <li>Odsyłamy potwierdzenie i dane do przelewu.</li>

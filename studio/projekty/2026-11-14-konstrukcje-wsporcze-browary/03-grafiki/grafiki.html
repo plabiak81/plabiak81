@@ -57,6 +57,8 @@
   .yt .naglowek { font-size: 118px; }
   .yt .etykieta { font-size: 34px; }
   .yt .logo { top: 34px; right: 34px; height: 64px; }
+  .yt3 .scena { right: 20px; width: 780px; }
+  .yt3 .cien { background: linear-gradient(90deg, rgba(10,14,19,.96) 0%, rgba(10,14,19,.8) 38%, rgba(10,14,19,0) 58%); }
 
   .yt2 .pol { position: absolute; top: 0; bottom: 140px; width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
   .yt2 .lewa { left: 0; background: linear-gradient(135deg, #3c4652, #20272f); }
@@ -113,7 +115,7 @@
   .stale li::before { content: "–"; position: absolute; left: 0; }
 
   /* detale higieniczne (slajd 04) */
-  .detale { position: absolute; left: 80px; right: 80px; top: 760px; display: grid; gap: 26px; }
+  .detale { position: absolute; left: 80px; right: 80px; top: 560px; display: grid; gap: 26px; }
   .detale .w { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .detale .p { border-radius: 18px; padding: 22px; display: flex; align-items: center; gap: 22px; background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.12); }
   .detale .p.zle { border-color: rgba(198,47,38,.8); }
@@ -137,18 +139,18 @@
 
   /* ---------- Baner LinkedIn 1584x396 ---------- */
   .li { width: 1584px; height: 396px; }
-  .li .scena { right: -20px; bottom: 0; width: 760px; height: 396px; }
+  .li .scena { right: 30px; bottom: 0; width: 500px; height: 340px; }
   .li .cien { background: linear-gradient(90deg, rgba(10,14,19,1) 0%, rgba(10,14,19,.95) 45%, rgba(10,14,19,0) 75%); }
-  .li .tresc { position: absolute; left: 420px; top: 0; bottom: 0; width: 760px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
-  .li .naglowek { font-size: 60px; }
-  .li .pod { font-size: 26px; color: #c9d2db; font-weight: 600; }
+  .li .tresc { position: absolute; left: 420px; top: 0; bottom: 0; width: 600px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+  .li .naglowek { font-size: 52px; }
+  .li .pod { font-size: 23px; color: #c9d2db; font-weight: 600; }
   .li .logo { left: 60px; top: 50%; transform: translateY(-50%); height: 90px; display: none; }
 
   /* ---------- OG 1200x630 ---------- */
   .og { width: 1200px; height: 630px; background: var(--jasny); color: var(--tekst); }
-  .og .scena { right: -30px; bottom: 24px; width: 640px; height: 420px; }
-  .og .tresc { position: absolute; left: 70px; top: 0; bottom: 24px; width: 620px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
-  .og .naglowek { font-size: 72px; text-transform: none; letter-spacing: -.03em; }
+  .og .scena { right: -90px; bottom: 24px; width: 640px; height: 420px; }
+  .og .tresc { position: absolute; left: 70px; top: 0; bottom: 24px; width: 560px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+  .og .naglowek { font-size: 64px; text-transform: none; letter-spacing: -.03em; }
   .og .naglowek em { color: var(--akcent); }
   .og .pod { font-size: 28px; color: var(--tekst-2); font-weight: 600; }
   .og .logo { right: 50px; top: 40px; height: 70px; padding: 0; background: none; }
@@ -205,7 +207,7 @@
     </g>
 
     <!-- cała tankownia: viewBox 0 0 1150 720 -->
-    <symbol id="tankownia" viewBox="0 0 1150 720">
+    <symbol id="tankownia" viewBox="0 0 1150 720" preserveAspectRatio="xMidYMax meet">
       <!-- posadzka -->
       <rect x="0" y="672" width="1150" height="48" fill="rgba(255,255,255,.06)"/>
       <rect x="0" y="672" width="1150" height="3" fill="rgba(255,255,255,.18)"/>
@@ -301,7 +303,7 @@
   <div class="logo" style="top:30px; right:30px; height:58px"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
 </section>
 
-<section data-kadr="miniatura-yt-3-kolejny-tank" data-document-role="page" data-label="miniatura-yt-3-kolejny-tank" class="yt">
+<section data-kadr="miniatura-yt-3-kolejny-tank" data-document-role="page" data-label="miniatura-yt-3-kolejny-tank" class="yt yt3">
   <div class="tlo"></div>
   <svg class="scena" style="--t4:0; --duch:1" role="img" aria-label="Rysunek: pomost nad tankami z miejscem na kolejny tank"><use href="#tankownia"/></svg>
   <div class="cien"></div>
@@ -477,7 +479,7 @@
   <div class="krok">KROK 4</div>
   <div class="gora"><h1 class="naglowek">Miejsce na <em>kolejny tank</em></h1>
     <p class="pod">Dostawisz tank - dołożymy moduł. Bez przerabiania tego, co stoi.</p></div>
-  <svg class="scena" style="--t4:0; --duch:1" role="img" aria-label="Rysunek: pomost z miejscem na kolejny tank"><use href="#tankownia"/></svg>
+  <svg class="scena" style="--t4:0; --duch:1; left:10px; width:1020px" role="img" aria-label="Rysunek: pomost z miejscem na kolejny tank"><use href="#tankownia"/></svg>
   <div class="logo"><img src="../../../../img/logo.png" alt="Instal-tig"></div>
 </section>
 

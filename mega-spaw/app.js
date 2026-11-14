@@ -1,13 +1,17 @@
 /* MEGA-SPAW - minimum JS.
  * KONFIGURACJA: uzupełnia właściciel (szczegóły w ZADANIA-WLASCICIELA.md).
- * Dopóki linki płatności są puste, przycisk „Kupuję” otwiera e-mail z zamówieniem
+ * Dopóki linki płatności są puste, przycisk „Zamawiam” otwiera e-mail z zamówieniem
  * (przedsprzedaż: płatność przelewem po potwierdzeniu, faktura bez VAT).
+ * Gdy wszystkie 3 linki płatności (Stripe Payment Links) są wpisane, strona sama przechodzi
+ * w tryb sprzedaży online: pokazuje elementy data-tryb="online", ukrywa data-tryb="email".
+ * Link do pobrania plików NIE jest w tym repozytorium - jest tylko w ustawieniach Stripe
+ * (przekierowanie po płatności).
  * Dopóki adres formularza jest pusty, zapis po ściągę otwiera e-mail, a ściąga jest dostępna od razu.
  */
 var KONFIG = {
   email: 'megaspaw1@gmail.com',   // e-mail do zamówień (decyzja właściciela 2026-10-30)
   formularz: '',                      // [[ADRES FORMULARZA - np. endpoint usługi newslettera]]
-  platnosci: {                        // [[LINK PŁATNOŚCI - np. Stripe Payment Link / Przelewy24]]
+  platnosci: {                        // [[LINK PŁATNOŚCI - Stripe Payment Link, np. https://buy.stripe.com/...]]
     poradnik: '',
     szablony: '',
     komplet: ''
@@ -24,7 +28,22 @@ function mailto(temat, tresc) {
   return 'mailto:' + KONFIG.email + '?subject=' + encodeURIComponent(temat) + '&body=' + encodeURIComponent(tresc);
 }
 
+function sprzedazOnline() {
+  return ['poradnik', 'szablony', 'komplet'].every(function (k) { return !!KONFIG.platnosci[k]; });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+  // Tryb sprzedaży: online (Stripe) albo e-mail + przelew
+  var online = sprzedazOnline();
+  document.querySelectorAll('[data-tryb]').forEach(function (el) {
+    el.hidden = (el.getAttribute('data-tryb') === 'online') !== online;
+  });
+  if (online) {
+    document.querySelectorAll('[data-tekst-online]').forEach(function (el) {
+      el.textContent = el.getAttribute('data-tekst-online');
+    });
+  }
+
   // Przyciski zakupu
   document.querySelectorAll('[data-kup]').forEach(function (el) {
     var id = el.getAttribute('data-kup');
