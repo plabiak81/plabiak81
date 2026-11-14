@@ -24,8 +24,11 @@ node studio/narzedzia/render.cjs studio/projekty/2026-10-29-rurociagi-316l-mlecz
 
 ## Jak przenieść do Canvy (jeśli chcesz edytować tam)
 
-1. Włącz generowanie projektów (AI / Magic Design) dla zespołu w ustawieniach Canvy - wtedy agent zrobi wersje z Brand Kitem przy następnym zleceniu.
-2. Albo: wrzuć pliki z `png/` do folderu https://www.canva.com/folder/FAHZY2aTs_I i użyj ich jako tła / podkładu.
+Generowanie AI w Canvie zablokował administrator zespołu, ale **import z HTML działa** (sprawdzone 2026-11-14). Każdy kadr w `grafiki.html` jest oznaczony jako osobna strona Canvy.
+
+1. Scal PR, żeby `grafiki.html` pojawił się na GitHub Pages:
+   https://plabiak81.github.io/plabiak81/studio/projekty/2026-10-29-rurociagi-316l-mleczarnie/03-grafiki/grafiki.html
+2. Wpisz `/studio-canva` - agent zaimportuje grafiki jako edytowalny projekt i dopisze tu link.
 
 ## Lista kadrów
 
