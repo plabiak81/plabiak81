@@ -106,6 +106,8 @@ Import jest możliwy dopiero, gdy `grafiki.html` jest opublikowany na GitHub Pag
 - Jeśli nie działa, nie importuj. W `DO-DOPIECIA.md` dopisz w sekcji „Warto”: „po publikacji poproś o import grafik do Canvy”.
 - Nigdy nie wysyłaj plików na zewnętrzne hostingi tylko po to, żeby uzyskać publiczny adres.
 
+Doświadczenie z importów: teksty i proste kształty z CSS przechodzą, ale **obrazki (`<img>`, w tym logo) i rysunki SVG zwykle nie** (szczególnie `<symbol>`/`<use>`). Jeśli grafika ma być dopinana w Canvie, główny rysunek rób z elementów HTML/CSS, a po imporcie zawsze wpisz w `DO-DOPIECIA.md`, czego brakuje.
+
 **Nie zapisuj edycji w projektach Canva** (`edit-design` z `commit`) bez zgody właściciela.
 
 ## 04 - Wideo i montaż

@@ -14,7 +14,7 @@
 
 ## Warto (podnosi jakość)
 
-- [ ] **Canva**: po publikacji na GitHub Pages (scalenie do `main`) uruchom `/studio-canva 2026-11-14-konstrukcje-wsporcze-browary` - grafiki trafią do Canvy jako edytowalny projekt (szczegóły w `03-grafiki/CANVA.md`).
+- [ ] **Canva** (https://www.canva.com/d/m2R7SzINcehPvwE): import przeniósł teksty, ale **nie rysunek tankowni (SVG) ani logo**, a na poście „5 detali” rozjechały się pinezki. Wstaw logo z Brand Kitu i jako tło stron wgraj pliki z `03-grafiki/png/` - albo używaj gotowych PNG bez Canvy. Szczegóły: `03-grafiki/CANVA.md`.
 - [ ] **Zdjęcia zamiast rysunku**: rysunek tankowni jest czytelny, ale zdjęcie Waszego pomostu sprzeda lepiej. Instrukcja podmiany w `03-grafiki/ZDJECIA.md`.
 - [ ] Wybierz 1 z 3 miniatur YT (rekomendacja: `miniatura-yt-1-farba.png` - najmocniejszy ból) i 1 z 3 haków w `04-wideo/scenariusz.md`.
 - [ ] Specyfikacja w `02-teksty.md` (opis długi): rodzaj kraty pomostowej, standardowe wykończenie, atesty 3.1.
