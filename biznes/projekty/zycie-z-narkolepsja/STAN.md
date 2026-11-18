@@ -5,7 +5,8 @@ Stan na: 2026-11-16
 
 ## Produkt
 - Ebook PDF „Wyspany mimo wszystko” – 22 strony A4, 11 rozdziałów + plan 14 dni, dzienniczek snu, mapa senności, checklisty, karta „W razie katapleksji”, źródła.
-- Cena: 39 zł.
+- Cena: 39 zł (do potwierdzenia).
+- Treść zaakceptowana przez właściciela 2026-11-18 (wydanie 1).
 - Plik: Dysk Google (prywatny) „Wyspany mimo wszystko - ebook (PRYWATNE, do wysyłki kupującym).pdf”.
   Pliku NIE trzymamy w tym repo (repo jest publiczne).
 - Okładka: biblioteka mediów WP, ID 37.

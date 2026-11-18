@@ -1,7 +1,7 @@
 # Zadania dla właściciela – Życie z narkolepsją
 
 ## Teraz (blokuje sprzedaż)
-- [ ] **Przeczytaj ebook** (PDF na Dysku: „Wyspany mimo wszystko - ebook (PRYWATNE…)”) – ~30 min. Odpisz „akceptuję” albo listę poprawek. Szczególnie: rozdział 9 (praca, prowadzenie auta) i 5 (leczenie) – najlepiej, żeby rzucił na nie okiem lekarz lub osoba z narkolepsją.
+- [x] **Ebook zaakceptowany** (2026-11-18) – wydanie 1 bez poprawek.
 - [ ] **Podaj dane sprzedawcy do regulaminu i polityki prywatności** – ~5 min: imię i nazwisko / firma, adres, NIP, REGON (jeśli jest), e-mail do zamówień, data obowiązywania, forma (JDG zwolniona z VAT? / działalność nierejestrowana?).
 - [ ] **Sprawdzenie regulaminu** (Ty z listą `[[PRAWNIK: ...]]` albo z prawnikiem) – ~20 min.
 - [ ] **Potwierdź cenę 39 zł** (albo podaj inną).
