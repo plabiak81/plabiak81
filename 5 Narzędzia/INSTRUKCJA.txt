@@ -2,8 +2,21 @@ GENERATOR OFERT – INSTRUKCJA
 ============================
 
 Otwieranie
-- Kliknij dwa razy generator-ofert.html. Otworzy się w przeglądarce (Chrome, Edge, Safari lub Firefox).
-- Nie potrzeba internetu ani instalacji. Działa na Windowsie i Macu.
+- W internecie: https://plabiak81.github.io/oferty/
+- Bez internetu: kliknij dwa razy generator-ofert.html. Otworzy się w przeglądarce (Chrome, Edge, Safari lub Firefox).
+- Nic nie trzeba instalować. Działa na Windowsie, Macu i telefonie.
+
+PIN
+- Przy pierwszym otwarciu ustawiasz PIN (4–12 cyfr, zalecane 6). Potem generator zawsze pyta o PIN.
+- Wszystko, co generator zapamiętuje (cennik, klienci, dane sprzedawcy, numeracja, logo),
+  jest zaszyfrowane tym PIN-em. Bez PIN-u nie da się tego odczytać.
+- "Zablokuj" (u góry) blokuje od razu. Po 15 minutach bez używania blokuje się sam.
+- "Zmień PIN" (u góry) ustawia nowy PIN.
+- Po 3 błędnych próbach trzeba odczekać (30 s, potem coraz dłużej).
+- Zapomniany PIN: "Nie pamiętam PIN-u" usuwa zapamiętane dane i pozwala ustawić nowy PIN.
+  Trzeba wtedy ponownie wczytać pliki i dane sprzedawcy, a numer oferty ustawić ręcznie
+  (sprawdź numer ostatniej oferty w folderze "oferty").
+- Pliki Excela na dysku i zapisane PDF-y nie są szyfrowane – PIN chroni tylko dane zapamiętane w przeglądarce.
 
 Pierwsze uruchomienie (tylko raz)
 1. Kliknij "Wybierz klienci.xlsx" i wskaż plik z tego folderu.
@@ -38,8 +51,9 @@ Gdy coś się nie zgadza
 - Ceny lub klienci wczytali się źle: rozwiń "Dopasuj kolumny" i wskaż właściwe kolumny z Excela.
 - Inne logo: "Dane sprzedawcy" -> "Wybierz inne logo…".
 - Jesteśmy zwolnieni z VAT: zaznacz "Sprzedawca zwolniony z VAT (art. 113)".
-- Na innym komputerze lub w innej przeglądarce trzeba raz wczytać pliki i dane od nowa,
-  a numeracja ofert zaczyna się tam od początku – rób oferty na jednym komputerze.
+- Na innym komputerze lub w innej przeglądarce (a także przy otwieraniu pliku z dysku zamiast linku)
+  ustawia się osobny PIN, trzeba raz wczytać pliki i dane od nowa, a numeracja ofert zaczyna się
+  tam od początku – rób oferty w jednym miejscu.
 
 Jak liczone są kwoty
 - Wartość netto pozycji = ilość × cena netto × (100% − rabat), zaokrąglona do grosza.
