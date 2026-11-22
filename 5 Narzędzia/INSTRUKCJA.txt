@@ -1,0 +1,47 @@
+GENERATOR OFERT – INSTRUKCJA
+============================
+
+Otwieranie
+- Kliknij dwa razy generator-ofert.html. Otworzy się w przeglądarce (Chrome, Edge, Safari lub Firefox).
+- Nie potrzeba internetu ani instalacji. Działa na Windowsie i Macu.
+
+Pierwsze uruchomienie (tylko raz)
+1. Kliknij "Wybierz klienci.xlsx" i wskaż plik z tego folderu.
+2. Kliknij "Wybierz cennik.xlsx" i wskaż plik z tego folderu.
+   (Możesz też przeciągnąć oba pliki na ramkę.)
+3. Rozwiń "Dane sprzedawcy" i uzupełnij NIP, e-mail i ewentualnie nr konta.
+Generator zapamiętuje pliki i dane. Pliki Excela są tylko czytane, nic w nich się nie zmienia.
+Gdy zmienisz cennik lub listę klientów w Excelu, wczytaj ten plik ponownie.
+
+Robienie oferty
+1. Klient: zacznij pisać nazwę lub NIP i wybierz z listy.
+   Nowy klient: kliknij "Nowy klient" i wpisz dane.
+2. Produkty: zacznij pisać nazwę lub kod i wybierz z listy.
+   Cena netto, j.m. i VAT wpiszą się z cennika. Wpisz ilość i rabat (%).
+   "+ Dodaj produkt" dodaje kolejną pozycję. "Rabat na wszystko" ustawia ten sam rabat wszystkim pozycjom.
+   Czerwone pole = błędna wartość (taka pozycja nie wejdzie do sumy).
+3. Sprawdź podgląd po prawej: netto, VAT, brutto, kwotę słownie, numer oferty i datę ważności (14 dni).
+
+Zapisywanie PDF
+1. Kliknij "Pobierz PDF".
+2. W oknie drukowania wybierz "Zapisz jako PDF"
+   (Mac: przycisk "PDF" w lewym dolnym rogu, potem "Zapisz jako PDF").
+3. Zapisz w folderze "oferty". Nazwa pliku podstawi się sama,
+   np. "Oferta OF-2026-11-001 - Nazwa klienta.pdf".
+Gdyby na PDF-ie pojawiła się data albo adres strony, odznacz w oknie drukowania "Nagłówki i stopki".
+
+Następna oferta
+- Kliknij "Nowa oferta (kolejny numer)". Numer zwiększy się o 1 (numeracja od nowa w każdym miesiącu).
+- Jeśli spróbujesz zapisać ofertę dla innego klienta pod numerem już użytym, generator zaproponuje nowy numer.
+
+Gdy coś się nie zgadza
+- Ceny lub klienci wczytali się źle: rozwiń "Dopasuj kolumny" i wskaż właściwe kolumny z Excela.
+- Inne logo: "Dane sprzedawcy" -> "Wybierz inne logo…".
+- Jesteśmy zwolnieni z VAT: zaznacz "Sprzedawca zwolniony z VAT (art. 113)".
+- Na innym komputerze lub w innej przeglądarce trzeba raz wczytać pliki i dane od nowa,
+  a numeracja ofert zaczyna się tam od początku – rób oferty na jednym komputerze.
+
+Jak liczone są kwoty
+- Wartość netto pozycji = ilość × cena netto × (100% − rabat), zaokrąglona do grosza.
+- VAT = suma netto w danej stawce × stawka, zaokrąglony do grosza.
+- Brutto = netto + VAT.
