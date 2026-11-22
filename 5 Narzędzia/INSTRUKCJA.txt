@@ -6,17 +6,23 @@ Otwieranie
 - Bez internetu: kliknij dwa razy generator-ofert.html. Otworzy się w przeglądarce (Chrome, Edge, Safari lub Firefox).
 - Nic nie trzeba instalować. Działa na Windowsie, Macu i telefonie.
 
-PIN
-- Przy pierwszym otwarciu ustawiasz PIN (4–12 cyfr, zalecane 6). Potem generator zawsze pyta o PIN.
+DOSTĘP: HASŁO I PIN
+- Generator jest zaszyfrowany. Bez hasła dostępu nikt go nie otworzy (nie widać nawet logo).
+- Na nowym urządzeniu (telefon, komputer, inna przeglądarka) wpisz raz HASŁO DOSTĘPU,
+  potem ustaw PIN (4–12 cyfr, zalecane 6). Następnym razem na tym urządzeniu wystarczy PIN.
+- Hasło dostępu: wielkość liter, spacje i myślniki nie mają znaczenia.
 - Wszystko, co generator zapamiętuje (cennik, klienci, dane sprzedawcy, numeracja, logo),
-  jest zaszyfrowane tym PIN-em. Bez PIN-u nie da się tego odczytać.
+  jest zaszyfrowane PIN-em.
 - "Zablokuj" (u góry) blokuje od razu. Po 15 minutach bez używania blokuje się sam.
 - "Zmień PIN" (u góry) ustawia nowy PIN.
-- Po 3 błędnych próbach trzeba odczekać (30 s, potem coraz dłużej).
-- Zapomniany PIN: "Nie pamiętam PIN-u" usuwa zapamiętane dane i pozwala ustawić nowy PIN.
-  Trzeba wtedy ponownie wczytać pliki i dane sprzedawcy, a numer oferty ustawić ręcznie
-  (sprawdź numer ostatniej oferty w folderze "oferty").
-- Pliki Excela na dysku i zapisane PDF-y nie są szyfrowane – PIN chroni tylko dane zapamiętane w przeglądarce.
+- Po 3 błędnych PIN-ach trzeba odczekać (30 s, potem coraz dłużej).
+  Po 10 błędnych PIN-ach urządzenie traci dostęp i zapamiętane dane – trzeba znów wpisać hasło dostępu
+  i ponownie wczytać pliki.
+- Zapomniany PIN: "Nie pamiętam PIN-u" – to samo (usuwa dostęp i dane na tym urządzeniu).
+  Numer oferty ustaw wtedy ręcznie (sprawdź ostatnią ofertę w folderze "oferty").
+- Hasła dostępu nie da się odzyskać ani zresetować. Trzymaj je w bezpiecznym miejscu
+  i nie wysyłaj SMS-em ani mailem – przekaż osobiście.
+- Pliki Excela na dysku i zapisane PDF-y nie są szyfrowane – chroni je tylko Twój komputer.
 
 Pierwsze uruchomienie (tylko raz)
 1. Kliknij "Wybierz klienci.xlsx" i wskaż plik z tego folderu.
@@ -52,7 +58,7 @@ Gdy coś się nie zgadza
 - Inne logo: "Dane sprzedawcy" -> "Wybierz inne logo…".
 - Jesteśmy zwolnieni z VAT: zaznacz "Sprzedawca zwolniony z VAT (art. 113)".
 - Na innym komputerze lub w innej przeglądarce (a także przy otwieraniu pliku z dysku zamiast linku)
-  ustawia się osobny PIN, trzeba raz wczytać pliki i dane od nowa, a numeracja ofert zaczyna się
+  wpisuje się raz hasło dostępu i ustawia osobny PIN, trzeba raz wczytać pliki i dane od nowa, a numeracja ofert zaczyna się
   tam od początku – rób oferty w jednym miejscu.
 
 Jak liczone są kwoty
