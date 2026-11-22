@@ -9,7 +9,8 @@ Kompleksowo realizujemy projekty: od projektu, przez prefabrykację, po montaż 
 🌐 **Strona internetowa:** https://plabiak81.github.io/Instal-Tig/  
 📚 **Blog Ekspercki:** https://plabiak81.github.io/Instal-Tig/blog/  
 🧮 **Kalkulator wyceny:** https://plabiak81.github.io/plabiak81/kalkulator/  
-🛡️ **Bezpiecznik (aplikacja antyoszustwa):** https://plabiak81.github.io/plabiak81/bezpiecznik/
+🧾 **Generator ofert:** https://plabiak81.github.io/plabiak81/oferty/ ([instrukcja](5%20Narz%C4%99dzia/INSTRUKCJA.txt))  
+🛡️ **Bezpiecznik (aplikacja antyoszustwa):** https://plabiak81.github.io/plabiak81/bezpiecznik/  
 🚀 **Biznes online z agentem AI:** [biznes/README.md](biznes/README.md) (`/biznes`)
 
 ## Oferta
