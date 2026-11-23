@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="t">
+  <title id="t">MEGA-SPAW – Konstrukcje stalowe dla przemysłu</title>
+  <defs>
+    <!-- Łuk, po którym biegnie górny napis -->
+    <path id="luk" d="M 142 512 A 370 370 0 0 1 882 512"/>
+    <linearGradient id="stal" x1="0" x2="1">
+      <stop offset="0" stop-color="#8d939b"/>
+      <stop offset=".45" stop-color="#c9ccd0"/>
+      <stop offset="1" stop-color="#7f858d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Tło i tarcza -->
+  <rect width="1024" height="1024" fill="#16213A"/>
+  <circle cx="512" cy="512" r="440" fill="#C5C5C2"/>
+  <circle cx="512" cy="512" r="415" fill="none" stroke="#1B3260" stroke-width="8"/>
+
+  <!-- Górny napis na łuku (poprawiony: PRZEMYSŁU) -->
+  <text font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="40" letter-spacing="3" fill="#1B3260">
+    <textPath href="#luk" startOffset="50%" text-anchor="middle">KONSTRUKCJE STALOWE DLA PRZEMYSŁU</textPath>
+  </text>
+
+  <!-- Silosy -->
+  <g stroke="#1B3260" stroke-width="7" stroke-linejoin="round">
+    <rect x="352" y="335" width="72" height="140" rx="8" fill="url(#stal)"/>
+    <rect x="370" y="312" width="36" height="26" rx="5" fill="url(#stal)"/>
+    <rect x="566" y="320" width="84" height="155" rx="8" fill="url(#stal)"/>
+    <rect x="584" y="296" width="44" height="28" rx="5" fill="url(#stal)"/>
+    <rect x="430" y="290" width="128" height="185" rx="10" fill="url(#stal)"/>
+    <rect x="464" y="258" width="60" height="36" rx="6" fill="url(#stal)"/>
+    <line x1="430" y1="345" x2="558" y2="345"/>
+    <line x1="430" y1="410" x2="558" y2="410"/>
+  </g>
+
+  <!-- Konstrukcja stalowa pod silosami -->
+  <g stroke="#1B3260" stroke-width="9" fill="none" stroke-linecap="square">
+    <rect x="340" y="475" width="340" height="26" fill="#1B3260"/>
+    <line x1="352" y1="501" x2="352" y2="580"/>
+    <line x1="512" y1="501" x2="512" y2="580"/>
+    <line x1="668" y1="501" x2="668" y2="580"/>
+    <path d="M352 501 L512 580 M512 501 L352 580 M512 501 L668 580 M668 501 L512 580"/>
+  </g>
+  <line x1="300" y1="584" x2="724" y2="584" stroke="#1B3260" stroke-width="6"/>
+
+  <!-- Nazwa firmy -->
+  <rect x="130" y="610" width="764" height="108" fill="#C5C5C2"/>
+  <text x="512" y="694" text-anchor="middle" font-family="'Arial Black', Impact, Arial, sans-serif" font-weight="900" font-size="104" fill="#1B3260">MEGA-SPAW</text>
+
+  <!-- Dolny napis -->
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="38" letter-spacing="2" fill="#1B3260" text-anchor="middle">
+    <text x="512" y="764">KONSTRUKCJE STALOWE</text>
+    <text x="512" y="810">DLA PRZEMYSŁU</text>
+  </g>
+</svg>
