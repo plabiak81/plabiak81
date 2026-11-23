@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zgłoś zlecenie spawalnicze | MEGA-SPAW</title>
+<meta name="description" content="Opisz zlecenie, dodaj zdjęcia i wyślij. Wycenę dostaniesz w ciągu 24 godzin.">
+<meta name="theme-color" content="#16213A">
+<style>
+  /* ===== KOLORY Z LOGO MEGA-SPAW ===== */
+  :root {
+    --granat-ciemny: #16213A;   /* tło logo */
+    --granat: #1B3260;          /* napis MEGA-SPAW, przyciski */
+    --granat-hover: #24427d;
+    --stal: #C5C5C2;            /* tarcza logo */
+    --stal-jasna: #ECECEA;      /* tło sekcji */
+    --tekst: #16213A;
+    --tekst-szary: #4a5468;
+    --bialy: #ffffff;
+    --blad: #b3261e;
+    --whatsapp: #1a7f45;
+    --promien: 10px;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--tekst);
+    background: var(--stal-jasna);
+  }
+
+  /* ===== NAGŁÓWEK Z LOGO ===== */
+  .naglowek {
+    background: var(--granat-ciemny);
+    color: var(--bialy);
+    padding: 20px 16px 24px;
+    text-align: center;
+  }
+  .naglowek a { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; }
+  .naglowek svg { width: 64px; height: 64px; flex: none; }
+  .naglowek .nazwa { font-family: "Arial Black", Arial, sans-serif; font-weight: 900; font-size: 26px; letter-spacing: .5px; text-align: left; }
+  .naglowek .haslo { display: block; font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--stal); font-family: system-ui, Arial, sans-serif; }
+  .naglowek h1 { font-size: 24px; margin: 18px 0 4px; line-height: 1.25; }
+  .naglowek p { margin: 0; color: #dfe3ea; }
+
+  /* ===== UKŁAD ===== */
+  main { max-width: 680px; margin: 0 auto; padding: 16px 16px 40px; }
+  .karta {
+    background: var(--bialy);
+    border: 1px solid var(--stal);
+    border-radius: var(--promien);
+    padding: 18px 16px 20px;
+    margin-bottom: 14px;
+  }
+  .karta h2 {
+    font-size: 19px;
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--stal);
+  }
+  .numer {
+    display: inline-grid; place-items: center;
+    width: 28px; height: 28px; margin-right: 8px;
+    border-radius: 50%; background: var(--granat); color: var(--bialy);
+    font-size: 15px; vertical-align: 2px;
+  }
+
+  /* ===== POLA ===== */
+  label.pole { display: block; font-weight: 600; margin: 12px 0 4px; }
+  .wymagane { color: var(--blad); }
+  .podpowiedz { display: block; font-weight: 400; font-size: 14px; color: var(--tekst-szary); }
+  input[type=text], input[type=tel], input[type=email], textarea {
+    width: 100%;
+    font: inherit;
+    padding: 12px;
+    min-height: 48px;
+    border: 2px solid #9aa0aa;
+    border-radius: 8px;
+    background: var(--bialy);
+    color: var(--tekst);
+  }
+  textarea { min-height: 120px; resize: vertical; }
+  input:focus, textarea:focus { outline: 3px solid #7fa6e8; outline-offset: 1px; border-color: var(--granat); }
+
+  /* Kafelki do wyboru (radio) */
+  .kafelki { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; border: 0; padding: 0; margin: 0; }
+  .kafelki legend { font-weight: 600; margin-bottom: 6px; padding: 0; }
+  .kafelek { position: relative; }
+  .kafelek input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+  .kafelek span {
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    min-height: 56px; padding: 8px;
+    border: 2px solid #9aa0aa; border-radius: 8px;
+    font-weight: 600; background: var(--bialy);
+  }
+  .kafelek input:checked + span { border-color: var(--granat); background: var(--granat); color: var(--bialy); }
+  .kafelek input:focus-visible + span { outline: 3px solid #7fa6e8; outline-offset: 2px; }
+
+  /* Pole wyboru „firma” */
+  .wybor { display: flex; gap: 10px; align-items: center; margin-top: 14px; font-weight: 600; cursor: pointer; }
+  .wybor input { width: 24px; height: 24px; accent-color: var(--granat); }
+
+  /* Komunikaty błędów */
+  .blad-tekst { display: none; color: var(--blad); font-size: 15px; font-weight: 600; margin-top: 4px; }
+  .ma-blad input[type=text], .ma-blad input[type=tel], .ma-blad input[type=email], .ma-blad textarea,
+  .ma-blad .kafelek span { border-color: var(--blad); }
+  .ma-blad .blad-tekst { display: block; }
+
+  /* ===== ZDJĘCIA ===== */
+  .przycisk-zdjec {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; min-height: 56px;
+    border: 2px dashed var(--granat); border-radius: 8px;
+    background: var(--stal-jasna); color: var(--granat);
+    font: inherit; font-weight: 700; cursor: pointer;
+  }
+  .przycisk-zdjec:disabled { opacity: .5; cursor: not-allowed; }
+  .miniatury { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; margin-top: 12px; }
+  .miniatura { position: relative; aspect-ratio: 1; border-radius: 8px; overflow: hidden; border: 1px solid var(--stal); background: var(--stal-jasna); }
+  .miniatura img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .miniatura button {
+    position: absolute; top: 4px; right: 4px;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 0; background: rgba(22,33,58,.85); color: #fff;
+    font-size: 20px; line-height: 1; cursor: pointer;
+  }
+
+  /* ===== PRZYCISKI WYSYŁKI ===== */
+  .przycisk {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; min-height: 56px; margin-top: 10px;
+    border: 0; border-radius: 8px;
+    font: inherit; font-size: 18px; font-weight: 700;
+    cursor: pointer; text-decoration: none;
+  }
+  .przycisk.glowny { background: var(--granat); color: var(--bialy); }
+  .przycisk.glowny:hover { background: var(--granat-hover); }
+  .przycisk.glowny:disabled { opacity: .7; cursor: wait; }
+  .przycisk.whatsapp { background: var(--bialy); color: var(--whatsapp); border: 2px solid var(--whatsapp); }
+  .przycisk.drugi { background: var(--bialy); color: var(--granat); border: 2px solid var(--granat); }
+  .lub { text-align: center; color: var(--tekst-szary); font-size: 14px; margin: 10px 0 0; }
+  .rodo { font-size: 13px; color: var(--tekst-szary); margin: 16px 0 0; }
+  .rodo a, .stopka a { color: var(--granat); }
+  .podsumowanie-bledow { display: none; background: #fdecea; color: var(--blad); border-radius: 8px; padding: 12px; font-weight: 600; margin-top: 10px; }
+
+  /* Pułapka na boty – pole niewidoczne dla ludzi */
+  .pulapka { position: absolute; left: -9999px; }
+
+  /* ===== EKRAN PODZIĘKOWANIA ===== */
+  #ekran-dzieki { display: none; }
+  .ok-ikona { width: 64px; height: 64px; border-radius: 50%; background: var(--granat); color: #fff; display: grid; place-items: center; font-size: 34px; margin: 0 auto 8px; }
+  .podsumowanie { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .podsumowanie th, .podsumowanie td { text-align: left; vertical-align: top; padding: 8px 4px; border-bottom: 1px solid var(--stal); }
+  .podsumowanie th { width: 38%; color: var(--tekst-szary); font-weight: 600; }
+  .podsumowanie td { white-space: pre-wrap; word-break: break-word; }
+
+  .stopka { text-align: center; font-size: 14px; color: var(--tekst-szary); padding: 0 16px 30px; }
+  [hidden] { display: none !important; }
+
+  /* Komputer: kafelki rodzaju pracy w 4 kolumnach */
+  @media (min-width: 640px) {
+    .naglowek h1 { font-size: 30px; }
+    .kafelki.cztery { grid-template-columns: repeat(4, 1fr); }
+    .kafelki.trzy { grid-template-columns: repeat(3, 1fr); }
+    .karta { padding: 22px 24px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="naglowek">
+  <a href="index.html" aria-label="MEGA-SPAW – strona główna">
+    <!-- Logo w uproszczonej wersji (tarcza z silosami) -->
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="48" fill="#C5C5C2"/>
+      <circle cx="50" cy="50" r="43" fill="none" stroke="#1B3260" stroke-width="2"/>
+      <g fill="#9aa0a8" stroke="#1B3260" stroke-width="2">
+        <rect x="27" y="34" width="13" height="24" rx="2"/>
+        <rect x="41" y="26" width="18" height="32" rx="2"/>
+        <rect x="60" y="31" width="13" height="27" rx="2"/>
+      </g>
+      <rect x="24" y="58" width="52" height="5" fill="#1B3260"/>
+      <path d="M27 63 L27 74 M50 63 L50 74 M73 63 L73 74 M27 63 L50 74 M50 63 L27 74 M50 63 L73 74 M73 63 L50 74" stroke="#1B3260" stroke-width="2.5" fill="none"/>
+    </svg>
+    <span class="nazwa">MEGA-SPAW<span class="haslo">KONSTRUKCJE STALOWE DLA PRZEMYSŁU</span></span>
+  </a>
+  <h1 id="tytul">Opisz zlecenie</h1>
+  <p id="podtytul">Wycenę dostaniesz w ciągu 24 godzin.</p>
+</header>
+
+<main>
+  <!-- ===================== EKRAN 1: FORMULARZ ===================== -->
+  <form id="formularz" method="POST" enctype="multipart/form-data" novalidate>
+    <!-- Ustawienia usługi FormSubmit (ukryte) -->
+    <input type="hidden" name="_subject" id="temat" value="Nowe zlecenie MEGA-SPAW">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" id="adres-powrotu" value="">
+    <input type="text" name="_honey" class="pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <!-- 1. KONTAKT -->
+    <section class="karta">
+      <h2><span class="numer">1</span>Kontakt</h2>
+
+      <div class="grupa" data-pole="imie">
+        <label class="pole" for="imie">Imię i nazwisko <span class="wymagane">*</span></label>
+        <input type="text" id="imie" name="Imię i nazwisko" autocomplete="name" maxlength="80">
+        <div class="blad-tekst">Wpisz, jak mamy się do Ciebie zwracać.</div>
+      </div>
+
+      <div class="grupa" data-pole="telefon">
+        <label class="pole" for="telefon">Telefon <span class="wymagane">*</span></label>
+        <input type="tel" id="telefon" name="Telefon" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="np. 600 123 456">
+        <div class="blad-tekst">Podaj numer telefonu (min. 9 cyfr), np. 600 123 456.</div>
+      </div>
+
+      <div class="grupa" data-pole="email">
+        <label class="pole" for="email">E-mail <span class="podpowiedz">opcjonalnie – jeśli wolisz wycenę na piśmie</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" maxlength="100" placeholder="np. jan@firma.pl">
+        <div class="blad-tekst">Ten adres e-mail wygląda na niepełny – sprawdź go albo zostaw puste.</div>
+      </div>
+
+      <label class="wybor"><input type="checkbox" id="czy-firma"> Zamawiam jako firma</label>
+      <div id="pola-firmy" hidden>
+        <label class="pole" for="firma">Nazwa firmy</label>
+        <input type="text" id="firma" name="Firma" autocomplete="organization" maxlength="120">
+        <label class="pole" for="nip">NIP <span class="podpowiedz">opcjonalnie</span></label>
+        <input type="text" id="nip" name="NIP" inputmode="numeric" maxlength="13">
+      </div>
+    </section>
+
+    <!-- 2. RODZAJ PRACY -->
+    <section class="karta">
+      <h2><span class="numer">2</span>Co trzeba zrobić?</h2>
+      <div class="grupa" data-pole="rodzaj">
+        <fieldset class="kafelki cztery">
+          <legend>Rodzaj pracy <span class="wymagane">*</span></legend>
+          <label class="kafelek"><input type="radio" name="Rodzaj pracy" value="Naprawa"><span>Naprawa</span></label>
+          <label class="kafelek"><input type="radio" name="Rodzaj pracy" value="Nowa konstrukcja"><span>Nowa konstrukcja</span></label>
+          <label class="kafelek"><input type="radio" name="Rodzaj pracy" value="Spawanie seryjne"><span>Spawanie seryjne</span></label>
+          <label class="kafelek"><input type="radio" name="Rodzaj pracy" value="Inne"><span>Inne</span></label>
+        </fieldset>
+        <div class="blad-tekst">Wybierz rodzaj pracy.</div>
+      </div>
+
+      <fieldset class="kafelki cztery" style="margin-top:16px">
+        <legend>Materiał</legend>
+        <label class="kafelek"><input type="radio" name="Materiał" value="Stal czarna"><span>Stal czarna</span></label>
+        <label class="kafelek"><input type="radio" name="Materiał" value="Nierdzewka"><span>Nierdzewka</span></label>
+        <label class="kafelek"><input type="radio" name="Materiał" value="Aluminium"><span>Aluminium</span></label>
+        <label class="kafelek"><input type="radio" name="Materiał" value="Nie wiem" checked><span>Nie wiem</span></label>
+      </fieldset>
+    </section>
+
+    <!-- 3. OPIS -->
+    <section class="karta">
+      <h2><span class="numer">3</span>Opis zlecenia</h2>
+      <div class="grupa" data-pole="opis">
+        <label class="pole" for="opis">Opisz własnymi słowami <span class="wymagane">*</span>
+          <span class="podpowiedz">Co się zepsuło albo co trzeba wykonać? Do czego to służy?</span></label>
+        <textarea id="opis" name="Opis" maxlength="2000" placeholder="np. Pęknięty zawias bramy przesuwnej, brama ciągnie się po ziemi."></textarea>
+        <div class="blad-tekst">Opisz krótko, co trzeba zrobić (min. 10 znaków).</div>
+      </div>
+      <label class="pole" for="wymiary">Przybliżone wymiary <span class="podpowiedz">opcjonalnie</span></label>
+      <input type="text" id="wymiary" name="Wymiary" maxlength="200" placeholder="np. brama 4 m × 1,5 m, profil 60×40">
+    </section>
+
+    <!-- 4. ZDJĘCIA -->
+    <section class="karta">
+      <h2><span class="numer">4</span>Zdjęcia <span class="podpowiedz" style="display:inline">(do 5, opcjonalnie)</span></h2>
+      <p class="podpowiedz" style="margin-top:0">Zdjęcia bardzo przyspieszają wycenę. Zrób je z daleka (cały element) i z bliska (miejsce spawania).</p>
+      <!-- Pole wyboru plików jest ukryte – klikamy ładny przycisk -->
+      <input type="file" id="wybor-zdjec" accept="image/*" multiple hidden>
+      <button type="button" class="przycisk-zdjec" id="dodaj-zdjecia">📷 Dodaj zdjęcia (aparat lub galeria)</button>
+      <div class="miniatury" id="miniatury"></div>
+      <!-- Tu skrypt dokłada zmniejszone zdjęcia tuż przed wysłaniem -->
+      <div id="pliki-do-wyslania"></div>
+    </section>
+
+    <!-- 5. MIEJSCE I TERMIN -->
+    <section class="karta">
+      <h2><span class="numer">5</span>Gdzie i kiedy?</h2>
+      <fieldset class="kafelki">
+        <legend>Gdzie wykonać pracę?</legend>
+        <label class="kafelek"><input type="radio" name="Miejsce" value="U klienta"><span>U mnie</span></label>
+        <label class="kafelek"><input type="radio" name="Miejsce" value="W warsztacie MEGA-SPAW" checked><span>W Waszym warsztacie</span></label>
+      </fieldset>
+      <div id="pole-miejscowosci" hidden>
+        <label class="pole" for="miejscowosc">Miejscowość</label>
+        <input type="text" id="miejscowosc" name="Miejscowość" autocomplete="address-level2" maxlength="80">
+      </div>
+
+      <fieldset class="kafelki trzy" style="margin-top:16px">
+        <legend>Termin</legend>
+        <label class="kafelek"><input type="radio" name="Termin" value="Pilne"><span>Pilne</span></label>
+        <label class="kafelek"><input type="radio" name="Termin" value="Do 2 tygodni" checked><span>Do 2 tygodni</span></label>
+        <label class="kafelek"><input type="radio" name="Termin" value="Bez pośpiechu"><span>Bez pośpiechu</span></label>
+      </fieldset>
+    </section>
+
+    <!-- WYSYŁKA -->
+    <section class="karta">
+      <button type="submit" class="przycisk glowny" id="wyslij">Wyślij zgłoszenie</button>
+      <div class="podsumowanie-bledow" id="podsumowanie-bledow" role="alert">Uzupełnij zaznaczone pola – są podświetlone na czerwono.</div>
+      <p class="lub">albo</p>
+      <button type="button" class="przycisk whatsapp" id="whatsapp">💬 Wyślij przez WhatsApp</button>
+      <p class="rodo">Administratorem danych jest MEGA-SPAW. Dane wykorzystamy wyłącznie do przygotowania wyceny i kontaktu w sprawie zlecenia. Szczegóły: <a href="polityka-prywatnosci.html">polityka prywatności</a>.</p>
+    </section>
+  </form>
+
+  <!-- ===================== EKRAN 2: PODZIĘKOWANIE ===================== -->
+  <section id="ekran-dzieki" class="karta" aria-live="polite">
+    <div class="ok-ikona" aria-hidden="true">✓</div>
+    <h2 style="text-align:center;border:0">Dziękujemy! Odezwiemy się w ciągu 24 godzin.</h2>
+    <div id="podsumowanie-wrap">
+      <p>Twoje zgłoszenie:</p>
+      <table class="podsumowanie" id="podsumowanie"></table>
+    </div>
+    <a class="przycisk drugi" href="index.html">Wróć na stronę</a>
+  </section>
+</main>
+
+<footer class="stopka">© <span id="rok">2026</span> MEGA-SPAW · <a href="polityka-prywatnosci.html">Polityka prywatności</a></footer>
+
+<script>
+/* =====================================================================
+ * KONFIGURACJA – TU WPISUJESZ SWOJE DANE (tylko te dwie linijki)
+ * ===================================================================== */
+var KONFIG = {
+  // Adres e-mail do zgłoszeń. Po pierwszej aktywacji FormSubmit przyśle Ci
+  // losowy kod – wpisz go tutaj zamiast adresu, wtedy e-mail nie jest widoczny.
+  email: 'TWOJ-EMAIL@example.com',
+  // Numer WhatsApp: same cyfry, z kierunkowym 48, bez plusa i spacji.
+  whatsapp: '48600000000'
+};
+
+var MAKS_ZDJEC = 5;
+var MAKS_BOK = 1600;     // najdłuższy bok zmniejszonego zdjęcia (px)
+var JAKOSC = 0.75;       // jakość JPG (0–1)
+
+var form = document.getElementById('formularz');
+var zdjecia = [];        // lista { plik, adres } – zdjęcia wybrane przez klienta
+
+document.getElementById('rok').textContent = new Date().getFullYear();
+
+/* ----- Pokazywanie pól zależnych ----- */
+document.getElementById('czy-firma').addEventListener('change', function () {
+  document.getElementById('pola-firmy').hidden = !this.checked;
+});
+form.querySelectorAll('input[name="Miejsce"]').forEach(function (r) {
+  r.addEventListener('change', function () {
+    document.getElementById('pole-miejscowosci').hidden = (wartosc('Miejsce') !== 'U klienta');
+  });
+});
+
+/* ----- Pomocnicze ----- */
+function wartosc(nazwa) {
+  var el = form.querySelector('[name="' + nazwa + '"]:checked') || form.querySelector('[name="' + nazwa + '"]:not([type=radio])');
+  return el ? el.value.trim() : '';
+}
+function ustawBlad(pole, czyBlad) {
+  form.querySelector('[data-pole="' + pole + '"]').classList.toggle('ma-blad', czyBlad);
+}
+
+/* ----- ZDJĘCIA: wybór, podgląd, usuwanie ----- */
+var wyborZdjec = document.getElementById('wybor-zdjec');
+var przyciskZdjec = document.getElementById('dodaj-zdjecia');
+
+przyciskZdjec.addEventListener('click', function () { wyborZdjec.click(); });
+
+wyborZdjec.addEventListener('change', function () {
+  Array.prototype.forEach.call(wyborZdjec.files, function (plik) {
+    if (zdjecia.length >= MAKS_ZDJEC) return;
+    if (!plik.type || plik.type.indexOf('image/') !== 0) return;  // tylko obrazy
+    zdjecia.push({ plik: plik, adres: URL.createObjectURL(plik) });
+  });
+  wyborZdjec.value = '';   // pozwala wybrać to samo zdjęcie ponownie
+  rysujMiniatury();
+});
+
+function rysujMiniatury() {
+  var box = document.getElementById('miniatury');
+  box.innerHTML = '';
+  zdjecia.forEach(function (z, i) {
+    var div = document.createElement('div');
+    div.className = 'miniatura';
+    var img = document.createElement('img');
+    img.src = z.adres;
+    img.alt = 'Zdjęcie ' + (i + 1);
+    var usun = document.createElement('button');
+    usun.type = 'button';
+    usun.textContent = '×';
+    usun.setAttribute('aria-label', 'Usuń zdjęcie ' + (i + 1));
+    usun.addEventListener('click', function () {
+      URL.revokeObjectURL(z.adres);
+      zdjecia.splice(i, 1);
+      rysujMiniatury();
+    });
+    div.appendChild(img);
+    div.appendChild(usun);
+    box.appendChild(div);
+  });
+  var pelne = zdjecia.length >= MAKS_ZDJEC;
+  przyciskZdjec.disabled = pelne;
+  przyciskZdjec.textContent = pelne ? 'Dodano maksymalnie 5 zdjęć'
+    : '📷 Dodaj zdjęcia (aparat lub galeria)' + (zdjecia.length ? ' – ' + zdjecia.length + '/5' : '');
+}
+
+/* Zmniejsza zdjęcie do ok. 1600 px i zapisuje jako JPG (zwykle 200–400 KB) */
+function zmniejsz(z, numer) {
+  return new Promise(function (gotowe) {
+    var img = new Image();
+    img.onload = function () {
+      var skala = Math.min(1, MAKS_BOK / Math.max(img.naturalWidth, img.naturalHeight));
+      var c = document.createElement('canvas');
+      c.width = Math.round(img.naturalWidth * skala);
+      c.height = Math.round(img.naturalHeight * skala);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      c.toBlob(function (blob) {
+        if (!blob) return gotowe(z.plik);   // nie udało się – wysyłamy oryginał
+        gotowe(new File([blob], 'zdjecie-' + numer + '.jpg', { type: 'image/jpeg' }));
+      }, 'image/jpeg', JAKOSC);
+    };
+    img.onerror = function () { gotowe(z.plik); };  // np. nietypowy format – oryginał
+    img.src = z.adres;
+  });
+}
+
+/* ----- SPRAWDZANIE PÓL ----- */
+function sprawdz() {
+  var ok = true;
+  var bledy = {
+    imie: wartosc('Imię i nazwisko').length < 2,
+    telefon: wartosc('Telefon').replace(/\D/g, '').length < 9,
+    email: wartosc('email') !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(wartosc('email')),
+    rodzaj: wartosc('Rodzaj pracy') === '',
+    opis: wartosc('Opis').length < 10
+  };
+  var pierwszy = null;
+  Object.keys(bledy).forEach(function (pole) {
+    ustawBlad(pole, bledy[pole]);
+    if (bledy[pole]) { ok = false; if (!pierwszy) pierwszy = pole; }
+  });
+  document.getElementById('podsumowanie-bledow').style.display = ok ? 'none' : 'block';
+  if (pierwszy) {
+    var grupa = form.querySelector('[data-pole="' + pierwszy + '"]');
+    grupa.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    var el = grupa.querySelector('input, textarea');
+    if (el) setTimeout(function () { el.focus({ preventScroll: true }); }, 400);
+  }
+  return ok;
+}
+// Błąd znika, gdy klient poprawi pole
+form.addEventListener('input', function (e) {
+  var g = e.target.closest('.grupa');
+  if (g && g.classList.contains('ma-blad')) g.classList.remove('ma-blad');
+});
+
+/* ----- Zestawienie zgłoszenia (do podziękowania i WhatsAppa) ----- */
+function zestawienie() {
+  var w = [
+    ['Imię i nazwisko', wartosc('Imię i nazwisko')],
+    ['Telefon', wartosc('Telefon')],
+    ['E-mail', wartosc('email')],
+    ['Firma', document.getElementById('czy-firma').checked ? wartosc('Firma') : ''],
+    ['NIP', document.getElementById('czy-firma').checked ? wartosc('NIP') : ''],
+    ['Rodzaj pracy', wartosc('Rodzaj pracy')],
+    ['Materiał', wartosc('Materiał')],
+    ['Opis', wartosc('Opis')],
+    ['Wymiary', wartosc('Wymiary')],
+    ['Miejsce', wartosc('Miejsce') + (wartosc('Miejsce') === 'U klienta' && wartosc('Miejscowość') ? ' – ' + wartosc('Miejscowość') : '')],
+    ['Termin', wartosc('Termin')],
+    ['Zdjęcia', zdjecia.length ? String(zdjecia.length) : '']
+  ];
+  return w.filter(function (p) { return p[1]; });
+}
+
+/* ----- WYSYŁKA E-MAILEM (FormSubmit) ----- */
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (!sprawdz()) return;
+  if (form._honey.value) return;  // bot wypełnił pułapkę – nic nie wysyłamy
+
+  var przycisk = document.getElementById('wyslij');
+  przycisk.disabled = true;
+  przycisk.textContent = zdjecia.length ? 'Przygotowuję zdjęcia…' : 'Wysyłam…';
+
+  // Pola firmy i miejscowości wysyłamy tylko, gdy są używane
+  document.getElementById('firma').disabled = !document.getElementById('czy-firma').checked;
+  document.getElementById('nip').disabled = !document.getElementById('czy-firma').checked;
+  document.getElementById('miejscowosc').disabled = (wartosc('Miejsce') !== 'U klienta');
+
+  // Temat e-maila: „Nowe zlecenie: Naprawa – Jan Kowalski, 600 123 456”
+  document.getElementById('temat').value = 'Nowe zlecenie: ' + wartosc('Rodzaj pracy') + ' – ' +
+    wartosc('Imię i nazwisko') + ', ' + wartosc('Telefon');
+
+  // Po wysłaniu FormSubmit wraca na tę stronę z dopiskiem #dziekujemy
+  document.getElementById('adres-powrotu').value = location.href.split('#')[0] + '#dziekujemy';
+  form.action = 'https://formsubmit.co/' + encodeURIComponent(KONFIG.email);
+
+  // Zapamiętujemy podsumowanie, żeby pokazać je po powrocie
+  try { sessionStorage.setItem('zlecenie', JSON.stringify(zestawienie())); } catch (err) {}
+
+  // Zmniejszamy zdjęcia i dokładamy je do formularza jako załączniki
+  Promise.all(zdjecia.map(function (z, i) { return zmniejsz(z, i + 1); })).then(function (pliki) {
+    var box = document.getElementById('pliki-do-wyslania');
+    box.innerHTML = '';
+    pliki.forEach(function (plik, i) {
+      try {
+        var dt = new DataTransfer();
+        dt.items.add(plik);
+        var pole = document.createElement('input');
+        pole.type = 'file';
+        pole.name = 'Zdjęcie ' + (i + 1);
+        pole.hidden = true;
+        pole.files = dt.files;
+        box.appendChild(pole);
+      } catch (err) { /* bardzo stara przeglądarka – pomijamy zdjęcie */ }
+    });
+    przycisk.textContent = 'Wysyłam…';
+    form.submit();   // zwykłe wysłanie formularza do FormSubmit
+  });
+});
+
+/* ----- WYSYŁKA PRZEZ WHATSAPP ----- */
+document.getElementById('whatsapp').addEventListener('click', function () {
+  if (!sprawdz()) return;
+  var tekst = 'Dzień dobry, zgłoszenie z formularza MEGA-SPAW:\n\n' +
+    zestawienie().filter(function (p) { return p[0] !== 'Zdjęcia'; })
+      .map(function (p) { return p[0] + ': ' + p[1]; }).join('\n') +
+    (zdjecia.length ? '\n\nZdjęcia wyślę w kolejnej wiadomości.' : '');
+  window.open('https://wa.me/' + KONFIG.whatsapp + '?text=' + encodeURIComponent(tekst), '_blank', 'noopener');
+});
+
+/* ----- EKRAN 2: PODZIĘKOWANIE (po powrocie z FormSubmit) ----- */
+function pokazPodziekowanie() {
+  if (location.hash !== '#dziekujemy') return;
+  form.style.display = 'none';
+  document.getElementById('ekran-dzieki').style.display = 'block';
+  document.getElementById('tytul').textContent = 'Zgłoszenie wysłane';
+  document.getElementById('podtytul').textContent = 'Dziękujemy za zaufanie.';
+  var dane = null;
+  try { dane = JSON.parse(sessionStorage.getItem('zlecenie')); } catch (err) {}
+  var tabela = document.getElementById('podsumowanie');
+  if (!dane || !dane.length) { document.getElementById('podsumowanie-wrap').hidden = true; return; }
+  dane.forEach(function (p) {
+    var tr = document.createElement('tr');
+    var th = document.createElement('th'); th.textContent = p[0];
+    var td = document.createElement('td'); td.textContent = p[1];   // textContent = bezpieczne wyświetlanie
+    tr.appendChild(th); tr.appendChild(td); tabela.appendChild(tr);
+  });
+}
+pokazPodziekowanie();
+window.addEventListener('hashchange', pokazPodziekowanie);
+</script>
+</body>
+</html>
