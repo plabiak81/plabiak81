@@ -198,7 +198,6 @@
     <input type="hidden" name="_subject" id="temat" value="Nowe zlecenie MEGA-SPAW">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" id="adres-powrotu" value="">
     <input type="text" name="_honey" class="pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
 
     <!-- 1. KONTAKT -->
@@ -276,8 +275,6 @@
       <input type="file" id="wybor-zdjec" accept="image/*" multiple hidden>
       <button type="button" class="przycisk-zdjec" id="dodaj-zdjecia">📷 Dodaj zdjęcia (aparat lub galeria)</button>
       <div class="miniatury" id="miniatury"></div>
-      <!-- Tu skrypt dokłada zmniejszone zdjęcia tuż przed wysłaniem -->
-      <div id="pliki-do-wyslania"></div>
     </section>
 
     <!-- 5. MIEJSCE I TERMIN -->
@@ -305,6 +302,7 @@
     <section class="karta">
       <button type="submit" class="przycisk glowny" id="wyslij">Wyślij zgłoszenie</button>
       <div class="podsumowanie-bledow" id="podsumowanie-bledow" role="alert">Uzupełnij zaznaczone pola – są podświetlone na czerwono.</div>
+      <div class="podsumowanie-bledow" id="blad-wysylki" role="alert" hidden style="display:block"><span class="co"></span><br><small class="szczegoly" style="font-weight:400"></small></div>
       <p class="lub" id="lub">albo</p>
       <button type="button" class="przycisk whatsapp" id="whatsapp">💬 Wyślij przez WhatsApp</button>
       <p class="rodo">Administratorem danych jest MEGA-SPAW. Dane wykorzystamy wyłącznie do przygotowania wyceny i kontaktu w sprawie zlecenia. Szczegóły: <a href="polityka-prywatnosci.html">polityka prywatności</a>.</p>
@@ -484,13 +482,14 @@ function zestawienie() {
   return w.filter(function (p) { return p[1]; });
 }
 
-/* ----- WYSYŁKA E-MAILEM (FormSubmit) ----- */
+/* ----- WYSYŁKA E-MAILEM (FormSubmit, w tle – strona pokazuje wynik) ----- */
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   if (!sprawdz()) return;
   if (form._honey.value) return;  // bot wypełnił pułapkę – nic nie wysyłamy
 
   var przycisk = document.getElementById('wyslij');
+  document.getElementById('blad-wysylki').hidden = true;
   przycisk.disabled = true;
   przycisk.textContent = zdjecia.length ? 'Przygotowuję zdjęcia…' : 'Wysyłam…';
 
@@ -503,33 +502,52 @@ form.addEventListener('submit', function (e) {
   document.getElementById('temat').value = 'Nowe zlecenie: ' + wartosc('Rodzaj pracy') + ' – ' +
     wartosc('Imię i nazwisko') + ', ' + wartosc('Telefon');
 
-  // Po wysłaniu FormSubmit wraca na tę stronę z dopiskiem #dziekujemy
-  document.getElementById('adres-powrotu').value = location.href.split('#')[0] + '#dziekujemy';
-  form.action = 'https://formsubmit.co/' + encodeURIComponent(KONFIG.email);
-
-  // Zapamiętujemy podsumowanie, żeby pokazać je po powrocie
+  // Zapamiętujemy podsumowanie do ekranu podziękowania
   try { sessionStorage.setItem('zlecenie', JSON.stringify(zestawienie())); } catch (err) {}
 
-  // Zmniejszamy zdjęcia i dokładamy je do formularza jako załączniki
+  // Zmniejszamy zdjęcia, a potem wysyłamy wszystko w tle i czekamy na odpowiedź FormSubmit
   Promise.all(zdjecia.map(function (z, i) { return zmniejsz(z, i + 1); })).then(function (pliki) {
-    var box = document.getElementById('pliki-do-wyslania');
-    box.innerHTML = '';
-    pliki.forEach(function (plik, i) {
-      try {
-        var dt = new DataTransfer();
-        dt.items.add(plik);
-        var pole = document.createElement('input');
-        pole.type = 'file';
-        pole.name = 'Zdjęcie ' + (i + 1);
-        pole.hidden = true;
-        pole.files = dt.files;
-        box.appendChild(pole);
-      } catch (err) { /* bardzo stara przeglądarka – pomijamy zdjęcie */ }
-    });
+    var dane = new FormData(form);
+    pliki.forEach(function (plik, i) { dane.append('Zdjęcie ' + (i + 1), plik, plik.name); });
     przycisk.textContent = 'Wysyłam…';
-    form.submit();   // zwykłe wysłanie formularza do FormSubmit
+    return fetch('https://formsubmit.co/ajax/' + encodeURIComponent(KONFIG.email), {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: dane
+    }).then(function (odp) {
+      return odp.json().catch(function () { return { success: false, message: 'Kod odpowiedzi ' + odp.status }; });
+    });
+  }).then(function (wynik) {
+    if (wynik && String(wynik.success) === 'true') {
+      location.hash = 'dziekujemy';      // sukces – ekran podziękowania
+      pokazPodziekowanie();
+      window.scrollTo(0, 0);
+    } else {
+      pokazBladWysylki(wynik && wynik.message);
+    }
+  }).catch(function (err) {
+    pokazBladWysylki('Brak połączenia z usługą wysyłki (' + (err && err.message || 'błąd sieci') + ')');
+  }).then(function () {
+    przycisk.disabled = false;
+    przycisk.textContent = 'Wyślij zgłoszenie';
+    document.getElementById('firma').disabled = false;
+    document.getElementById('nip').disabled = false;
+    document.getElementById('miejscowosc').disabled = false;
   });
 });
+
+/* Komunikat, gdy zgłoszenie nie dotarło */
+function pokazBladWysylki(wiadomosc) {
+  var box = document.getElementById('blad-wysylki');
+  var tekst = String(wiadomosc || '');
+  var aktywacja = /activat/i.test(tekst);
+  box.querySelector('.co').textContent = aktywacja
+    ? 'Formularz czeka na aktywację. Właściciel strony musi kliknąć „Activate Form” w e-mailu od FormSubmit (sprawdź też folder Spam). Po aktywacji wyślij zgłoszenie ponownie.'
+    : 'Nie udało się wysłać zgłoszenia. Spróbuj ponownie za chwilę albo zadzwoń do nas.';
+  box.querySelector('.szczegoly').textContent = tekst ? 'Szczegóły: ' + tekst : '';
+  box.hidden = false;
+  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
 
 /* ----- WYSYŁKA PRZEZ WHATSAPP ----- */
 document.getElementById('whatsapp').addEventListener('click', function () {
