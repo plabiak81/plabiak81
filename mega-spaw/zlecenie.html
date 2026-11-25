@@ -198,6 +198,7 @@
     <input type="hidden" name="_subject" id="temat" value="Nowe zlecenie MEGA-SPAW">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
+    <div id="pliki-zapas"></div>
     <input type="text" name="_honey" class="pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
 
     <!-- 1. KONTAKT -->
@@ -302,7 +303,7 @@
     <section class="karta">
       <button type="submit" class="przycisk glowny" id="wyslij">Wyślij zgłoszenie</button>
       <div class="podsumowanie-bledow" id="podsumowanie-bledow" role="alert">Uzupełnij zaznaczone pola – są podświetlone na czerwono.</div>
-      <div class="podsumowanie-bledow" id="blad-wysylki" role="alert" hidden style="display:block"><span class="co"></span><br><small class="szczegoly" style="font-weight:400"></small></div>
+      <div class="podsumowanie-bledow" id="blad-wysylki" role="alert" hidden style="display:block"><span class="co"></span><br><small class="szczegoly" style="font-weight:400"></small><button type="button" class="przycisk drugi" id="wyslij-inaczej">Wyślij drugą drogą</button></div>
       <p class="lub" id="lub">albo</p>
       <button type="button" class="przycisk whatsapp" id="whatsapp">💬 Wyślij przez WhatsApp</button>
       <p class="rodo">Administratorem danych jest MEGA-SPAW. Dane wykorzystamy wyłącznie do przygotowania wyceny i kontaktu w sprawie zlecenia. Szczegóły: <a href="polityka-prywatnosci.html">polityka prywatności</a>.</p>
@@ -510,11 +511,17 @@ form.addEventListener('submit', function (e) {
     var dane = new FormData(form);
     pliki.forEach(function (plik, i) { dane.append('Zdjęcie ' + (i + 1), plik, plik.name); });
     przycisk.textContent = 'Wysyłam…';
+    ostatniePliki = pliki;
+    // Jeśli usługa nie odpowie w 25 sekund, przerywamy i proponujemy drugą drogę
+    var stop = ('AbortController' in window) ? new AbortController() : null;
+    var zegar = setTimeout(function () { if (stop) stop.abort(); }, 25000);
     return fetch('https://formsubmit.co/ajax/' + encodeURIComponent(KONFIG.email), {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
-      body: dane
+      body: dane,
+      signal: stop ? stop.signal : undefined
     }).then(function (odp) {
+      clearTimeout(zegar);
       return odp.json().catch(function () { return { success: false, message: 'Kod odpowiedzi ' + odp.status }; });
     });
   }).then(function (wynik) {
@@ -526,7 +533,9 @@ form.addEventListener('submit', function (e) {
       pokazBladWysylki(wynik && wynik.message);
     }
   }).catch(function (err) {
-    pokazBladWysylki('Brak połączenia z usługą wysyłki (' + (err && err.message || 'błąd sieci') + ')');
+    pokazBladWysylki(err && err.name === 'AbortError'
+      ? 'Usługa wysyłki nie odpowiedziała w 25 sekund.'
+      : 'Brak połączenia z usługą wysyłki (' + (err && err.message || 'błąd sieci') + ')');
   }).then(function () {
     przycisk.disabled = false;
     przycisk.textContent = 'Wyślij zgłoszenie';
@@ -536,6 +545,36 @@ form.addEventListener('submit', function (e) {
   });
 });
 
+/* Druga droga: zwykłe wysłanie formularza (otwiera stronę FormSubmit, potem wraca tutaj) */
+var ostatniePliki = [];
+document.getElementById('wyslij-inaczej').addEventListener('click', function () {
+  var ukryte = document.getElementById('pliki-zapas');
+  ukryte.innerHTML = '';
+  ostatniePliki.forEach(function (plik, i) {
+    try {
+      var dt = new DataTransfer();
+      dt.items.add(plik);
+      var pole = document.createElement('input');
+      pole.type = 'file';
+      pole.name = 'Zdjęcie ' + (i + 1);
+      pole.hidden = true;
+      pole.files = dt.files;
+      ukryte.appendChild(pole);
+    } catch (err) { /* stara przeglądarka – bez zdjęcia */ }
+  });
+  var powrot = document.createElement('input');
+  powrot.type = 'hidden'; powrot.name = '_next';
+  powrot.value = location.href.split('#')[0] + '#dziekujemy';
+  ukryte.appendChild(powrot);
+  document.getElementById('firma').disabled = !document.getElementById('czy-firma').checked;
+  document.getElementById('nip').disabled = !document.getElementById('czy-firma').checked;
+  document.getElementById('miejscowosc').disabled = (wartosc('Miejsce') !== 'U klienta');
+  this.disabled = true;
+  this.textContent = 'Wysyłam…';
+  form.action = 'https://formsubmit.co/' + encodeURIComponent(KONFIG.email);
+  form.submit();
+});
+
 /* Komunikat, gdy zgłoszenie nie dotarło */
 function pokazBladWysylki(wiadomosc) {
   var box = document.getElementById('blad-wysylki');
@@ -543,7 +582,7 @@ function pokazBladWysylki(wiadomosc) {
   var aktywacja = /activat/i.test(tekst);
   box.querySelector('.co').textContent = aktywacja
     ? 'Formularz czeka na aktywację. Właściciel strony musi kliknąć „Activate Form” w e-mailu od FormSubmit (sprawdź też folder Spam). Po aktywacji wyślij zgłoszenie ponownie.'
-    : 'Nie udało się wysłać zgłoszenia. Spróbuj ponownie za chwilę albo zadzwoń do nas.';
+    : 'Nie udało się wysłać zgłoszenia. Kliknij poniżej „Wyślij drugą drogą”.';
   box.querySelector('.szczegoly').textContent = tekst ? 'Szczegóły: ' + tekst : '';
   box.hidden = false;
   box.scrollIntoView({ behavior: 'smooth', block: 'center' });
