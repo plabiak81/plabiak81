@@ -194,11 +194,6 @@
 <main>
   <!-- ===================== EKRAN 1: FORMULARZ ===================== -->
   <form id="formularz" method="POST" enctype="multipart/form-data" novalidate>
-    <!-- Ustawienia usługi FormSubmit (ukryte) -->
-    <input type="hidden" name="_subject" id="temat" value="Nowe zlecenie MEGA-SPAW">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-    <div id="pliki-zapas"></div>
     <input type="text" name="_honey" class="pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
 
     <!-- 1. KONTAKT -->
@@ -303,7 +298,7 @@
     <section class="karta">
       <button type="submit" class="przycisk glowny" id="wyslij">Wyślij zgłoszenie</button>
       <div class="podsumowanie-bledow" id="podsumowanie-bledow" role="alert">Uzupełnij zaznaczone pola – są podświetlone na czerwono.</div>
-      <div class="podsumowanie-bledow" id="blad-wysylki" role="alert" hidden style="display:block"><span class="co"></span><br><small class="szczegoly" style="font-weight:400"></small><button type="button" class="przycisk drugi" id="wyslij-inaczej">Wyślij drugą drogą</button></div>
+      <div class="podsumowanie-bledow" id="blad-wysylki" role="alert" hidden style="display:block"><span class="co"></span><br><small class="szczegoly" style="font-weight:400"></small></div>
       <p class="lub" id="lub">albo</p>
       <button type="button" class="przycisk whatsapp" id="whatsapp">💬 Wyślij przez WhatsApp</button>
       <p class="rodo">Administratorem danych jest MEGA-SPAW. Dane wykorzystamy wyłącznie do przygotowania wyceny i kontaktu w sprawie zlecenia. Szczegóły: <a href="polityka-prywatnosci.html">polityka prywatności</a>.</p>
@@ -329,9 +324,8 @@
  * KONFIGURACJA – TU WPISUJESZ SWOJE DANE (tylko te dwie linijki)
  * ===================================================================== */
 var KONFIG = {
-  // Adres e-mail do zgłoszeń. Po pierwszej aktywacji FormSubmit przyśle Ci
-  // losowy kod – wpisz go tutaj zamiast adresu, wtedy e-mail nie jest widoczny.
-  email: 'megaspaw1@gmail.com',
+  // Identyfikator formularza w Forminit (panel app.forminit.com → Form ID)
+  forminit: 'fs63lp9icwz',
   // Numer WhatsApp: same cyfry, z kierunkowym 48, bez plusa i spacji.
   whatsapp: ''   // puste = przycisk WhatsApp jest ukryty
 };
@@ -483,7 +477,7 @@ function zestawienie() {
   return w.filter(function (p) { return p[1]; });
 }
 
-/* ----- WYSYŁKA E-MAILEM (FormSubmit, w tle – strona pokazuje wynik) ----- */
+/* ----- WYSYŁKA E-MAILEM (Forminit, w tle – strona pokazuje wynik) ----- */
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   if (!sprawdz()) return;
@@ -499,30 +493,28 @@ form.addEventListener('submit', function (e) {
   document.getElementById('nip').disabled = !document.getElementById('czy-firma').checked;
   document.getElementById('miejscowosc').disabled = (wartosc('Miejsce') !== 'U klienta');
 
-  // Temat e-maila: „Nowe zlecenie: Naprawa – Jan Kowalski, 600 123 456”
-  document.getElementById('temat').value = 'Nowe zlecenie: ' + wartosc('Rodzaj pracy') + ' – ' +
-    wartosc('Imię i nazwisko') + ', ' + wartosc('Telefon');
-
   // Zapamiętujemy podsumowanie do ekranu podziękowania
   try { sessionStorage.setItem('zlecenie', JSON.stringify(zestawienie())); } catch (err) {}
 
-  // Zmniejszamy zdjęcia, a potem wysyłamy wszystko w tle i czekamy na odpowiedź FormSubmit
+  // Zmniejszamy zdjęcia, a potem wysyłamy wszystko w tle i czekamy na odpowiedź Forminit
   Promise.all(zdjecia.map(function (z, i) { return zmniejsz(z, i + 1); })).then(function (pliki) {
-    var dane = new FormData(form);
-    pliki.forEach(function (plik, i) { dane.append('Zdjęcie ' + (i + 1), plik, plik.name); });
+    var dane = daneForminit(pliki);
     przycisk.textContent = 'Wysyłam…';
-    ostatniePliki = pliki;
-    // Jeśli usługa nie odpowie w 25 sekund, przerywamy i proponujemy drugą drogę
+    // Jeśli usługa nie odpowie w 30 sekund, przerywamy i pokazujemy komunikat
     var stop = ('AbortController' in window) ? new AbortController() : null;
-    var zegar = setTimeout(function () { if (stop) stop.abort(); }, 25000);
-    return fetch('https://formsubmit.co/ajax/' + encodeURIComponent(KONFIG.email), {
+    var zegar = setTimeout(function () { if (stop) stop.abort(); }, 30000);
+    return fetch('https://forminit.com/f/' + encodeURIComponent(KONFIG.forminit), {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: dane,
       signal: stop ? stop.signal : undefined
     }).then(function (odp) {
       clearTimeout(zegar);
-      return odp.json().catch(function () { return { success: false, message: 'Kod odpowiedzi ' + odp.status }; });
+      return odp.json().catch(function () { return {}; }).then(function (json) {
+        // Sukces = odpowiedź 2xx. Przy błędzie bierzemy komunikat z odpowiedzi.
+        if (odp.ok) return { success: true };
+        return { success: false, message: (json && (json.message || json.error)) || ('Kod odpowiedzi ' + odp.status) };
+      });
     });
   }).then(function (wynik) {
     if (wynik && String(wynik.success) === 'true') {
@@ -534,7 +526,7 @@ form.addEventListener('submit', function (e) {
     }
   }).catch(function (err) {
     pokazBladWysylki(err && err.name === 'AbortError'
-      ? 'Usługa wysyłki nie odpowiedziała w 25 sekund.'
+      ? 'Usługa wysyłki nie odpowiedziała w 30 sekund.'
       : 'Brak połączenia z usługą wysyłki (' + (err && err.message || 'błąd sieci') + ')');
   }).then(function () {
     przycisk.disabled = false;
@@ -545,44 +537,36 @@ form.addEventListener('submit', function (e) {
   });
 });
 
-/* Druga droga: zwykłe wysłanie formularza (otwiera stronę FormSubmit, potem wraca tutaj) */
-var ostatniePliki = [];
-document.getElementById('wyslij-inaczej').addEventListener('click', function () {
-  var ukryte = document.getElementById('pliki-zapas');
-  ukryte.innerHTML = '';
-  ostatniePliki.forEach(function (plik, i) {
-    try {
-      var dt = new DataTransfer();
-      dt.items.add(plik);
-      var pole = document.createElement('input');
-      pole.type = 'file';
-      pole.name = 'Zdjęcie ' + (i + 1);
-      pole.hidden = true;
-      pole.files = dt.files;
-      ukryte.appendChild(pole);
-    } catch (err) { /* stara przeglądarka – bez zdjęcia */ }
-  });
-  var powrot = document.createElement('input');
-  powrot.type = 'hidden'; powrot.name = '_next';
-  powrot.value = location.href.split('#')[0] + '#dziekujemy';
-  ukryte.appendChild(powrot);
-  document.getElementById('firma').disabled = !document.getElementById('czy-firma').checked;
-  document.getElementById('nip').disabled = !document.getElementById('czy-firma').checked;
-  document.getElementById('miejscowosc').disabled = (wartosc('Miejsce') !== 'U klienta');
-  this.disabled = true;
-  this.textContent = 'Wysyłam…';
-  form.action = 'https://formsubmit.co/' + encodeURIComponent(KONFIG.email);
-  form.submit();
-});
+/* Pola w nazwach, które rozumie Forminit (fi-sender-…, fi-text-…, fi-file-…).
+   Puste pola pomijamy. Telefon wysyłamy jako zwykły tekst, żeby Forminit
+   nie odrzucał numerów wpisanych bez +48. */
+function daneForminit(pliki) {
+  var firma = document.getElementById('czy-firma').checked;
+  var uKlienta = wartosc('Miejsce') === 'U klienta';
+  var pola = [
+    ['fi-sender-fullName', wartosc('Imię i nazwisko')],
+    ['fi-sender-email', wartosc('email')],
+    ['fi-sender-company', firma ? wartosc('Firma') : ''],
+    ['fi-text-telefon', wartosc('Telefon')],
+    ['fi-text-nip', firma ? wartosc('NIP') : ''],
+    ['fi-text-rodzaj', wartosc('Rodzaj pracy')],
+    ['fi-text-material', wartosc('Materiał')],
+    ['fi-text-opis', wartosc('Opis')],
+    ['fi-text-wymiary', wartosc('Wymiary')],
+    ['fi-text-miejsce', wartosc('Miejsce') + (uKlienta && wartosc('Miejscowość') ? ' – ' + wartosc('Miejscowość') : '')],
+    ['fi-text-termin', wartosc('Termin')]
+  ];
+  var dane = new FormData();
+  pola.forEach(function (p) { if (p[1]) dane.append(p[0], p[1]); });
+  pliki.forEach(function (plik) { dane.append('fi-file-zdjecia[]', plik, plik.name); });
+  return dane;
+}
 
 /* Komunikat, gdy zgłoszenie nie dotarło */
 function pokazBladWysylki(wiadomosc) {
   var box = document.getElementById('blad-wysylki');
   var tekst = String(wiadomosc || '');
-  var aktywacja = /activat/i.test(tekst);
-  box.querySelector('.co').textContent = aktywacja
-    ? 'Formularz czeka na aktywację. Właściciel strony musi kliknąć „Activate Form” w e-mailu od FormSubmit (sprawdź też folder Spam). Po aktywacji wyślij zgłoszenie ponownie.'
-    : 'Nie udało się wysłać zgłoszenia. Kliknij poniżej „Wyślij drugą drogą”.';
+  box.querySelector('.co').textContent = 'Nie udało się wysłać zgłoszenia. Spróbuj ponownie za kilka minut.';
   box.querySelector('.szczegoly').textContent = tekst ? 'Szczegóły: ' + tekst : '';
   box.hidden = false;
   box.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -598,7 +582,7 @@ document.getElementById('whatsapp').addEventListener('click', function () {
   window.open('https://wa.me/' + KONFIG.whatsapp + '?text=' + encodeURIComponent(tekst), '_blank', 'noopener');
 });
 
-/* ----- EKRAN 2: PODZIĘKOWANIE (po powrocie z FormSubmit) ----- */
+/* ----- EKRAN 2: PODZIĘKOWANIE (po udanej wysyłce) ----- */
 function pokazPodziekowanie() {
   if (location.hash !== '#dziekujemy') return;
   form.style.display = 'none';
