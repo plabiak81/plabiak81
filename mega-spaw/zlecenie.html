@@ -305,7 +305,7 @@
     <section class="karta">
       <button type="submit" class="przycisk glowny" id="wyslij">Wyślij zgłoszenie</button>
       <div class="podsumowanie-bledow" id="podsumowanie-bledow" role="alert">Uzupełnij zaznaczone pola – są podświetlone na czerwono.</div>
-      <p class="lub">albo</p>
+      <p class="lub" id="lub">albo</p>
       <button type="button" class="przycisk whatsapp" id="whatsapp">💬 Wyślij przez WhatsApp</button>
       <p class="rodo">Administratorem danych jest MEGA-SPAW. Dane wykorzystamy wyłącznie do przygotowania wyceny i kontaktu w sprawie zlecenia. Szczegóły: <a href="polityka-prywatnosci.html">polityka prywatności</a>.</p>
     </section>
@@ -332,9 +332,9 @@
 var KONFIG = {
   // Adres e-mail do zgłoszeń. Po pierwszej aktywacji FormSubmit przyśle Ci
   // losowy kod – wpisz go tutaj zamiast adresu, wtedy e-mail nie jest widoczny.
-  email: 'TWOJ-EMAIL@example.com',
+  email: 'megaspaw1@gmail.com',
   // Numer WhatsApp: same cyfry, z kierunkowym 48, bez plusa i spacji.
-  whatsapp: '48600000000'
+  whatsapp: ''   // puste = przycisk WhatsApp jest ukryty
 };
 
 var MAKS_ZDJEC = 5;
@@ -345,6 +345,12 @@ var form = document.getElementById('formularz');
 var zdjecia = [];        // lista { plik, adres } – zdjęcia wybrane przez klienta
 
 document.getElementById('rok').textContent = new Date().getFullYear();
+
+// Bez numeru WhatsApp chowamy przycisk WhatsApp i napis „albo”
+if (!/^\d{11,15}$/.test(KONFIG.whatsapp)) {
+  document.getElementById('whatsapp').hidden = true;
+  document.getElementById('lub').hidden = true;
+}
 
 /* ----- Pokazywanie pól zależnych ----- */
 document.getElementById('czy-firma').addEventListener('change', function () {
