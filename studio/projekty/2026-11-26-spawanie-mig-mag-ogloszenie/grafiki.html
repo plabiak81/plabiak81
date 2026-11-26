@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Spawanie MIG/MAG – grafiki do postów</title>
+<style>
+  body { margin: 0; background: #0b1222; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; }
+  .g {
+    width: 1080px; height: 1080px; position: relative; overflow: hidden;
+    background: radial-gradient(circle at 85% 15%, #24365e 0, #16213A 55%, #0e1628 100%);
+    color: #fff; font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    padding: 90px; box-sizing: border-box; display: flex; flex-direction: column;
+  }
+  .logo { width: 170px; height: 170px; border-radius: 50%; }
+  .top { display: flex; align-items: center; gap: 28px; }
+  .tag { font-size: 30px; letter-spacing: .14em; font-weight: 700; color: #c9ccd0; text-transform: uppercase; }
+  h1 { font-size: 112px; line-height: 1.0; margin: 70px 0 0; font-weight: 900; letter-spacing: -.02em; }
+  h1 em { font-style: normal; color: #ff9a2e; }
+  ul { list-style: none; padding: 0; margin: 50px 0 0; font-size: 44px; font-weight: 600; line-height: 1.5; }
+  li::before { content: ""; display: inline-block; width: 22px; height: 22px; background: #ff9a2e; border-radius: 50%; margin-right: 22px; vertical-align: 4px; }
+  .bottom { margin-top: auto; padding-top: 40px; border-top: 4px solid #ff9a2e; display: flex; justify-content: space-between; align-items: flex-end; }
+  .cta { font-size: 38px; font-weight: 700; }
+  .cta small { display: block; font-size: 30px; font-weight: 500; color: #c9ccd0; margin-bottom: 8px; }
+  .loc { font-size: 30px; color: #c9ccd0; text-align: right; }
+</style>
+</head>
+<body>
+
+<!-- Wersja 1: „Coś pękło przed sezonem?” -->
+<div class="g" id="v1">
+  <div class="top"><img class="logo" src="../../../mega-spaw/img/logo-mega-spaw.svg" alt=""><div class="tag">Spawanie MIG/MAG</div></div>
+  <h1>Coś pękło<br>przed <em>sezonem?</em></h1>
+  <ul>
+    <li>maszyny rolnicze i przyczepy</li>
+    <li>konstrukcje stalowe i ramy</li>
+    <li>bramy i balustrady</li>
+  </ul>
+  <div class="bottom">
+    <div class="cta"><small>Wyślij zdjęcie – wycena w 24 h</small>plabiak81.github.io/plabiak81/z/</div>
+    <div class="loc">Dojazd do klienta<br>Milicz · Sułów</div>
+  </div>
+</div>
+
+<!-- Wersja 2: „Zimą napraw” -->
+<div class="g" id="v2">
+  <div class="top"><img class="logo" src="../../../mega-spaw/img/logo-mega-spaw.svg" alt=""><div class="tag">Spawanie MIG/MAG</div></div>
+  <h1>Napraw zimą.<br><em>Wiosną</em> jedź<br>w pole.</h1>
+  <ul>
+    <li>ramy, dyszle i burty przyczep</li>
+    <li>maszyny przed sezonem</li>
+  </ul>
+  <div class="bottom">
+    <div class="cta"><small>Wyślij zdjęcie – wycena w 24 h</small>plabiak81.github.io/plabiak81/z/</div>
+    <div class="loc">Dojazd do klienta<br>Milicz · Sułów</div>
+  </div>
+</div>
+
+</body>
+</html>
