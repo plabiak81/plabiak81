@@ -6,6 +6,16 @@
 <title>Zgłoś zlecenie spawalnicze | MEGA-SPAW</title>
 <meta name="description" content="Opisz zlecenie, dodaj zdjęcia i wyślij. Wycenę dostaniesz w ciągu 24 godzin.">
 <meta name="theme-color" content="#16213A">
+<link rel="canonical" href="https://plabiak81.github.io/plabiak81/mega-spaw/zlecenie.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Zgłoś zlecenie spawalnicze – MEGA-SPAW">
+<meta property="og:description" content="Opisz zlecenie, dodaj zdjęcia z telefonu i wyślij. Wycenę dostaniesz w ciągu 24 godzin.">
+<meta property="og:url" content="https://plabiak81.github.io/plabiak81/mega-spaw/zlecenie.html">
+<meta property="og:image" content="https://plabiak81.github.io/plabiak81/mega-spaw/img/logo-mega-spaw.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="Logo MEGA-SPAW – konstrukcje stalowe dla przemysłu">
 <style>
   /* ===== KOLORY Z LOGO MEGA-SPAW ===== */
   :root {
@@ -19,6 +29,7 @@
     --bialy: #ffffff;
     --blad: #b3261e;
     --whatsapp: #1a7f45;
+    --ramka: #6f7682;           /* ramki pól – kontrast 4,6:1 */
     --promien: 10px;
   }
 
@@ -77,7 +88,7 @@
     font: inherit;
     padding: 12px;
     min-height: 48px;
-    border: 2px solid #9aa0aa;
+    border: 2px solid var(--ramka);
     border-radius: 8px;
     background: var(--bialy);
     color: var(--tekst);
@@ -93,7 +104,7 @@
   .kafelek span {
     display: flex; align-items: center; justify-content: center; text-align: center;
     min-height: 56px; padding: 8px;
-    border: 2px solid #9aa0aa; border-radius: 8px;
+    border: 2px solid var(--ramka); border-radius: 8px;
     font-weight: 600; background: var(--bialy);
   }
   .kafelek input:checked + span { border-color: var(--granat); background: var(--granat); color: var(--bialy); }
@@ -123,7 +134,7 @@
   .miniatura img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .miniatura button {
     position: absolute; top: 4px; right: 4px;
-    width: 36px; height: 36px; border-radius: 50%;
+    width: 44px; height: 44px; border-radius: 50%;
     border: 0; background: rgba(22,33,58,.85); color: #fff;
     font-size: 20px; line-height: 1; cursor: pointer;
   }
@@ -142,6 +153,10 @@
   .przycisk.whatsapp { background: var(--bialy); color: var(--whatsapp); border: 2px solid var(--whatsapp); }
   .przycisk.drugi { background: var(--bialy); color: var(--granat); border: 2px solid var(--granat); }
   .lub { text-align: center; color: var(--tekst-szary); font-size: 14px; margin: 10px 0 0; }
+  .legenda { margin: 4px 0 12px; font-size: 15px; color: var(--tekst-szary); }
+  .info-zdjecia { color: var(--blad); font-weight: 600; font-size: 15px; margin: 10px 0 0; }
+  .awaryjnie { display: grid; gap: 8px; margin-top: 12px; color: var(--tekst); font-weight: 400; }
+  .awaryjnie a { color: var(--granat); font-weight: 700; }
   .rodo { font-size: 13px; color: var(--tekst-szary); margin: 16px 0 0; }
   .rodo a, .stopka a { color: var(--granat); }
   .podsumowanie-bledow { display: none; background: #fdecea; color: var(--blad); border-radius: 8px; padding: 12px; font-weight: 600; margin-top: 10px; }
@@ -194,6 +209,7 @@
 <main>
   <!-- ===================== EKRAN 1: FORMULARZ ===================== -->
   <form id="formularz" method="POST" enctype="multipart/form-data" novalidate>
+    <p class="legenda">Pola oznaczone <span class="wymagane">*</span> są obowiązkowe.</p>
     <input type="text" name="_honey" class="pulapka" tabindex="-1" autocomplete="off" aria-hidden="true">
 
     <!-- 1. KONTAKT -->
@@ -202,20 +218,20 @@
 
       <div class="grupa" data-pole="imie">
         <label class="pole" for="imie">Imię i nazwisko <span class="wymagane">*</span></label>
-        <input type="text" id="imie" name="Imię i nazwisko" autocomplete="name" maxlength="80">
-        <div class="blad-tekst">Wpisz, jak mamy się do Ciebie zwracać.</div>
+        <input type="text" id="imie" aria-describedby="blad-imie" name="Imię i nazwisko" autocomplete="name" maxlength="80">
+        <div class="blad-tekst" id="blad-imie">Wpisz, jak mamy się do Ciebie zwracać.</div>
       </div>
 
       <div class="grupa" data-pole="telefon">
         <label class="pole" for="telefon">Telefon <span class="wymagane">*</span></label>
-        <input type="tel" id="telefon" name="Telefon" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="np. 600 123 456">
-        <div class="blad-tekst">Podaj numer telefonu (min. 9 cyfr), np. 600 123 456.</div>
+        <input type="tel" id="telefon" aria-describedby="blad-telefon" name="Telefon" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="np. 600 123 456">
+        <div class="blad-tekst" id="blad-telefon">Podaj numer telefonu: same cyfry (9–15), np. 600 123 456.</div>
       </div>
 
       <div class="grupa" data-pole="email">
         <label class="pole" for="email">E-mail <span class="podpowiedz">opcjonalnie – jeśli wolisz wycenę na piśmie</span></label>
-        <input type="email" id="email" name="email" autocomplete="email" maxlength="100" placeholder="np. jan@firma.pl">
-        <div class="blad-tekst">Ten adres e-mail wygląda na niepełny – sprawdź go albo zostaw puste.</div>
+        <input type="email" id="email" aria-describedby="blad-email" name="email" autocomplete="email" maxlength="100" placeholder="np. jan@firma.pl">
+        <div class="blad-tekst" id="blad-email">Ten adres e-mail wygląda na niepełny – sprawdź go albo zostaw puste.</div>
       </div>
 
       <label class="wybor"><input type="checkbox" id="czy-firma"> Zamawiam jako firma</label>
@@ -231,14 +247,14 @@
     <section class="karta">
       <h2><span class="numer">2</span>Co trzeba zrobić?</h2>
       <div class="grupa" data-pole="rodzaj">
-        <fieldset class="kafelki cztery">
+        <fieldset class="kafelki cztery" aria-describedby="blad-rodzaj">
           <legend>Rodzaj pracy <span class="wymagane">*</span></legend>
           <label class="kafelek"><input type="radio" name="Rodzaj pracy" value="Naprawa"><span>Naprawa</span></label>
           <label class="kafelek"><input type="radio" name="Rodzaj pracy" value="Nowa konstrukcja"><span>Nowa konstrukcja</span></label>
           <label class="kafelek"><input type="radio" name="Rodzaj pracy" value="Spawanie seryjne"><span>Spawanie seryjne</span></label>
           <label class="kafelek"><input type="radio" name="Rodzaj pracy" value="Inne"><span>Inne</span></label>
         </fieldset>
-        <div class="blad-tekst">Wybierz rodzaj pracy.</div>
+        <div class="blad-tekst" id="blad-rodzaj">Wybierz rodzaj pracy.</div>
       </div>
 
       <fieldset class="kafelki cztery" style="margin-top:16px">
@@ -256,8 +272,8 @@
       <div class="grupa" data-pole="opis">
         <label class="pole" for="opis">Opisz własnymi słowami <span class="wymagane">*</span>
           <span class="podpowiedz">Co się zepsuło albo co trzeba wykonać? Do czego to służy?</span></label>
-        <textarea id="opis" name="Opis" maxlength="2000" placeholder="np. Pęknięty zawias bramy przesuwnej, brama ciągnie się po ziemi."></textarea>
-        <div class="blad-tekst">Opisz krótko, co trzeba zrobić (min. 10 znaków).</div>
+        <textarea id="opis" aria-describedby="blad-opis" name="Opis" maxlength="2000" placeholder="np. Pęknięty zawias bramy przesuwnej, brama ciągnie się po ziemi."></textarea>
+        <div class="blad-tekst" id="blad-opis">Opisz krótko, co trzeba zrobić (min. 10 znaków).</div>
       </div>
       <label class="pole" for="wymiary">Przybliżone wymiary <span class="podpowiedz">opcjonalnie</span></label>
       <input type="text" id="wymiary" name="Wymiary" maxlength="200" placeholder="np. brama 4 m × 1,5 m, profil 60×40">
@@ -271,6 +287,7 @@
       <input type="file" id="wybor-zdjec" accept="image/*" multiple hidden>
       <button type="button" class="przycisk-zdjec" id="dodaj-zdjecia">📷 Dodaj zdjęcia (aparat lub galeria)</button>
       <div class="miniatury" id="miniatury"></div>
+      <p class="info-zdjecia" id="info-zdjecia" role="status" hidden></p>
     </section>
 
     <!-- 5. MIEJSCE I TERMIN -->
@@ -298,7 +315,7 @@
     <section class="karta">
       <button type="submit" class="przycisk glowny" id="wyslij">Wyślij zgłoszenie</button>
       <div class="podsumowanie-bledow" id="podsumowanie-bledow" role="alert">Uzupełnij zaznaczone pola – są podświetlone na czerwono.</div>
-      <div class="podsumowanie-bledow" id="blad-wysylki" role="alert" hidden style="display:block"><span class="co"></span><br><small class="szczegoly" style="font-weight:400"></small></div>
+      <div class="podsumowanie-bledow" id="blad-wysylki" role="alert" hidden style="display:block"><span class="co"></span><br><small class="szczegoly" style="font-weight:400"></small><div class="awaryjnie" id="awaryjnie"><span>Możesz też wysłać zgłoszenie inaczej:</span><button type="button" class="przycisk whatsapp" id="whatsapp-awaryjny" style="margin-top:0">💬 Wyślij przez WhatsApp</button><span>albo zadzwoń: <a id="telefon-firmy" href="#"></a></span></div></div>
       <p class="lub" id="lub">albo</p>
       <button type="button" class="przycisk whatsapp" id="whatsapp">💬 Wyślij przez WhatsApp</button>
       <p class="rodo">Administratorem danych jest MEGA-SPAW. Dane wykorzystamy wyłącznie do przygotowania wyceny i kontaktu w sprawie zlecenia. Szczegóły: <a href="polityka-prywatnosci.html">polityka prywatności</a>.</p>
@@ -339,11 +356,21 @@ var zdjecia = [];        // lista { plik, adres } – zdjęcia wybrane przez kli
 
 document.getElementById('rok').textContent = new Date().getFullYear();
 
-// Bez numeru WhatsApp chowamy przycisk WhatsApp i napis „albo”
+// Bez numeru WhatsApp chowamy przyciski WhatsApp i napis „albo”
 if (!/^\d{11,15}$/.test(KONFIG.whatsapp)) {
   document.getElementById('whatsapp').hidden = true;
   document.getElementById('lub').hidden = true;
+  document.getElementById('awaryjnie').hidden = true;
+} else {
+  // Numer do komunikatu awaryjnego, np. „728 491 432”
+  var krajowy = KONFIG.whatsapp.replace(/^48/, '');
+  var tel = document.getElementById('telefon-firmy');
+  tel.textContent = krajowy.replace(/(\d{3})(?=\d)/g, '$1 ');
+  tel.href = 'tel:+' + KONFIG.whatsapp;
 }
+document.getElementById('whatsapp-awaryjny').addEventListener('click', function () {
+  document.getElementById('whatsapp').click();
+});
 
 /* ----- Pokazywanie pól zależnych ----- */
 document.getElementById('czy-firma').addEventListener('change', function () {
@@ -361,7 +388,12 @@ function wartosc(nazwa) {
   return el ? el.value.trim() : '';
 }
 function ustawBlad(pole, czyBlad) {
-  form.querySelector('[data-pole="' + pole + '"]').classList.toggle('ma-blad', czyBlad);
+  var grupa = form.querySelector('[data-pole="' + pole + '"]');
+  grupa.classList.toggle('ma-blad', czyBlad);
+  // Informacja dla czytników ekranu, które pole ma błąd
+  grupa.querySelectorAll('input, textarea').forEach(function (el) {
+    if (czyBlad) el.setAttribute('aria-invalid', 'true'); else el.removeAttribute('aria-invalid');
+  });
 }
 
 /* ----- ZDJĘCIA: wybór, podgląd, usuwanie ----- */
@@ -374,11 +406,33 @@ wyborZdjec.addEventListener('change', function () {
   Array.prototype.forEach.call(wyborZdjec.files, function (plik) {
     if (zdjecia.length >= MAKS_ZDJEC) return;
     if (!plik.type || plik.type.indexOf('image/') !== 0) return;  // tylko obrazy
-    zdjecia.push({ plik: plik, adres: URL.createObjectURL(plik) });
+    var z = { plik: plik, adres: URL.createObjectURL(plik) };
+    zdjecia.push(z);
+    sprawdzZdjecie(z);
   });
+  document.getElementById('info-zdjecia').hidden = true;
   wyborZdjec.value = '';   // pozwala wybrać to samo zdjęcie ponownie
   rysujMiniatury();
 });
+
+/* Zdjęcia, którego przeglądarka nie umie otworzyć (np. HEIC), nie zmniejszymy.
+   Jeśli ma ponad 20 MB, usługa i tak go nie przyjmie – usuwamy je z listy. */
+var LIMIT_ORYGINALU = 20 * 1024 * 1024;
+function sprawdzZdjecie(z) {
+  var test = new Image();
+  test.onerror = function () {
+    if (z.plik.size <= LIMIT_ORYGINALU) return;
+    var i = zdjecia.indexOf(z);
+    if (i === -1) return;
+    URL.revokeObjectURL(z.adres);
+    zdjecia.splice(i, 1);
+    rysujMiniatury();
+    var info = document.getElementById('info-zdjecia');
+    info.textContent = 'Zdjęcie „' + z.plik.name + '” jest za duże (' + Math.round(z.plik.size / 1048576) + ' MB) i w nietypowym formacie. Wybierz inne albo zrób zrzut ekranu tego zdjęcia.';
+    info.hidden = false;
+  };
+  test.src = z.adres;
+}
 
 function rysujMiniatury() {
   var box = document.getElementById('miniatury');
@@ -433,7 +487,8 @@ function sprawdz() {
   var ok = true;
   var bledy = {
     imie: wartosc('Imię i nazwisko').length < 2,
-    telefon: wartosc('Telefon').replace(/\D/g, '').length < 9,
+    telefon: !/^[0-9 +\-()]+$/.test(wartosc('Telefon')) ||
+      wartosc('Telefon').replace(/\D/g, '').length < 9 || wartosc('Telefon').replace(/\D/g, '').length > 15,
     email: wartosc('email') !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(wartosc('email')),
     rodzaj: wartosc('Rodzaj pracy') === '',
     opis: wartosc('Opis').length < 10
@@ -455,7 +510,7 @@ function sprawdz() {
 // Błąd znika, gdy klient poprawi pole
 form.addEventListener('input', function (e) {
   var g = e.target.closest('.grupa');
-  if (g && g.classList.contains('ma-blad')) g.classList.remove('ma-blad');
+  if (g && g.classList.contains('ma-blad')) ustawBlad(g.getAttribute('data-pole'), false);
 });
 
 /* ----- Zestawienie zgłoszenia (do podziękowania i WhatsAppa) ----- */
@@ -499,10 +554,10 @@ form.addEventListener('submit', function (e) {
   // Zmniejszamy zdjęcia, a potem wysyłamy wszystko w tle i czekamy na odpowiedź Forminit
   Promise.all(zdjecia.map(function (z, i) { return zmniejsz(z, i + 1); })).then(function (pliki) {
     var dane = daneForminit(pliki);
-    przycisk.textContent = 'Wysyłam…';
-    // Jeśli usługa nie odpowie w 30 sekund, przerywamy i pokazujemy komunikat
+    przycisk.textContent = pliki.length ? 'Wysyłam zdjęcia… przy słabym zasięgu to potrwa dłużej' : 'Wysyłam…';
+    // Jeśli usługa nie odpowie w 2 minuty, przerywamy i pokazujemy komunikat
     var stop = ('AbortController' in window) ? new AbortController() : null;
-    var zegar = setTimeout(function () { if (stop) stop.abort(); }, 30000);
+    var zegar = setTimeout(function () { if (stop) stop.abort(); }, 120000);
     return fetch('https://forminit.com/f/' + encodeURIComponent(KONFIG.forminit), {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
@@ -526,7 +581,7 @@ form.addEventListener('submit', function (e) {
     }
   }).catch(function (err) {
     pokazBladWysylki(err && err.name === 'AbortError'
-      ? 'Usługa wysyłki nie odpowiedziała w 30 sekund.'
+      ? 'Wysyłka trwała ponad 2 minuty – prawdopodobnie słaby zasięg.'
       : 'Brak połączenia z usługą wysyłki (' + (err && err.message || 'błąd sieci') + ')');
   }).then(function () {
     przycisk.disabled = false;
